@@ -1,0 +1,8 @@
+﻿@model List<CDPReporting.UI.Models.Question>
+
+@foreach (var item in Model)
+    {    
+      <div id=@item.QuestionId style="cursor:pointer;">
+          @Html.Raw(item.QuestionText)
+      </div><br />
+    }

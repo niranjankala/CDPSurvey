@@ -1,0 +1,16 @@
+﻿@model List<CDPReporting.UI.Models.Question>
+
+
+@foreach (var item in Model)
+{
+   
+    <div style="cursor:pointer;" id="QUESTANS_@item.QuestionId">
+        @Html.Raw(item.QuestionText)
+        @if (item.Type.ToString() == "Simple")
+        {
+            @Html.TextArea("TextArea", new { @style = "width:300px;"})
+        }
+
+    </div>
+
+}
