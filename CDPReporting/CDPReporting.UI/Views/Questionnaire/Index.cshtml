@@ -26,7 +26,7 @@
     }
 
     .content {
-        background: #b4bac0;
+        background:#eeeeee;
     }
 
     .sidebar, .content {
@@ -37,24 +37,28 @@
 <script src="~/Scripts/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">
-   
+
     $(document).ready(function () {
         $('div[id^="QUESTANS_"]').hide();
-        $("#questionListDiv>div").click(function () {
+        $("#questionListDiv>div>div").click(function () {
             var selectedDivId = this.id;
             $('div[id^="QUESTANS_"]').hide();
-            $('#QUESTANS_' + selectedDivId).show();           
+            $('#QUESTANS_' + selectedDivId).show();
         });
     });
 </script>
 
 <div class="row">
     <div class="col-sm-4">
-        <div class="sidebar" id="questionListDiv">
+        
+
+        <div><h3>Questions</h3></div>
+        <div class="sidebar, pre-scrollable" id="questionListDiv">
             @Html.Partial("_ViewQuestionList", Model.Questions)
         </div>
     </div>
     <div class="col-sm-8">
+        <div><h3>Responses</h3></div>
         <div class="content" id="questionResponseDiv">
             @Html.Partial("_ViewAnswerTheQuestion", Model.Questions)
         </div>

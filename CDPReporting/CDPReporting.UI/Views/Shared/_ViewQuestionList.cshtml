@@ -1,8 +1,10 @@
 ﻿@model List<CDPReporting.UI.Models.Question>
-
-@foreach (var item in Model)
-    {    
-      <div id=@item.QuestionId style="cursor:pointer;">
-          @Html.Raw(item.QuestionText)
-      </div><br />
+@{ int index = 1;}
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <div id=@item.QuestionId class="list-group-item" style="cursor:pointer;    margin-bottom: 0;">
+            @string.Format("{0} {1}", index++, Html.Raw(item.QuestionText));
+        </div><br />
     }
+</div>
