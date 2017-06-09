@@ -3,14 +3,32 @@
 
 @foreach (var item in Model)
 {
-   
+
     <div style="cursor:pointer;" id="QUESTANS_@item.QuestionId">
-        @Html.Raw(item.QuestionText)
-        @if (item.Type.ToString() == "Simple")
-        {
-            @Html.TextArea("TextArea", new { @style = "width:300px;"})
-        }
+        <div>
+            @Html.Raw(item.QuestionText)
+        </div>
+        <br />
 
+        <div>
+            @if (item.Type.ToString() == "Simple")
+            {
+                @Html.TextArea("TextArea", new { @style = "width:99.8%; max-width:100%" })
+            }
+            @if (item.Type.ToString() == "Option")
+            {
+                @Html.Raw("Yes") <input id="Radio1" type="radio" name="option" />            @Html.Raw("No")<input id="Radio2" type="radio" name="option" />
+            }
+            @if (item.Type.ToString() == "DateRange")
+            {
+                @Html.Raw("Start Date") <input id="Text1" type="text" />                     @Html.Raw("End Date")<input id="Text2" type="text" />
+            }
+        </div>
+        <br/> 
+
+        <div style="float:right;">
+            <input id="Button1" type="button" value="Save" /> <input id="Button2" type="button" value="Cancel" />
+        </div>
     </div>
-
+     
 }

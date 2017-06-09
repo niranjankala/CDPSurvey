@@ -171,6 +171,7 @@
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\QuestionGroup.cs" />
     <Compile Include="Models\QuestionModelResult.cs" />
+    <Compile Include="Models\QuestionStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
