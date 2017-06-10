@@ -43,14 +43,19 @@ namespace CDPReporting.UI.Models
                 case QuestionType.Boolean:
                 case QuestionType.Option:
                 case QuestionType.OptionList:
+                case QuestionType.DropDown:
+                case QuestionType.DropDownList:
                     options = new List<string>();
                     break;
                 case QuestionType.CDPGrid:
                     break;
             }
         }
+    }
 
-
+    public class Options
+    {
+        //public Options(QuestionType questionType, )
     }
 
     public enum QuestionType
