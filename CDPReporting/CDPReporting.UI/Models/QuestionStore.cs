@@ -10,7 +10,8 @@ namespace CDPReporting.UI.Models
         private static volatile QuestionStore instance;
         private static object syncRoot = new Object();
 
-        private QuestionStore() {
+        private QuestionStore()
+        {
 
             questions = new List<Question>();
             questionGroups = new List<Models.QuestionGroup>();
@@ -40,7 +41,7 @@ namespace CDPReporting.UI.Models
         public List<QuestionGroup> QuestionGroups
         {
             get { return questionGroups; }
-            
+
         }
 
 
@@ -55,7 +56,7 @@ namespace CDPReporting.UI.Models
             group1.QuestionGroupName = "CC0. Introduction";
             group1.Questions.Add(new Question(QuestionType.Simple) { QuestionId = "CC01", QuestionGroupId = "CC0", QuestionText = "CC0.1. Please give a general description and introduction to your organization [maximum 5000 characters]." });
             group1.Questions.Add(new Question(QuestionType.DateRange) { QuestionId = "CC02", QuestionGroupId = "CC0", QuestionText = "CC0.2. Please state the start and end date of the year for which you are reporting data." });
-            group1.Questions.Add(AddQuestionWithOptions(groupId:group1.QuestionGroupId, questionId:"CC03", questionText: "Please select the currency in which you would like to submit your response. All financial information contained in the response.", options:"Yes;No"));
+            group1.Questions.Add(AddQuestionWithOptions(QuestionType.Boolean, groupId: group1.QuestionGroupId, questionId: "CC03", questionText: "Please select the currency in which you would like to submit your response. All financial information contained in the response.", options: "Yes;No"));
             group1.Questions.Add(new Question(QuestionType.Option) { QuestionId = "CC04", QuestionGroupId = "CC0", QuestionText = "CC0.4: 	Please select if you wish to complete a shorter information request [SME questionnaire only]" });
 
             group1 = new QuestionGroup();
@@ -75,9 +76,17 @@ namespace CDPReporting.UI.Models
             questions.AddRange(group1.Questions);
         }
 
-        private Question AddQuestionWithOptions(string groupId, string questionId, string questionText, string options)
+        private Question AddQuestionWithOptions(QuestionType questionType, string groupId, string questionId, string questionText, string options)
         {
-            throw new NotImplementedException();
+            Question question = new Question(questionType) { QuestionId = questionId, QuestionGroupId = groupId, QuestionText = questionText };
+            if (!string.IsNullOrWhiteSpace(options) && options.Contains(';'))
+            {
+                foreach (string option in options.Split(';'))
+                {
+                    question.Options.Add(option);
+                }
+            }
+            return question;
         }
     }
 }
