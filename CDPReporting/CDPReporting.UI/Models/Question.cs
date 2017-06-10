@@ -56,6 +56,9 @@ namespace CDPReporting.UI.Models
     public enum QuestionType
     {
         Simple,
+        List,
+        DropDown,
+        DropDownList,
         Option,
         OptionList,
         DateRange,

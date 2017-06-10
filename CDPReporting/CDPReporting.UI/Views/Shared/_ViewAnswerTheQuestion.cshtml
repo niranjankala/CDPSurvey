@@ -13,7 +13,7 @@
 
 @foreach (var group in Model)
 {
-    @foreach (var item in group.Questions)
+    foreach (var item in group.Questions)
     {
 
         <div style="cursor:pointer;" id="QUESTANS_@item.QuestionId">
@@ -30,7 +30,7 @@
                 }
                 @if (item.Type.ToString() == "Option")
                 {
-                    @Html.Raw("Yes") <input id="Radio1" type="radio" name="option" />            @Html.Raw("No")<input id="Radio2" type="radio" name="option" />
+                    @Html.Raw("Yes") <input id="Radio1" type="radio" name="option" /> @Html.Raw("No")<input id="Radio2" type="radio" name="option" />
                 }
                 @if (item.Type.ToString() == "DateRange")
                 {
