@@ -1,9 +1,9 @@
-﻿@model List<CDPReporting.UI.Models.Question>
+﻿@model List<CDPReporting.UI.Models.QuestionGroup>
 @{ int index = 1;}
 <div class="list-group">
     @foreach (var item in Model)
     {
-        <div id=@item.QuestionId class="list-group-item" style="cursor:pointer;    margin-bottom: 0;">
+        <div id=@item.QuestionId class="list-group-item" style="cursor:pointer;">
             @string.Format("{0} {1}", index++, Html.Raw(item.QuestionText));
         </div><br />
     }
