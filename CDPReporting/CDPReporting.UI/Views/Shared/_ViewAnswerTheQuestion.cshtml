@@ -23,15 +23,15 @@
             </div>
             <br />
 
-            <div>
+            <div style="padding-left:10px">
                 @if (item.Type.ToString() == "Simple")
                 {
                     @Html.TextArea("TextArea", new { @style = "width:99.8%; max-width:100%" })
                 }
                 @if (item.Type.ToString() == "Option")
                 {
-                    @Html.Raw("Yes") <input id="Radio1" type="radio" name="option" />                    <br />
-                    @Html.Raw("No") <input id="Radio2" type="radio" name="option" />
+                    <input id="Radio1" type="radio" name="option"  /> @Html.Raw("Yes") <br />
+                    <input id="Radio2" type="radio" name="option" /> @Html.Raw("No")
                 }
                 @if (item.Type.ToString() == "DateRange")
                 {
