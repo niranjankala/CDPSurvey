@@ -12,8 +12,8 @@ namespace CDPReporting.UI.Models
             type = questionType;
             InitializeQuestion();
         }
-        private List<string> options;
-
+        private List<string> options;       
+   
         public List<string> Options
         {
             get { return options; }
@@ -36,11 +36,15 @@ namespace CDPReporting.UI.Models
             switch (type)
             {
                 case QuestionType.Simple:
-                case QuestionType.Boolean:
+                
                 case QuestionType.Date:
                 case QuestionType.DateRange:
+                    break;
+                case QuestionType.Boolean:
                 case QuestionType.Option:
                 case QuestionType.OptionList:
+                    options = new List<string>();
+                    break;
                 case QuestionType.CDPGrid:
                     break;
             }
