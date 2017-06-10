@@ -1,6 +1,14 @@
 ﻿@model List<CDPReporting.UI.Models.Question>
 
 
+<script>
+    $(function () {
+        $("#datepicker").daterangepicker();
+    });
+</script>
+
+
+
 @foreach (var item in Model)
 {
 
@@ -22,9 +30,9 @@
             }
             @if (item.Type.ToString() == "DateRange")
             {
-                @Html.Raw("Start Date") <input id="Text1" type="text" />                     @Html.Raw("End Date")<input id="Text2" type="text" />
+                @Html.Raw("Start Date") <input type="text" id="datepicker" value="01/01/2017 - 01/31/2017">
             }
-        </div>
+        </div> 
         <br/> 
 
         <div style="float:right;">
