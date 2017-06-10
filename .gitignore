@@ -3,3 +3,5 @@
 ################################################################################
 
 /CDPReporting/CDPReporting.UI/obj/Debug
+/CDPReporting/CDPReporting.UI.Tests/obj/Debug
+/CDPReporting/CDPReporting.UI/bin

@@ -1,13 +1,13 @@
-﻿@model CDPReporting.UI.Models.QuestionGroup
+﻿@model CDPReporting.UI.Models.QuestionModelResult
 @{
     ViewBag.Title = "Questionnaire";
 }
 
 <h2>CDP Survey</h2>
 <style type="text/css">
-    .row > div {
+    /*.row > div {
         margin-bottom: 15px;
-    }
+    }*/
 
     .header {
         min-height: 90px;
@@ -55,18 +55,17 @@
 </script>
 
 <div class="row">
-    <div class="col-sm-4">
-        
+    <div class="col-sm-4">    
 
         <div><h3>Questions</h3></div>
         <div class="sidebar, pre-scrollable" id="questionListDiv">
-            @Html.Partial("_ViewQuestionList", Model.Questions)
+            @Html.Partial("_ViewQuestionList", Model.QuestionGroupList)
         </div>
     </div>
     <div class="col-sm-8">
         <div><h3>Responses</h3></div>
         <div class="content" id="questionResponseDiv">
-            @Html.Partial("_ViewAnswerTheQuestion", Model.Questions)
+            @Html.Partial("_ViewAnswerTheQuestion", Model.QuestionGroupList)
         </div>
     </div>
 </div>
