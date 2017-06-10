@@ -30,7 +30,8 @@
                 }
                 @if (item.Type.ToString() == "Option")
                 {
-                    @Html.Raw("Yes") <input id="Radio1" type="radio" name="option" /> @Html.Raw("No")<input id="Radio2" type="radio" name="option" />
+                    @Html.Raw("Yes") <input id="Radio1" type="radio" name="option" />                    <br />
+                    @Html.Raw("No") <input id="Radio2" type="radio" name="option" />
                 }
                 @if (item.Type.ToString() == "DateRange")
                 {
