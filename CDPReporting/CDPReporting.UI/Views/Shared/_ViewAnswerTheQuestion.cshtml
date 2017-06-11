@@ -96,9 +96,42 @@
 
                 @if (item.Type == CDPReporting.UI.Models.QuestionType.CDPGrid)
                 {
-                    
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div style="background-color:#999">Who is entitled to benefit from these incentives?</div>
+                            <div>
+                                Select From:
+                                @{
+                                    int i = 1;
+                                    foreach (string option in "Emissions reduction project;Emissions reduction target;Energy reduction project;Energy reduction target;Efficiency project;Efficiency target;Behavior change related indicator;Environmental criteria included in purchases;Supply chain engagement;Other, please specify".Split(';'))
+                                    {
+                                        <div>
+                                            <input id=@string.Format("optList{0}", i++) type="checkbox" name="option" value="@option" /> @option
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="background-color:#999">Who is entitled to benefit from these incentives?</div>
+                            <div>
+                                Select From:
+                                @{
+                                    int j = 1;
+                                    foreach (string option in "Emissions reduction project;Emissions reduction target;Energy reduction project;Energy reduction target;Efficiency project;Efficiency target;Behavior change related indicator;Environmental criteria included in purchases;Supply chain engagement;Other, please specify".Split(';'))
+                                    {
+                                        <div>
+                                            <input id=@string.Format("opt{0}{1}", item.QuestionId, j++) type="radio" name="option" value="@option" /> @option
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-3"></div>
+                    </div>
 
-                }
+                                    }
             </div>
             <br />
             <div class="col-md-12 col-xs-12">
@@ -108,5 +141,5 @@
             </div>
         </div>
 
-    }
-}
+                                        }
+                                    }
