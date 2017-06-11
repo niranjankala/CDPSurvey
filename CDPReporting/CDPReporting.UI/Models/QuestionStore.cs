@@ -78,7 +78,7 @@ namespace CDPReporting.UI.Models
             group1.Questions.Add(AddQuestionWithOptions(QuestionType.OptionList, groupId: group1.QuestionGroupId, questionId: "CC12", questionText: "Incentivized performance indicator", options: "Emissions reduction project;Emissions reduction target;Energy reduction project;Energy reduction target;Efficiency project;Efficiency target;Behavior change related indicator;Environmental criteria included in purchases; Supply chain engagement; Other, please specify"));
 
             group1.Questions.Add(new Question(QuestionType.Option) { QuestionId = "CC12", QuestionGroupId = "CC1", QuestionText = "CC0.3. Please select the currency in which you would like to submit your response. All financial information contained in the response." });
-            group1.Questions.Add(new Question(QuestionType.Option) { QuestionId = "CC12a", QuestionGroupId = "CC1", QuestionText = "CC0.4: 	Please select if you wish to complete a shorter information request [SME questionnaire only]" });
+            group1.Questions.Add(new Question(QuestionType.CDPGrid) { QuestionId = "CC12a", QuestionGroupId = "CC1", QuestionText = "CC1.2a:Please provide further details on the incentives provided for the management of climate change issues" });
             questions.AddRange(group1.Questions);
             questionGroups.Add(group1);
         }
