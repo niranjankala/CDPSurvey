@@ -72,7 +72,7 @@
                         </div>
                     }
                 }
-                @if (item.Type.ToString() == "DropDownList")
+                @if (item.Type == CDPReporting.UI.Models.QuestionType.DropDownList)
                 {
                     <select id="demo" multiple="multiple">
 
@@ -84,7 +84,6 @@
                 }
                 @if (item.Type == CDPReporting.UI.Models.QuestionType.DropDown)
                 {
-
                     <select id="ddl_@item.QuestionId" class="form-control">
 
                         @foreach (string option in item.Options)
