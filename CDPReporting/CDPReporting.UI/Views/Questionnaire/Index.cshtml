@@ -32,6 +32,9 @@
     .sidebar, .content {
         min-height: 300px;
     }
+    .rounded-border{
+        border: 1px solid #dbdfe5;
+    }
 </style>
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
@@ -59,14 +62,14 @@
 <div class="row">
     <div class="col-sm-12 col-md-4">   
         <div><h3>Questions</h3></div>
-        <div class="sidebar, pre-scrollable" id="questionListDiv">
+        <div class="sidebar, pre-scrollable rounded-border" id="questionListDiv">
             @Html.Partial("_ViewQuestionList", Model.QuestionGroupList)
         </div>
     </div>
     <div class="col-sm-12 col-md-8">
         <div class="row">
             <h3>Responses</h3>
-            <div class="content col-xs-12 col-md-12" id="questionResponseDiv">
+            <div class="content col-xs-12 col-md-12 rounded-border" id="questionResponseDiv">
                 @Html.Partial("_ViewAnswerTheQuestion", Model.QuestionGroupList)
             </div>
         </div>

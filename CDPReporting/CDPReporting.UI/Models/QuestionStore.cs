@@ -75,7 +75,8 @@ namespace CDPReporting.UI.Models
             @"Other Manager/Officer",
             @"No individual or committee with overall responsibility for climate change"});
             group1.Questions.Add(question);
-            group1.Questions.Add(new Question(QuestionType.DateRange) { QuestionId = "CC11a", QuestionGroupId = "CC1", QuestionText = "CC0.2. Please state the start and end date of the year for which you are reporting data." });
+            group1.Questions.Add(AddQuestionWithOptions(QuestionType.OptionList, groupId: group1.QuestionGroupId, questionId: "CC04", questionText: "Incentivized performance indicator", options: "Emissions reduction project;Emissions reduction target;Energy reduction project;Energy reduction target;Efficiency project;Efficiency target;Behavior change related indicator;Environmental criteria included in purchases; Supply chain engagement; Other, please specify"));
+
             group1.Questions.Add(new Question(QuestionType.Option) { QuestionId = "CC12", QuestionGroupId = "CC1", QuestionText = "CC0.3. Please select the currency in which you would like to submit your response. All financial information contained in the response." });
             group1.Questions.Add(new Question(QuestionType.Option) { QuestionId = "CC12a", QuestionGroupId = "CC1", QuestionText = "CC0.4: 	Please select if you wish to complete a shorter information request [SME questionnaire only]" });
             questions.AddRange(group1.Questions);
