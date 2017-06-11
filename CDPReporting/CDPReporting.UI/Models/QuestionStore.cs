@@ -58,6 +58,7 @@ namespace CDPReporting.UI.Models
             group1.Questions.Add(new Question(QuestionType.DateRange) { QuestionId = "CC02", QuestionGroupId = "CC0", QuestionText = "CC0.2. Please state the start and end date of the year for which you are reporting data." });
             
             group1.Questions.Add(AddQuestionWithOptions(QuestionType.DropDownList, groupId: group1.QuestionGroupId, questionId: "CC03", questionText: "Country list configuration", options: "IND;USA;UK"));
+
             group1.Questions.Add(AddQuestionWithOptions(QuestionType.DropDown, groupId: group1.QuestionGroupId, questionId: "CC04", questionText: "Please select the currency in which you would like to submit your response. All financial information contained in the response.", options: "USD;INR;EUR"));
             group1.Questions.Add(new Question(QuestionType.Boolean) { QuestionId = "CC05", QuestionGroupId = "CC0", QuestionText = "CC0.5: 	Please select if you wish to complete a shorter information request [SME questionnaire only]" });
 
