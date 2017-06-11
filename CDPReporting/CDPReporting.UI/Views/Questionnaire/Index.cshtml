@@ -55,17 +55,18 @@
 </script>
 
 <div class="row">
-    <div class="col-sm-4">    
-
+    <div class="col-sm-12 col-md-4">   
         <div><h3>Questions</h3></div>
         <div class="sidebar, pre-scrollable" id="questionListDiv">
             @Html.Partial("_ViewQuestionList", Model.QuestionGroupList)
         </div>
     </div>
-    <div class="col-sm-8">
-        <div><h3>Responses</h3></div>
-        <div class="content" id="questionResponseDiv">
-            @Html.Partial("_ViewAnswerTheQuestion", Model.QuestionGroupList)
+    <div class="col-sm-12 col-md-8">
+        <div class="row">
+            <h3>Responses</h3>
+            <div class="content col-xs-12 col-md-12" id="questionResponseDiv">
+                @Html.Partial("_ViewAnswerTheQuestion", Model.QuestionGroupList)
+            </div>
         </div>
     </div>
 </div>

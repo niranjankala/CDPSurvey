@@ -15,33 +15,72 @@
 {
     foreach (var item in group.Questions)
     {
-
-        <div style="cursor:pointer;" id="QUESTANS_@item.QuestionId">
-            <div style="padding:4px">
+        <div class="row" style="cursor:pointer;" id="QUESTANS_@item.QuestionId">
+            <div class="col-md-12 col-xs-12" style="padding:4px">
                 <h4>Question</h4>
                 @Html.Raw(item.QuestionText)
             </div>
             <br />
 
-            <div style="padding-left:10px">
-                @if (item.Type.ToString() == "Simple")
+            <div class="col-md-12 col-xs-12" style="padding-left:10px">
+                @if (item.Type == CDPReporting.UI.Models.QuestionType.Simple)
                 {
-                    @Html.TextArea("TextArea", new { @style = "width:99.8%; max-width:100%" })
+                    @Html.TextArea("TextArea", new { @style = "width:99.8%; max-width:100%", @class = "form-control", @rows = "10" })
                 }
-                @if (item.Type.ToString() == "Option")
+                @if (item.Type == CDPReporting.UI.Models.QuestionType.Boolean)
                 {
-                    <input id="Radio1" type="radio" name="option"  /> @Html.Raw("Yes") <br />
+                    <input id="Radio1" type="radio" name="option" /> @Html.Raw("Yes") <br />
                     <input id="Radio2" type="radio" name="option" /> @Html.Raw("No")
                 }
-                @if (item.Type.ToString() == "DateRange")
+                @if (item.Type == CDPReporting.UI.Models.QuestionType.DateRange)
                 {
-                    @Html.Raw("Start Date") <input type="text" id="datepicker" value="01/01/2017 - 01/31/2017">
+                    <div class="form-group">
+                        <label for="datepicker" class="col-md-2 control-label">Select Period:</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="datepicker" value="01/01/2017 - 01/31/2017">
+                        </div>
+                        
+                    </div>
+                   
+                }
+                @if (item.Type == CDPReporting.UI.Models.QuestionType.Option)
+                {
+                    int i = 1;
+                    foreach (string option in item.Options)
+                    {
+                        <div class="form-control">
+                            <input id=@string.Format("opt{0}", i++) type="radio" name="option" value="@i" /> @option
+                        </div>
+                    }
+                }
+                @if (item.Type == CDPReporting.UI.Models.QuestionType.OptionList)
+                {
+                    int i = 1;
+                    foreach (string option in item.Options)
+                    {
+                        <div class="form-control">
+                            <input id=@string.Format("optList{0}", i++) type="checkbox" name="option" value="@i" /> @option
+                        </div>
+                    }
+                }
+                @if (item.Type == CDPReporting.UI.Models.QuestionType.DropDown)
+                {
+                    
+                        <select id="ddl_@item.QuestionId" class="form-control">
+
+                            @foreach (string option in item.Options)
+                            {
+                                <option value="@option">@option</option>
+                            }
+                        </select>
+                    
                 }
             </div>
             <br />
-
-            <div style="float:right;">
-                <input id="Button1" type="button" value="Save" /> <input id="Button2" type="button" value="Cancel" />
+            <div class="col-md-12 col-xs-12">
+                <div style="float:right; margin-top:10px; margin-bottom:10px">
+                    <input id="Button1" type="button" class="btn btn-default" value="Save" /> <input id="Button2" class="btn btn-default" type="button" value="Cancel" />
+                </div>
             </div>
         </div>
 
