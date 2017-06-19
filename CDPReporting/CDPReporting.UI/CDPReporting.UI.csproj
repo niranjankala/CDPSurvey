@@ -521,6 +521,30 @@
     <Content Include="Views\Shared\_QuestionCC2_2a.cshtml" />
     <Content Include="Views\Shared\_QuestionCC2_2b.cshtml" />
     <Content Include="Views\Shared\_QuestionCC2_2c.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_2d.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_3.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_3a.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_3b.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_3c.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_3d.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_3e.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_3f.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_3g.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_1.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_1a.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_1b.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_1c.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_1d.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_1e.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_1f.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_2.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_2a.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_3.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_3a.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_3b.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_3c.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC3_3d.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC4_1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
