@@ -5,7 +5,10 @@
 
 <link href="@Url.Content("~/Content/bootstrap-multiselect.css")" rel="stylesheet" type="text/css" />
 <link href="~/Content/daterangepicker.css" rel="stylesheet" />
-
+<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+@*<link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />*@
+<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 
 
 
@@ -269,8 +272,20 @@
         </div>
              
    </div>
-    <table id="GovernanceAnswertable" border=1></table>
+    <br/>
+    <div class="table">
+    <table id="GovernanceAnswertable" style="width:100px;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Incentives</th>
+                <th>Incentives Type</th>
+                <th>some data</th>
+            </tr>
+        </thead>
+    </table>
     <table id="GovernanceAnswertableIds" border=1 hidden="hidden"></table>
+    </div>
 </div>
 
 

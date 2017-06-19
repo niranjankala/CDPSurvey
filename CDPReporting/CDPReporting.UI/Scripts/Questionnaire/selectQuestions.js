@@ -2,6 +2,7 @@
 $(document).ready(function () {
     // Hide all Question Response
     $('div[id^="CC"]').hide();
+    $('#GovernanceAnswertable').DataTable({ 'bSort': false});
     $("#questionListDiv>div>div>div>div").click(function () {
         var selectedDivId = (this.id).replace("Question_", "");
         $('div[id^="CC"]').hide();
@@ -50,7 +51,7 @@ $(document).ready(function () {
 
             });
             $('#GovernanceAnswertable').append('<tr><td>' + col1Text + '</td><td>' + col2Text + '</td><td>' + col3Text + '</td><td>' + comment + '</td></tr>');
-            $('#GovernanceAnswertable').DataTable();
+            
             $('#GovernanceAnswertableIds').append('<tr><td>' + col1Val + '</td><td>' + col2Val + '</td><td>' + col3Val + '</td><td>' + comment + '</td></tr>');
 
            
