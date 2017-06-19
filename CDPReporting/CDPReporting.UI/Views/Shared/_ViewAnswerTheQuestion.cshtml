@@ -1,0 +1,291 @@
+﻿
+<script src="@Url.Content("~/Scripts/bootstrap-multiselect.js")"></script>
+<script src="~/Scripts/moment.min.js"></script>
+<script src="~/Scripts/daterangepicker.js"></script>
+
+<link href="@Url.Content("~/Content/bootstrap-multiselect.css")" rel="stylesheet" type="text/css" />
+<link href="~/Content/daterangepicker.css" rel="stylesheet" />
+<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+@*<link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />*@
+<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+
+
+<div id="CC0.1" class="form-group">
+    <h2>CC0.1: 	Introduction</h2>
+    <p><b>Please give a general description and introduction to your organization [maximum 5000 characters]</b></p>
+    <div></div>
+    <label for="comment"></label>
+    <textarea class="form-control" rows="5" style="width:100%" id="CC0_1Comment"></textarea>
+
+    <div class="btn-group pull-right">
+        <button id="CC0_1Save" type="button" class="btn btn-primary">Save</button>
+        <button id="CC0_1Cancel" type="button" class="btn btn-primary">Cancel</button>
+    </div>
+</div>
+
+<div id="CC0.2" class="col-md-7 col-xs-12 form-group">
+    <h2>CC0.2: 	Reporting Year</h2>
+    <label for="comment">
+        Please state the start and end date of the year for which you are reporting data
+        <br />
+        The current reporting year is the latest/most recent 12-month period for which data is reported.
+    </label>
+    <div class="col-md-8">
+        <label class="col-md-4" for="comment">Seelct the Range</label>
+        <input id="CC0_2DateRange" type="text" class="col-md-4" style="width:100%" name="daterange" value="01/01/2015 - 01/31/2015" />
+    </div>
+    <div class="btn-group pull-right">
+        <button id="CC0_2Save" type="button" class="btn btn-primary">Save</button>
+        <button id="CC0_2Cancel" type="button" class="btn btn-primary">Cancel</button>
+    </div>
+</div>
+
+<div id="CC0.3" class="col-md-7 col-xs-12 form-group">
+    <h2>CC0.3: 	Country list configuration </h2>
+    <p>
+        <b>
+            If you are responding to the Electric Utilities module, please select all countries <br />
+            in which you operate from the drop down menu provided.This question should only to be <br />
+            completed if you are  responding to the Electric Utilities module. If you are not responding<br />
+            to the Electric Utilities module, you may leave this question blank if you wish to do so.
+            </b>
+    </p>
+*<select id="countryId" multiple="multiple">
+        <option value="India">India</option>
+        <option value="UK">UK</option>
+        <option value="USA">USA</option>
+        <option value="Japan">Japan</option>
+        <option value="Germany">Germany</option>
+        <option value="China">China</option>
+    </select>
+
+    <div class="btn-group pull-right">
+        <button id="CC0_3Save" type="button" class="btn btn-primary">Save</button>
+        <button id="CC0_3Cancel" type="button" class="btn btn-primary">Cancel</button>
+    </div>
+</div>
+
+<div id="CC0.4" class="col-md-7 col-xs-12 form-group">
+    <h2>CC0.4:Currency selection </h2>
+    <p>
+        <b>
+            Please select the currency in which you would like to submit your response. All financial information contained in the response (questions CC3.3b and CC12.2)
+            should be in this currency.For example, if you select USD($) here, when providing your financial intensity metric in response to question CC12.2, <br />
+            you should provide it as metric tonnes CO2e per USD$.
+        </b>
+    </p>
+
+
+    <div id="CC0_4DropDown" class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            Select Currency
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a id="USD" href="#">USD</a></li>
+            <li><a id="INR" href="#">INR</a></li>
+            <li><a id="EUR" href="#">EUR</a></li>
+        </ul>
+    </div>
+
+    <div class="btn-group pull-right">
+        <button id="CC0_4Save" type="button" class="btn btn-primary">Save</button>
+        <button id="CC0_4Cancel" type="button" class="btn btn-primary">Cancel</button>
+    </div>
+</div>
+
+<div id="CC0.5" class="col-md-7 col-xs-12 form-group">
+    <h2>CC0.5: 	Please select if you wish to complete a shorter information request [SME questionnaire only]</h2>
+    <p>
+        <b>
+            If you are responding to the request for information from supply chain members only you may have been given the option of answering a<br />
+            shortened information request because you have identified that you meet the criteria for Small and Medium Sized Enterprises (SMEs) in the ORS portal.<br />
+            Companies that are eligible for the SME questionnaire are welcome to show their leadership in the field of climate change reporting by answering the full<br />
+            information request. If this is the case, please select “No” here.
+        </b>
+    </p>
+    <div class="radio">
+        <label><input id="CC0_5Yes" type="radio" name="optradio">yes</label>
+    </div>
+    <div class="radio">
+        <label><input id="CC0_5No" type="radio" name="optradio">No</label>
+    </div>
+
+    <div class="btn-group pull-right">
+        <button id="CC0_5Save" type="button" class="btn btn-primary">Save</button>
+        <button id="CC0_5Cancel" type="button" class="btn btn-primary">Cancel</button>
+    </div>
+</div>
+
+<div id="CC0.6" class="col-md-7 col-xs-12 form-group">
+    <h2>CC0.6: 	Modules</h2>
+    <p>
+        <b>
+            Here companies can choose to respond to a sector module if this has not already been allocated to them by CDP.<br />
+            These modules are only for companies with business activities in these sectors. They should not be answered by companies<br />
+            solely on the basis that they use electricity, automobiles, oil & gas or ICT hardware/services in their work.
+        </b>
+    </p><br />
+
+    <label for="comment">Please select From</label>
+    <div class="checkbox">
+        <label><input id="OilAndGas" type="checkbox" value="">Oil and Gas</label>
+    </div>
+    <div class="checkbox">
+        <label><input id="AutoComponent" type="checkbox" value="">Auto & Auto Component Manufacturers  </label>
+    </div>
+    <div class="checkbox disabled">
+        <label><input id="ElectricUtilities" type="checkbox" value="">Electric Utilities</label>
+    </div>
+    <div class="checkbox disabled">
+        <label><input id="InformationTechnologies" type="checkbox" value="">Information and Communication Technologies</label>
+    </div>
+    <div class="checkbox disabled">
+        <label><input id="FoodBeverage" type="checkbox" value="">Food Beverage and Tobacco</label>
+    </div>
+
+
+    <div class="btn-group pull-right">
+        <button id="CC0_6Save" type="button" class="btn btn-primary">Save</button>
+        <button id="CC0_6Cancel" type="button" class="btn btn-primary">Cancel</button>
+    </div>
+</div>
+
+<div id="CC1.2a" class="form-group">
+    <p><b>CC1.2a: 	Please provide further details on the incentives provided for the management of climate change issues</b></p><br />
+    <div class="table-responsive">
+        <table id="Governancetable" class="table table-bordered">
+
+            <thead class="cf">
+                <tr>
+                    <!--<th style="width:5%" bgcolor="#A9A9A9"  data-field="state" data-radio="true"></th>-->
+                    <th style="width:25%" bgcolor="#A9A9A9" data-field="name">Who is entitled to benefit from these incentives?</th>
+                    <!--<th style="width:5%" bgcolor="#A9A9A9" data-field="state" data-radio="true"></th>-->
+                    <th style="width:25%" bgcolor="#A9A9A9" data-field="starts">The type of incentives</th>
+                    <!--<th style="width:5%" bgcolor="#A9A9A9" data-field="state" data-radio="true"></th>-->
+                    <th style="width:20%" bgcolor="#A9A9A9" data-field="forks">Incentivized performance indicator</th>
+                    <th style="width:15%" bgcolor="#A9A9A9">Comment</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+
+                    <td>
+                        <!--<input type="checkbox" name="radioGroupSub">Board chairman -->
+
+                        <div id="Question_CC12a_Col1" class="dropdown">
+                            @*<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                Select from
+                                <span class="caret"></span>
+                            </button>*@
+                            @*<ul class="dropdown-menu">
+                                <li><a href="#">Board chairman</a></li>
+                                <li><a href="#">Board/Executive board</a></li>
+                                <li><a href="#">Director on board</a></li>
+                                <li><a href="#">Chief Executive Officer (CEO)</a></li>
+                                <li><a href="#">Chief Financial Officer (CFO))</a></li>
+                                <li><a href="#">Chief Operating Officer (COO)</a></li>
+                                <li><a href="#">Chief Purchasing Officer (CPO)</a></li>
+                                <li><a href="#">Other C-Suite Officer</a></li>
+                                <li><a href="#">President</a></li>
+                                <li><a href="#">Executive officer</a></li>
+                                <li><a href="#">Management group</a></li>
+                                <li><a href="#">Business unit managers</a></li>
+                                <li><a href="#">EHS manager</a></li>
+                                <li><a href="#">Buyers/purchasers</a></li>
+                                <li><a href="#">Energy managers</a></li>
+                                <li><a href="#">Environment/Sustainability managers</a></li>
+                                <li><a href="#">Facility managers</a></li>
+                                <li><a href="#">Process operation managers</a></li>
+                                <li><a href="#">Procurement manager</a></li>
+                                <li><a href="#">Public affairs managers</a></li>
+                                <li><a href="#">Risk managers</a></li>
+                                <li><a href="#">All employees</a></li>
+                                <li><a href="#">Other, please specify</a></li>
+                            </ul>*@
+                            <select id="Question_CC12a_Col1_List" class="dropdown">
+                                <option value="Boardchairman">Board chairman</option>
+                                <option value="BoardExecutiveboard">Board/Executive board</option>
+                                <option value="DirectorOnboard">Director on board</option>
+                                <option value="ChiefExecutiveOfficer">Chief Executive Officer</option>
+                            </select>
+                        </div>
+
+                    </td>
+
+                    <td>
+                        <div id="Question_CC12a_Col2" class="dropdown">
+                            @*<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                Select from
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Monetary reward</a></li>
+                                <li><a href="#">Recognition (non-monetary)</a></li>
+                                <li><a href="#">Other non-monetary reward</a></li>
+
+                            </ul>*@
+                            <select id="Question_CC12a_Col2_List" class="dropdown">
+                                <option value="1">Monetary reward</option>
+                                <option value="2">BRecognition (non-monetary)</option>
+                                <option value="3">Director on board</option>
+                                <option value="4">Other non-monetary reward</option>
+                            </select>
+                        </div>
+
+                    </td>
+
+                    <td>
+                        <!-- Build your select: -->
+                        <select id="Question_CC12a_Col3_List" multiple="multiple">
+                            <option value="1">Emissions reduction project</option>
+                            <option value="2">Energy reduction project</option>
+                            <option value="3">Energy reduction target</option>
+                            <option value="4">Efficiency project</option>
+                            <option value="5">Efficiency target</option>
+                            <option value="6">Behavior change related</option>
+                            <option value="7">Behavior change related indicator </option>
+                            <option value="8">Environmental criteria included in purchases</option>
+                            <option value="9">Supply chain engagement</option>
+                            <option value="10">Other, please specify</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea rows="5" id="Comment_CC12a"></textarea>
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+        </table>
+
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary" id="addMore">Add Row</button>
+            <button type="button" class="btn btn-primary" id="Question_CC1_2a_Save">Save</button>
+            <button type="button" class="btn btn-primary" id="Question_CC1_2a_Cancel">Cancel</button>
+        </div>
+             
+   </div>
+    <br/>
+    <div class="table">
+    <table id="GovernanceAnswertable" style="width:100px;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Incentives</th>
+                <th>Incentives Type</th>
+                <th>some data</th>
+            </tr>
+        </thead>
+    </table>
+    <table id="GovernanceAnswertableIds" border=1 hidden="hidden"></table>
+    </div>
+</div>
+
+

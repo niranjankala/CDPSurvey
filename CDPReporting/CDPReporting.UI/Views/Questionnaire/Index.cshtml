@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Questionnaire";
+}
+
+<h2>CDP Survey</h2>
+<style type="text/css">
+    /*.row > div {
+        margin-bottom: 15px;
+    }*/
+
+    .header {
+        min-height: 90px;
+    }
+
+    .footer {
+        min-height: 60px;
+    }
+
+    .header, .footer {
+        background: #2f2f2f;
+    }
+
+    .sidebar {
+        background: #dbdfe5;
+    }
+
+    .content {
+        background:#eeeeee;
+    }
+
+    .sidebar, .content {
+        min-height: 300px;
+    }
+    .rounded-border{
+        border: 1px solid #dbdfe5;
+    }
+</style>
+
+<script src="~/Scripts/Questionnaire/selectQuestions.js"></script>
+
+<script type="text/javascript">
+
+        //$(document).ready(function () {
+        //    $('div[id^="QUESTANS_"]').hide();
+        //    $("#questionListDiv>div>div").click(function () {
+        //        var selectedDivId = this.id;
+        //        $('div[id^="QUESTANS_"]').hide();
+        //        $('#QUESTANS_' + selectedDivId).show();
+        //    });
+        //});
+
+    </script>
+
+<div class="row">
+    <div class="col-sm-12 col-md-4">   
+        <div><h3>Questions</h3></div>
+        <div class="sidebar, pre-scrollable rounded-border" id="questionListDiv">
+            @Html.Partial("_ViewQuestionList")
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-8">
+        <div class="row">
+            <h3>Responses</h3>
+            <div class="content col-xs-12 col-md-12 rounded-border" id="questionResponseDiv">
+                @Html.Partial("_ViewAnswerTheQuestion")
+            </div>
+        </div>
+    </div>
+</div>
+

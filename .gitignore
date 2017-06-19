@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CDPReporting/CDPReporting.UI/obj/Debug
+/CDPReporting/CDPReporting.UI.Tests/obj/Debug
+/CDPReporting/CDPReporting.UI/bin
