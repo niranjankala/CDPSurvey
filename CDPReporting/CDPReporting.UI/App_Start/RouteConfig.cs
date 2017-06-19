@@ -14,7 +14,7 @@ namespace CDPReporting.UI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
+                name: "default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Questionnaire", action = "Index", id = UrlParameter.Optional }
             );

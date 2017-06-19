@@ -1,11 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDPReporting.UI", "CDPReporting.UI\CDPReporting.UI.csproj", "{3D676DC4-3399-4134-B0D5-4967DE091B59}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDPReporting.UI.Tests", "CDPReporting.UI.Tests\CDPReporting.UI.Tests.csproj", "{0CF7DCDF-15D9-4ECE-9206-C32AB79628FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDPReporting.Business", "CDPReporting.Business\CDPReporting.Business.csproj", "{4D270C07-6505-43A4-B635-2D49ACD0AC2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDPReporting.Common", "CDPReporting.Common\CDPReporting.Common.csproj", "{7BBE15D1-D2F9-463C-9110-E98DD1A8422A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDPReporting.Data", "CDPReporting.Data\CDPReporting.Data.csproj", "{7E5ADB50-4211-45F1-A626-36A892D0336C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDPReporting.Security", "CDPReporting.Security\CDPReporting.Security.csproj", "{8FFFC6E7-D639-416B-B89F-2663EB1008B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BF18673E-6635-441E-A299-288DDA698F8F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +36,22 @@ Global
 		{0CF7DCDF-15D9-4ECE-9206-C32AB79628FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CF7DCDF-15D9-4ECE-9206-C32AB79628FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CF7DCDF-15D9-4ECE-9206-C32AB79628FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D270C07-6505-43A4-B635-2D49ACD0AC2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D270C07-6505-43A4-B635-2D49ACD0AC2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D270C07-6505-43A4-B635-2D49ACD0AC2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D270C07-6505-43A4-B635-2D49ACD0AC2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BBE15D1-D2F9-463C-9110-E98DD1A8422A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BBE15D1-D2F9-463C-9110-E98DD1A8422A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BBE15D1-D2F9-463C-9110-E98DD1A8422A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BBE15D1-D2F9-463C-9110-E98DD1A8422A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E5ADB50-4211-45F1-A626-36A892D0336C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E5ADB50-4211-45F1-A626-36A892D0336C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E5ADB50-4211-45F1-A626-36A892D0336C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E5ADB50-4211-45F1-A626-36A892D0336C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FFFC6E7-D639-416B-B89F-2663EB1008B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FFFC6E7-D639-416B-B89F-2663EB1008B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FFFC6E7-D639-416B-B89F-2663EB1008B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FFFC6E7-D639-416B-B89F-2663EB1008B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
