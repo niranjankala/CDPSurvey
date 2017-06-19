@@ -32,6 +32,19 @@ namespace CDPReporting.UI.Controllers
             return View();
         }
 
+         public ActionResult GetQuestion()
+        {
+             try
+             {
+
+                 return View();
+             }
+             catch(Exception ex)
+             {
+                 throw ex;
+             }
+        }
+
          public void SaveResponseTableType(List<QuestionResponseTableTypeModel> model)
         {
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of SaveQuestionResponse");

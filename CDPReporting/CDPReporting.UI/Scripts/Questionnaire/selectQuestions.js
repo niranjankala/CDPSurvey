@@ -1,10 +1,11 @@
 ﻿
 $(document).ready(function () {
     // Hide all Question Response
+    var selectedDivId;
     $('div[id^="CC"]').hide();
     $('#GovernanceAnswertable').DataTable({ 'bSort': false});
     $("#questionListDiv>div>div>div>div").click(function () {
-        var selectedDivId = (this.id).replace("Question_", "");
+        selectedDivId = (this.id).replace("Question_", "");
         $('div[id^="CC"]').hide();
         $("#"+selectedDivId.replace(".", "\\.")).show();
 
@@ -69,18 +70,31 @@ $(document).ready(function () {
             //    values = values + 'GridCol' + (i + 1) + ':' + item.innerHTML ;
 
             //    modelArray.push(values);       
-            var data = [];
-            var data = $("#GovernanceAnswertableIds tr.data").map(function (index, elem) {
-                var ret = [];
-                $('.inputValue', this).each(function () {
-                    var d = $(this).val() || $(this).text();
-                    ret.push(d);
-                });
-                return ret;
+            //var data = [];
+            //var data = $("#GovernanceAnswertableIds tr.data").map(function (index, elem) {
+            //    var ret = [];
+            //    $('.inputValue', this).each(function () {
+            //        var d = $(this).val() || $(this).text();
+            //        ret.push(d);
+            //    });
+            //    return ret;
+            //});
+            //alert(data);
+            //alert(data[0]);
+
+            var qcTeam = {
+                QuestionId: selectedDivId,
+                GridCol1: "kshk",
+                GridCol2: "dfkashd",
+                GridCol3: "aksdhk",
+                GridCol4: "äsdfs",
+                GridCol5: "asdfsd"
+            };
+            var ansResponse = [];
+            ansResponse.push(qcTeam);
+            $.post('@Url.Content("~///")', {  }, function (data) {               
             });
-            alert(data);
-            alert(data[0]);
-        });
+    });     
 
     });
 

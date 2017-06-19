@@ -502,6 +502,25 @@
     <Content Include="Views\Questionnaire\Index.cshtml" />
     <Content Include="Views\Shared\_ViewQuestionList.cshtml" />
     <Content Include="Views\Shared\_ViewAnswerTheQuestion.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC0_1.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC0_2.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC0_3.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC0_4.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC0_5.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC0_6.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC1_1.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC1_2.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC1_1a.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC1_2a.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_1.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_1a.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_1b.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_1c.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_1d.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_2.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_2a.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_2b.cshtml" />
+    <Content Include="Views\Shared\_QuestionCC2_2c.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
