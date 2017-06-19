@@ -3,7 +3,7 @@ $(document).ready(function () {
     // Hide all Question Response
     var selectedDivId;
     $('div[id^="CC"]').hide();
-    $('#GovernanceAnswertable').DataTable({ 'bSort': false});
+    //$('#GovernanceAnswertable').DataTable({ 'bSort': false});
     $("#questionListDiv>div>div>div>div").click(function () {
         selectedDivId = (this.id).replace("Question_", "");
         $('div[id^="CC"]').hide();
