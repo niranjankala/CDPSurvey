@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SMR_KMS_DB_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GroupQuestions">
+          <Key>
+            <PropertyRef Name="QGroupId" />
+          </Key>
+          <Property Name="QGroupId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionGroupId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="QuestionGroupText" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Questions">
+          <Key>
+            <PropertyRef Name="QId" />
+          </Key>
+          <Property Name="QId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionGroupId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="QuestionSubGroupId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="QuestionId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="QuestionText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TableId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubGroupQuestions">
+          <Key>
+            <PropertyRef Name="QSubGroupId" />
+          </Key>
+          <Property Name="QSubGroupId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionGroupId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="QuestionSubGroupId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="QuestionSubGroupText" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableInformations">
+          <Key>
+            <PropertyRef Name="TableId" />
+          </Key>
+          <Property Name="TableId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TableType" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.TableTypeQuestion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TableTypeQuestion">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="GridIndex" Type="int" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="QuestionId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GridColumn1" Type="nvarchar" MaxLength="50" />
+          <Property Name="GridColumn2" Type="nvarchar" MaxLength="50" />
+          <Property Name="GridColumn3" Type="nvarchar" MaxLength="50" />
+          <Property Name="GridColumn4" Type="nvarchar" MaxLength="50" />
+          <Property Name="GridColumn5" Type="nvarchar" MaxLength="50" />
+          <Property Name="GridColumn6" Type="nvarchar" MaxLength="50" />
+          <Property Name="GridColumn7" Type="nvarchar" MaxLength="50" />
+          <Property Name="GridColumn8" Type="nvarchar" MaxLength="50" />
+          <Property Name="GridColumn9" Type="nvarchar" MaxLength="50" />
+          <Property Name="GridColumn10" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_Questions_GroupQuestions' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_Questions_GroupQuestions" />-->
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_Questions_SubGroupQuestions' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_Questions_SubGroupQuestions" />-->
+        <Association Name="FK_Questions_TableInformations">
+          <End Role="TableInformations" Type="Self.TableInformations" Multiplicity="1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableInformations">
+              <PropertyRef Name="TableId" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="TableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_SubGroupQuestions_GroupQuestions' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_SubGroupQuestions_GroupQuestions" />-->
+        <EntityContainer Name="SMR_KMS_DB_DevModelStoreContainer">
+          <EntitySet Name="GroupQuestions" EntityType="Self.GroupQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubGroupQuestions" EntityType="Self.SubGroupQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableInformations" EntityType="Self.TableInformations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableTypeQuestion" EntityType="Self.TableTypeQuestion" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[TableTypeQuestion].[GridIndex] AS [GridIndex], 
+[TableTypeQuestion].[UserId] AS [UserId], 
+[TableTypeQuestion].[Year] AS [Year], 
+[TableTypeQuestion].[QuestionId] AS [QuestionId], 
+[TableTypeQuestion].[GridColumn1] AS [GridColumn1], 
+[TableTypeQuestion].[GridColumn2] AS [GridColumn2], 
+[TableTypeQuestion].[GridColumn3] AS [GridColumn3], 
+[TableTypeQuestion].[GridColumn4] AS [GridColumn4], 
+[TableTypeQuestion].[GridColumn5] AS [GridColumn5], 
+[TableTypeQuestion].[GridColumn6] AS [GridColumn6], 
+[TableTypeQuestion].[GridColumn7] AS [GridColumn7], 
+[TableTypeQuestion].[GridColumn8] AS [GridColumn8], 
+[TableTypeQuestion].[GridColumn9] AS [GridColumn9], 
+[TableTypeQuestion].[GridColumn10] AS [GridColumn10]
+FROM [dbo].[TableTypeQuestion] AS [TableTypeQuestion]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Questions_TableInformations" Association="Self.FK_Questions_TableInformations">
+            <End Role="TableInformations" EntitySet="TableInformations" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SMR_KMS_DB_DevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GroupQuestion">
+          <Key>
+            <PropertyRef Name="QGroupId" />
+          </Key>
+          <Property Name="QGroupId" Type="Guid" Nullable="false" />
+          <Property Name="QuestionGroupId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuestionGroupText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QId" />
+          </Key>
+          <Property Name="QId" Type="Guid" Nullable="false" />
+          <Property Name="QuestionGroupId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuestionSubGroupId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuestionId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TableId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="TableInformation" Relationship="Self.FK_Questions_TableInformations" FromRole="Questions" ToRole="TableInformations" />
+        </EntityType>
+        <EntityType Name="SubGroupQuestion">
+          <Key>
+            <PropertyRef Name="QSubGroupId" />
+          </Key>
+          <Property Name="QSubGroupId" Type="Guid" Nullable="false" />
+          <Property Name="QuestionGroupId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuestionSubGroupId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuestionSubGroupText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableInformation">
+          <Key>
+            <PropertyRef Name="TableId" />
+          </Key>
+          <Property Name="TableId" Type="Guid" Nullable="false" />
+          <Property Name="TableType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK_Questions_TableInformations" FromRole="TableInformations" ToRole="Questions" />
+        </EntityType>
+        <Association Name="FK_Questions_TableInformations">
+          <End Role="TableInformations" Type="Self.TableInformation" Multiplicity="1" />
+          <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableInformations">
+              <PropertyRef Name="TableId" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="TableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SMR_KMS_DB_DevEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GroupQuestions" EntityType="Self.GroupQuestion" />
+          <EntitySet Name="Questions" EntityType="Self.Question" />
+          <EntitySet Name="SubGroupQuestions" EntityType="Self.SubGroupQuestion" />
+          <EntitySet Name="TableInformations" EntityType="Self.TableInformation" />
+          <AssociationSet Name="FK_Questions_TableInformations" Association="Self.FK_Questions_TableInformations">
+            <End Role="TableInformations" EntitySet="TableInformations" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <EntitySet Name="TableTypeQuestions" EntityType="SMR_KMS_DB_DevModel.TableTypeQuestion" />
+        </EntityContainer>
+        <EntityType Name="TableTypeQuestion">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="GridIndex" Type="Int32" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="QuestionId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SMR_KMS_DB_DevModelStoreContainer" CdmEntityContainer="SMR_KMS_DB_DevEntities">
+          <EntitySetMapping Name="GroupQuestions">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.GroupQuestion">
+              <MappingFragment StoreEntitySet="GroupQuestions">
+                <ScalarProperty Name="QGroupId" ColumnName="QGroupId" />
+                <ScalarProperty Name="QuestionGroupId" ColumnName="QuestionGroupId" />
+                <ScalarProperty Name="QuestionGroupText" ColumnName="QuestionGroupText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.Question">
+              <MappingFragment StoreEntitySet="Questions">
+                <ScalarProperty Name="QId" ColumnName="QId" />
+                <ScalarProperty Name="QuestionGroupId" ColumnName="QuestionGroupId" />
+                <ScalarProperty Name="QuestionSubGroupId" ColumnName="QuestionSubGroupId" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubGroupQuestions">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.SubGroupQuestion">
+              <MappingFragment StoreEntitySet="SubGroupQuestions">
+                <ScalarProperty Name="QSubGroupId" ColumnName="QSubGroupId" />
+                <ScalarProperty Name="QuestionGroupId" ColumnName="QuestionGroupId" />
+                <ScalarProperty Name="QuestionSubGroupId" ColumnName="QuestionSubGroupId" />
+                <ScalarProperty Name="QuestionSubGroupText" ColumnName="QuestionSubGroupText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableInformations">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.TableInformation">
+              <MappingFragment StoreEntitySet="TableInformations">
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+                <ScalarProperty Name="TableType" ColumnName="TableType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableTypeQuestions">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.TableTypeQuestion">
+              <MappingFragment StoreEntitySet="TableTypeQuestion">
+                <ScalarProperty Name="GridColumn10" ColumnName="GridColumn10" />
+                <ScalarProperty Name="GridColumn9" ColumnName="GridColumn9" />
+                <ScalarProperty Name="GridColumn8" ColumnName="GridColumn8" />
+                <ScalarProperty Name="GridColumn7" ColumnName="GridColumn7" />
+                <ScalarProperty Name="GridColumn6" ColumnName="GridColumn6" />
+                <ScalarProperty Name="GridColumn5" ColumnName="GridColumn5" />
+                <ScalarProperty Name="GridColumn4" ColumnName="GridColumn4" />
+                <ScalarProperty Name="GridColumn3" ColumnName="GridColumn3" />
+                <ScalarProperty Name="GridColumn2" ColumnName="GridColumn2" />
+                <ScalarProperty Name="GridColumn1" ColumnName="GridColumn1" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="GridIndex" ColumnName="GridIndex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="5121a9f3c1ad407eb1fee3041879a46f" Name="Diagram1">
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.GroupQuestion" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.Question" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.SubGroupQuestion" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.TableInformation" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="SMR_KMS_DB_DevModel.FK_Questions_TableInformations" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.TableTypeQuestion" Width="1.5" PointX="5.375" PointY="0.75" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
