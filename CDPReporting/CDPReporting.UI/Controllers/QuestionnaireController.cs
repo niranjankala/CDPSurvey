@@ -48,6 +48,25 @@ namespace CDPReporting.UI.Controllers
              }
         }
 
+         [HttpPost]
+        public void SaveQuestionResponse(string questionId, string answer, string questionType, int year)
+        {
+            try
+            {
+                if (_log.IsInfoEnabled) _log.Info("Calling Index method of GetQuestionView");
+                QuestionResponseModel response = new QuestionResponseModel();
+                response.QuestionId = questionId;
+                response.Value = answer;
+                response.Year = year;
+                response.QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), questionType);
+                oQuestionnaireService.SaveQuestionResponse(response, CurrentUser.UserId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
          public void SaveResponseTableType(List<QuestionResponseTableTypeModel> model)
         {
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of SaveQuestionResponse");
