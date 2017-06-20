@@ -1,9 +1,7 @@
 ﻿
 $(document).ready(function () {
     // Hide all Question Response
-    var selectedDivId;
-   // $('div[id^="CC"]').hide();
-    //$('#GovernanceAnswertable').DataTable({ 'bSort': false});
+    var selectedDivId;        
     $("#questionListDiv>div>div>div>div").click(function () {
         debugger;
         selectedDivId = (this.id).replace(".", "_");
@@ -37,7 +35,7 @@ $(document).ready(function () {
     //        $("#Question_CC12a_Col2 .btn:first-child").val($(this).text());
 
     //    });
-       
+
     //    // Add More for Table Type Question Response     
 
     //    $('#addMore').on('click', function () {
