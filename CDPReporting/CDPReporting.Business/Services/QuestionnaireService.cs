@@ -92,6 +92,36 @@ namespace CDPReporting.Business.Services
             {
                 throw ex;
             }
-        }               
+        }
+
+        public QuestionResponseModel GetQuestionResponse(string questionId, Guid userId)
+        {
+            Guid questionTableId = _context.Questions.FirstOrDefault(q => q.QuestionId == questionId).TableId;
+            string contextName = _context.TableInformations.FirstOrDefault(table => table.TableId == questionTableId).TableType;
+            QuestionResponseModel result = new QuestionResponseModel();
+            result.Value = GetQuestionAnswerDetails(userId, questionId, contextName);
+            result.QuestionType = QuestionType.Simple;
+            return result;          
+        }
+
+        private object GetQuestionAnswerDetails(Guid userId, string questionId, string contextName)
+        {
+            object result = null;
+            switch (contextName)
+            {
+                case "GridDescriptiveTable":
+                    GridDescriptiveTable userAnswer = _context.GridDescriptiveTables.FirstOrDefault(ans => ans.UserId == userId &&
+                        ans.QuestionId == questionId);
+                    if (userAnswer != null)
+                    {
+                        result = userAnswer.Comment;
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+            return result;
+        }
     }    
 }

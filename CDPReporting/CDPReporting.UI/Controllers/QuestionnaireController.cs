@@ -28,7 +28,7 @@ namespace CDPReporting.UI.Controllers
         {
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of QuestionnaireController");
             //var model = new QuestionModelResult();
-            //model.QuestionGroupList = oQuestionnaireService.GetQuestionList();                                                
+          //  var model.QuestionGroupList = oQuestionnaireService.GetQuestionList();                                                
             return View();
         }
 
@@ -37,8 +37,10 @@ namespace CDPReporting.UI.Controllers
              try
              {
                  if (_log.IsInfoEnabled) _log.Info("Calling Index method of GetQuestionView");
-                 questionViewId = questionViewId.Insert(0,"_");
-                 return PartialView(questionViewId);
+                 string questionId = questionViewId.Replace("Question_","").Replace("_",".");
+                 questionViewId = questionViewId.Insert(0,"_");                 
+                 var model = oQuestionnaireService.GetQuestionResponse(questionId, CurrentUser.UserId);
+                 return PartialView(questionViewId, model);
              }
              catch(Exception ex)
              {

@@ -55,6 +55,7 @@
     <Compile Include="Models\QuestionModel.cs" />
     <Compile Include="Models\GroupQuestionModel.cs" />
     <Compile Include="Models\QuestionModelResult.cs" />
+    <Compile Include="Models\QuestionResponseModel.cs" />
     <Compile Include="Models\QuestionResponseTableTypeModel.cs" />
     <Compile Include="Models\QuestionStore.cs" />
     <Compile Include="Models\SubGroupQuestionModel.cs" />

@@ -5,6 +5,37 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SMR_KMS_DB_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.DateRangeTransactionTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DateRangeTransactionTable">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="QuestionId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.GridDescriptiveTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GridDescriptiveTable">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="QuestionId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="2500" />
+          <Property Name="Description2" Type="nvarchar" MaxLength="2500" />
+          <Property Name="Description3" Type="nvarchar" MaxLength="2500" />
+          <Property Name="Description4" Type="nvarchar" MaxLength="2500" />
+          <Property Name="Description5" Type="nvarchar" MaxLength="2500" />
+        </EntityType>
         <EntityType Name="GroupQuestions">
           <Key>
             <PropertyRef Name="QGroupId" />
@@ -23,6 +54,19 @@
           <Property Name="QuestionId" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="QuestionText" Type="nvarchar(max)" Nullable="false" />
           <Property Name="TableId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.SingleTransactionTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SingleTransactionTable">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="QuestionId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SubGroupQuestions">
           <Key>
@@ -89,6 +133,35 @@ warning 6035: The relationship 'FK_SubGroupQuestions_GroupQuestions' has columns
           <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubGroupQuestions" EntityType="Self.SubGroupQuestions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TableInformations" EntityType="Self.TableInformations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DateRangeTransactionTable" EntityType="Self.DateRangeTransactionTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[DateRangeTransactionTable].[UserId] AS [UserId], 
+[DateRangeTransactionTable].[Year] AS [Year], 
+[DateRangeTransactionTable].[QuestionId] AS [QuestionId], 
+[DateRangeTransactionTable].[StartDate] AS [StartDate], 
+[DateRangeTransactionTable].[EndDate] AS [EndDate]
+FROM [dbo].[DateRangeTransactionTable] AS [DateRangeTransactionTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GridDescriptiveTable" EntityType="Self.GridDescriptiveTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[GridDescriptiveTable].[UserId] AS [UserId], 
+[GridDescriptiveTable].[Year] AS [Year], 
+[GridDescriptiveTable].[QuestionId] AS [QuestionId], 
+[GridDescriptiveTable].[Comment] AS [Comment], 
+[GridDescriptiveTable].[Description2] AS [Description2], 
+[GridDescriptiveTable].[Description3] AS [Description3], 
+[GridDescriptiveTable].[Description4] AS [Description4], 
+[GridDescriptiveTable].[Description5] AS [Description5]
+FROM [dbo].[GridDescriptiveTable] AS [GridDescriptiveTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SingleTransactionTable" EntityType="Self.SingleTransactionTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[SingleTransactionTable].[UserId] AS [UserId], 
+[SingleTransactionTable].[Year] AS [Year], 
+[SingleTransactionTable].[QuestionId] AS [QuestionId], 
+[SingleTransactionTable].[Value] AS [Value]
+FROM [dbo].[SingleTransactionTable] AS [SingleTransactionTable]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="TableTypeQuestion" EntityType="Self.TableTypeQuestion" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [TableTypeQuestion].[GridIndex] AS [GridIndex], 
@@ -175,6 +248,9 @@ FROM [dbo].[TableTypeQuestion] AS [TableTypeQuestion]</DefiningQuery>
             <End Role="Questions" EntitySet="Questions" />
           </AssociationSet>
           <EntitySet Name="TableTypeQuestions" EntityType="SMR_KMS_DB_DevModel.TableTypeQuestion" />
+          <EntitySet Name="DateRangeTransactionTables" EntityType="SMR_KMS_DB_DevModel.DateRangeTransactionTable" />
+          <EntitySet Name="GridDescriptiveTables" EntityType="SMR_KMS_DB_DevModel.GridDescriptiveTable" />
+          <EntitySet Name="SingleTransactionTables" EntityType="SMR_KMS_DB_DevModel.SingleTransactionTable" />
         </EntityContainer>
         <EntityType Name="TableTypeQuestion">
           <Key>
@@ -196,6 +272,44 @@ FROM [dbo].[TableTypeQuestion] AS [TableTypeQuestion]</DefiningQuery>
           <Property Name="GridColumn8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GridColumn9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GridColumn10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DateRangeTransactionTable">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="QuestionId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="GridDescriptiveTable">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="QuestionId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="Description2" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="Description3" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="Description4" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="Description5" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SingleTransactionTable">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="QuestionId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -262,6 +376,41 @@ FROM [dbo].[TableTypeQuestion] AS [TableTypeQuestion]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DateRangeTransactionTables">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.DateRangeTransactionTable">
+              <MappingFragment StoreEntitySet="DateRangeTransactionTable">
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GridDescriptiveTables">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.GridDescriptiveTable">
+              <MappingFragment StoreEntitySet="GridDescriptiveTable">
+                <ScalarProperty Name="Description5" ColumnName="Description5" />
+                <ScalarProperty Name="Description4" ColumnName="Description4" />
+                <ScalarProperty Name="Description3" ColumnName="Description3" />
+                <ScalarProperty Name="Description2" ColumnName="Description2" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SingleTransactionTables">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.SingleTransactionTable">
+              <MappingFragment StoreEntitySet="SingleTransactionTable">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -291,6 +440,9 @@ FROM [dbo].[TableTypeQuestion] AS [TableTypeQuestion]</DefiningQuery>
         <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.TableInformation" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="SMR_KMS_DB_DevModel.FK_Questions_TableInformations" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.TableTypeQuestion" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.DateRangeTransactionTable" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.GridDescriptiveTable" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.SingleTransactionTable" Width="1.5" PointX="0.75" PointY="7.75" />
       </Diagram>
     </Diagrams>
   </Designer>
