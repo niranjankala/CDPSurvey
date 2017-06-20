@@ -96,11 +96,13 @@ namespace CDPReporting.Business.Services
 
         public QuestionResponseModel GetQuestionResponse(string questionId, Guid userId)
         {
-            Guid questionTableId = _context.Questions.FirstOrDefault(q => q.QuestionId == questionId).TableId;
-            string contextName = _context.TableInformations.FirstOrDefault(table => table.TableId == questionTableId).TableType;
+            Guid questionTableId = _context.Questions.First(q => q.QuestionId == questionId).TableId;
+            string contextName = _context.TableInformations.First(table => table.TableId == questionTableId).TableType;
             QuestionResponseModel result = new QuestionResponseModel();
             result.Value = GetQuestionAnswerDetails(userId, questionId, contextName);
             result.QuestionType = QuestionType.Simple;
+            result.QuestionId = questionId;
+            result.Year = DateTime.Now.Year;
             return result;          
         }
 
@@ -118,10 +120,96 @@ namespace CDPReporting.Business.Services
                     }
                     break;
 
+                case "GDPGrid":
+                    TableTypeQuestion gridResponse = _context.TableTypeQuestions.FirstOrDefault(ans => ans.UserId == userId &&
+                        ans.QuestionId == questionId);
+                    if (gridResponse != null)
+                    {
+                        result = gridResponse.GridColumn1;
+                        result = gridResponse.GridColumn2;
+                        result = gridResponse.GridColumn3;
+                        result = gridResponse.GridColumn4;
+                        result = gridResponse.GridColumn5;
+                        result = gridResponse.GridColumn6;
+                        result = gridResponse.GridColumn7;
+                        result = gridResponse.GridColumn8;
+                        result = gridResponse.GridColumn9;
+                        result = gridResponse.GridColumn10;
+                    }
+                    break;
+
                 default:
                     break;
             }
             return result;
+        }
+
+        public void SaveQuestionResponse(QuestionResponseModel response, Guid userId )
+        {
+            try
+            {
+                switch (response.QuestionType)
+                {
+                    case QuestionType.Simple:
+                        SaveSimpleQuestion(response, userId);
+                        break;
+                    case QuestionType.List:
+                        break;
+                    case QuestionType.DropDown:
+                        break;
+                    case QuestionType.DropDownList:
+                        break;
+                    case QuestionType.Option:
+                        break;
+                    case QuestionType.OptionList:
+                        break;
+                    case QuestionType.DateRange:
+                        break;
+                    case QuestionType.Date:
+                        break;
+                    case QuestionType.Boolean:
+                        break;
+                    case QuestionType.CDPGrid:
+
+                        break;
+                    default:
+                        break;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+
+        private void SaveSimpleQuestion(QuestionResponseModel response, Guid userId)
+        {
+            try
+            {
+                GridDescriptiveTable data = _context.GridDescriptiveTables.FirstOrDefault(ans => ans.UserId == userId &&
+                        ans.QuestionId == response.QuestionId);
+                if(data != null)
+                {
+                    data.Comment = response.Value.ToString();                  
+                }
+                else
+                {
+                    data = new GridDescriptiveTable();
+                    data.DescriptionId = Guid.NewGuid();
+                    data.UserId = userId;
+                    data.Year = response.Year;
+                    data.QuestionId = response.QuestionId;
+                    data.Comment = Convert.ToString(response.Value);
+                    _context.GridDescriptiveTables.AddObject(data);
+                }
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }    
 }

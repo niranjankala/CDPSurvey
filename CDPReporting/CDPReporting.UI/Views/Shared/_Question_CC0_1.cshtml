@@ -1,4 +1,31 @@
-﻿
+﻿@model CDPReporting.Business.Models.QuestionResponseModel
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        debugger;
+        //if()
+        //{
+            
+        //}
+        $("#comment").val(('@Model.Value').toString());
+
+        $("#Save").click(function () {
+            debugger;
+            var commentVal = $("#comment").val();
+            var qId = '@Model.QuestionId';
+            var qType = '@Model.QuestionType';
+            var yearVal = '@Model.Year';
+
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: commentVal, questionType: qType, year: yearVal}, function (data) {
+               // $('#main').html(data);
+            });
+        });
+    });
+
+</script>
 
 <div>
     <h2>CC0.1: 	Introduction</h2>

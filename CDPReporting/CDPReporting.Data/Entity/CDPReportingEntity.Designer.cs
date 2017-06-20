@@ -170,22 +170,6 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<GridDescriptiveTable> GridDescriptiveTables
-        {
-            get
-            {
-                if ((_GridDescriptiveTables == null))
-                {
-                    _GridDescriptiveTables = base.CreateObjectSet<GridDescriptiveTable>("GridDescriptiveTables");
-                }
-                return _GridDescriptiveTables;
-            }
-        }
-        private ObjectSet<GridDescriptiveTable> _GridDescriptiveTables;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<SingleTransactionTable> SingleTransactionTables
         {
             get
@@ -198,6 +182,22 @@ namespace CDPReporting.Data.Entity
             }
         }
         private ObjectSet<SingleTransactionTable> _SingleTransactionTables;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<GridDescriptiveTable> GridDescriptiveTables
+        {
+            get
+            {
+                if ((_GridDescriptiveTables == null))
+                {
+                    _GridDescriptiveTables = base.CreateObjectSet<GridDescriptiveTable>("GridDescriptiveTables");
+                }
+                return _GridDescriptiveTables;
+            }
+        }
+        private ObjectSet<GridDescriptiveTable> _GridDescriptiveTables;
 
         #endregion
 
@@ -252,19 +252,19 @@ namespace CDPReporting.Data.Entity
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the GridDescriptiveTables EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToGridDescriptiveTables(GridDescriptiveTable gridDescriptiveTable)
-        {
-            base.AddObject("GridDescriptiveTables", gridDescriptiveTable);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the SingleTransactionTables EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToSingleTransactionTables(SingleTransactionTable singleTransactionTable)
         {
             base.AddObject("SingleTransactionTables", singleTransactionTable);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the GridDescriptiveTables EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToGridDescriptiveTables(GridDescriptiveTable gridDescriptiveTable)
+        {
+            base.AddObject("GridDescriptiveTables", gridDescriptiveTable);
         }
 
         #endregion
@@ -453,12 +453,14 @@ namespace CDPReporting.Data.Entity
         /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="year">Initial value of the Year property.</param>
         /// <param name="questionId">Initial value of the QuestionId property.</param>
-        public static GridDescriptiveTable CreateGridDescriptiveTable(global::System.Guid userId, global::System.Int32 year, global::System.String questionId)
+        /// <param name="descriptionId">Initial value of the DescriptionId property.</param>
+        public static GridDescriptiveTable CreateGridDescriptiveTable(global::System.Guid userId, global::System.Int32 year, global::System.String questionId, global::System.Guid descriptionId)
         {
             GridDescriptiveTable gridDescriptiveTable = new GridDescriptiveTable();
             gridDescriptiveTable.UserId = userId;
             gridDescriptiveTable.Year = year;
             gridDescriptiveTable.QuestionId = questionId;
+            gridDescriptiveTable.DescriptionId = descriptionId;
             return gridDescriptiveTable;
         }
 
@@ -469,7 +471,7 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserId
         {
@@ -479,14 +481,11 @@ namespace CDPReporting.Data.Entity
             }
             set
             {
-                if (_UserId != value)
-                {
-                    OnUserIdChanging(value);
-                    ReportPropertyChanging("UserId");
-                    _UserId = StructuralObject.SetValidValue(value, "UserId");
-                    ReportPropertyChanged("UserId");
-                    OnUserIdChanged();
-                }
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value, "UserId");
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
             }
         }
         private global::System.Guid _UserId;
@@ -496,7 +495,7 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Year
         {
@@ -506,14 +505,11 @@ namespace CDPReporting.Data.Entity
             }
             set
             {
-                if (_Year != value)
-                {
-                    OnYearChanging(value);
-                    ReportPropertyChanging("Year");
-                    _Year = StructuralObject.SetValidValue(value, "Year");
-                    ReportPropertyChanged("Year");
-                    OnYearChanged();
-                }
+                OnYearChanging(value);
+                ReportPropertyChanging("Year");
+                _Year = StructuralObject.SetValidValue(value, "Year");
+                ReportPropertyChanged("Year");
+                OnYearChanged();
             }
         }
         private global::System.Int32 _Year;
@@ -523,7 +519,7 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String QuestionId
         {
@@ -533,14 +529,11 @@ namespace CDPReporting.Data.Entity
             }
             set
             {
-                if (_QuestionId != value)
-                {
-                    OnQuestionIdChanging(value);
-                    ReportPropertyChanging("QuestionId");
-                    _QuestionId = StructuralObject.SetValidValue(value, false, "QuestionId");
-                    ReportPropertyChanged("QuestionId");
-                    OnQuestionIdChanged();
-                }
+                OnQuestionIdChanging(value);
+                ReportPropertyChanging("QuestionId");
+                _QuestionId = StructuralObject.SetValidValue(value, false, "QuestionId");
+                ReportPropertyChanged("QuestionId");
+                OnQuestionIdChanged();
             }
         }
         private global::System.String _QuestionId;
@@ -666,6 +659,33 @@ namespace CDPReporting.Data.Entity
         private global::System.String _Description5;
         partial void OnDescription5Changing(global::System.String value);
         partial void OnDescription5Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid DescriptionId
+        {
+            get
+            {
+                return _DescriptionId;
+            }
+            set
+            {
+                if (_DescriptionId != value)
+                {
+                    OnDescriptionIdChanging(value);
+                    ReportPropertyChanging("DescriptionId");
+                    _DescriptionId = StructuralObject.SetValidValue(value, "DescriptionId");
+                    ReportPropertyChanged("DescriptionId");
+                    OnDescriptionIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _DescriptionId;
+        partial void OnDescriptionIdChanging(global::System.Guid value);
+        partial void OnDescriptionIdChanged();
 
         #endregion
 

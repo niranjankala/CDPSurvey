@@ -1,1 +1,272 @@
-﻿@Html.Raw("Hello");
+﻿
+<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+@*<script src="~/Scripts/DataTables/buttons.bootstrap.min.js"></script>
+    <link href="~/Content/DataTables/css/buttons.bootstrap.min.css" rel="stylesheet" />*@
+
+<script type="text/javascript">
+    var editor;
+    $(document).ready(function () {
+        debugger;
+        editor = $('#GovernanceAnswertable').DataTable({
+            paging: false,
+            searching: false,
+            //destroy: true,
+            "ajax": {
+
+                //debugger;
+                "url": '@Url.Content("~/Questionnaire/GetQuestionData/")' + "?questionId=121",
+                "type": "GET",
+                "datatype": "json"
+            }
+               ,
+            "columnDefs": [{
+                "targets": [0],
+                "visible": false
+            }
+            ]
+               ,
+            "columns": [
+                    { "data": "GridIndexId" },
+                    { "data": "GridCol1" },
+                    { "data": "GridCol2" },
+                    { "data": "GridCol3" },
+                    { "data": "GridCol4" },
+                    {
+                        data: null,
+                        className: "center",
+                        defaultContent: '<a href="" class="editor_remove" ><span class="glyphicon glyphicon-trash"></span></a>'
+                    }
+                    //{ "data": "City", "autoWidth": true },
+                    //{ "data": "PostalCode", "autoWidth": true }
+            ]
+        });
+
+
+        // Delete a record
+        $('#GovernanceAnswertable').on('click', 'a.editor_remove', function (e) {
+            debugger;
+            e.preventDefault();
+            editor.row($(this).closest("tr")).remove().draw();
+            //editor.remove($(this).closest('tr'), {
+            //    title: 'Delete record',
+            //    message: 'Are you sure you wish to remove this record?',
+            //    buttons: 'Delete'
+            //});
+        });
+
+        // New record
+        $('#addMore').on('click', function (e) {
+
+            var col1Text = $("#Question_CC12a_Col1_List option:selected ").text();
+            var col1Val = $("#Question_CC12a_Col1_List option:selected ").val();
+            var col2Text = $("#Question_CC12a_Col2_List option:selected ").text();
+            var col2Val = $("#Question_CC12a_Col2_List option:selected ").val();
+            var comment = $("#Comment_CC12a").val();
+            var col3Text = [];
+            var col3Val = [];
+            $('#Question_CC12a_Col3_List :selected').each(function (i, sel) {
+
+                col3Text.push($(sel).text());
+                col3Val.push($(sel).val());
+
+            });
+            editor.row.add(
+                {
+                    "GridIndexId": "9999",
+                    "GridCol1": col1Text,
+                    "GridCol2": col2Text,
+                    "GridCol3": col3Text,
+                    "GridCol4": comment
+
+                }).draw();
+        });
+
+        $('#Question_CC1_2a_Save').click(function () {
+            debugger;
+            //var $row = $("#GovernanceAnswertableIds").closest('tr');
+            //var $columns = $row.find('td');
+
+            //var modelArray = [];
+            //var values;
+
+            //jQuery.each($columns, function (i, item) {
+            //    values = values + 'GridCol' + (i + 1) + ':' + item.innerHTML ;
+
+            //    modelArray.push(values);
+            //var data = [];
+            //var data = $("#GovernanceAnswertableIds tr.data").map(function (index, elem) {
+            //    var ret = [];
+            //    $('.inputValue', this).each(function () {
+            //        var d = $(this).val() || $(this).text();
+            //        ret.push(d);
+            //    });
+            //    return ret;
+            //});
+            //alert(data);
+            //alert(data[0]);
+
+            var qcTeam = {
+                QuestionId: selectedDivId,
+                GridCol1: "kshk",
+                GridCol2: "dfkashd",
+                GridCol3: "aksdhk",
+                GridCol4: "äsdfs",
+                GridCol5: "asdfsd"
+            };
+            var ansResponse = [];
+            ansResponse.push(qcTeam);
+            $.post('@Url.Content("~///")', {}, function (data) {
+            });
+        });
+    });
+
+
+
+</script>
+<div id="CC1.2a" class="form-group">
+    <div class="row">
+        <div class="col-md-12">
+            <p><b>CC1.2a: Please provide further details on the incentives provided for the management of climate change issues</b></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="Governancetable" class="table table-bordered">
+
+                <thead class="cf">
+                    <tr>
+                        <!--<th style="width:5%" bgcolor="#A9A9A9"  data-field="state" data-radio="true"></th>-->
+                        <th style="width:25%" bgcolor="#A9A9A9" data-field="name">Who is entitled to benefit from these incentives?</th>
+                        <!--<th style="width:5%" bgcolor="#A9A9A9" data-field="state" data-radio="true"></th>-->
+                        <th style="width:25%" bgcolor="#A9A9A9" data-field="starts">The type of incentives</th>
+                        <!--<th style="width:5%" bgcolor="#A9A9A9" data-field="state" data-radio="true"></th>-->
+                        <th style="width:20%" bgcolor="#A9A9A9" data-field="forks">Incentivized performance indicator</th>
+                        <th style="width:15%" bgcolor="#A9A9A9">Comment</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <!--<input type="checkbox" name="radioGroupSub">Board chairman -->
+
+                            <div id="Question_CC12a_Col1" class="dropdown">
+                                @*<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Select from
+                                        <span class="caret"></span>
+                                    </button>*@
+                                @*<ul class="dropdown-menu">
+                                        <li><a href="#">Board chairman</a></li>
+                                        <li><a href="#">Board/Executive board</a></li>
+                                        <li><a href="#">Director on board</a></li>
+                                        <li><a href="#">Chief Executive Officer (CEO)</a></li>
+                                        <li><a href="#">Chief Financial Officer (CFO))</a></li>
+                                        <li><a href="#">Chief Operating Officer (COO)</a></li>
+                                        <li><a href="#">Chief Purchasing Officer (CPO)</a></li>
+                                        <li><a href="#">Other C-Suite Officer</a></li>
+                                        <li><a href="#">President</a></li>
+                                        <li><a href="#">Executive officer</a></li>
+                                        <li><a href="#">Management group</a></li>
+                                        <li><a href="#">Business unit managers</a></li>
+                                        <li><a href="#">EHS manager</a></li>
+                                        <li><a href="#">Buyers/purchasers</a></li>
+                                        <li><a href="#">Energy managers</a></li>
+                                        <li><a href="#">Environment/Sustainability managers</a></li>
+                                        <li><a href="#">Facility managers</a></li>
+                                        <li><a href="#">Process operation managers</a></li>
+                                        <li><a href="#">Procurement manager</a></li>
+                                        <li><a href="#">Public affairs managers</a></li>
+                                        <li><a href="#">Risk managers</a></li>
+                                        <li><a href="#">All employees</a></li>
+                                        <li><a href="#">Other, please specify</a></li>
+                                    </ul>*@
+                                <select id="Question_CC12a_Col1_List" class="dropdown">
+                                    <option value="Boardchairman">Board chairman</option>
+                                    <option value="BoardExecutiveboard">Board/Executive board</option>
+                                    <option value="DirectorOnboard">Director on board</option>
+                                    <option value="ChiefExecutiveOfficer">Chief Executive Officer</option>
+                                </select>
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <div id="Question_CC12a_Col2" class="dropdown">
+                                @*<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Select from
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Monetary reward</a></li>
+                                        <li><a href="#">Recognition (non-monetary)</a></li>
+                                        <li><a href="#">Other non-monetary reward</a></li>
+
+                                    </ul>*@
+                                <select id="Question_CC12a_Col2_List" class="dropdown">
+                                    <option value="1">Monetary reward</option>
+                                    <option value="2">BRecognition (non-monetary)</option>
+                                    <option value="3">Director on board</option>
+                                    <option value="4">Other non-monetary reward</option>
+                                </select>
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <!-- Build your select: -->
+                            <select id="Question_CC12a_Col3_List" multiple="multiple">
+                                <option value="1">Emissions reduction project</option>
+                                <option value="2">Energy reduction project</option>
+                                <option value="3">Energy reduction target</option>
+                                <option value="4">Efficiency project</option>
+                                <option value="5">Efficiency target</option>
+                                <option value="6">Behavior change related</option>
+                                <option value="7">Behavior change related indicator </option>
+                                <option value="8">Environmental criteria included in purchases</option>
+                                <option value="9">Supply chain engagement</option>
+                                <option value="10">Other, please specify</option>
+                            </select>
+                        </td>
+                        <td>
+                            <textarea rows="5" id="Comment_CC12a"></textarea>
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="float:right">
+            <button type="button" class="editor_create btn btn-primary pull-right" id="addMore">Add Row</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="GovernanceAnswertable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Incentives</th>
+                        <th>Incentives Type</th>
+                        <th>Performance indicator</th>
+                        <th>Comment</th>
+                        <th>#</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary pull-right" id="Question_CC1_2a_Cancel">Cancel</button>
+            <button type="button" class="btn btn-primary pull-right" id="Question_CC1_2a_Save">Save</button>
+        </div>
+    </div>
+</div>
+
