@@ -32,12 +32,13 @@ namespace CDPReporting.UI.Controllers
             return View();
         }
 
-         public ActionResult GetQuestion()
+        public ActionResult GetQuestionView(string questionViewId)
         {
              try
              {
-
-                 return View();
+                 if (_log.IsInfoEnabled) _log.Info("Calling Index method of GetQuestionView");
+                 questionViewId = questionViewId.Insert(0,"_");
+                 return PartialView(questionViewId);
              }
              catch(Exception ex)
              {
