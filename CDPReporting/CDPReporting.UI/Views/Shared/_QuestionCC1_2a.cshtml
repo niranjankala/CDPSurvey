@@ -36,7 +36,7 @@
                     {
                         data: null,
                         className: "center",
-                        defaultContent: '<a href="#" ><span class="editor_remove glyphicon glyphicon-trash"></span></a>'
+                        defaultContent: '<a href="" class="editor_remove" ><span class="glyphicon glyphicon-trash"></span></a>'
                     }
                     //{ "data": "City", "autoWidth": true },
                     //{ "data": "PostalCode", "autoWidth": true }
@@ -48,12 +48,12 @@
         $('#GovernanceAnswertable').on('click', 'a.editor_remove', function (e) {
             debugger;
             e.preventDefault();
-
-            editor.remove($(this).closest('tr'), {
-                title: 'Delete record',
-                message: 'Are you sure you wish to remove this record?',
-                buttons: 'Delete'
-            });
+            editor.row($(this).closest("tr")).remove().draw();
+            //editor.remove($(this).closest('tr'), {
+            //    title: 'Delete record',
+            //    message: 'Are you sure you wish to remove this record?',
+            //    buttons: 'Delete'
+            //});
         });
 
         // New record
