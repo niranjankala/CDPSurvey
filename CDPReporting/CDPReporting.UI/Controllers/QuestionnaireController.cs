@@ -66,7 +66,7 @@ namespace CDPReporting.UI.Controllers
                           GridCol4 = string.Format("Row {0}Col{1}", i, j++)
                      });
              }
-             return Json(data, JsonRequestBehavior.AllowGet);
+             return Json(new { data = data }, JsonRequestBehavior.AllowGet);
          }
    
      }
