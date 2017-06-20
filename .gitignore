@@ -6,3 +6,8 @@
 /CDPReporting/CDPReporting.UI.Tests/obj/Debug
 /CDPReporting/CDPReporting.UI/bin
 CDPReporting/.vs/CDPReporting/v14/.suo
+/CDPReporting/CDPReporting.Business/obj/Debug
+/CDPReporting/CDPReporting.Common/obj/Debug
+/CDPReporting/CDPReporting.Data/obj/Debug
+/CDPReporting/CDPReporting.Security/obj/Debug
+/CDPReporting/.vs/CDPReporting/v15/.suo
