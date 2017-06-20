@@ -48,7 +48,10 @@
         //        $('div[id^="QUESTANS_"]').hide();
         //        $('#QUESTANS_' + selectedDivId).show();
         //    });
-        //});
+    //});
+
+    var questionViewURL = '@Url.Content("~/Questionnaire/GetQuestionView")'; 
+    var indexURL = '@Url.Content("~/QuestionnaireController/Index")';
 
     </script>
 
@@ -63,7 +66,7 @@
         <div class="row">
             <h3>Responses</h3>
             <div class="content col-xs-12 col-md-12 rounded-border" id="questionResponseDiv">
-                @Html.Partial("_ViewAnswerTheQuestion")
+                @*@Html.Partial("_ViewAnswerTheQuestion")*@
             </div>
         </div>
     </div>
