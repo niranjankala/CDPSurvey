@@ -85,15 +85,15 @@ namespace CDPReporting.UI.Models
 
         private CDPQuestion AddQuestionWithOptions(QuestionType questionType, string groupId, string questionId, string questionText, string options)
         {
-            //CDPQuestion question = new CDPQuestion(questionType) { QuestionId = questionId, QuestionGroupId = groupId, QuestionText = questionText };
-            //if (!string.IsNullOrWhiteSpace(options) && options.Contains(';'))
-            //{
-            //    foreach (string option in options.Split(';'))
-            //    {
-            //        question.Options.Add(option);
-            //    }
-            //}
-            return new CDPQuestion();
+            CDPQuestion question = new CDPQuestion(questionType) { QuestionId = questionId, QuestionGroupId = groupId, QuestionText = questionText };
+            if (!string.IsNullOrWhiteSpace(options) && options.Contains(';'))
+            {
+                foreach (string option in options.Split(';'))
+                {
+                    question.Options.Add(option);
+                }
+            }
+            return question;
         }
     }
 
