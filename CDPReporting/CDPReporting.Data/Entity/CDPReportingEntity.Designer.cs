@@ -182,6 +182,22 @@ namespace CDPReporting.Data.Entity
             }
         }
         private ObjectSet<CDPTableTypeQuestion> _CDPTableTypeQuestions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<DateRangeTransactionTable> DateRangeTransactionTables
+        {
+            get
+            {
+                if ((_DateRangeTransactionTables == null))
+                {
+                    _DateRangeTransactionTables = base.CreateObjectSet<DateRangeTransactionTable>("DateRangeTransactionTables");
+                }
+                return _DateRangeTransactionTables;
+            }
+        }
+        private ObjectSet<DateRangeTransactionTable> _DateRangeTransactionTables;
 
         #endregion
 
@@ -241,6 +257,14 @@ namespace CDPReporting.Data.Entity
         public void AddToCDPTableTypeQuestions(CDPTableTypeQuestion cDPTableTypeQuestion)
         {
             base.AddObject("CDPTableTypeQuestions", cDPTableTypeQuestion);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the DateRangeTransactionTables EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDateRangeTransactionTables(DateRangeTransactionTable dateRangeTransactionTable)
+        {
+            base.AddObject("DateRangeTransactionTables", dateRangeTransactionTable);
         }
 
         #endregion
@@ -818,6 +842,54 @@ namespace CDPReporting.Data.Entity
         private Nullable<global::System.Int32> _QuestionOrder;
         partial void OnQuestionOrderChanging(Nullable<global::System.Int32> value);
         partial void OnQuestionOrderChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String GroupText
+        {
+            get
+            {
+                return _GroupText;
+            }
+            set
+            {
+                OnGroupTextChanging(value);
+                ReportPropertyChanging("GroupText");
+                _GroupText = StructuralObject.SetValidValue(value, true, "GroupText");
+                ReportPropertyChanged("GroupText");
+                OnGroupTextChanged();
+            }
+        }
+        private global::System.String _GroupText;
+        partial void OnGroupTextChanging(global::System.String value);
+        partial void OnGroupTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SubGroupText
+        {
+            get
+            {
+                return _SubGroupText;
+            }
+            set
+            {
+                OnSubGroupTextChanging(value);
+                ReportPropertyChanging("SubGroupText");
+                _SubGroupText = StructuralObject.SetValidValue(value, true, "SubGroupText");
+                ReportPropertyChanged("SubGroupText");
+                OnSubGroupTextChanged();
+            }
+        }
+        private global::System.String _SubGroupText;
+        partial void OnSubGroupTextChanging(global::System.String value);
+        partial void OnSubGroupTextChanged();
 
         #endregion
 
@@ -1258,15 +1330,19 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// Create a new CDPTableTypeQuestion object.
         /// </summary>
+        /// <param name="gridIndex">Initial value of the GridIndex property.</param>
         /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="year">Initial value of the Year property.</param>
         /// <param name="questionId">Initial value of the QuestionId property.</param>
-        public static CDPTableTypeQuestion CreateCDPTableTypeQuestion(global::System.Guid userId, global::System.Int32 year, global::System.String questionId)
+        /// <param name="descriptiveId">Initial value of the DescriptiveId property.</param>
+        public static CDPTableTypeQuestion CreateCDPTableTypeQuestion(global::System.Guid gridIndex, global::System.Guid userId, global::System.Int32 year, global::System.String questionId, global::System.Guid descriptiveId)
         {
             CDPTableTypeQuestion cDPTableTypeQuestion = new CDPTableTypeQuestion();
+            cDPTableTypeQuestion.GridIndex = gridIndex;
             cDPTableTypeQuestion.UserId = userId;
             cDPTableTypeQuestion.Year = year;
             cDPTableTypeQuestion.QuestionId = questionId;
+            cDPTableTypeQuestion.DescriptiveId = descriptiveId;
             return cDPTableTypeQuestion;
         }
 
@@ -1277,9 +1353,9 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> GridIndex
+        public global::System.Guid GridIndex
         {
             get
             {
@@ -1287,21 +1363,24 @@ namespace CDPReporting.Data.Entity
             }
             set
             {
-                OnGridIndexChanging(value);
-                ReportPropertyChanging("GridIndex");
-                _GridIndex = StructuralObject.SetValidValue(value, "GridIndex");
-                ReportPropertyChanged("GridIndex");
-                OnGridIndexChanged();
+                if (_GridIndex != value)
+                {
+                    OnGridIndexChanging(value);
+                    ReportPropertyChanging("GridIndex");
+                    _GridIndex = StructuralObject.SetValidValue(value, "GridIndex");
+                    ReportPropertyChanged("GridIndex");
+                    OnGridIndexChanged();
+                }
             }
         }
-        private Nullable<global::System.Int32> _GridIndex;
-        partial void OnGridIndexChanging(Nullable<global::System.Int32> value);
+        private global::System.Guid _GridIndex;
+        partial void OnGridIndexChanging(global::System.Guid value);
         partial void OnGridIndexChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserId
         {
@@ -1311,14 +1390,11 @@ namespace CDPReporting.Data.Entity
             }
             set
             {
-                if (_UserId != value)
-                {
-                    OnUserIdChanging(value);
-                    ReportPropertyChanging("UserId");
-                    _UserId = StructuralObject.SetValidValue(value, "UserId");
-                    ReportPropertyChanged("UserId");
-                    OnUserIdChanged();
-                }
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value, "UserId");
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
             }
         }
         private global::System.Guid _UserId;
@@ -1328,7 +1404,7 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Year
         {
@@ -1338,14 +1414,11 @@ namespace CDPReporting.Data.Entity
             }
             set
             {
-                if (_Year != value)
-                {
-                    OnYearChanging(value);
-                    ReportPropertyChanging("Year");
-                    _Year = StructuralObject.SetValidValue(value, "Year");
-                    ReportPropertyChanged("Year");
-                    OnYearChanged();
-                }
+                OnYearChanging(value);
+                ReportPropertyChanging("Year");
+                _Year = StructuralObject.SetValidValue(value, "Year");
+                ReportPropertyChanged("Year");
+                OnYearChanged();
             }
         }
         private global::System.Int32 _Year;
@@ -1355,7 +1428,7 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String QuestionId
         {
@@ -1365,19 +1438,40 @@ namespace CDPReporting.Data.Entity
             }
             set
             {
-                if (_QuestionId != value)
-                {
-                    OnQuestionIdChanging(value);
-                    ReportPropertyChanging("QuestionId");
-                    _QuestionId = StructuralObject.SetValidValue(value, false, "QuestionId");
-                    ReportPropertyChanged("QuestionId");
-                    OnQuestionIdChanged();
-                }
+                OnQuestionIdChanging(value);
+                ReportPropertyChanging("QuestionId");
+                _QuestionId = StructuralObject.SetValidValue(value, false, "QuestionId");
+                ReportPropertyChanged("QuestionId");
+                OnQuestionIdChanged();
             }
         }
         private global::System.String _QuestionId;
         partial void OnQuestionIdChanging(global::System.String value);
         partial void OnQuestionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid DescriptiveId
+        {
+            get
+            {
+                return _DescriptiveId;
+            }
+            set
+            {
+                OnDescriptiveIdChanging(value);
+                ReportPropertyChanging("DescriptiveId");
+                _DescriptiveId = StructuralObject.SetValidValue(value, "DescriptiveId");
+                ReportPropertyChanged("DescriptiveId");
+                OnDescriptiveIdChanged();
+            }
+        }
+        private global::System.Guid _DescriptiveId;
+        partial void OnDescriptiveIdChanging(global::System.Guid value);
+        partial void OnDescriptiveIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1618,6 +1712,168 @@ namespace CDPReporting.Data.Entity
         private global::System.String _GridColumn10;
         partial void OnGridColumn10Changing(global::System.String value);
         partial void OnGridColumn10Changed();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SMR_KMS_DB_DevModel", Name="DateRangeTransactionTable")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class DateRangeTransactionTable : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new DateRangeTransactionTable object.
+        /// </summary>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="year">Initial value of the Year property.</param>
+        /// <param name="questionId">Initial value of the QuestionId property.</param>
+        public static DateRangeTransactionTable CreateDateRangeTransactionTable(global::System.Guid userId, global::System.Int32 year, global::System.String questionId)
+        {
+            DateRangeTransactionTable dateRangeTransactionTable = new DateRangeTransactionTable();
+            dateRangeTransactionTable.UserId = userId;
+            dateRangeTransactionTable.Year = year;
+            dateRangeTransactionTable.QuestionId = questionId;
+            return dateRangeTransactionTable;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value, "UserId");
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Year
+        {
+            get
+            {
+                return _Year;
+            }
+            set
+            {
+                if (_Year != value)
+                {
+                    OnYearChanging(value);
+                    ReportPropertyChanging("Year");
+                    _Year = StructuralObject.SetValidValue(value, "Year");
+                    ReportPropertyChanged("Year");
+                    OnYearChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Year;
+        partial void OnYearChanging(global::System.Int32 value);
+        partial void OnYearChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionId
+        {
+            get
+            {
+                return _QuestionId;
+            }
+            set
+            {
+                if (_QuestionId != value)
+                {
+                    OnQuestionIdChanging(value);
+                    ReportPropertyChanging("QuestionId");
+                    _QuestionId = StructuralObject.SetValidValue(value, false, "QuestionId");
+                    ReportPropertyChanged("QuestionId");
+                    OnQuestionIdChanged();
+                }
+            }
+        }
+        private global::System.String _QuestionId;
+        partial void OnQuestionIdChanging(global::System.String value);
+        partial void OnQuestionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> StartDate
+        {
+            get
+            {
+                return _StartDate;
+            }
+            set
+            {
+                OnStartDateChanging(value);
+                ReportPropertyChanging("StartDate");
+                _StartDate = StructuralObject.SetValidValue(value, "StartDate");
+                ReportPropertyChanged("StartDate");
+                OnStartDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _StartDate;
+        partial void OnStartDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnStartDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> EndDate
+        {
+            get
+            {
+                return _EndDate;
+            }
+            set
+            {
+                OnEndDateChanging(value);
+                ReportPropertyChanging("EndDate");
+                _EndDate = StructuralObject.SetValidValue(value, "EndDate");
+                ReportPropertyChanged("EndDate");
+                OnEndDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _EndDate;
+        partial void OnEndDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnEndDateChanged();
 
         #endregion
 

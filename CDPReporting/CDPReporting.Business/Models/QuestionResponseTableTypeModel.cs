@@ -8,7 +8,7 @@ namespace CDPReporting.Business.Models
 {
     public class QuestionResponseTableTypeModel
     {
-        public int GridIndexId { get; set; }
+        public Guid GridIndexId { get; set; }
         public int year { get; set; }
         public string QuestionId { get; set; }
         public string GridCol1 { get; set; }
