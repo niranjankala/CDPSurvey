@@ -65,17 +65,4 @@ namespace CDPReporting.Business.Models
         public string TableType { get; set; }
         public QuestionType QuestionType { get; set; }
     }
-    public enum QuestionType
-    {
-        Simple,
-        List,
-        DropDown,
-        DropDownList,
-        Option,
-        OptionList,
-        DateRange,
-        Date,
-        Boolean,
-        CDPGrid
-    }
 }
