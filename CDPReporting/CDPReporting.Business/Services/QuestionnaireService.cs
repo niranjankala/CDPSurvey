@@ -27,10 +27,10 @@ namespace CDPReporting.Business.Services
             try
             {
                 List<GroupQuestionModel> groupQuestionList = new List<GroupQuestionModel>();
-                List<GroupQuestion> dbGroupQuestionList = _context.GroupQuestions.ToList();
-                List<SubGroupQuestion> dbSubGroupQuestionList = _context.SubGroupQuestions.ToList();
-                List<Question> dbQuestionList = _context.Questions.ToList();
-                List<TableInformation> dbTableType = _context.TableInformations.ToList();
+                List<CDPGroupQuestion> dbGroupQuestionList = _context.CDPGroupQuestions.ToList();
+                List<CDPSubGroupQuestion> dbSubGroupQuestionList = _context.CDPSubGroupQuestions.ToList();
+                List<CDPQuestion> dbQuestionList = _context.CDPQuestions.ToList();
+                List<CDPTableInformation> dbTableType = _context.CDPTableInformations.ToList();
                 groupQuestionList = (from groupquestion in dbGroupQuestionList
                                      select new GroupQuestionModel
                                      {
@@ -69,7 +69,7 @@ namespace CDPReporting.Business.Services
             {
                 foreach(var data in modelData)
                 {
-                    TableTypeQuestion response = new TableTypeQuestion();
+                    CDPTableTypeQuestion response = new CDPTableTypeQuestion();
                     //response.UserId = 
                     response.Year = DateTime.Now.Year;
                     response.QuestionId = data.QuestionId;
@@ -83,7 +83,7 @@ namespace CDPReporting.Business.Services
                     response.GridColumn8 = data.GridCol8;
                     response.GridColumn9 = data.GridCol9;
                     response.GridColumn10 = data.GridCol10;
-                    _context.TableTypeQuestions.AddObject(response);
+                    _context.CDPTableTypeQuestions.AddObject(response);
                     _context.SaveChanges();
                 }
                  
@@ -96,8 +96,8 @@ namespace CDPReporting.Business.Services
 
         public QuestionResponseModel GetQuestionResponse(string questionId, Guid userId)
         {
-            Guid questionTableId = _context.Questions.First(q => q.QuestionId == questionId).TableId;
-            string contextName = _context.TableInformations.First(table => table.TableId == questionTableId).TableType;
+            Guid questionTableId = _context.CDPQuestions.First(q => q.QuestionId == questionId).TableId;
+            string contextName = _context.CDPTableInformations.First(table => table.TableId == questionTableId).TableType;
             QuestionResponseModel result = new QuestionResponseModel();
             result.Value = GetQuestionAnswerDetails(userId, questionId, contextName);
             result.QuestionType = QuestionType.Simple;
@@ -112,7 +112,7 @@ namespace CDPReporting.Business.Services
             switch (contextName)
             {
                 case "GridDescriptiveTable":
-                    GridDescriptiveTable userAnswer = _context.GridDescriptiveTables.FirstOrDefault(ans => ans.UserId == userId &&
+                    CDPGridDescriptiveTable userAnswer = _context.CDPGridDescriptiveTables.FirstOrDefault(ans => ans.UserId == userId &&
                         ans.QuestionId == questionId);
                     if (userAnswer != null)
                     {
@@ -121,7 +121,7 @@ namespace CDPReporting.Business.Services
                     break;
 
                 case "GDPGrid":
-                    TableTypeQuestion gridResponse = _context.TableTypeQuestions.FirstOrDefault(ans => ans.UserId == userId &&
+                    CDPTableTypeQuestion gridResponse = _context.CDPTableTypeQuestions.FirstOrDefault(ans => ans.UserId == userId &&
                         ans.QuestionId == questionId);
                     if (gridResponse != null)
                     {
@@ -188,7 +188,7 @@ namespace CDPReporting.Business.Services
         {
             try
             {
-                GridDescriptiveTable data = _context.GridDescriptiveTables.FirstOrDefault(ans => ans.UserId == userId &&
+                CDPGridDescriptiveTable data = _context.CDPGridDescriptiveTables.FirstOrDefault(ans => ans.UserId == userId &&
                         ans.QuestionId == response.QuestionId);
                 if(data != null)
                 {
@@ -196,13 +196,13 @@ namespace CDPReporting.Business.Services
                 }
                 else
                 {
-                    data = new GridDescriptiveTable();
+                    data = new CDPGridDescriptiveTable();
                     data.DescriptionId = Guid.NewGuid();
                     data.UserId = userId;
                     data.Year = response.Year;
                     data.QuestionId = response.QuestionId;
                     data.Comment = Convert.ToString(response.Value);
-                    _context.GridDescriptiveTables.AddObject(data);
+                    _context.CDPGridDescriptiveTables.AddObject(data);
                 }
                 _context.SaveChanges();
             }
