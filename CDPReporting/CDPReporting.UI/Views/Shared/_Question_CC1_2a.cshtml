@@ -1,7 +1,8 @@
 ﻿
 <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
-<script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
-<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
+@*<script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />*@
 @*<script src="~/Scripts/DataTables/buttons.bootstrap.min.js"></script>
     <link href="~/Content/DataTables/css/buttons.bootstrap.min.css" rel="stylesheet" />*@
 
@@ -48,8 +49,8 @@
         $('#GovernanceAnswertable').on('click', 'a.editor_remove', function (e) {
             debugger;
             e.preventDefault();
-            editor.row($(this).closest("tr")).remove().draw();
-            //editor.remove($(this).closest('tr'), {
+            editor.row($(this).parents('tr')).remove()  .draw();
+            //editor.remove($(this).parent('tr'), {
             //    title: 'Delete record',
             //    message: 'Are you sure you wish to remove this record?',
             //    buttons: 'Delete'
@@ -85,6 +86,11 @@
 
         $('#Question_CC1_2a_Save').click(function () {
             debugger;
+            var dataToSave = editor.data().toArray();
+
+            //Call Save method here for this question..
+
+
             //var $row = $("#GovernanceAnswertableIds").closest('tr');
             //var $columns = $row.find('td');
 
@@ -248,7 +254,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <table id="GovernanceAnswertable">
+            <table id="GovernanceAnswertable" class="display" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th>ID</th>
