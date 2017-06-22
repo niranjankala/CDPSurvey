@@ -64,7 +64,6 @@ namespace CDPReporting.Business.Services
                 throw ex;
             }
         }
-
         /// <summary>
         /// Method to save question response.
         /// </summary>
@@ -75,48 +74,48 @@ namespace CDPReporting.Business.Services
                 List<CDPTableTypeQuestion> responseList = _context.CDPTableTypeQuestions.Where(answer => answer.UserId == userId && answer.QuestionId == questionId).ToList();
                 List<CDPTableTypeQuestion> responseToRemove = new List<CDPTableTypeQuestion>();
 
-                if(modelData.Count == 0 || modelData == null)
+                if (modelData.Count == 0 || modelData == null)
                     responseToRemove = responseList.Where(m => m.QuestionId == questionId && m.UserId == userId).ToList();
                 else
                     responseToRemove = responseList.Where(x => !modelData.Any(m => m.GridIndexId == x.GridIndex)).ToList();
-                foreach(var data in modelData)
+                foreach (var data in modelData)
                 {
-                     //response = _context.CDPTableTypeQuestions.First(answer => answer.GridIndex == data.GridIndexId);
+                    //response = _context.CDPTableTypeQuestions.First(answer => answer.GridIndex == data.GridIndexId);
 
                     bool responseToAdd = responseList.Where(m => m.GridIndex == data.GridIndexId).Any();
-                        
-                    if(!responseToAdd)
-                    {                      
 
-                    CDPTableTypeQuestion response = new CDPTableTypeQuestion();
+                    if (!responseToAdd)
+                    {
+
+                        CDPTableTypeQuestion response = new CDPTableTypeQuestion();
                         response.GridIndex = Guid.NewGuid();
                         response.UserId = userId;
-                    response.Year = DateTime.Now.Year;
+                        response.Year = DateTime.Now.Year;
                         response.QuestionId = questionId;
-                    response.GridColumn1 = data.GridCol1;
-                    response.GridColumn2 = data.GridCol2;
-                    response.GridColumn3 = data.GridCol3;
-                    response.GridColumn4 = data.GridCol4;
-                    response.GridColumn5 = data.GridCol5;
-                    response.GridColumn6 = data.GridCol6;
-                    response.GridColumn7 = data.GridCol7;
-                    response.GridColumn8 = data.GridCol8;
-                    response.GridColumn9 = data.GridCol9;
-                    response.GridColumn10 = data.GridCol10;
-                    _context.CDPTableTypeQuestions.AddObject(response);
-                    _context.SaveChanges();
+                        response.GridColumn1 = data.GridCol1;
+                        response.GridColumn2 = data.GridCol2;
+                        response.GridColumn3 = data.GridCol3;
+                        response.GridColumn4 = data.GridCol4;
+                        response.GridColumn5 = data.GridCol5;
+                        response.GridColumn6 = data.GridCol6;
+                        response.GridColumn7 = data.GridCol7;
+                        response.GridColumn8 = data.GridCol8;
+                        response.GridColumn9 = data.GridCol9;
+                        response.GridColumn10 = data.GridCol10;
+                        _context.CDPTableTypeQuestions.AddObject(response);
+                        _context.SaveChanges();
 
-                    }                     
+                    }
                 }
 
                 foreach (var data in responseToRemove)
                 {
-                    CDPTableTypeQuestion response = _context.CDPTableTypeQuestions.First(m=>m.GridIndex == data.GridIndex);
+                    CDPTableTypeQuestion response = _context.CDPTableTypeQuestions.First(m => m.GridIndex == data.GridIndex);
                     _context.CDPTableTypeQuestions.DeleteObject(response);
                     _context.SaveChanges();
                 }
-                 
-                 
+
+
             }
             catch (Exception ex)
             {
@@ -133,7 +132,7 @@ namespace CDPReporting.Business.Services
             result.QuestionType = QuestionType.Simple;
             result.QuestionId = questionId;
             result.Year = DateTime.Now.Year;
-            return result;          
+            return result;
         }
 
         private object GetQuestionAnswerDetails(Guid userId, string questionId, string contextName)
@@ -142,7 +141,7 @@ namespace CDPReporting.Business.Services
             switch (contextName)
             {
                 case "GridDescriptiveTable":
-                    CDPGridDescriptiveTable userAnswer = _context.CDPGridDescriptiveTables.FirstOrDefault(ans => ans.UserId == userId &&
+                    CDPGridDescriptive userAnswer = _context.CDPGridDescriptives.FirstOrDefault(ans => ans.UserId == userId &&
                         ans.QuestionId == questionId);
                     if (userAnswer != null)
                     {
@@ -174,7 +173,7 @@ namespace CDPReporting.Business.Services
             return result;
         }
 
-        public void SaveQuestionResponse(QuestionResponseModel response, Guid userId )
+        public void SaveQuestionResponse(QuestionResponseModel response, Guid userId)
         {
             try
             {
@@ -205,34 +204,34 @@ namespace CDPReporting.Business.Services
                     default:
                         break;
                 }
-                
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            
+
         }
 
         private void SaveSimpleQuestion(QuestionResponseModel response, Guid userId)
         {
             try
             {
-                CDPGridDescriptiveTable data = _context.CDPGridDescriptiveTables.FirstOrDefault(ans => ans.UserId == userId &&
+                CDPGridDescriptive data = _context.CDPGridDescriptives.FirstOrDefault(ans => ans.UserId == userId &&
                         ans.QuestionId == response.QuestionId);
-                if(data != null)
+                if (data != null)
                 {
-                    data.Comment = response.Value.ToString();                  
+                    data.Comment = response.Value.ToString();
                 }
                 else
                 {
-                    data = new CDPGridDescriptiveTable();
+                    data = new CDPGridDescriptive();
                     data.DescriptionId = Guid.NewGuid();
                     data.UserId = userId;
                     data.Year = response.Year;
                     data.QuestionId = response.QuestionId;
                     data.Comment = Convert.ToString(response.Value);
-                    _context.CDPGridDescriptiveTables.AddObject(data);
+                    _context.CDPGridDescriptives.AddObject(data);
                 }
                 _context.SaveChanges();
             }
@@ -242,22 +241,31 @@ namespace CDPReporting.Business.Services
             }
         }
 
-        //public List<SidePanelQuestions> GetQuestionList()
-        //{
-        //    List<SidePanelQuestions> oSidePanelQuestions = new List<SidePanelQuestions>();
-        //    var result = (from t in _context.CDPQuestions
-        //                          where t.QId != null
-        //                  select t).ToList();
-        //    oSidePanelQuestions = result.Select(p => p).Select(p => new SidePanelQuestions() {
-        //                                QuestionGroupId = p.QuestionGroupId,
-        //                                QuestionGuid = p.QId,
-        //                                QuestionId = p.QuestionId,
-        //                                QuestionOrder = (int)p.QuestionOrder,
-        //                                QuestionSubGroupId = p.QuestionSubGroupId,
-        //                                QuestionText = p.QuestionText,
-        //                                TableId = p.TableId}).ToList();              
+        public List<QuestionResponseTableTypeModel> GetTableTypeResponse(string questionId, Guid userId)
+        {
+            try
+            {
+                List<QuestionResponseTableTypeModel> responseList = new List<QuestionResponseTableTypeModel>();
+                List<CDPTableTypeQuestion> dbResponseList = _context.CDPTableTypeQuestions.Where(m => m.UserId == userId && m.QuestionId == questionId).ToList();
+                responseList = (from list in dbResponseList
+                                select new QuestionResponseTableTypeModel
+                                {
+                                    GridIndexId = list.GridIndex,
+                                    QuestionId = list.QuestionId,
+                                    GridCol1 = list.GridColumn1,
+                                    GridCol2 = list.GridColumn2,
+                                    GridCol3 = list.GridColumn3,
+                                    GridCol4 = list.GridColumn4,
+                                    GridCol5 = list.GridColumn5,
+                                }).ToList();
+                return responseList;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-        //    return oSidePanelQuestions;
-        //}
-    }    
+
+    }
 }
