@@ -58,19 +58,24 @@
     </script>
 
 <div class="row row row-offcanvas row-offcanvas-left">
+    
     <div class="col-sm-12 col-md-4 sidebar-offcanvas" id="sidebar" role="navigation">
-        <p class="pull-left">
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-        </p>
+       
         <div><h3>Questions</h3></div>
         <div class="sidebar, pre-scrollable rounded-border" id="questionListDiv">
             @Html.Partial("_ViewQuestionList", Model)
         </div>
     </div>
+
     <div class="col-sm-12 col-md-8 content">
-        <div class="row">
+        <p class="pull-left">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Hide Questions</button>
+        </p>
+        
+            
             <h3>Responses</h3>
-            <div class="content col-xs-12 col-md-12 rounded-border" id="questionResponseDiv">
+        <div class="row">
+            <div class=" col-xs-12 col-md-12 rounded-border" id="questionResponseDiv">
                 @*@Html.Partial("_ViewAnswerTheQuestion")*@
             </div>
         </div>
