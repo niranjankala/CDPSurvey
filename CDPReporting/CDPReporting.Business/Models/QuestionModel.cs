@@ -63,6 +63,7 @@ namespace CDPReporting.Business.Models
         public string QuestionId{ get; set; }
         public string SubGoupQuestionId { get; set; }
         public string QuestionText { get; set; }
+        public int QuestionOrder { get; set; }
         public string TableType { get; set; }
         public string GroupText { get;set;}
         public string SubGroupText { get; set; }
