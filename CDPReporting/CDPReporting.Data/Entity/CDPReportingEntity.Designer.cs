@@ -198,6 +198,22 @@ namespace CDPReporting.Data.Entity
             }
         }
         private ObjectSet<CDPSingleTransaction> _CDPSingleTransactions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CDPQuestionGroup> CDPQuestionGroups
+        {
+            get
+            {
+                if ((_CDPQuestionGroups == null))
+                {
+                    _CDPQuestionGroups = base.CreateObjectSet<CDPQuestionGroup>("CDPQuestionGroups");
+                }
+                return _CDPQuestionGroups;
+            }
+        }
+        private ObjectSet<CDPQuestionGroup> _CDPQuestionGroups;
 
         #endregion
 
@@ -265,6 +281,14 @@ namespace CDPReporting.Data.Entity
         public void AddToCDPSingleTransactions(CDPSingleTransaction cDPSingleTransaction)
         {
             base.AddObject("CDPSingleTransactions", cDPSingleTransaction);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CDPQuestionGroups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCDPQuestionGroups(CDPQuestionGroup cDPQuestionGroup)
+        {
+            base.AddObject("CDPQuestionGroups", cDPQuestionGroup);
         }
 
         #endregion
@@ -1118,6 +1142,140 @@ namespace CDPReporting.Data.Entity
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SMR_KMS_DB_DevModel", Name="CDPQuestionGroup")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CDPQuestionGroup : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CDPQuestionGroup object.
+        /// </summary>
+        /// <param name="qGroupId">Initial value of the QGroupId property.</param>
+        /// <param name="questionGroupId">Initial value of the QuestionGroupId property.</param>
+        /// <param name="questionGroupText">Initial value of the QuestionGroupText property.</param>
+        /// <param name="order">Initial value of the Order property.</param>
+        public static CDPQuestionGroup CreateCDPQuestionGroup(global::System.Guid qGroupId, global::System.String questionGroupId, global::System.String questionGroupText, global::System.Int32 order)
+        {
+            CDPQuestionGroup cDPQuestionGroup = new CDPQuestionGroup();
+            cDPQuestionGroup.QGroupId = qGroupId;
+            cDPQuestionGroup.QuestionGroupId = questionGroupId;
+            cDPQuestionGroup.QuestionGroupText = questionGroupText;
+            cDPQuestionGroup.Order = order;
+            return cDPQuestionGroup;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid QGroupId
+        {
+            get
+            {
+                return _QGroupId;
+            }
+            set
+            {
+                if (_QGroupId != value)
+                {
+                    OnQGroupIdChanging(value);
+                    ReportPropertyChanging("QGroupId");
+                    _QGroupId = StructuralObject.SetValidValue(value, "QGroupId");
+                    ReportPropertyChanged("QGroupId");
+                    OnQGroupIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _QGroupId;
+        partial void OnQGroupIdChanging(global::System.Guid value);
+        partial void OnQGroupIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionGroupId
+        {
+            get
+            {
+                return _QuestionGroupId;
+            }
+            set
+            {
+                OnQuestionGroupIdChanging(value);
+                ReportPropertyChanging("QuestionGroupId");
+                _QuestionGroupId = StructuralObject.SetValidValue(value, false, "QuestionGroupId");
+                ReportPropertyChanged("QuestionGroupId");
+                OnQuestionGroupIdChanged();
+            }
+        }
+        private global::System.String _QuestionGroupId;
+        partial void OnQuestionGroupIdChanging(global::System.String value);
+        partial void OnQuestionGroupIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionGroupText
+        {
+            get
+            {
+                return _QuestionGroupText;
+            }
+            set
+            {
+                OnQuestionGroupTextChanging(value);
+                ReportPropertyChanging("QuestionGroupText");
+                _QuestionGroupText = StructuralObject.SetValidValue(value, false, "QuestionGroupText");
+                ReportPropertyChanged("QuestionGroupText");
+                OnQuestionGroupTextChanged();
+            }
+        }
+        private global::System.String _QuestionGroupText;
+        partial void OnQuestionGroupTextChanging(global::System.String value);
+        partial void OnQuestionGroupTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Order
+        {
+            get
+            {
+                return _Order;
+            }
+            set
+            {
+                OnOrderChanging(value);
+                ReportPropertyChanging("Order");
+                _Order = StructuralObject.SetValidValue(value, "Order");
+                ReportPropertyChanged("Order");
+                OnOrderChanged();
+            }
+        }
+        private global::System.Int32 _Order;
+        partial void OnOrderChanging(global::System.Int32 value);
+        partial void OnOrderChanged();
 
         #endregion
 

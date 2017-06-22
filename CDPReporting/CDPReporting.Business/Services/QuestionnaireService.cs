@@ -199,6 +199,7 @@ namespace CDPReporting.Business.Services
                     case QuestionType.OptionList:
                         break;
                     case QuestionType.DateRange:
+                        SaveDateRangeQuestion(response, userId);
                         break;
                     case QuestionType.Date:
                         break;
@@ -217,6 +218,37 @@ namespace CDPReporting.Business.Services
                 throw ex;
             }
 
+        }
+
+        private void SaveDateRangeQuestion(QuestionResponseModel response, Guid userId)
+        {
+            try
+            {
+                CDPDateRangeTransaction data = _context.CDPDateRangeTransactions.FirstOrDefault(ans => ans.UserId == userId &&
+                        ans.QuestionId == response.QuestionId);
+                string[] date = response.Value.ToString().Split('s');
+                
+               // DateTime endTime = Convert.ToDateTime(response.Value).ToString().Split('')
+                if (data != null)
+                {
+                 //   data.StartDate = startDate;
+                }
+                //else
+                //{
+                //    data = new CDPGridDescriptive();
+                //    data.DescriptionId = Guid.NewGuid();
+                //    data.UserId = userId;
+                //    data.Year = response.Year;
+                //    data.QuestionId = response.QuestionId;
+                //    data.Comment = Convert.ToString(response.Value);
+                //    _context.CDPGridDescriptives.AddObject(data);
+                //}
+                //_context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void SaveSimpleQuestion(QuestionResponseModel response, Guid userId)

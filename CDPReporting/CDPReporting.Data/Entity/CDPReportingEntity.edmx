@@ -33,13 +33,14 @@ warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPDateRangeTransaction' does n
           <Property Name="Description5" Type="nvarchar" MaxLength="2500" />
           <Property Name="DescriptionId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <EntityType Name="CDPGroupQuestions">
+        <EntityType Name="CDPQuestionGroups">
           <Key>
             <PropertyRef Name="QGroupId" />
           </Key>
           <Property Name="QGroupId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="QuestionGroupId" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="QuestionGroupText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CDPQuestions">
           <Key>
@@ -68,15 +69,6 @@ warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPSingleTransaction' does not 
           <Property Name="Year" Type="int" Nullable="false" />
           <Property Name="QuestionId" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Value" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="CDPSubGroupQuestions">
-          <Key>
-            <PropertyRef Name="QSubGroupId" />
-          </Key>
-          <Property Name="QSubGroupId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="QuestionGroupId" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="QuestionSubGroupId" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="QuestionSubGroupText" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="CDPTableInformations">
           <Key>
@@ -108,9 +100,6 @@ warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPSingleTransaction' does not 
         <!--Errors Found During Generation:
 warning 6035: The relationship 'FK_Questions_GroupQuestions' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK_Questions_GroupQuestions" />-->
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'FK_Questions_SubGroupQuestions' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK_Questions_SubGroupQuestions" />-->
         <Association Name="FK_Questions_TableInformations">
           <End Role="CDPTableInformations" Type="Self.CDPTableInformations" Multiplicity="1" />
           <End Role="CDPQuestions" Type="Self.CDPQuestions" Multiplicity="*" />
@@ -123,14 +112,10 @@ warning 6035: The relationship 'FK_Questions_SubGroupQuestions' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'FK_SubGroupQuestions_GroupQuestions' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK_SubGroupQuestions_GroupQuestions" />-->
         <EntityContainer Name="SMR_KMS_DB_DevModelStoreContainer">
           <EntitySet Name="CDPGridDescriptive" EntityType="Self.CDPGridDescriptive" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CDPGroupQuestions" EntityType="Self.CDPGroupQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CDPQuestionGroups" EntityType="Self.CDPQuestionGroups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPQuestions" EntityType="Self.CDPQuestions" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CDPSubGroupQuestions" EntityType="Self.CDPSubGroupQuestions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPTableInformations" EntityType="Self.CDPTableInformations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPTableTypeQuestion" EntityType="Self.CDPTableTypeQuestion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPDateRangeTransaction" EntityType="Self.CDPDateRangeTransaction" store:Type="Tables" store:Schema="dbo">
@@ -172,6 +157,7 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
             <End Role="CDPTableInformation" EntitySet="CDPTableInformations" />
             <End Role="CDPQuestion" EntitySet="CDPQuestions" />
           </AssociationSet>
+          <EntitySet Name="CDPQuestionGroups" EntityType="SMR_KMS_DB_DevModel.CDPQuestionGroup" />
         </EntityContainer>
         <EntityType Name="CDPGridDescriptive">
           <Key>
@@ -283,6 +269,15 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CDPQuestionGroup">
+          <Key>
+            <PropertyRef Name="QGroupId" />
+          </Key>
+          <Property Name="QGroupId" Type="Guid" Nullable="false" />
+          <Property Name="QuestionGroupId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionGroupText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -304,15 +299,6 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CDPGroupQuestions">
-            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPGroupQuestion">
-              <MappingFragment StoreEntitySet="CDPGroupQuestions">
-                <ScalarProperty Name="QuestionGroupText" ColumnName="QuestionGroupText" />
-                <ScalarProperty Name="QuestionGroupId" ColumnName="QuestionGroupId" />
-                <ScalarProperty Name="QGroupId" ColumnName="QGroupId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CDPQuestions">
             <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPQuestion">
               <MappingFragment StoreEntitySet="CDPQuestions">
@@ -326,16 +312,6 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
                 <ScalarProperty Name="QuestionSubGroupId" ColumnName="QuestionSubGroupId" />
                 <ScalarProperty Name="QuestionGroupId" ColumnName="QuestionGroupId" />
                 <ScalarProperty Name="QId" ColumnName="QId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CDPSubGroupQuestions">
-            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPSubGroupQuestion">
-              <MappingFragment StoreEntitySet="CDPSubGroupQuestions">
-                <ScalarProperty Name="QuestionSubGroupText" ColumnName="QuestionSubGroupText" />
-                <ScalarProperty Name="QuestionSubGroupId" ColumnName="QuestionSubGroupId" />
-                <ScalarProperty Name="QuestionGroupId" ColumnName="QuestionGroupId" />
-                <ScalarProperty Name="QSubGroupId" ColumnName="QSubGroupId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -389,6 +365,16 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="CDPQuestionGroups">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPQuestionGroup">
+              <MappingFragment StoreEntitySet="CDPQuestionGroups">
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="QuestionGroupText" ColumnName="QuestionGroupText" />
+                <ScalarProperty Name="QuestionGroupId" ColumnName="QuestionGroupId" />
+                <ScalarProperty Name="QGroupId" ColumnName="QGroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -421,6 +407,7 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
         <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPDateRangeTransaction" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPSingleTransaction" Width="1.5" PointX="7.75" PointY="3.75" />
         <AssociationConnector Association="SMR_KMS_DB_DevModel.FK_Questions_TableInformations" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPQuestionGroup" Width="1.5" PointX="0.75" PointY="8.75" />
       </Diagram>
     </Diagrams>
   </Designer>
