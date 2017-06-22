@@ -1,4 +1,8 @@
-﻿
+﻿@model CDPReporting.Business.Models.QuestionResponseModel
+
+
+<script src="~/Scripts/bootstrap-multiselect.js"></script>
+<link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
 <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
 <link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
 @*<script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
@@ -7,7 +11,9 @@
     <link href="~/Content/DataTables/css/buttons.bootstrap.min.css" rel="stylesheet" />*@
 
 <script type="text/javascript">
+    $('#Question_CC12a_Col3_List').multiselect();
     var editor;
+    var qId = '@Model.QuestionId';
     $(document).ready(function () {
         debugger;
         editor = $('#GovernanceAnswertable').DataTable({
@@ -17,7 +23,7 @@
             "ajax": {
 
                 //debugger;
-                "url": '@Url.Content("~/Questionnaire/GetQuestionData/")' + "?questionId=121",
+                "url": '@Url.Content("~/Questionnaire/GetQuestionData/")' + "?questionId=" + qId,
                 "type": "GET",
                 "datatype": "json"
             }
@@ -39,17 +45,14 @@
                         className: "center",
                         defaultContent: '<a href="" class="editor_remove" ><span class="glyphicon glyphicon-trash"></span></a>'
                     }
-                    //{ "data": "City", "autoWidth": true },
-                    //{ "data": "PostalCode", "autoWidth": true }
             ]
         });
 
 
         // Delete a record
         $('#GovernanceAnswertable').on('click', 'a.editor_remove', function (e) {
-            debugger;
             e.preventDefault();
-            editor.row($(this).parents('tr')).remove()  .draw();
+            editor.row($(this).parents('tr')).remove().draw();
             //editor.remove($(this).parent('tr'), {
             //    title: 'Delete record',
             //    message: 'Are you sure you wish to remove this record?',
@@ -75,7 +78,7 @@
             });
             editor.row.add(
                 {
-                    "GridIndexId": "9999",
+                    "GridIndexId": "",
                     "GridCol1": col1Text,
                     "GridCol2": col2Text,
                     "GridCol3": col3Text,
@@ -86,44 +89,26 @@
 
         $('#Question_CC1_2a_Save').click(function () {
             debugger;
-            var dataToSave = editor.data().toArray();
-
-            //Call Save method here for this question..
-
-
-            //var $row = $("#GovernanceAnswertableIds").closest('tr');
-            //var $columns = $row.find('td');
-
-            //var modelArray = [];
-            //var values;
-
-            //jQuery.each($columns, function (i, item) {
-            //    values = values + 'GridCol' + (i + 1) + ':' + item.innerHTML ;
-
-            //    modelArray.push(values);
-            //var data = [];
-            //var data = $("#GovernanceAnswertableIds tr.data").map(function (index, elem) {
-            //    var ret = [];
-            //    $('.inputValue', this).each(function () {
-            //        var d = $(this).val() || $(this).text();
-            //        ret.push(d);
-            //    });
-            //    return ret;
-            //});
-            //alert(data);
-            //alert(data[0]);
-
-            var qcTeam = {
-                QuestionId: selectedDivId,
-                GridCol1: "kshk",
-                GridCol2: "dfkashd",
-                GridCol3: "aksdhk",
-                GridCol4: "äsdfs",
-                GridCol5: "asdfsd"
-            };
+            var data = editor.data().toArray();
             var ansResponse = [];
-            ansResponse.push(qcTeam);
-            $.post('@Url.Content("~///")', {}, function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var rowdata = data[i];
+                    //{
+                    //    "GridIndexId": "",
+                    //    "GridCol1": data[i].GridCol1,
+                    //    "GridCol2": data[i].GridCol2,
+                    //    "GridCol3": (for(var item = 0; item < (data[i].GridCol3).length; item++)
+                    //                {
+
+                    //                }),                                      
+                    //   "GridCol4": data[i].GridCol4,
+                    //};
+                ansResponse.push(rowdata);
+            }
+            debugger;
+            $.post('@Url.Content("~/Questionnaire/SaveResponseTableType/")', { model: ansResponse, questionId: qId }, function (data) {
+                debugger;
+                editor.ajax.reload();
             });
         });
     });

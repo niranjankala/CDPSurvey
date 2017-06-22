@@ -68,16 +68,31 @@ namespace CDPReporting.Business.Services
         /// <summary>
         /// Method to save question response.
         /// </summary>
-        public void SaveResponseTableType(List<QuestionResponseTableTypeModel> modelData)
+        public void SaveResponseTableType(List<QuestionResponseTableTypeModel> modelData, string questionId, Guid userId)
         {
             try
             {
+                List<CDPTableTypeQuestion> responseList = _context.CDPTableTypeQuestions.Where(answer => answer.UserId == userId && answer.QuestionId == questionId).ToList();
+                List<CDPTableTypeQuestion> responseToRemove = new List<CDPTableTypeQuestion>();
+
+                if(modelData.Count == 0 || modelData == null)
+                    responseToRemove = responseList.Where(m => m.QuestionId == questionId && m.UserId == userId).ToList();
+                else
+                    responseToRemove = responseList.Where(x => !modelData.Any(m => m.GridIndexId == x.GridIndex)).ToList();
                 foreach(var data in modelData)
                 {
+                     //response = _context.CDPTableTypeQuestions.First(answer => answer.GridIndex == data.GridIndexId);
+
+                    bool responseToAdd = responseList.Where(m => m.GridIndex == data.GridIndexId).Any();
+                        
+                    if(!responseToAdd)
+                    {                      
+
                     CDPTableTypeQuestion response = new CDPTableTypeQuestion();
-                    //response.UserId = 
+                        response.GridIndex = Guid.NewGuid();
+                        response.UserId = userId;
                     response.Year = DateTime.Now.Year;
-                    response.QuestionId = data.QuestionId;
+                        response.QuestionId = questionId;
                     response.GridColumn1 = data.GridCol1;
                     response.GridColumn2 = data.GridCol2;
                     response.GridColumn3 = data.GridCol3;
@@ -90,7 +105,17 @@ namespace CDPReporting.Business.Services
                     response.GridColumn10 = data.GridCol10;
                     _context.CDPTableTypeQuestions.AddObject(response);
                     _context.SaveChanges();
+
+                    }                     
                 }
+
+                foreach (var data in responseToRemove)
+                {
+                    CDPTableTypeQuestion response = _context.CDPTableTypeQuestions.First(m=>m.GridIndex == data.GridIndex);
+                    _context.CDPTableTypeQuestions.DeleteObject(response);
+                    _context.SaveChanges();
+                }
+                 
                  
             }
             catch (Exception ex)
