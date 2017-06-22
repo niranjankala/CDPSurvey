@@ -1,44 +1,38 @@
 ﻿@model List<CDPReporting.Business.Models.GroupQuestionModel>
-<link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
 
     <div class="list-group">
-        @foreach(var element in Model)
+        @foreach (var element in Model)
         {
-            
-        
-        <div class="list-group-item-heading" style="cursor:pointer;">
-            <h3>@element.QuestionGroupId @element.QuestionGroupName </h3>
 
-            <div class="list-group-item-text" style="cursor:pointer;">
-                @foreach(var subitem in element.SubGroupQuestion)
-                {
-                    foreach (var subQuestions in subitem.Question)
+
+            <div class="list-group-item-heading" style="cursor:pointer;">
+                <h3>@element.QuestionGroupId @element.QuestionGroupName </h3>
+
+                <div class="list-group-item-text" style="cursor:pointer;">
+                    @foreach (var subitem in element.SubGroupQuestion)
                     {
-                    
-                
-                <h4>@subQuestions.SubGroupText</h4>
-                        string QuestionId = "Question_" + @subQuestions.QuestionId;
-    <div id= @QuestionId class="list-group-item-text" style="cursor:pointer;">
-        @if (@subQuestions.QuestionText.Length > 40)
-{
-    <p class="Questionbg">@subQuestions.QuestionId: @subQuestions.QuestionText.Substring(0, 40).....</p>
-}
-else
-{
-            <p>@subQuestions.QuestionId: @subQuestions.QuestionText</p>
-        }
-    </div>
-                    <br/>
-                    
+                        foreach (var subQuestions in subitem.Question)
+                        {
+                            //<h4>@subQuestions.SubGroupText</h4>
+                            string QuestionId = "Question_" + @subQuestions.QuestionId;
+                            <div id=@QuestionId class="list-group-item-text" style="cursor:pointer;">
+                                @if (@subQuestions.QuestionText.Length > 40)
+                                {
+                                    <p class="Questionbg">@subQuestions.QuestionId: @subQuestions.QuestionText.Substring(0, 40).....</p>
+                                }
+                                else
+                                {
+                                    <p>@subQuestions.QuestionId: @subQuestions.QuestionText</p>
+                                }
+                            </div>
+                            <br />
+                        }
                     }
-               }
-
-               
+                </div>
 
             </div>
-
-        </div>
-   }
+        }
     </div>
 
 

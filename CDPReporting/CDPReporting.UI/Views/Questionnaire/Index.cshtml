@@ -1,4 +1,4 @@
-﻿
+﻿@model List<CDPReporting.Business.Models.GroupQuestionModel>
 @{
     ViewBag.Title = "Questionnaire";
 }
@@ -51,7 +51,7 @@
         //        $('#QUESTANS_' + selectedDivId).show();
         //    });
     //});
-   @model List<CDPReporting.Business.Models.GroupQuestionModel>
+
     var questionViewURL = '@Url.Content("~/Questionnaire/GetQuestionView")'; 
     var indexURL = '@Url.Content("~/QuestionnaireController/Index")';
 

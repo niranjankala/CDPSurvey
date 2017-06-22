@@ -36,26 +36,29 @@ namespace CDPReporting.Business.Services
                                      {
                                          QuestionGroupId = groupquestion.QuestionGroupId,
                                          QuestionGroupName = groupquestion.QuestionGroupText,
-                                         SubGroupQuestion =  (from subgroup in dbSubGroupQuestionList where subgroup.QuestionGroupId == groupquestion.QuestionGroupId
-                                                                  select new SubGroupQuestionModel
-                                                                  {
-                                                                      SubQuestionGroupId = subgroup.QuestionSubGroupId,
-                                                                      SubQuestionGroupName = subgroup.QuestionSubGroupText,
-                                                                      
-                                                                      Question = (from question in dbQuestionList
-                                                                                  where question.QuestionGroupId == groupquestion.QuestionGroupId && 
-                                                                                  question.QuestionSubGroupId == subgroup.QuestionSubGroupId
-                                                                                      select new QuestionModel
-                                                                                      {
-                                                                                           Id=question.QId,
-                                                                                          QuestionId = question.QuestionId,
-                                                                                          QuestionText = question.QuestionText,
-                                                                                          GroupText=question.GroupText,
-                                                                                          SubGroupText=question.SubGroupText,
-                                                                                         
-                                                                                          TableType = dbTableType.FirstOrDefault(m=>m.TableId == question.TableId).TableType
-                                                                                      }).ToList()
-                                                                  }).ToList()
+                                         SubGroupQuestion = (from subgroup in dbSubGroupQuestionList
+                                                             where subgroup.QuestionGroupId == groupquestion.QuestionGroupId
+                                                             select new SubGroupQuestionModel
+                                                             {
+                                                                 SubQuestionGroupId = subgroup.QuestionSubGroupId,
+                                                                 SubQuestionGroupName = subgroup.QuestionSubGroupText,
+
+                                                                 Question = (from question in dbQuestionList
+                                                                             where question.QuestionGroupId == groupquestion.QuestionGroupId &&
+                                                                             question.QuestionSubGroupId == subgroup.QuestionSubGroupId
+                                                                             orderby question.QuestionOrder
+                                                                             select new QuestionModel
+                                                                             {
+                                                                                 Id = question.QId,
+                                                                                 QuestionId = question.QuestionId,
+                                                                                 QuestionText = question.QuestionText,
+                                                                                 QuestionOrder = question.QuestionOrder ?? 1,
+                                                                                 GroupText = question.GroupText,
+                                                                                 SubGroupText = question.SubGroupText,
+
+                                                                                 TableType = dbTableType.FirstOrDefault(m => m.TableId == question.TableId).TableType
+                                                                             }).ToList()
+                                                             }).ToList()
                                      }).ToList();
                 return groupQuestionList;
             }
@@ -74,37 +77,40 @@ namespace CDPReporting.Business.Services
                 List<CDPTableTypeQuestion> responseList = _context.CDPTableTypeQuestions.Where(answer => answer.UserId == userId && answer.QuestionId == questionId).ToList();
                 List<CDPTableTypeQuestion> responseToRemove = new List<CDPTableTypeQuestion>();
 
-                if (modelData.Count == 0 || modelData == null)
+                if (modelData == null || modelData.Count == 0)
                     responseToRemove = responseList.Where(m => m.QuestionId == questionId && m.UserId == userId).ToList();
                 else
                     responseToRemove = responseList.Where(x => !modelData.Any(m => m.GridIndexId == x.GridIndex)).ToList();
-                foreach (var data in modelData)
+                if (modelData != null)
                 {
-                    //response = _context.CDPTableTypeQuestions.First(answer => answer.GridIndex == data.GridIndexId);
-
-                    bool responseToAdd = responseList.Where(m => m.GridIndex == data.GridIndexId).Any();
-
-                    if (!responseToAdd)
+                    foreach (var data in modelData)
                     {
+                        //response = _context.CDPTableTypeQuestions.First(answer => answer.GridIndex == data.GridIndexId);
 
-                        CDPTableTypeQuestion response = new CDPTableTypeQuestion();
-                        response.GridIndex = Guid.NewGuid();
-                        response.UserId = userId;
-                        response.Year = DateTime.Now.Year;
-                        response.QuestionId = questionId;
-                        response.GridColumn1 = data.GridCol1;
-                        response.GridColumn2 = data.GridCol2;
-                        response.GridColumn3 = data.GridCol3;
-                        response.GridColumn4 = data.GridCol4;
-                        response.GridColumn5 = data.GridCol5;
-                        response.GridColumn6 = data.GridCol6;
-                        response.GridColumn7 = data.GridCol7;
-                        response.GridColumn8 = data.GridCol8;
-                        response.GridColumn9 = data.GridCol9;
-                        response.GridColumn10 = data.GridCol10;
-                        _context.CDPTableTypeQuestions.AddObject(response);
-                        _context.SaveChanges();
+                        bool responseToAdd = responseList.Where(m => m.GridIndex == data.GridIndexId).Any();
 
+                        if (!responseToAdd)
+                        {
+
+                            CDPTableTypeQuestion response = new CDPTableTypeQuestion();
+                            response.GridIndex = Guid.NewGuid();
+                            response.UserId = userId;
+                            response.Year = DateTime.Now.Year;
+                            response.QuestionId = questionId;
+                            response.GridColumn1 = data.GridCol1;
+                            response.GridColumn2 = data.GridCol2;
+                            response.GridColumn3 = data.GridCol3;
+                            response.GridColumn4 = data.GridCol4;
+                            response.GridColumn5 = data.GridCol5;
+                            response.GridColumn6 = data.GridCol6;
+                            response.GridColumn7 = data.GridCol7;
+                            response.GridColumn8 = data.GridCol8;
+                            response.GridColumn9 = data.GridCol9;
+                            response.GridColumn10 = data.GridCol10;
+                            _context.CDPTableTypeQuestions.AddObject(response);
+                            _context.SaveChanges();
+
+                        }
                     }
                 }
 
