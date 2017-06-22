@@ -818,6 +818,54 @@ namespace CDPReporting.Data.Entity
         private Nullable<global::System.Int32> _QuestionOrder;
         partial void OnQuestionOrderChanging(Nullable<global::System.Int32> value);
         partial void OnQuestionOrderChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String GroupText
+        {
+            get
+            {
+                return _GroupText;
+            }
+            set
+            {
+                OnGroupTextChanging(value);
+                ReportPropertyChanging("GroupText");
+                _GroupText = StructuralObject.SetValidValue(value, true, "GroupText");
+                ReportPropertyChanged("GroupText");
+                OnGroupTextChanged();
+            }
+        }
+        private global::System.String _GroupText;
+        partial void OnGroupTextChanging(global::System.String value);
+        partial void OnGroupTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SubGroupText
+        {
+            get
+            {
+                return _SubGroupText;
+            }
+            set
+            {
+                OnSubGroupTextChanging(value);
+                ReportPropertyChanging("SubGroupText");
+                _SubGroupText = StructuralObject.SetValidValue(value, true, "SubGroupText");
+                ReportPropertyChanged("SubGroupText");
+                OnSubGroupTextChanged();
+            }
+        }
+        private global::System.String _SubGroupText;
+        partial void OnSubGroupTextChanging(global::System.String value);
+        partial void OnSubGroupTextChanged();
 
         #endregion
 

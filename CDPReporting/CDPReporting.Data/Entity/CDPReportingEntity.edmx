@@ -38,6 +38,8 @@
           <Property Name="QuestionText" Type="nvarchar(max)" Nullable="false" />
           <Property Name="TableId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="QuestionOrder" Type="int" />
+          <Property Name="GroupText" Type="varchar(max)" />
+          <Property Name="SubGroupText" Type="varchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPSingleTransactionTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -200,6 +202,8 @@ FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
           <Property Name="TableId" Type="Guid" Nullable="false" />
           <Property Name="QuestionOrder" Type="Int32" />
           <NavigationProperty Name="CDPTableInformation" Relationship="SMR_KMS_DB_DevModel.FK_Questions_TableInformations" FromRole="CDPQuestion" ToRole="CDPTableInformation" />
+          <Property Name="GroupText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SubGroupText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CDPSubGroupQuestion">
           <Key>
@@ -295,6 +299,8 @@ FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
           <EntitySetMapping Name="CDPQuestions">
             <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPQuestion">
               <MappingFragment StoreEntitySet="CDPQuestions">
+                <ScalarProperty Name="SubGroupText" ColumnName="SubGroupText" />
+                <ScalarProperty Name="GroupText" ColumnName="GroupText" />
                 <ScalarProperty Name="QuestionOrder" ColumnName="QuestionOrder" />
                 <ScalarProperty Name="TableId" ColumnName="TableId" />
                 <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />

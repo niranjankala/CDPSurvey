@@ -41,13 +41,18 @@ namespace CDPReporting.Business.Services
                                                                   {
                                                                       SubQuestionGroupId = subgroup.QuestionSubGroupId,
                                                                       SubQuestionGroupName = subgroup.QuestionSubGroupText,
+                                                                      
                                                                       Question = (from question in dbQuestionList
                                                                                   where question.QuestionGroupId == groupquestion.QuestionGroupId && 
                                                                                   question.QuestionSubGroupId == subgroup.QuestionSubGroupId
                                                                                       select new QuestionModel
                                                                                       {
+                                                                                           Id=question.QId,
                                                                                           QuestionId = question.QuestionId,
-                                                                                          QuestionName = question.QuestionText,
+                                                                                          QuestionText = question.QuestionText,
+                                                                                          GroupText=question.GroupText,
+                                                                                          SubGroupText=question.SubGroupText,
+                                                                                         
                                                                                           TableType = dbTableType.FirstOrDefault(m=>m.TableId == question.TableId).TableType
                                                                                       }).ToList()
                                                                   }).ToList()
@@ -211,5 +216,23 @@ namespace CDPReporting.Business.Services
                 throw ex;
             }
         }
+
+        //public List<SidePanelQuestions> GetQuestionList()
+        //{
+        //    List<SidePanelQuestions> oSidePanelQuestions = new List<SidePanelQuestions>();
+        //    var result = (from t in _context.CDPQuestions
+        //                          where t.QId != null
+        //                  select t).ToList();
+        //    oSidePanelQuestions = result.Select(p => p).Select(p => new SidePanelQuestions() {
+        //                                QuestionGroupId = p.QuestionGroupId,
+        //                                QuestionGuid = p.QId,
+        //                                QuestionId = p.QuestionId,
+        //                                QuestionOrder = (int)p.QuestionOrder,
+        //                                QuestionSubGroupId = p.QuestionSubGroupId,
+        //                                QuestionText = p.QuestionText,
+        //                                TableId = p.TableId}).ToList();              
+
+        //    return oSidePanelQuestions;
+        //}
     }    
 }

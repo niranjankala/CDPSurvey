@@ -26,10 +26,18 @@ namespace CDPReporting.UI.Controllers
 
         public ActionResult Index()
         {
+            List<GroupQuestionModel> oSidePanelQuestions = new List<GroupQuestionModel>();
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of QuestionnaireController");
+            
+
+            oSidePanelQuestions = oQuestionnaireService.GetQuestionList();
+
+           // return View("_ViewQuestionList", oSidePanelQuestions);
+            
+            
             //var model = new QuestionModelResult();
           //  var model.QuestionGroupList = oQuestionnaireService.GetQuestionList();                                                
-            return View();
+            return View(oSidePanelQuestions);
         }
 
         public ActionResult GetQuestionView(string questionViewId)
@@ -90,6 +98,14 @@ namespace CDPReporting.UI.Controllers
              }
              return Json(new { data = data }, JsonRequestBehavior.AllowGet);
          }
-   
+         //public ActionResult GetAllSidePanelQuestions()
+         //{
+         //    List<GroupQuestionModel> oSidePanelQuestions = new List<GroupQuestionModel>();
+
+         //    oSidePanelQuestions = oQuestionnaireService.GetQuestionList();
+
+         //    return View("_ViewQuestionList", oSidePanelQuestions);
+         //}
+
      }
 }

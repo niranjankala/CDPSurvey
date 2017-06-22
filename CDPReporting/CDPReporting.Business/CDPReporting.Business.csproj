@@ -60,6 +60,7 @@
     <Compile Include="Models\QuestionResponseTableTypeModel.cs" />
     <Compile Include="Models\QuestionStore.cs" />
     <Compile Include="Models\QuestionType.cs" />
+    <Compile Include="Models\SidePanelQuestions.cs" />
     <Compile Include="Models\SubGroupQuestionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\QuestionnaireService.cs" />

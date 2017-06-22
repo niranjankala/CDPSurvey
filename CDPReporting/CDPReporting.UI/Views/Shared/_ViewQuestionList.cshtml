@@ -1,27 +1,44 @@
-﻿
-<div class="list-group">
-   
-    <div class="list-group-item-heading" style="cursor:pointer;">
-        <h3 >CC0. Introduction page</h3>
+﻿@model List<CDPReporting.Business.Models.GroupQuestionModel>
+<link href="~/Content/Style.css" rel="stylesheet" />
 
-        <div class="list-group-item-text" style="cursor:pointer;">
-            <h4 >Introduction</h4>
+    <div class="list-group">
+        @foreach(var element in Model)
+        {
+            
+        
+        <div class="list-group-item-heading" style="cursor:pointer;">
+            <h3>@element.QuestionGroupId @element.QuestionGroupName </h3>
 
-            <div id="Question_CC0.1" class="list-group-item-text" style="cursor:pointer;">
-                <p>CC0.1: Please give a general description and introduction to your organization [maximum 5000 characters].</p>
-            </div><br />
+            <div class="list-group-item-text" style="cursor:pointer;">
+                @foreach(var subitem in element.SubGroupQuestion)
+                {
+                    foreach (var subQuestions in subitem.Question)
+                    {
+                    
+                
+                <h4>@subQuestions.SubGroupText</h4>
+                        string QuestionId = "Question_" + @subQuestions.QuestionId;
+    <div id= @QuestionId class="list-group-item-text" style="cursor:pointer;">
+        @if (@subQuestions.QuestionText.Length > 40)
+{
+    <p class="Questionbg">@subQuestions.QuestionId: @subQuestions.QuestionText.Substring(0, 40).....</p>
+}
+else
+{
+            <p>@subQuestions.QuestionId: @subQuestions.QuestionText</p>
+        }
+    </div>
+                    <br/>
+                    
+                    }
+               }
 
-            <div id="Question_CC0.2" class="list-group-item-text" style="cursor:pointer;">
-                <p>CC0.2: Please state the start and end date of the year for which you are reporting data.</p>
-            </div><br />
+               
 
-            <div id="Question_CC1.2a" class="list-group-item-text" style="cursor:pointer;">
-                <p>CC1.2a: Please provide further details on the incentives provided for the management of climate change issues</p>
-            </div><br />
+            </div>
 
         </div>
-
-    </div>
+   }
     </div>
 
 
