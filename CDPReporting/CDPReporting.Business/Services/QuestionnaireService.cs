@@ -127,7 +127,7 @@ namespace CDPReporting.Business.Services
 
         public QuestionResponseModel GetQuestionResponse(string questionId, Guid userId)
         {
-            CDPQuestionType questionType = _context.CDPQuestionTypes.First(type => type.Id == _context.CDPQuestions.First(q => q.QuestionId == q.QuestionId).QuestionType); ;
+            CDPQuestionType questionType = _context.CDPQuestionTypes.First(type => type.Id == _context.CDPQuestions.First(q => q.QuestionId == questionId).QuestionType); ;
             QuestionResponseModel result = new QuestionResponseModel();
             result.QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), questionType.Type);
             result.Value = GetQuestionAnswerDetails(userId, questionId, result.QuestionType);

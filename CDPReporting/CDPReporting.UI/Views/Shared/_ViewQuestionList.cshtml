@@ -1,55 +1,55 @@
 ﻿@model List<CDPReporting.Business.Models.GroupQuestionModel>
-    <link href="~/Content/Style.css" rel="stylesheet" />
+<link href="~/Content/Style.css" rel="stylesheet" />
 
-    <div class="list-group">
-        @foreach (var element in Model)
-        {
-            <div class="list-group-item-heading" style="cursor:pointer;">
+<div class="list-group">
+    @foreach (var element in Model)
+    {
+        <div class="list-group-item-heading" style="cursor:pointer;">
 
-        @*<div class="col-md-6">*@
+            @*<div class="col-md-6">*@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">@element.QuestionGroupId @element.QuestionGroupName</h3>
                     <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                 </div>
 
-            @*</div>
-        </div>*@
+                @*</div>
+                    </div>*@
 
 
 
-        @*<h4 style="background-color: #E7EEED; " </h4>*@
-        <div class="panel-body">
+                @*<h4 style="background-color: #E7EEED; " </h4>*@
+                <div class="panel-body">
 
-                <div class="list-group-item-text" style="cursor:pointer;">
-                    @foreach (var subitem in element.SubGroupQuestion)
-                    {
-                        foreach (var subQuestions in subitem.Question)
+                    <div class="list-group-item-text" style="cursor:pointer;">
+                        @*@foreach (var subitem in element.SubGroupQuestion)
+                            {*@
+                        @foreach (var subQuestions in element.Questions)
                         {
                             //<h4>@subQuestions.SubGroupText</h4>
                             string QuestionId = "Question_" + @subQuestions.QuestionId;
-                            <div id=@QuestionId class="list-group-item-text" style="cursor:pointer;">
+                            <div id=@QuestionId class="list-group-item-text question" style="cursor:pointer;">
                                 @if (@subQuestions.QuestionText.Length > 40)
                                 {
                                     <p class="Questionbg">@subQuestions.QuestionId: @subQuestions.QuestionText.Substring(0, 40).....</p>
                                 }
                                 else
                                 {
-                                <p class="Questionbg">@subQuestions.QuestionId: @subQuestions.QuestionText</p>
+                                    <p class="Questionbg">@subQuestions.QuestionId: @subQuestions.QuestionText</p>
                                 }
                             </div>
                             <br />
                         }
-                }
-            </div>
+                        @*}*@
+                    </div>
 
-        </div>
-    </div>
+                </div>
+            </div>
 
             @*</div>*@
-            </div>
-        }
-    </div>
+        </div>
+    }
+</div>
 
 
 <script>
