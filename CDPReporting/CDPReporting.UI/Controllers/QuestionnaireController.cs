@@ -26,10 +26,18 @@ namespace CDPReporting.UI.Controllers
 
         public ActionResult Index()
         {
+            List<GroupQuestionModel> oSidePanelQuestions = new List<GroupQuestionModel>();
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of QuestionnaireController");
+            
+
+            oSidePanelQuestions = oQuestionnaireService.GetQuestionList();
+
+           // return View("_ViewQuestionList", oSidePanelQuestions);
+            
+            
             //var model = new QuestionModelResult();
           //  var model.QuestionGroupList = oQuestionnaireService.GetQuestionList();                                                
-            return View();
+            return View(oSidePanelQuestions);
         }
 
         public ActionResult GetQuestionView(string questionViewId)
@@ -67,29 +75,40 @@ namespace CDPReporting.UI.Controllers
             }
         }
 
-         public void SaveResponseTableType(List<QuestionResponseTableTypeModel> model)
+         public void SaveResponseTableType(List<QuestionResponseTableTypeModel> model, string questionId)
         {
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of SaveQuestionResponse");
-            oQuestionnaireService.SaveResponseTableType(model);
+            oQuestionnaireService.SaveResponseTableType(model, questionId, CurrentUser.UserId);
         }
 
          public JsonResult GetQuestionData(string questionId)
          {
              List<QuestionResponseTableTypeModel> data = new List<QuestionResponseTableTypeModel>();
-             for (int i = 1; i <= 10; i++)
-             {
-                 int j = 1;
-                 data.Add(new QuestionResponseTableTypeModel()
-                     {
-                          GridIndexId =i+1, QuestionId = questionId, year = DateTime.Now.Year, 
-                          GridCol1 = string.Format("Row {0}Col{1}", i, j++),
-                          GridCol2 = string.Format("Row {0}Col{1}", i, j++),
-                          GridCol3 = string.Format("Row {0}Col{1}", i, j++),
-                          GridCol4 = string.Format("Row {0}Col{1}", i, j++)
-                     });
-             }
+             //for (int i = 1; i <= 10; i++)
+             //{
+             //    int j = 1;
+             //    data.Add(new QuestionResponseTableTypeModel()
+             //        {
+             //             GridIndexId =i+1, QuestionId = questionId, year = DateTime.Now.Year, 
+             //             GridCol1 = string.Format("Row {0}Col{1}", i, j++),
+             //             GridCol2 = string.Format("Row {0}Col{1}", i, j++),
+             //             GridCol3 = string.Format("Row {0}Col{1}", i, j++),
+             //             GridCol4 = string.Format("Row {0}Col{1}", i, j++)
+             //        });
+             //}
+
+             data = oQuestionnaireService.GetTableTypeResponse(questionId, CurrentUser.UserId);
+
              return Json(new { data = data }, JsonRequestBehavior.AllowGet);
          }
-   
+         //public ActionResult GetAllSidePanelQuestions()
+         //{
+         //    List<GroupQuestionModel> oSidePanelQuestions = new List<GroupQuestionModel>();
+
+         //    oSidePanelQuestions = oQuestionnaireService.GetQuestionList();
+
+         //    return View("_ViewQuestionList", oSidePanelQuestions);
+         //}
+
      }
 }

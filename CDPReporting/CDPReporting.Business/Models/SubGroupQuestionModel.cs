@@ -9,6 +9,7 @@ namespace CDPReporting.Business.Models
     {
         public string SubQuestionGroupId { get; set; }
         public string SubQuestionGroupName { get; set; }
+
          public List<QuestionModel> Question { get; set; }
 
          public SubGroupQuestionModel()

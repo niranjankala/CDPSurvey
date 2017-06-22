@@ -5,7 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SMR_KMS_DB_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="CDPGridDescriptiveTable">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPDateRangeTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CDPDateRangeTransaction">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="QuestionId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+        </EntityType>
+        <EntityType Name="CDPGridDescriptive">
           <Key>
             <PropertyRef Name="DescriptionId" />
           </Key>
@@ -38,10 +52,13 @@
           <Property Name="QuestionText" Type="nvarchar(max)" Nullable="false" />
           <Property Name="TableId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="QuestionOrder" Type="int" />
+          <Property Name="GroupText" Type="varchar(max)" />
+          <Property Name="SubGroupText" Type="varchar(max)" />
+          <Property Name="ParentQuestionId" Type="uniqueidentifier" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPSingleTransactionTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="CDPSingleTransactionTable">
+warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPSingleTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CDPSingleTransaction">
           <Key>
             <PropertyRef Name="UserId" />
             <PropertyRef Name="Year" />
@@ -68,18 +85,15 @@ warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPSingleTransactionTable' does
           <Property Name="TableId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="TableType" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPTableTypeQuestion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CDPTableTypeQuestion">
           <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Year" />
-            <PropertyRef Name="QuestionId" />
+            <PropertyRef Name="GridIndex" />
           </Key>
-          <Property Name="GridIndex" Type="int" />
+          <Property Name="GridIndex" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Year" Type="int" Nullable="false" />
           <Property Name="QuestionId" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DescriptiveId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="GridColumn1" Type="nvarchar" MaxLength="50" />
           <Property Name="GridColumn2" Type="nvarchar" MaxLength="50" />
           <Property Name="GridColumn3" Type="nvarchar" MaxLength="50" />
@@ -113,36 +127,28 @@ warning 6035: The relationship 'FK_Questions_SubGroupQuestions' has columns that
 warning 6035: The relationship 'FK_SubGroupQuestions_GroupQuestions' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK_SubGroupQuestions_GroupQuestions" />-->
         <EntityContainer Name="SMR_KMS_DB_DevModelStoreContainer">
-          <EntitySet Name="CDPGridDescriptiveTable" EntityType="Self.CDPGridDescriptiveTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CDPGridDescriptive" EntityType="Self.CDPGridDescriptive" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPGroupQuestions" EntityType="Self.CDPGroupQuestions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPQuestions" EntityType="Self.CDPQuestions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPSubGroupQuestions" EntityType="Self.CDPSubGroupQuestions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPTableInformations" EntityType="Self.CDPTableInformations" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CDPSingleTransactionTable" EntityType="Self.CDPSingleTransactionTable" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="CDPTableTypeQuestion" EntityType="Self.CDPTableTypeQuestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CDPDateRangeTransaction" EntityType="Self.CDPDateRangeTransaction" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[CDPSingleTransactionTable].[UserId] AS [UserId], 
-[CDPSingleTransactionTable].[Year] AS [Year], 
-[CDPSingleTransactionTable].[QuestionId] AS [QuestionId], 
-[CDPSingleTransactionTable].[Value] AS [Value]
-FROM [dbo].[CDPSingleTransactionTable] AS [CDPSingleTransactionTable]</DefiningQuery>
+[CDPDateRangeTransaction].[UserId] AS [UserId], 
+[CDPDateRangeTransaction].[Year] AS [Year], 
+[CDPDateRangeTransaction].[QuestionId] AS [QuestionId], 
+[CDPDateRangeTransaction].[StartDate] AS [StartDate], 
+[CDPDateRangeTransaction].[EndDate] AS [EndDate]
+FROM [dbo].[CDPDateRangeTransaction] AS [CDPDateRangeTransaction]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="CDPTableTypeQuestion" EntityType="Self.CDPTableTypeQuestion" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="CDPSingleTransaction" EntityType="Self.CDPSingleTransaction" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[CDPTableTypeQuestion].[GridIndex] AS [GridIndex], 
-[CDPTableTypeQuestion].[UserId] AS [UserId], 
-[CDPTableTypeQuestion].[Year] AS [Year], 
-[CDPTableTypeQuestion].[QuestionId] AS [QuestionId], 
-[CDPTableTypeQuestion].[GridColumn1] AS [GridColumn1], 
-[CDPTableTypeQuestion].[GridColumn2] AS [GridColumn2], 
-[CDPTableTypeQuestion].[GridColumn3] AS [GridColumn3], 
-[CDPTableTypeQuestion].[GridColumn4] AS [GridColumn4], 
-[CDPTableTypeQuestion].[GridColumn5] AS [GridColumn5], 
-[CDPTableTypeQuestion].[GridColumn6] AS [GridColumn6], 
-[CDPTableTypeQuestion].[GridColumn7] AS [GridColumn7], 
-[CDPTableTypeQuestion].[GridColumn8] AS [GridColumn8], 
-[CDPTableTypeQuestion].[GridColumn9] AS [GridColumn9], 
-[CDPTableTypeQuestion].[GridColumn10] AS [GridColumn10]
-FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
+[CDPSingleTransaction].[UserId] AS [UserId], 
+[CDPSingleTransaction].[Year] AS [Year], 
+[CDPSingleTransaction].[QuestionId] AS [QuestionId], 
+[CDPSingleTransaction].[Value] AS [Value]
+FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Questions_TableInformations" Association="Self.FK_Questions_TableInformations">
             <End Role="CDPTableInformations" EntitySet="CDPTableInformations" />
@@ -154,19 +160,20 @@ FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
     <edmx:ConceptualModels>
       <Schema Namespace="SMR_KMS_DB_DevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="SMR_KMS_DB_DevEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CDPGridDescriptiveTables" EntityType="SMR_KMS_DB_DevModel.CDPGridDescriptiveTable" />
+          <EntitySet Name="CDPGridDescriptives" EntityType="SMR_KMS_DB_DevModel.CDPGridDescriptive" />
           <EntitySet Name="CDPGroupQuestions" EntityType="SMR_KMS_DB_DevModel.CDPGroupQuestion" />
           <EntitySet Name="CDPQuestions" EntityType="SMR_KMS_DB_DevModel.CDPQuestion" />
           <EntitySet Name="CDPSubGroupQuestions" EntityType="SMR_KMS_DB_DevModel.CDPSubGroupQuestion" />
           <EntitySet Name="CDPTableInformations" EntityType="SMR_KMS_DB_DevModel.CDPTableInformation" />
-          <EntitySet Name="CDPSingleTransactionTables" EntityType="SMR_KMS_DB_DevModel.CDPSingleTransactionTable" />
           <EntitySet Name="CDPTableTypeQuestions" EntityType="SMR_KMS_DB_DevModel.CDPTableTypeQuestion" />
+          <EntitySet Name="CDPDateRangeTransactions" EntityType="SMR_KMS_DB_DevModel.CDPDateRangeTransaction" />
+          <EntitySet Name="CDPSingleTransactions" EntityType="SMR_KMS_DB_DevModel.CDPSingleTransaction" />
           <AssociationSet Name="FK_Questions_TableInformations" Association="SMR_KMS_DB_DevModel.FK_Questions_TableInformations">
             <End Role="CDPTableInformation" EntitySet="CDPTableInformations" />
             <End Role="CDPQuestion" EntitySet="CDPQuestions" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="CDPGridDescriptiveTable">
+        <EntityType Name="CDPGridDescriptive">
           <Key>
             <PropertyRef Name="DescriptionId" />
           </Key>
@@ -199,6 +206,9 @@ FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
           <Property Name="QuestionText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TableId" Type="Guid" Nullable="false" />
           <Property Name="QuestionOrder" Type="Int32" />
+          <Property Name="GroupText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SubGroupText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ParentQuestionId" Type="Guid" />
           <NavigationProperty Name="CDPTableInformation" Relationship="SMR_KMS_DB_DevModel.FK_Questions_TableInformations" FromRole="CDPQuestion" ToRole="CDPTableInformation" />
         </EntityType>
         <EntityType Name="CDPSubGroupQuestion">
@@ -218,27 +228,15 @@ FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
           <Property Name="TableType" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CDPQuestions" Relationship="SMR_KMS_DB_DevModel.FK_Questions_TableInformations" FromRole="CDPTableInformation" ToRole="CDPQuestion" />
         </EntityType>
-        <EntityType Name="CDPSingleTransactionTable">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Year" />
-            <PropertyRef Name="QuestionId" />
-          </Key>
-          <Property Name="UserId" Type="Guid" Nullable="false" />
-          <Property Name="Year" Type="Int32" Nullable="false" />
-          <Property Name="QuestionId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="CDPTableTypeQuestion">
           <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Year" />
-            <PropertyRef Name="QuestionId" />
+            <PropertyRef Name="GridIndex" />
           </Key>
-          <Property Name="GridIndex" Type="Int32" />
+          <Property Name="GridIndex" Type="Guid" Nullable="false" />
           <Property Name="UserId" Type="Guid" Nullable="false" />
           <Property Name="Year" Type="Int32" Nullable="false" />
           <Property Name="QuestionId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptiveId" Type="Guid" Nullable="false" />
           <Property Name="GridColumn1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GridColumn2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GridColumn3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -249,6 +247,29 @@ FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
           <Property Name="GridColumn8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GridColumn9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GridColumn10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CDPDateRangeTransaction">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="QuestionId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CDPSingleTransaction">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="QuestionId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Questions_TableInformations">
           <End Type="SMR_KMS_DB_DevModel.CDPTableInformation" Role="CDPTableInformation" Multiplicity="1" />
@@ -268,9 +289,9 @@ FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SMR_KMS_DB_DevModelStoreContainer" CdmEntityContainer="SMR_KMS_DB_DevEntities">
-          <EntitySetMapping Name="CDPGridDescriptiveTables">
-            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPGridDescriptiveTable">
-              <MappingFragment StoreEntitySet="CDPGridDescriptiveTable">
+          <EntitySetMapping Name="CDPGridDescriptives">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPGridDescriptive">
+              <MappingFragment StoreEntitySet="CDPGridDescriptive">
                 <ScalarProperty Name="DescriptionId" ColumnName="DescriptionId" />
                 <ScalarProperty Name="Description5" ColumnName="Description5" />
                 <ScalarProperty Name="Description4" ColumnName="Description4" />
@@ -295,6 +316,9 @@ FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
           <EntitySetMapping Name="CDPQuestions">
             <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPQuestion">
               <MappingFragment StoreEntitySet="CDPQuestions">
+                <ScalarProperty Name="ParentQuestionId" ColumnName="ParentQuestionId" />
+                <ScalarProperty Name="SubGroupText" ColumnName="SubGroupText" />
+                <ScalarProperty Name="GroupText" ColumnName="GroupText" />
                 <ScalarProperty Name="QuestionOrder" ColumnName="QuestionOrder" />
                 <ScalarProperty Name="TableId" ColumnName="TableId" />
                 <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
@@ -323,16 +347,6 @@ FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CDPSingleTransactionTables">
-            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPSingleTransactionTable">
-              <MappingFragment StoreEntitySet="CDPSingleTransactionTable">
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CDPTableTypeQuestions">
             <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPTableTypeQuestion">
               <MappingFragment StoreEntitySet="CDPTableTypeQuestion">
@@ -346,10 +360,32 @@ FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
                 <ScalarProperty Name="GridColumn3" ColumnName="GridColumn3" />
                 <ScalarProperty Name="GridColumn2" ColumnName="GridColumn2" />
                 <ScalarProperty Name="GridColumn1" ColumnName="GridColumn1" />
+                <ScalarProperty Name="DescriptiveId" ColumnName="DescriptiveId" />
                 <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="GridIndex" ColumnName="GridIndex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CDPDateRangeTransactions">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPDateRangeTransaction">
+              <MappingFragment StoreEntitySet="CDPDateRangeTransaction">
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CDPSingleTransactions">
+            <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPSingleTransaction">
+              <MappingFragment StoreEntitySet="CDPSingleTransaction">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -376,13 +412,14 @@ FROM [dbo].[CDPTableTypeQuestion] AS [CDPTableTypeQuestion]</DefiningQuery>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram DiagramId="5121a9f3c1ad407eb1fee3041879a46f" Name="Diagram1">
-        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPGridDescriptiveTable" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPGroupQuestion" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPGridDescriptive" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPGroupQuestion" Width="1.5" PointX="0.75" PointY="5.75" />
         <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPQuestion" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPSubGroupQuestion" Width="1.5" PointX="4.75" PointY="4.75" />
-        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPTableInformation" Width="1.5" PointX="0.75" PointY="1.375" />
-        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPSingleTransactionTable" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPTableTypeQuestion" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPSubGroupQuestion" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPTableInformation" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPTableTypeQuestion" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPDateRangeTransaction" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPSingleTransaction" Width="1.5" PointX="7.75" PointY="3.75" />
         <AssociationConnector Association="SMR_KMS_DB_DevModel.FK_Questions_TableInformations" />
       </Diagram>
     </Diagrams>

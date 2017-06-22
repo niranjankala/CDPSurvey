@@ -1,4 +1,4 @@
-﻿
+﻿@model List<CDPReporting.Business.Models.GroupQuestionModel>
 @{
     ViewBag.Title = "Questionnaire";
 }
@@ -38,6 +38,8 @@
 </style>
 
 <script src="~/Scripts/Questionnaire/selectQuestions.js"></script>
+<script src="~/Scripts/bootstrap-multiselect.js"></script>
+<link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
 
 <script type="text/javascript">
 
@@ -59,7 +61,7 @@
     <div class="col-sm-12 col-md-4">   
         <div><h3>Questions</h3></div>
         <div class="sidebar, pre-scrollable rounded-border" id="questionListDiv">
-            @Html.Partial("_ViewQuestionList")
+            @Html.Partial("_ViewQuestionList",Model)
         </div>
     </div>
     <div class="col-sm-12 col-md-8">
