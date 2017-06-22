@@ -90,18 +90,18 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CDPGroupQuestion> CDPGroupQuestions
+        public ObjectSet<CDPQuestionGroup> CDPQuestionGroups
         {
             get
             {
-                if ((_CDPGroupQuestions == null))
+                if ((_CDPQuestionGroups == null))
                 {
-                    _CDPGroupQuestions = base.CreateObjectSet<CDPGroupQuestion>("CDPGroupQuestions");
+                    _CDPQuestionGroups = base.CreateObjectSet<CDPQuestionGroup>("CDPQuestionGroups");
                 }
-                return _CDPGroupQuestions;
+                return _CDPQuestionGroups;
             }
         }
-        private ObjectSet<CDPGroupQuestion> _CDPGroupQuestions;
+        private ObjectSet<CDPQuestionGroup> _CDPQuestionGroups;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -122,18 +122,18 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CDPSubGroupQuestion> CDPSubGroupQuestions
+        public ObjectSet<CDPQuestionSubGroup> CDPQuestionSubGroups
         {
             get
             {
-                if ((_CDPSubGroupQuestions == null))
+                if ((_CDPQuestionSubGroups == null))
                 {
-                    _CDPSubGroupQuestions = base.CreateObjectSet<CDPSubGroupQuestion>("CDPSubGroupQuestions");
+                    _CDPQuestionSubGroups = base.CreateObjectSet<CDPQuestionSubGroup>("CDPQuestionSubGroups");
                 }
-                return _CDPSubGroupQuestions;
+                return _CDPQuestionSubGroups;
             }
         }
-        private ObjectSet<CDPSubGroupQuestion> _CDPSubGroupQuestions;
+        private ObjectSet<CDPQuestionSubGroup> _CDPQuestionSubGroups;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -212,11 +212,11 @@ namespace CDPReporting.Data.Entity
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CDPGroupQuestions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the CDPQuestionGroups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCDPGroupQuestions(CDPGroupQuestion cDPGroupQuestion)
+        public void AddToCDPQuestionGroups(CDPQuestionGroup cDPQuestionGroup)
         {
-            base.AddObject("CDPGroupQuestions", cDPGroupQuestion);
+            base.AddObject("CDPQuestionGroups", cDPQuestionGroup);
         }
     
         /// <summary>
@@ -228,11 +228,11 @@ namespace CDPReporting.Data.Entity
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CDPSubGroupQuestions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the CDPQuestionSubGroups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCDPSubGroupQuestions(CDPSubGroupQuestion cDPSubGroupQuestion)
+        public void AddToCDPQuestionSubGroups(CDPQuestionSubGroup cDPQuestionSubGroup)
         {
-            base.AddObject("CDPSubGroupQuestions", cDPSubGroupQuestion);
+            base.AddObject("CDPQuestionSubGroups", cDPQuestionSubGroup);
         }
     
         /// <summary>
@@ -694,114 +694,6 @@ namespace CDPReporting.Data.Entity
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SMR_KMS_DB_DevModel", Name="CDPGroupQuestion")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class CDPGroupQuestion : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new CDPGroupQuestion object.
-        /// </summary>
-        /// <param name="qGroupId">Initial value of the QGroupId property.</param>
-        /// <param name="questionGroupId">Initial value of the QuestionGroupId property.</param>
-        /// <param name="questionGroupText">Initial value of the QuestionGroupText property.</param>
-        public static CDPGroupQuestion CreateCDPGroupQuestion(global::System.Guid qGroupId, global::System.String questionGroupId, global::System.String questionGroupText)
-        {
-            CDPGroupQuestion cDPGroupQuestion = new CDPGroupQuestion();
-            cDPGroupQuestion.QGroupId = qGroupId;
-            cDPGroupQuestion.QuestionGroupId = questionGroupId;
-            cDPGroupQuestion.QuestionGroupText = questionGroupText;
-            return cDPGroupQuestion;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid QGroupId
-        {
-            get
-            {
-                return _QGroupId;
-            }
-            set
-            {
-                if (_QGroupId != value)
-                {
-                    OnQGroupIdChanging(value);
-                    ReportPropertyChanging("QGroupId");
-                    _QGroupId = StructuralObject.SetValidValue(value, "QGroupId");
-                    ReportPropertyChanged("QGroupId");
-                    OnQGroupIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _QGroupId;
-        partial void OnQGroupIdChanging(global::System.Guid value);
-        partial void OnQGroupIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String QuestionGroupId
-        {
-            get
-            {
-                return _QuestionGroupId;
-            }
-            set
-            {
-                OnQuestionGroupIdChanging(value);
-                ReportPropertyChanging("QuestionGroupId");
-                _QuestionGroupId = StructuralObject.SetValidValue(value, false, "QuestionGroupId");
-                ReportPropertyChanged("QuestionGroupId");
-                OnQuestionGroupIdChanged();
-            }
-        }
-        private global::System.String _QuestionGroupId;
-        partial void OnQuestionGroupIdChanging(global::System.String value);
-        partial void OnQuestionGroupIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String QuestionGroupText
-        {
-            get
-            {
-                return _QuestionGroupText;
-            }
-            set
-            {
-                OnQuestionGroupTextChanging(value);
-                ReportPropertyChanging("QuestionGroupText");
-                _QuestionGroupText = StructuralObject.SetValidValue(value, false, "QuestionGroupText");
-                ReportPropertyChanged("QuestionGroupText");
-                OnQuestionGroupTextChanged();
-            }
-        }
-        private global::System.String _QuestionGroupText;
-        partial void OnQuestionGroupTextChanging(global::System.String value);
-        partial void OnQuestionGroupTextChanged();
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="SMR_KMS_DB_DevModel", Name="CDPQuestion")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1126,6 +1018,248 @@ namespace CDPReporting.Data.Entity
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SMR_KMS_DB_DevModel", Name="CDPQuestionGroup")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CDPQuestionGroup : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CDPQuestionGroup object.
+        /// </summary>
+        /// <param name="qGroupId">Initial value of the QGroupId property.</param>
+        /// <param name="questionGroupId">Initial value of the QuestionGroupId property.</param>
+        /// <param name="questionGroupText">Initial value of the QuestionGroupText property.</param>
+        /// <param name="order">Initial value of the Order property.</param>
+        public static CDPQuestionGroup CreateCDPQuestionGroup(global::System.Guid qGroupId, global::System.String questionGroupId, global::System.String questionGroupText, global::System.Int32 order)
+        {
+            CDPQuestionGroup cDPQuestionGroup = new CDPQuestionGroup();
+            cDPQuestionGroup.QGroupId = qGroupId;
+            cDPQuestionGroup.QuestionGroupId = questionGroupId;
+            cDPQuestionGroup.QuestionGroupText = questionGroupText;
+            cDPQuestionGroup.Order = order;
+            return cDPQuestionGroup;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid QGroupId
+        {
+            get
+            {
+                return _QGroupId;
+            }
+            set
+            {
+                if (_QGroupId != value)
+                {
+                    OnQGroupIdChanging(value);
+                    ReportPropertyChanging("QGroupId");
+                    _QGroupId = StructuralObject.SetValidValue(value, "QGroupId");
+                    ReportPropertyChanged("QGroupId");
+                    OnQGroupIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _QGroupId;
+        partial void OnQGroupIdChanging(global::System.Guid value);
+        partial void OnQGroupIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionGroupId
+        {
+            get
+            {
+                return _QuestionGroupId;
+            }
+            set
+            {
+                OnQuestionGroupIdChanging(value);
+                ReportPropertyChanging("QuestionGroupId");
+                _QuestionGroupId = StructuralObject.SetValidValue(value, false, "QuestionGroupId");
+                ReportPropertyChanged("QuestionGroupId");
+                OnQuestionGroupIdChanged();
+            }
+        }
+        private global::System.String _QuestionGroupId;
+        partial void OnQuestionGroupIdChanging(global::System.String value);
+        partial void OnQuestionGroupIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionGroupText
+        {
+            get
+            {
+                return _QuestionGroupText;
+            }
+            set
+            {
+                OnQuestionGroupTextChanging(value);
+                ReportPropertyChanging("QuestionGroupText");
+                _QuestionGroupText = StructuralObject.SetValidValue(value, false, "QuestionGroupText");
+                ReportPropertyChanged("QuestionGroupText");
+                OnQuestionGroupTextChanged();
+            }
+        }
+        private global::System.String _QuestionGroupText;
+        partial void OnQuestionGroupTextChanging(global::System.String value);
+        partial void OnQuestionGroupTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Order
+        {
+            get
+            {
+                return _Order;
+            }
+            set
+            {
+                OnOrderChanging(value);
+                ReportPropertyChanging("Order");
+                _Order = StructuralObject.SetValidValue(value, "Order");
+                ReportPropertyChanged("Order");
+                OnOrderChanged();
+            }
+        }
+        private global::System.Int32 _Order;
+        partial void OnOrderChanging(global::System.Int32 value);
+        partial void OnOrderChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SMR_KMS_DB_DevModel", Name="CDPQuestionSubGroup")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CDPQuestionSubGroup : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CDPQuestionSubGroup object.
+        /// </summary>
+        /// <param name="qSubGroupId">Initial value of the QSubGroupId property.</param>
+        /// <param name="questionGroupId">Initial value of the QuestionGroupId property.</param>
+        /// <param name="questionSubGroupText">Initial value of the QuestionSubGroupText property.</param>
+        public static CDPQuestionSubGroup CreateCDPQuestionSubGroup(global::System.Guid qSubGroupId, global::System.String questionGroupId, global::System.String questionSubGroupText)
+        {
+            CDPQuestionSubGroup cDPQuestionSubGroup = new CDPQuestionSubGroup();
+            cDPQuestionSubGroup.QSubGroupId = qSubGroupId;
+            cDPQuestionSubGroup.QuestionGroupId = questionGroupId;
+            cDPQuestionSubGroup.QuestionSubGroupText = questionSubGroupText;
+            return cDPQuestionSubGroup;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid QSubGroupId
+        {
+            get
+            {
+                return _QSubGroupId;
+            }
+            set
+            {
+                if (_QSubGroupId != value)
+                {
+                    OnQSubGroupIdChanging(value);
+                    ReportPropertyChanging("QSubGroupId");
+                    _QSubGroupId = StructuralObject.SetValidValue(value, "QSubGroupId");
+                    ReportPropertyChanged("QSubGroupId");
+                    OnQSubGroupIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _QSubGroupId;
+        partial void OnQSubGroupIdChanging(global::System.Guid value);
+        partial void OnQSubGroupIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionGroupId
+        {
+            get
+            {
+                return _QuestionGroupId;
+            }
+            set
+            {
+                OnQuestionGroupIdChanging(value);
+                ReportPropertyChanging("QuestionGroupId");
+                _QuestionGroupId = StructuralObject.SetValidValue(value, false, "QuestionGroupId");
+                ReportPropertyChanged("QuestionGroupId");
+                OnQuestionGroupIdChanged();
+            }
+        }
+        private global::System.String _QuestionGroupId;
+        partial void OnQuestionGroupIdChanging(global::System.String value);
+        partial void OnQuestionGroupIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionSubGroupText
+        {
+            get
+            {
+                return _QuestionSubGroupText;
+            }
+            set
+            {
+                OnQuestionSubGroupTextChanging(value);
+                ReportPropertyChanging("QuestionSubGroupText");
+                _QuestionSubGroupText = StructuralObject.SetValidValue(value, false, "QuestionSubGroupText");
+                ReportPropertyChanged("QuestionSubGroupText");
+                OnQuestionSubGroupTextChanged();
+            }
+        }
+        private global::System.String _QuestionSubGroupText;
+        partial void OnQuestionSubGroupTextChanging(global::System.String value);
+        partial void OnQuestionSubGroupTextChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="SMR_KMS_DB_DevModel", Name="CDPSingleTransaction")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1256,140 +1390,6 @@ namespace CDPReporting.Data.Entity
         private global::System.String _Value;
         partial void OnValueChanging(global::System.String value);
         partial void OnValueChanged();
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SMR_KMS_DB_DevModel", Name="CDPSubGroupQuestion")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class CDPSubGroupQuestion : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new CDPSubGroupQuestion object.
-        /// </summary>
-        /// <param name="qSubGroupId">Initial value of the QSubGroupId property.</param>
-        /// <param name="questionGroupId">Initial value of the QuestionGroupId property.</param>
-        /// <param name="questionSubGroupId">Initial value of the QuestionSubGroupId property.</param>
-        /// <param name="questionSubGroupText">Initial value of the QuestionSubGroupText property.</param>
-        public static CDPSubGroupQuestion CreateCDPSubGroupQuestion(global::System.Guid qSubGroupId, global::System.String questionGroupId, global::System.String questionSubGroupId, global::System.String questionSubGroupText)
-        {
-            CDPSubGroupQuestion cDPSubGroupQuestion = new CDPSubGroupQuestion();
-            cDPSubGroupQuestion.QSubGroupId = qSubGroupId;
-            cDPSubGroupQuestion.QuestionGroupId = questionGroupId;
-            cDPSubGroupQuestion.QuestionSubGroupId = questionSubGroupId;
-            cDPSubGroupQuestion.QuestionSubGroupText = questionSubGroupText;
-            return cDPSubGroupQuestion;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid QSubGroupId
-        {
-            get
-            {
-                return _QSubGroupId;
-            }
-            set
-            {
-                if (_QSubGroupId != value)
-                {
-                    OnQSubGroupIdChanging(value);
-                    ReportPropertyChanging("QSubGroupId");
-                    _QSubGroupId = StructuralObject.SetValidValue(value, "QSubGroupId");
-                    ReportPropertyChanged("QSubGroupId");
-                    OnQSubGroupIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _QSubGroupId;
-        partial void OnQSubGroupIdChanging(global::System.Guid value);
-        partial void OnQSubGroupIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String QuestionGroupId
-        {
-            get
-            {
-                return _QuestionGroupId;
-            }
-            set
-            {
-                OnQuestionGroupIdChanging(value);
-                ReportPropertyChanging("QuestionGroupId");
-                _QuestionGroupId = StructuralObject.SetValidValue(value, false, "QuestionGroupId");
-                ReportPropertyChanged("QuestionGroupId");
-                OnQuestionGroupIdChanged();
-            }
-        }
-        private global::System.String _QuestionGroupId;
-        partial void OnQuestionGroupIdChanging(global::System.String value);
-        partial void OnQuestionGroupIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String QuestionSubGroupId
-        {
-            get
-            {
-                return _QuestionSubGroupId;
-            }
-            set
-            {
-                OnQuestionSubGroupIdChanging(value);
-                ReportPropertyChanging("QuestionSubGroupId");
-                _QuestionSubGroupId = StructuralObject.SetValidValue(value, false, "QuestionSubGroupId");
-                ReportPropertyChanged("QuestionSubGroupId");
-                OnQuestionSubGroupIdChanged();
-            }
-        }
-        private global::System.String _QuestionSubGroupId;
-        partial void OnQuestionSubGroupIdChanging(global::System.String value);
-        partial void OnQuestionSubGroupIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String QuestionSubGroupText
-        {
-            get
-            {
-                return _QuestionSubGroupText;
-            }
-            set
-            {
-                OnQuestionSubGroupTextChanging(value);
-                ReportPropertyChanging("QuestionSubGroupText");
-                _QuestionSubGroupText = StructuralObject.SetValidValue(value, false, "QuestionSubGroupText");
-                ReportPropertyChanged("QuestionSubGroupText");
-                OnQuestionSubGroupTextChanged();
-            }
-        }
-        private global::System.String _QuestionSubGroupText;
-        partial void OnQuestionSubGroupTextChanging(global::System.String value);
-        partial void OnQuestionSubGroupTextChanged();
 
         #endregion
 
