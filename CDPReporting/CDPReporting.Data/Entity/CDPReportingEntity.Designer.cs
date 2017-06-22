@@ -1031,12 +1031,14 @@ namespace CDPReporting.Data.Entity
         /// <param name="qGroupId">Initial value of the QGroupId property.</param>
         /// <param name="questionGroupId">Initial value of the QuestionGroupId property.</param>
         /// <param name="questionGroupText">Initial value of the QuestionGroupText property.</param>
-        public static CDPQuestionGroup CreateCDPQuestionGroup(global::System.Guid qGroupId, global::System.String questionGroupId, global::System.String questionGroupText)
+        /// <param name="order">Initial value of the Order property.</param>
+        public static CDPQuestionGroup CreateCDPQuestionGroup(global::System.Guid qGroupId, global::System.String questionGroupId, global::System.String questionGroupText, global::System.Int32 order)
         {
             CDPQuestionGroup cDPQuestionGroup = new CDPQuestionGroup();
             cDPQuestionGroup.QGroupId = qGroupId;
             cDPQuestionGroup.QuestionGroupId = questionGroupId;
             cDPQuestionGroup.QuestionGroupText = questionGroupText;
+            cDPQuestionGroup.Order = order;
             return cDPQuestionGroup;
         }
 
@@ -1118,6 +1120,30 @@ namespace CDPReporting.Data.Entity
         private global::System.String _QuestionGroupText;
         partial void OnQuestionGroupTextChanging(global::System.String value);
         partial void OnQuestionGroupTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Order
+        {
+            get
+            {
+                return _Order;
+            }
+            set
+            {
+                OnOrderChanging(value);
+                ReportPropertyChanging("Order");
+                _Order = StructuralObject.SetValidValue(value, "Order");
+                ReportPropertyChanged("Order");
+                OnOrderChanged();
+            }
+        }
+        private global::System.Int32 _Order;
+        partial void OnOrderChanging(global::System.Int32 value);
+        partial void OnOrderChanged();
 
         #endregion
 
@@ -1138,14 +1164,12 @@ namespace CDPReporting.Data.Entity
         /// </summary>
         /// <param name="qSubGroupId">Initial value of the QSubGroupId property.</param>
         /// <param name="questionGroupId">Initial value of the QuestionGroupId property.</param>
-        /// <param name="questionSubGroupId">Initial value of the QuestionSubGroupId property.</param>
         /// <param name="questionSubGroupText">Initial value of the QuestionSubGroupText property.</param>
-        public static CDPQuestionSubGroup CreateCDPQuestionSubGroup(global::System.Guid qSubGroupId, global::System.String questionGroupId, global::System.String questionSubGroupId, global::System.String questionSubGroupText)
+        public static CDPQuestionSubGroup CreateCDPQuestionSubGroup(global::System.Guid qSubGroupId, global::System.String questionGroupId, global::System.String questionSubGroupText)
         {
             CDPQuestionSubGroup cDPQuestionSubGroup = new CDPQuestionSubGroup();
             cDPQuestionSubGroup.QSubGroupId = qSubGroupId;
             cDPQuestionSubGroup.QuestionGroupId = questionGroupId;
-            cDPQuestionSubGroup.QuestionSubGroupId = questionSubGroupId;
             cDPQuestionSubGroup.QuestionSubGroupText = questionSubGroupText;
             return cDPQuestionSubGroup;
         }
@@ -1204,30 +1228,6 @@ namespace CDPReporting.Data.Entity
         private global::System.String _QuestionGroupId;
         partial void OnQuestionGroupIdChanging(global::System.String value);
         partial void OnQuestionGroupIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String QuestionSubGroupId
-        {
-            get
-            {
-                return _QuestionSubGroupId;
-            }
-            set
-            {
-                OnQuestionSubGroupIdChanging(value);
-                ReportPropertyChanging("QuestionSubGroupId");
-                _QuestionSubGroupId = StructuralObject.SetValidValue(value, false, "QuestionSubGroupId");
-                ReportPropertyChanged("QuestionSubGroupId");
-                OnQuestionSubGroupIdChanged();
-            }
-        }
-        private global::System.String _QuestionSubGroupId;
-        partial void OnQuestionSubGroupIdChanging(global::System.String value);
-        partial void OnQuestionSubGroupIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

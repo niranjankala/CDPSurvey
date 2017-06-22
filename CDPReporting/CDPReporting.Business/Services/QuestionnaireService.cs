@@ -32,20 +32,19 @@ namespace CDPReporting.Business.Services
                 List<CDPQuestion> dbQuestionList = _context.CDPQuestions.ToList();
                 List<CDPTableInformation> dbTableType = _context.CDPTableInformations.ToList();
                 questionGroups = (from groupquestion in dbGroupQuestionList
+                                  orderby groupquestion.Order
                                   select new GroupQuestionModel
                                   {
                                       QuestionGroupId = groupquestion.QuestionGroupId,
                                       QuestionGroupName = groupquestion.QuestionGroupText,
                                       SubGroupQuestion = (from subgroup in dbSubGroupQuestionList
-                                                          where subgroup.QuestionGroupId == groupquestion.QuestionGroupId
+                                                          where subgroup.QuestionGroupId == groupquestion.QuestionGroupId                                                          
                                                           select new SubGroupQuestionModel
-                                                          {
-                                                              SubQuestionGroupId = subgroup.QuestionSubGroupId,
+                                                          {                                                              
                                                               SubQuestionGroupName = subgroup.QuestionSubGroupText,
 
                                                               Question = (from question in dbQuestionList
-                                                                          where question.QuestionGroupId == groupquestion.QuestionGroupId &&
-                                                                          question.QuestionSubGroupId == subgroup.QuestionSubGroupId
+                                                                          where question.QuestionGroupId == groupquestion.QuestionGroupId                                                                          
                                                                           orderby question.QuestionOrder
                                                                           select new QuestionModel
                                                                           {

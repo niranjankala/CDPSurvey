@@ -40,6 +40,7 @@ warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPDateRangeTransaction' does n
           <Property Name="QGroupId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="QuestionGroupId" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="QuestionGroupText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CDPQuestions">
           <Key>
@@ -62,7 +63,6 @@ warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPDateRangeTransaction' does n
           </Key>
           <Property Name="QSubGroupId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="QuestionGroupId" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="QuestionSubGroupId" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="QuestionSubGroupText" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -108,9 +108,6 @@ warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPSingleTransaction' does not 
         <!--Errors Found During Generation:
 warning 6035: The relationship 'FK_Questions_GroupQuestions' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK_Questions_GroupQuestions" />-->
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'FK_Questions_SubGroupQuestions' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK_Questions_SubGroupQuestions" />-->
         <Association Name="FK_Questions_TableInformations">
           <End Role="CDPTableInformations" Type="Self.CDPTableInformations" Multiplicity="1" />
           <End Role="CDPQuestions" Type="Self.CDPQuestions" Multiplicity="*" />
@@ -194,6 +191,7 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
           <Property Name="QGroupId" Type="Guid" Nullable="false" />
           <Property Name="QuestionGroupId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="QuestionGroupText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="CDPQuestion">
           <Key>
@@ -217,7 +215,6 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
           </Key>
           <Property Name="QSubGroupId" Type="Guid" Nullable="false" />
           <Property Name="QuestionGroupId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="QuestionSubGroupId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="QuestionSubGroupText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CDPTableInformation">
@@ -307,6 +304,7 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
           <EntitySetMapping Name="CDPQuestionGroups">
             <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPQuestionGroup">
               <MappingFragment StoreEntitySet="CDPQuestionGroups">
+                <ScalarProperty Name="Order" ColumnName="Order" />
                 <ScalarProperty Name="QuestionGroupText" ColumnName="QuestionGroupText" />
                 <ScalarProperty Name="QuestionGroupId" ColumnName="QuestionGroupId" />
                 <ScalarProperty Name="QGroupId" ColumnName="QGroupId" />
@@ -333,7 +331,6 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
             <EntityTypeMapping TypeName="SMR_KMS_DB_DevModel.CDPQuestionSubGroup">
               <MappingFragment StoreEntitySet="CDPQuestionSubGroups">
                 <ScalarProperty Name="QuestionSubGroupText" ColumnName="QuestionSubGroupText" />
-                <ScalarProperty Name="QuestionSubGroupId" ColumnName="QuestionSubGroupId" />
                 <ScalarProperty Name="QuestionGroupId" ColumnName="QuestionGroupId" />
                 <ScalarProperty Name="QSubGroupId" ColumnName="QSubGroupId" />
               </MappingFragment>
