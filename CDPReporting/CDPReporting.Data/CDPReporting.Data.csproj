@@ -34,8 +34,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="SMR.KM.Data">
       <HintPath>..\ThirdPartyLibraries\SMR_KMS_UI\SMR.KM.Data.dll</HintPath>
@@ -67,6 +67,7 @@
     </None>
     <EntityDeploy Include="Entity\CDPReportingEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CDPReportingEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="packages.config" />
   </ItemGroup>

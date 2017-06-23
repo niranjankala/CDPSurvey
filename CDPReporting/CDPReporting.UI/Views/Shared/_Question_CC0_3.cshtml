@@ -3,7 +3,19 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#groupone').multiselect();
+        $('#Question_CC03_List').multiselect();
+        $('#Save').click(function () {
+            var countryList = $('#Question_CC03_List').val();
+            var qId = '@Model.QuestionId';
+            var qType = 'DateRange';
+            var yearVal = '@Model.Year';
+
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: countryList, questionType: qType, year: yearVal }, function (data) {
+                // $('#main').html(data);
+            });
+        })
+      
+
     });
 </script>
 
@@ -19,19 +31,20 @@
     </p>
 
     <div class="button-group">
-        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span>Selct Country</button>
-        <ul id="" class="dropdown-menu">
-            <li><a href="#" class="small" data-value="option1" tabindex="-1"><input type="checkbox" />&nbsp;India</a></li>
-            <li><a href="#" class="small" data-value="option2" tabindex="-1"><input type="checkbox" />&nbsp;UK</a></li>
-            <li><a href="#" class="small" data-value="option3" tabindex="-1"><input type="checkbox" />&nbsp;USA</a></li>
-            <li><a href="#" class="small" data-value="option4" tabindex="-1"><input type="checkbox" />&nbsp;Japan</a></li>
-            <li><a href="#" class="small" data-value="option5" tabindex="-1"><input type="checkbox" />&nbsp;Germany</a></li>
-            <li><a href="#" class="small" data-value="option6" tabindex="-1"><input type="checkbox" />&nbsp;China</a></li>
-        </ul>
-    </div>
+      
+
+        <select id="Question_CC03_List" multiple="multiple">
+            <option value="1">India</option>
+            <option value="2">UK</option>
+            <option value="3">USA</option>
+            <option value="4">Japan</option>
+            <option value="5">Germany</option>
+            <option value="6">China</option>            
+        </select>
+</div>
 
     <div class="btn-group pull-right">
-        <button type="button" class="btn btn-primary">Save</button>
+        <button id="Save" type="button" class="btn btn-primary">Save</button>
         <button type="button" class="btn btn-primary">Cancel</button>
     </div>
 </div>
