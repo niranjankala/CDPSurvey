@@ -131,7 +131,6 @@ namespace CDPReporting.Business.Services
             QuestionResponseModel result = new QuestionResponseModel();
             result.QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), questionType.Type);
             result.Value = GetQuestionAnswerDetails(userId, questionId, result.QuestionType);
-
             result.QuestionId = questionId;
             result.Year = DateTime.Now.Year;
             return result;
