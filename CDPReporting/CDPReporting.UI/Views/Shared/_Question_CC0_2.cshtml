@@ -13,7 +13,7 @@
             var date = startDate + "s" + endDate;
 
             var qId = '@Model.QuestionId';
-            var qType = 'DateRange';
+            var qType = '@Model.QuestionType';
             var yearVal = '@Model.Year';
 
             $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: date, questionType: qType, year: yearVal }, function (data) {
@@ -31,7 +31,7 @@
         The current reporting year is the latest/most recent 12-month period for which data is reported.
     </label>
     <div class="col-md-8">
-        <label class="col-md-4" for="comment">Seelct the Range</label>
+        <label class="col-md-4" for="comment">Select the Range</label>
         <input type="text" class="col-md-4" style="width:100%" name="daterange" value="01/01/2015 - 01/31/2015" />
     </div>
     <div class="row">

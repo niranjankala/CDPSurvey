@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SMR_KMS_DB_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SMR_KMS_DB_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CDPDateRangeTransaction">
           <Key>
             <PropertyRef Name="DateRangeTransactionId" />
@@ -66,14 +66,11 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Type" Type="nvarchar" MaxLength="30" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPSingleTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CDPSingleTransaction">
           <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Year" />
-            <PropertyRef Name="QuestionId" />
+            <PropertyRef Name="SingleTransactionId" />
           </Key>
+          <Property Name="SingleTransactionId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Year" Type="int" Nullable="false" />
           <Property Name="QuestionId" Type="nvarchar" MaxLength="20" Nullable="false" />
@@ -95,16 +92,16 @@ warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPSingleTransaction' does not 
           <Property Name="Year" Type="int" Nullable="false" />
           <Property Name="QuestionId" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="DescriptiveId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="GridColumn1" Type="nvarchar" MaxLength="50" />
-          <Property Name="GridColumn2" Type="nvarchar" MaxLength="50" />
-          <Property Name="GridColumn3" Type="nvarchar" MaxLength="50" />
-          <Property Name="GridColumn4" Type="nvarchar" MaxLength="50" />
-          <Property Name="GridColumn5" Type="nvarchar" MaxLength="50" />
-          <Property Name="GridColumn6" Type="nvarchar" MaxLength="50" />
-          <Property Name="GridColumn7" Type="nvarchar" MaxLength="50" />
-          <Property Name="GridColumn8" Type="nvarchar" MaxLength="50" />
-          <Property Name="GridColumn9" Type="nvarchar" MaxLength="50" />
-          <Property Name="GridColumn10" Type="nvarchar" MaxLength="50" />
+          <Property Name="GridColumn1" Type="nvarchar" MaxLength="300" />
+          <Property Name="GridColumn2" Type="nvarchar" MaxLength="300" />
+          <Property Name="GridColumn3" Type="nvarchar" MaxLength="300" />
+          <Property Name="GridColumn4" Type="nvarchar" MaxLength="300" />
+          <Property Name="GridColumn5" Type="nvarchar" MaxLength="300" />
+          <Property Name="GridColumn6" Type="nvarchar" MaxLength="300" />
+          <Property Name="GridColumn7" Type="nvarchar" MaxLength="300" />
+          <Property Name="GridColumn8" Type="nvarchar" MaxLength="300" />
+          <Property Name="GridColumn9" Type="nvarchar" MaxLength="300" />
+          <Property Name="GridColumn10" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <Association Name="FK_CDPQuestions_CDPQuestionType">
           <End Role="CDPQuestionType" Type="Self.CDPQuestionType" Multiplicity="1" />
@@ -137,16 +134,9 @@ warning 6002: The table/view 'SMR_KMS_DB_Dev.dbo.CDPSingleTransaction' does not 
           <EntitySet Name="CDPQuestions" EntityType="Self.CDPQuestions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPQuestionSubGroups" EntityType="Self.CDPQuestionSubGroups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPQuestionType" EntityType="Self.CDPQuestionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CDPSingleTransaction" EntityType="Self.CDPSingleTransaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPTableInformations" EntityType="Self.CDPTableInformations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CDPTableTypeQuestion" EntityType="Self.CDPTableTypeQuestion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CDPSingleTransaction" EntityType="Self.CDPSingleTransaction" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[CDPSingleTransaction].[UserId] AS [UserId], 
-[CDPSingleTransaction].[Year] AS [Year], 
-[CDPSingleTransaction].[QuestionId] AS [QuestionId], 
-[CDPSingleTransaction].[Value] AS [Value]
-FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_CDPQuestions_CDPQuestionType" Association="Self.FK_CDPQuestions_CDPQuestionType">
             <End Role="CDPQuestionType" EntitySet="CDPQuestionType" />
             <End Role="CDPQuestions" EntitySet="CDPQuestions" />
@@ -169,7 +159,6 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
           <EntitySet Name="CDPQuestionTypes" EntityType="SMR_KMS_DB_DevModel.CDPQuestionType" />
           <EntitySet Name="CDPTableInformations" EntityType="SMR_KMS_DB_DevModel.CDPTableInformation" />
           <EntitySet Name="CDPTableTypeQuestions" EntityType="SMR_KMS_DB_DevModel.CDPTableTypeQuestion" />
-          <EntitySet Name="CDPSingleTransactions" EntityType="SMR_KMS_DB_DevModel.CDPSingleTransaction" />
           <AssociationSet Name="FK_CDPQuestionSubGroups_CDPQuestionGroups" Association="SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups">
             <End Role="CDPQuestionGroup" EntitySet="CDPQuestionGroups" />
             <End Role="CDPQuestionSubGroup" EntitySet="CDPQuestionSubGroups" />
@@ -178,6 +167,7 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
             <End Role="CDPQuestionType" EntitySet="CDPQuestionTypes" />
             <End Role="CDPQuestion" EntitySet="CDPQuestions" />
           </AssociationSet>
+          <EntitySet Name="CDPSingleTransactions" EntityType="SMR_KMS_DB_DevModel.CDPSingleTransaction" />
         </EntityContainer>
         <EntityType Name="CDPDateRangeTransaction">
           <Key>
@@ -260,27 +250,16 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
           <Property Name="Year" Type="Int32" Nullable="false" />
           <Property Name="QuestionId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="DescriptiveId" Type="Guid" Nullable="false" />
-          <Property Name="GridColumn1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GridColumn2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GridColumn3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GridColumn4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GridColumn5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GridColumn6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GridColumn7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GridColumn8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GridColumn9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GridColumn10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="CDPSingleTransaction">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Year" />
-            <PropertyRef Name="QuestionId" />
-          </Key>
-          <Property Name="UserId" Type="Guid" Nullable="false" />
-          <Property Name="Year" Type="Int32" Nullable="false" />
-          <Property Name="QuestionId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn1" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn2" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn3" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn4" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn5" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn6" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn7" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn8" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn9" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="GridColumn10" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_CDPQuestionSubGroups_CDPQuestionGroups">
           <End Type="SMR_KMS_DB_DevModel.CDPQuestionGroup" Role="CDPQuestionGroup" Multiplicity="1" />
@@ -306,6 +285,16 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CDPSingleTransaction">
+          <Key>
+            <PropertyRef Name="SingleTransactionId" />
+          </Key>
+          <Property Name="SingleTransactionId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="QuestionId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -415,6 +404,7 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
                 <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="SingleTransactionId" ColumnName="SingleTransactionId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -449,9 +439,9 @@ FROM [dbo].[CDPSingleTransaction] AS [CDPSingleTransaction]</DefiningQuery>
         <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPQuestionType" Width="1.5" PointX="0.75" PointY="1.375" />
         <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPTableInformation" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPTableTypeQuestion" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPSingleTransaction" Width="1.5" PointX="2.75" PointY="7.75" />
         <AssociationConnector Association="SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups" />
         <AssociationConnector Association="SMR_KMS_DB_DevModel.FK_CDPQuestions_CDPQuestionType" />
+        <EntityTypeShape EntityType="SMR_KMS_DB_DevModel.CDPSingleTransaction" Width="1.5" PointX="3.375" PointY="7.75" />
       </Diagram>
     </Diagrams>
   </Designer>

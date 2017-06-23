@@ -1417,17 +1417,17 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// Create a new CDPSingleTransaction object.
         /// </summary>
-        /// <param name="singleTransactionId">Initial value of the SingleTransactionId property.</param>
         /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="year">Initial value of the Year property.</param>
         /// <param name="questionId">Initial value of the QuestionId property.</param>
-        public static CDPSingleTransaction CreateCDPSingleTransaction(global::System.Guid singleTransactionId, global::System.Guid userId, global::System.Int32 year, global::System.String questionId)
+        /// <param name="singleTransactionId">Initial value of the SingleTransactionId property.</param>
+        public static CDPSingleTransaction CreateCDPSingleTransaction(global::System.Guid userId, global::System.Int32 year, global::System.String questionId, global::System.Guid singleTransactionId)
         {
             CDPSingleTransaction cDPSingleTransaction = new CDPSingleTransaction();
-            cDPSingleTransaction.SingleTransactionId = singleTransactionId;
             cDPSingleTransaction.UserId = userId;
             cDPSingleTransaction.Year = year;
             cDPSingleTransaction.QuestionId = questionId;
+            cDPSingleTransaction.SingleTransactionId = singleTransactionId;
             return cDPSingleTransaction;
         }
 
@@ -1440,33 +1440,6 @@ namespace CDPReporting.Data.Entity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Guid SingleTransactionId
-        {
-            get
-            {
-                return _SingleTransactionId;
-            }
-            set
-            {
-                if (_SingleTransactionId != value)
-                {
-                    OnSingleTransactionIdChanging(value);
-                    ReportPropertyChanging("SingleTransactionId");
-                    _SingleTransactionId = StructuralObject.SetValidValue(value, "SingleTransactionId");
-                    ReportPropertyChanged("SingleTransactionId");
-                    OnSingleTransactionIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _SingleTransactionId;
-        partial void OnSingleTransactionIdChanging(global::System.Guid value);
-        partial void OnSingleTransactionIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.Guid UserId
         {
             get
@@ -1475,11 +1448,14 @@ namespace CDPReporting.Data.Entity
             }
             set
             {
-                OnUserIdChanging(value);
-                ReportPropertyChanging("UserId");
-                _UserId = StructuralObject.SetValidValue(value, "UserId");
-                ReportPropertyChanged("UserId");
-                OnUserIdChanged();
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value, "UserId");
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
             }
         }
         private global::System.Guid _UserId;
@@ -1489,7 +1465,7 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Year
         {
@@ -1499,11 +1475,14 @@ namespace CDPReporting.Data.Entity
             }
             set
             {
-                OnYearChanging(value);
-                ReportPropertyChanging("Year");
-                _Year = StructuralObject.SetValidValue(value, "Year");
-                ReportPropertyChanged("Year");
-                OnYearChanged();
+                if (_Year != value)
+                {
+                    OnYearChanging(value);
+                    ReportPropertyChanging("Year");
+                    _Year = StructuralObject.SetValidValue(value, "Year");
+                    ReportPropertyChanged("Year");
+                    OnYearChanged();
+                }
             }
         }
         private global::System.Int32 _Year;
@@ -1513,7 +1492,7 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String QuestionId
         {
@@ -1523,11 +1502,14 @@ namespace CDPReporting.Data.Entity
             }
             set
             {
-                OnQuestionIdChanging(value);
-                ReportPropertyChanging("QuestionId");
-                _QuestionId = StructuralObject.SetValidValue(value, false, "QuestionId");
-                ReportPropertyChanged("QuestionId");
-                OnQuestionIdChanged();
+                if (_QuestionId != value)
+                {
+                    OnQuestionIdChanging(value);
+                    ReportPropertyChanging("QuestionId");
+                    _QuestionId = StructuralObject.SetValidValue(value, false, "QuestionId");
+                    ReportPropertyChanged("QuestionId");
+                    OnQuestionIdChanged();
+                }
             }
         }
         private global::System.String _QuestionId;
@@ -1557,6 +1539,33 @@ namespace CDPReporting.Data.Entity
         private global::System.String _Value;
         partial void OnValueChanging(global::System.String value);
         partial void OnValueChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid SingleTransactionId
+        {
+            get
+            {
+                return _SingleTransactionId;
+            }
+            set
+            {
+                if (_SingleTransactionId != value)
+                {
+                    OnSingleTransactionIdChanging(value);
+                    ReportPropertyChanging("SingleTransactionId");
+                    _SingleTransactionId = StructuralObject.SetValidValue(value, "SingleTransactionId");
+                    ReportPropertyChanged("SingleTransactionId");
+                    OnSingleTransactionIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _SingleTransactionId;
+        partial void OnSingleTransactionIdChanging(global::System.Guid value);
+        partial void OnSingleTransactionIdChanged();
 
         #endregion
 

@@ -3,12 +3,40 @@
 
 <script type="text/javascript">
     $(function () {
+        debugger;
         $('#Question_CC03_List').multiselect();
+        var str = '@Model.Value';
+        var multiselectedVals = [];
+        multiselectedVals.push(str.split(","));
+
+        $.each(str.split(","), function (i, e) {
+            $("#Question_CC03_List option[value='" + e + "']").attr("selected", true);
+        });
+
+       // $("#Question_CC03_List").multiSelect("select", ["1", "2"]);
+
+        //for (var i = 0; i < multiselectedVals.length; i++) {
+        //    $("#Question_CC03_List").multiselect("widget").find(":checkbox[value='" + valArr[i] + "']").attr("checked", "checked");
+        //    $("#Question_CC03_List option[value='" + valArr[i] + "']").attr("selected", 1);
+        //}
+
+       // $('#Question_CC03_List').val(["1", "2"]);
+
         $('#Save').click(function () {
-            var countryList = $('#Question_CC03_List').val();
+            debugger;
+            var data = $('#Question_CC03_List').val();
             var qId = '@Model.QuestionId';
-            var qType = 'DateRange';
+            var qType = '@Model.QuestionType';
             var yearVal = '@Model.Year';
+            var multiselectData;
+            for (var item = 0; item < data.length; item++) {
+                if (multiselectData == null)
+                    multiselectData = data[item];
+                else
+                    multiselectData = multiselectData + "," + data[item];
+            }
+            var countryList = multiselectData;
+            multiselectData = null;
 
             $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: countryList, questionType: qType, year: yearVal }, function (data) {
                 // $('#main').html(data);
@@ -27,7 +55,7 @@
             in which you operate from the drop down menu provided.This question should only to be <br />
             completed if you are  responding to the Electric Utilities module. If you are not responding<br />
             to the Electric Utilities module, you may leave this question blank if you wish to do so.
-            <b>
+            </b>
     </p>
 
     <div class="button-group">
