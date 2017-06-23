@@ -16,7 +16,7 @@
             debugger;
             var commentVal = $("#comment").val();
             var qId = '@Model.QuestionId';
-            var qType = '@Model.QuestionType';
+            var qType = 'Simple';
             var yearVal = '@Model.Year';
 
             $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: commentVal, questionType: qType, year: yearVal}, function (data) {

@@ -1,8 +1,13 @@
 ﻿@model CDPReporting.Business.Models.QuestionResponseModel
 
 
+<script type="text/javascript">
+    $(function () {
+        $('#groupone').multiselect();
+    });
+</script>
 
-<div class="col-md-7 col-xs-12 form-group">
+<div>
     <h2>CC0.3: 	Country list configuration </h2>
     <p>
         <b>
@@ -15,7 +20,7 @@
 
     <div class="button-group">
         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span>Selct Country</button>
-        <ul class="dropdown-menu">
+        <ul id="" class="dropdown-menu">
             <li><a href="#" class="small" data-value="option1" tabindex="-1"><input type="checkbox" />&nbsp;India</a></li>
             <li><a href="#" class="small" data-value="option2" tabindex="-1"><input type="checkbox" />&nbsp;UK</a></li>
             <li><a href="#" class="small" data-value="option3" tabindex="-1"><input type="checkbox" />&nbsp;USA</a></li>

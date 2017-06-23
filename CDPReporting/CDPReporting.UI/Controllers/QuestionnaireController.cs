@@ -72,13 +72,6 @@ namespace CDPReporting.UI.Controllers
             catch (Exception ex)
             {
                 throw ex;
-
-                //DateTime date;
-                //string array1;
-                //if (DateTime.TryParse(array1, out date))
-                //{
-
-                //}
             }
         }
 

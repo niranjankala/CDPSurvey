@@ -2,28 +2,25 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('input[name="daterange"]').daterangepicker();
-
+        var str = '@Model.Value';
+        var date = str.split("s");
+        $('input[name="daterange"]').val(date[0]+"-"+date[1]);
         $("#Save").click(function () {
-            debugger;
-            //var range = $('input[name="daterange"]').datarangepicker.getRange();
-            //var startDate = range.start;
-            //var endDate = range.end;
-
             var startDate = $('input[name="daterange"]').data('daterangepicker').startDate.format('YYYY-MM-DD');
             var endDate = $('input[name="daterange"]').data('daterangepicker').endDate.format('YYYY-MM-DD');
             var date = startDate + "s" + endDate;
 
             var qId = '@Model.QuestionId';
-            var qType = '@Model.QuestionType';
+            var qType = 'DateRange';
             var yearVal = '@Model.Year';
 
             $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: date, questionType: qType, year: yearVal }, function (data) {
                 // $('#main').html(data);
             });
         });
-    }); 
+    });
 </script>
 
 <div>
@@ -35,7 +32,7 @@
     </label>
     <div class="col-md-8">
         <label class="col-md-4" for="comment">Seelct the Range</label>
-        <input type="text" class="col-md-4" style="width=" 100%" name="daterange" value="01/01/2015 - 01/31/2015" />
+        <input type="text" class="col-md-4" style="width:100%" name="daterange" value="01/01/2015 - 01/31/2015" />
     </div>
     <div class="row">
         <div class="col-md-12">
