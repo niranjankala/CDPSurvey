@@ -3,6 +3,7 @@
 
 <script src="~/Scripts/bootstrap-multiselect.js"></script>
 <link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
+
 <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
 <link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
 
@@ -125,7 +126,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 table-responsive">
+
             <table id="Governancetable" class="table table-bordered">
 
                 <thead class="cf">
@@ -144,59 +146,58 @@
                     <tr>
                         <td>
                             <!--<input type="checkbox" name="radioGroupSub">Board chairman -->
-
-                            <div id="Question_CC12a_Col1" class="dropdown">
-                                @*<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                                        Select from
-                                        <span class="caret"></span>
-                                    </button>*@
-                                @*<ul class="dropdown-menu">
-                                        <li><a href="#">Board chairman</a></li>
-                                        <li><a href="#">Board/Executive board</a></li>
-                                        <li><a href="#">Director on board</a></li>
-                                        <li><a href="#">Chief Executive Officer (CEO)</a></li>
-                                        <li><a href="#">Chief Financial Officer (CFO))</a></li>
-                                        <li><a href="#">Chief Operating Officer (COO)</a></li>
-                                        <li><a href="#">Chief Purchasing Officer (CPO)</a></li>
-                                        <li><a href="#">Other C-Suite Officer</a></li>
-                                        <li><a href="#">President</a></li>
-                                        <li><a href="#">Executive officer</a></li>
-                                        <li><a href="#">Management group</a></li>
-                                        <li><a href="#">Business unit managers</a></li>
-                                        <li><a href="#">EHS manager</a></li>
-                                        <li><a href="#">Buyers/purchasers</a></li>
-                                        <li><a href="#">Energy managers</a></li>
-                                        <li><a href="#">Environment/Sustainability managers</a></li>
-                                        <li><a href="#">Facility managers</a></li>
-                                        <li><a href="#">Process operation managers</a></li>
-                                        <li><a href="#">Procurement manager</a></li>
-                                        <li><a href="#">Public affairs managers</a></li>
-                                        <li><a href="#">Risk managers</a></li>
-                                        <li><a href="#">All employees</a></li>
-                                        <li><a href="#">Other, please specify</a></li>
-                                    </ul>*@
-                                <select id="Question_CC12a_Col1_List" class="dropdown">
-                                    <option value="Boardchairman">Board chairman</option>
-                                    <option value="BoardExecutiveboard">Board/Executive board</option>
-                                    <option value="DirectorOnboard">Director on board</option>
-                                    <option value="ChiefExecutiveOfficer">Chief Executive Officer</option>
-                                </select>
-                            </div>
+                            @*<div id="Question_CC12a_Col1" class="dropdown">*@
+                            @*<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                Select from
+                                <span class="caret"></span>
+                            </button>*@
+                            @*<ul class="dropdown-menu">
+                                <li><a href="#">Board chairman</a></li>
+                                <li><a href="#">Board/Executive board</a></li>
+                                <li><a href="#">Director on board</a></li>
+                                <li><a href="#">Chief Executive Officer (CEO)</a></li>
+                                <li><a href="#">Chief Financial Officer (CFO))</a></li>
+                                <li><a href="#">Chief Operating Officer (COO)</a></li>
+                                <li><a href="#">Chief Purchasing Officer (CPO)</a></li>
+                                <li><a href="#">Other C-Suite Officer</a></li>
+                                <li><a href="#">President</a></li>
+                                <li><a href="#">Executive officer</a></li>
+                                <li><a href="#">Management group</a></li>
+                                <li><a href="#">Business unit managers</a></li>
+                                <li><a href="#">EHS manager</a></li>
+                                <li><a href="#">Buyers/purchasers</a></li>
+                                <li><a href="#">Energy managers</a></li>
+                                <li><a href="#">Environment/Sustainability managers</a></li>
+                                <li><a href="#">Facility managers</a></li>
+                                <li><a href="#">Process operation managers</a></li>
+                                <li><a href="#">Procurement manager</a></li>
+                                <li><a href="#">Public affairs managers</a></li>
+                                <li><a href="#">Risk managers</a></li>
+                                <li><a href="#">All employees</a></li>
+                                <li><a href="#">Other, please specify</a></li>
+                            </ul>*@
+                            <select id="Question_CC12a_Col1_List" class="dropdown">
+                                <option value="Boardchairman">Board chairman</option>
+                                <option value="BoardExecutiveboard">Board/Executive board</option>
+                                <option value="DirectorOnboard">Director on board</option>
+                                <option value="ChiefExecutiveOfficer">Chief Executive Officer</option>
+                            </select>
+                            @*</div>*@
 
                         </td>
 
                         <td>
                             <div id="Question_CC12a_Col2" class="dropdown">
                                 @*<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                                        Select from
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Monetary reward</a></li>
-                                        <li><a href="#">Recognition (non-monetary)</a></li>
-                                        <li><a href="#">Other non-monetary reward</a></li>
+                                    Select from
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Monetary reward</a></li>
+                                    <li><a href="#">Recognition (non-monetary)</a></li>
+                                    <li><a href="#">Other non-monetary reward</a></li>
 
-                                    </ul>*@
+                                </ul>*@
                                 <select id="Question_CC12a_Col2_List" class="dropdown">
                                     <option value="1">Monetary reward</option>
                                     <option value="2">BRecognition (non-monetary)</option>
@@ -233,6 +234,7 @@
 
             </table>
         </div>
+        
     </div>
     <div class="row">
         <div class="col-md-12" style="float:right">

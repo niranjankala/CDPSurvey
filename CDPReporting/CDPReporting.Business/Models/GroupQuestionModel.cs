@@ -10,10 +10,12 @@ namespace CDPReporting.Business.Models
         public string QuestionGroupId { get; set; }
         public string QuestionGroupName { get; set; }
         public List<SubGroupQuestionModel> SubGroupQuestion { get; set; }
+        public List<QuestionModel> Questions { get; set; }
 
         public GroupQuestionModel()
         {
             SubGroupQuestion = new List<SubGroupQuestionModel>();
+            Questions = new List<QuestionModel>();
         }
     }
     
