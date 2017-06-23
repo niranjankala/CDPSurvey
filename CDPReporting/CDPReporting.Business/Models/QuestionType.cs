@@ -12,6 +12,7 @@
         Date,
         Boolean,
         CDPGrid,
-        MultipleSelectList
+        MultipleSelectList,
+        CDPGridResultList
     }
 }
