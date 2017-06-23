@@ -30,35 +30,30 @@ namespace CDPReporting.Business.Services
                 List<CDPQuestionGroup> dbGroupQuestionList = _context.CDPQuestionGroups.ToList();
                 List<CDPQuestionSubGroup> dbSubGroupQuestionList = _context.CDPQuestionSubGroups.ToList();
                 List<CDPQuestion> dbQuestionList = _context.CDPQuestions.ToList();
-                List<CDPTableInformation> dbTableType = _context.CDPTableInformations.ToList();
-                questionGroups = (from groupquestion in dbGroupQuestionList
-                                  orderby groupquestion.Order
+                List<CDPQuestionType> questionTypes = _context.CDPQuestionTypes.ToList();
+                questionGroups = (from questionGroup in (dbGroupQuestionList.OrderBy(g => g.Order).ToList())
                                   select new GroupQuestionModel
                                   {
-                                      QuestionGroupId = groupquestion.QuestionGroupId,
-                                      QuestionGroupName = groupquestion.QuestionGroupText,
-                                      SubGroupQuestion = (from subgroup in dbSubGroupQuestionList
-                                                          where subgroup.QuestionGroupId == groupquestion.QuestionGroupId                                                          
-                                                          select new SubGroupQuestionModel
-                                                          {                                                              
-                                                              SubQuestionGroupName = subgroup.QuestionSubGroupText,
-
-                                                              Question = (from question in dbQuestionList
-                                                                          where question.QuestionGroupId == groupquestion.QuestionGroupId                                                                          
-                                                                          orderby question.QuestionOrder
-                                                                          select new QuestionModel
-                                                                          {
-                                                                              Id = question.QId,
-                                                                              QuestionId = question.QuestionId,
-                                                                              QuestionText = question.QuestionText,
-                                                                              QuestionOrder = question.QuestionOrder ?? 1,
-                                                                              GroupText = question.GroupText,
-                                                                              SubGroupText = question.SubGroupText,
-
-                                                                              TableType = dbTableType.FirstOrDefault(m => m.TableId == question.TableId).TableType
-                                                                          }).ToList()
-                                                          }).ToList()
+                                      QuestionGroupId = questionGroup.QuestionGroupId,
+                                      QuestionGroupName = questionGroup.QuestionGroupText,
+                                      Questions = (from question in dbQuestionList.Where(q => q.QuestionGroupId == questionGroup.QGroupId).OrderBy(q => q.QuestionOrder)
+                                                   join qType in questionTypes on question.QuestionType equals qType.Id
+                                                   select new QuestionModel
+                                                   {
+                                                       Id = question.QId,
+                                                       QuestionId = question.QuestionId,
+                                                       QuestionText = question.QuestionText,
+                                                       QuestionOrder = question.QuestionOrder,
+                                                       GroupText = questionGroup.QuestionGroupText,
+                                                       //SubGroupText = question.SubGroupText,
+                                                       QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), qType.Type)
+                                                   }).ToList()
                                   }).ToList();
+
+                
+
+
+                
                 return questionGroups;
             }
             catch (Exception ex)
@@ -132,22 +127,22 @@ namespace CDPReporting.Business.Services
 
         public QuestionResponseModel GetQuestionResponse(string questionId, Guid userId)
         {
-            Guid questionTableId = _context.CDPQuestions.First(q => q.QuestionId == questionId).TableId;
-            string contextName = _context.CDPTableInformations.First(table => table.TableId == questionTableId).TableType;
+            CDPQuestionType questionType = _context.CDPQuestionTypes.First(type => type.Id == _context.CDPQuestions.First(q => q.QuestionId == questionId).QuestionType); ;
             QuestionResponseModel result = new QuestionResponseModel();
-            result.Value = GetQuestionAnswerDetails(userId, questionId, contextName);
-            result.QuestionType = QuestionType.Simple;
+            result.QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), questionType.Type);
+            result.Value = GetQuestionAnswerDetails(userId, questionId, result.QuestionType);
+
             result.QuestionId = questionId;
             result.Year = DateTime.Now.Year;
             return result;
         }
 
-        private object GetQuestionAnswerDetails(Guid userId, string questionId, string contextName)
+        private object GetQuestionAnswerDetails(Guid userId, string questionId, QuestionType contextName)
         {
             object result = null;
             switch (contextName)
             {
-                case "GridDescriptiveTable":
+                case QuestionType.Simple:
                     CDPGridDescriptive userAnswer = _context.CDPGridDescriptives.FirstOrDefault(ans => ans.UserId == userId &&
                         ans.QuestionId == questionId);
                     if (userAnswer != null)
@@ -155,8 +150,23 @@ namespace CDPReporting.Business.Services
                         result = userAnswer.Comment;
                     }
                     break;
-
-                case "GDPGrid":
+                case QuestionType.List:
+                    break;
+                case QuestionType.DropDown:
+                    break;
+                case QuestionType.DropDownList:
+                    break;
+                case QuestionType.Option:
+                    break;
+                case QuestionType.OptionList:
+                    break;
+                case QuestionType.DateRange:
+                    break;
+                case QuestionType.Date:
+                    break;
+                case QuestionType.Boolean:
+                    break;
+                case QuestionType.CDPGrid:
                     CDPTableTypeQuestion gridResponse = _context.CDPTableTypeQuestions.FirstOrDefault(ans => ans.UserId == userId &&
                         ans.QuestionId == questionId);
                     if (gridResponse != null)
@@ -173,7 +183,6 @@ namespace CDPReporting.Business.Services
                         result = gridResponse.GridColumn10;
                     }
                     break;
-
                 default:
                     break;
             }

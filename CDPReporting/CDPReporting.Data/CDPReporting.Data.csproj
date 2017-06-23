@@ -67,7 +67,6 @@
     </None>
     <EntityDeploy Include="Entity\CDPReportingEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CDPReportingEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="packages.config" />
   </ItemGroup>
