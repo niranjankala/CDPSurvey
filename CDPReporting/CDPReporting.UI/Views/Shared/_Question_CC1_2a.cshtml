@@ -65,7 +65,7 @@
 
         // New record
         $('#addMore').on('click', function (e) {
-
+            debugger;
             var col1Text = $("#Question_CC12a_Col1_List option:selected ").text();
             var col1Val = $("#Question_CC12a_Col1_List option:selected ").val();
             var col2Text = $("#Question_CC12a_Col2_List option:selected ").text();
@@ -81,7 +81,7 @@
             });
             editor.row.add(
                 {
-                    "GridIndexId": "",
+                    "GridIndexId":"",
                     "GridCol1": col1Text,
                     "GridCol2": col2Text,
                     "GridCol3": col3Text,
@@ -95,20 +95,25 @@
             var data = editor.data().toArray();
             var ansResponse = [];
             for (var i = 0; i < data.length; i++) {
-                var rowdata = data[i];
-                    //{
-                    //    "GridIndexId": "",
-                    //    "GridCol1": data[i].GridCol1,
-                    //    "GridCol2": data[i].GridCol2,
-                    //    "GridCol3": (for(var item = 0; item < (data[i].GridCol3).length; item++)
-                    //                {
-
-                    //                }),                                      
-                    //   "GridCol4": data[i].GridCol4,
-                    //};
+                var multiselectData;
+                for (var list = 0; list < data[i].GridCol3.length; list++)
+                {
+                    if (multiselectData == null)
+                        multiselectData = data[i].GridCol3[list];
+                    else
+                        multiselectData = multiselectData+","+data[i].GridCol3[list];
+                }                
+                debugger;
+                var rowdata = {
+                        "GridIndexId": data[i].GridIndexId,
+                        "GridCol1": data[i].GridCol1,
+                        "GridCol2": data[i].GridCol2,
+                        "GridCol3": multiselectData,
+                       "GridCol4": data[i].GridCol4,
+                    };
                 ansResponse.push(rowdata);
+                multiselectData = null;
             }
-            debugger;
             $.post('@Url.Content("~/Questionnaire/SaveResponseTableType/")', { model: ansResponse, questionId: qId }, function (data) {
                 debugger;
                 editor.ajax.reload();
