@@ -198,3 +198,24 @@ textarea {
 
 	width: 100%;
 }
+
+.togglebtn
+{
+   padding: 9px 10px;
+    font-size: 10px;
+    line-height: 0.5;
+    border-radius: 7px;
+    margin-top: 20px;
+    margin-right: 16px;
+}
+}
+
+.QuestionHead
+{
+    margin-bottom:10px;background-color: #428bca
+}
+
+.panelPosition{
+    margin-left: 5px;
+margin-right: 5px;
+}
