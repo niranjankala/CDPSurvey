@@ -1,20 +1,23 @@
 ﻿@model List<CDPReporting.Business.Models.GroupQuestionModel>
-<link href="~/Content/Style.css" rel="stylesheet" />
 
+@*<link href="~/Content/Style.css" rel="stylesheet" />*@
+
+
+               <div class=" rounded-border" style="margin-bottom: 10px; background-color: #428bca"><center><h2 style="color: #f5f5f5">Questions</h2></center></div>  
 <div class="list-group">
     @foreach (var element in Model)
     {
         <div class="list-group-item-heading" style="cursor:pointer;">
 
             @*<div class="col-md-6">*@
-            <div class="panel panel-primary">
+            <div class="panel panel-primary" style="margin-left: 5px;margin-right: 5px;">
                 <div class="panel-heading">
                     <h3 class="panel-title">@element.QuestionGroupId @element.QuestionGroupName</h3>
                     <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                 </div>
 
                 @*</div>
-                    </div>*@
+            </div>*@
 
 
 
@@ -23,7 +26,7 @@
 
                     <div class="list-group-item-text" style="cursor:pointer;">
                         @*@foreach (var subitem in element.SubGroupQuestion)
-                            {*@
+                    {*@
                         @foreach (var subQuestions in element.Questions)
                         {
                             //<h4>@subQuestions.SubGroupText</h4>

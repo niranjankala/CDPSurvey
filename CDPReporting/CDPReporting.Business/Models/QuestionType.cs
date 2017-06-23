@@ -11,6 +11,7 @@
         DateRange,
         Date,
         Boolean,
-        CDPGrid
+        CDPGrid,
+        MultipleSelectList
     }
 }
