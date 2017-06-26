@@ -28,6 +28,8 @@ namespace CDPReporting.UI.Controllers
         {
             List<GroupQuestionModel> oSidePanelQuestions = new List<GroupQuestionModel>();
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of QuestionnaireController");
+
+
             oSidePanelQuestions = oQuestionnaireService.GetQuestionList();
 
             // return View("_ViewQuestionList", oSidePanelQuestions);
@@ -38,21 +40,62 @@ namespace CDPReporting.UI.Controllers
             return View(oSidePanelQuestions);
         }
 
-        public ActionResult GetQuestionView(Guid questionViewId)
+        public ActionResult GetQuestionView(Guid questionViewId, int selectedYear)
         {
             try
             {
-                if (_log.IsInfoEnabled) _log.Info("Calling Index method of GetQestionView");
-               // Guid questionId = questionViewId.Replace("Question_", "").Replace("_", ".");
+                if (_log.IsInfoEnabled) _log.Info("Calling Index method of GetQuestionView");
+                // Guid questionId = questionViewId.Replace("Question_", "").Replace("_", ".");
                 //questionViewId = questionViewId.Insert(0, "_");
-                Guid plantId = CurrentUser.PlantId ?? Guid.NewGuid();
-                var model = oQuestionnaireService.GetQuestionResponse(questionViewId, plantId);
-                return PartialView("_Question_CC0_3", model);
+
+                if (CurrentUser.PlantId == null)
+                    throw new InvalidOperationException("User does not belong to any Plant.");
+
+
+                var model = oQuestionnaireService.GetQuestionResponse(questionViewId, CurrentUser.PlantId ?? Guid.Empty, selectedYear);
+                string questionPartialViewName = GetQuestionPartialView(model.QuestionType);
+                return PartialView(questionPartialViewName, model);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        private string GetQuestionPartialView(QuestionType questionType)
+        {
+            string partialViewName = string.Empty;
+            switch (questionType)
+            {
+                case QuestionType.Simple:
+                    partialViewName = "_SimpleMultipleAnswerQuestion";
+                    break;
+                case QuestionType.List:
+                    break;
+                case QuestionType.DropDown:
+                    break;
+                case QuestionType.DropDownList:
+                    break;
+                case QuestionType.Option:
+                    break;
+                case QuestionType.OptionList:
+                    break;
+                case QuestionType.DateRange:
+                    break;
+                case QuestionType.Date:
+                    break;
+                case QuestionType.Boolean:
+                    break;
+                case QuestionType.CDPGrid:
+                    break;
+                case QuestionType.CDPGridResultList:
+                    break;
+                case QuestionType.MultipleSelectList:
+                    break;
+                default:
+                    break;
+            }
+            return partialViewName;
         }
 
         [HttpPost]
@@ -66,8 +109,7 @@ namespace CDPReporting.UI.Controllers
                 response.Value = answer;
                 response.Year = year;
                 response.QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), questionType);
-                Guid plantId = CurrentUser.PlantId ?? Guid.NewGuid();
-                oQuestionnaireService.SaveQuestionResponse(response, plantId);
+                oQuestionnaireService.SaveQuestionResponse(response, CurrentUser.UserId);
             }
             catch (Exception ex)
             {
@@ -78,8 +120,7 @@ namespace CDPReporting.UI.Controllers
         public void SaveResponseTableType(List<QuestionResponseTableTypeModel> model, Guid questionId, int selectedYear)
         {
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of SaveQuestionResponse");
-            Guid plantId = CurrentUser.PlantId ?? Guid.NewGuid();
-            oQuestionnaireService.SaveResponseTableType(model, questionId, plantId, selectedYear);
+            oQuestionnaireService.SaveResponseTableType(model, questionId, CurrentUser.UserId, selectedYear);
         }
 
         public JsonResult GetQuestionData(Guid questionId, int year)
@@ -97,10 +138,10 @@ namespace CDPReporting.UI.Controllers
             //             GridCol4 = string.Format("Row {0}Col{1}", i, j++)
             //        });
             //}
+            if (CurrentUser.PlantId == null)
+                throw new InvalidOperationException("User does not belong to any Plant.");
 
-            Guid plantId = CurrentUser.PlantId ?? Guid.NewGuid();
-
-            data = oQuestionnaireService.GetTableTypeResponse(questionId, plantId, year);
+            data = oQuestionnaireService.GetTableTypeResponse(questionId, CurrentUser.PlantId ?? Guid.Empty, year);
 
             return Json(new { data = data }, JsonRequestBehavior.AllowGet);
         }

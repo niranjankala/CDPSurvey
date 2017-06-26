@@ -5,6 +5,6 @@ $(document).ready(function () {
     $(".question").click(function () {
         debugger;
         selectedDivId = (this.id).replace(".", "_");
-        $('#questionResponseDiv').load(questionViewURL + "?questionViewId=" + selectedDivId);
+        $('#questionResponseDiv').load(questionViewURL + "?questionViewId=" + selectedDivId + "&selectedYear=2017");
     });
 });

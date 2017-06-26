@@ -125,19 +125,21 @@ namespace CDPReporting.Business.Services
             }
         }
 
-        public QuestionResponseModel GetQuestionResponse(Guid questionId, Guid userPlantId)
+        public QuestionResponseModel GetQuestionResponse(Guid questionId, Guid userPlantId, int selectedYear)
         {
             CDPQuestion question = _context.CDPQuestions.FirstOrDefault(q => q.QId == questionId);
             CDPQuestionType questionType = _context.CDPQuestionTypes.FirstOrDefault(type => type.Id == question.QuestionType);
             QuestionResponseModel result = new QuestionResponseModel();
             result.QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), questionType.Type);
-            result.Value = GetQuestionAnswerDetails(userPlantId, questionId, result.QuestionType);
+            result.Caption = question.Title;
+            result.QuestionText = question.QuestionText;
+            result.Value = GetQuestionAnswerDetails(userPlantId, questionId, result.QuestionType, selectedYear);
             result.QuestionId = questionId;
             result.Year = DateTime.Now.Year;
             return result;
         }
 
-        private object GetQuestionAnswerDetails(Guid userPlantId, Guid questionId, QuestionType contextName)
+        private object GetQuestionAnswerDetails(Guid userPlantId, Guid questionId, QuestionType contextName, int selectionYear)
         {
             object result = null;
             switch (contextName)
@@ -145,7 +147,7 @@ namespace CDPReporting.Business.Services
                 case QuestionType.Simple:
                 case QuestionType.MultipleSelectList:
                     CDPSimpleChoiceAnswer userAnswer = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
-                        ans.QuestionId == questionId);
+                        ans.QuestionId == questionId && ans.Year == selectionYear);
                     if (userAnswer != null)
                     {
                         result = userAnswer.AnswerValue;
@@ -162,7 +164,7 @@ namespace CDPReporting.Business.Services
                 case QuestionType.OptionList:
                     break;
                 case QuestionType.DateRange:
-                    CDPDateRangeAnswer dateRangeAns = _context.CDPDateRangeAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId && ans.QuestionId == questionId);
+                    CDPDateRangeAnswer dateRangeAns = _context.CDPDateRangeAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId && ans.QuestionId == questionId && ans.Year == selectionYear);
                     if (dateRangeAns != null)
                     {
                         result = string.Format("{0}s{1}", dateRangeAns.StartDate, dateRangeAns.EndDate);
@@ -174,7 +176,7 @@ namespace CDPReporting.Business.Services
                     break;
                 case QuestionType.CDPGrid:
                     CDPTabularQuestionAnswer gridResponse = _context.CDPTabularQuestionAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
-                        ans.QuestionId == questionId);
+                        ans.QuestionId == questionId && ans.Year == selectionYear);
                     if (gridResponse != null)
                     {
                         result = gridResponse.GridColumn1;
