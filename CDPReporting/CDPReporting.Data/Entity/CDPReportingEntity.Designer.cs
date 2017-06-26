@@ -19,8 +19,8 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDPReporting.Data.Entity.CDPQuestionGroup), "CDPQuestionSubGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDPReporting.Data.Entity.CDPQuestionSubGroup), true)]
-[assembly: EdmRelationshipAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestions_CDPQuestionType", "CDPQuestionType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDPReporting.Data.Entity.CDPQuestionType), "CDPQuestion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDPReporting.Data.Entity.CDPQuestion), true)]
+[assembly: EdmRelationshipAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroups", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDPReporting.Data.Entity.CDPQuestionGroup), "CDPQuestionSubGroups", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDPReporting.Data.Entity.CDPQuestionSubGroup), true)]
+[assembly: EdmRelationshipAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestions_CDPQuestionType", "CDPQuestionType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDPReporting.Data.Entity.CDPQuestionType), "CDPQuestions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDPReporting.Data.Entity.CDPQuestion), true)]
 [assembly: EdmRelationshipAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestionValidations_CDPQuestions", "CDPQuestion", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDPReporting.Data.Entity.CDPQuestion), "CDPQuestionValidation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDPReporting.Data.Entity.CDPQuestionValidation), true)]
 [assembly: EdmRelationshipAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestionValidations_CDPValidationTypes", "CDPValidationType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDPReporting.Data.Entity.CDPValidationType), "CDPQuestionValidation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDPReporting.Data.Entity.CDPQuestionValidation), true)]
 
@@ -109,22 +109,6 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CDPQuestionOption> CDPQuestionOptions
-        {
-            get
-            {
-                if ((_CDPQuestionOptions == null))
-                {
-                    _CDPQuestionOptions = base.CreateObjectSet<CDPQuestionOption>("CDPQuestionOptions");
-                }
-                return _CDPQuestionOptions;
-            }
-        }
-        private ObjectSet<CDPQuestionOption> _CDPQuestionOptions;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<CDPQuestion> CDPQuestions
         {
             get
@@ -169,22 +153,6 @@ namespace CDPReporting.Data.Entity
             }
         }
         private ObjectSet<CDPQuestionType> _CDPQuestionTypes;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<CDPQuestionValidation> CDPQuestionValidations
-        {
-            get
-            {
-                if ((_CDPQuestionValidations == null))
-                {
-                    _CDPQuestionValidations = base.CreateObjectSet<CDPQuestionValidation>("CDPQuestionValidations");
-                }
-                return _CDPQuestionValidations;
-            }
-        }
-        private ObjectSet<CDPQuestionValidation> _CDPQuestionValidations;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -237,6 +205,38 @@ namespace CDPReporting.Data.Entity
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<CDPQuestionOption> CDPQuestionOptions
+        {
+            get
+            {
+                if ((_CDPQuestionOptions == null))
+                {
+                    _CDPQuestionOptions = base.CreateObjectSet<CDPQuestionOption>("CDPQuestionOptions");
+                }
+                return _CDPQuestionOptions;
+            }
+        }
+        private ObjectSet<CDPQuestionOption> _CDPQuestionOptions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CDPQuestionValidation> CDPQuestionValidations
+        {
+            get
+            {
+                if ((_CDPQuestionValidations == null))
+                {
+                    _CDPQuestionValidations = base.CreateObjectSet<CDPQuestionValidation>("CDPQuestionValidations");
+                }
+                return _CDPQuestionValidations;
+            }
+        }
+        private ObjectSet<CDPQuestionValidation> _CDPQuestionValidations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<CDPValidationType> CDPValidationTypes
         {
             get
@@ -271,14 +271,6 @@ namespace CDPReporting.Data.Entity
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CDPQuestionOptions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToCDPQuestionOptions(CDPQuestionOption cDPQuestionOption)
-        {
-            base.AddObject("CDPQuestionOptions", cDPQuestionOption);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the CDPQuestions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToCDPQuestions(CDPQuestion cDPQuestion)
@@ -303,14 +295,6 @@ namespace CDPReporting.Data.Entity
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CDPQuestionValidations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToCDPQuestionValidations(CDPQuestionValidation cDPQuestionValidation)
-        {
-            base.AddObject("CDPQuestionValidations", cDPQuestionValidation);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the CDPSimpleChoiceAnswers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToCDPSimpleChoiceAnswers(CDPSimpleChoiceAnswer cDPSimpleChoiceAnswer)
@@ -332,6 +316,22 @@ namespace CDPReporting.Data.Entity
         public void AddToCDPTabularQuestionAnswers(CDPTabularQuestionAnswer cDPTabularQuestionAnswer)
         {
             base.AddObject("CDPTabularQuestionAnswers", cDPTabularQuestionAnswer);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CDPQuestionOptions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCDPQuestionOptions(CDPQuestionOption cDPQuestionOption)
+        {
+            base.AddObject("CDPQuestionOptions", cDPQuestionOption);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CDPQuestionValidations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCDPQuestionValidations(CDPQuestionValidation cDPQuestionValidation)
+        {
+            base.AddObject("CDPQuestionValidations", cDPQuestionValidation);
         }
     
         /// <summary>
@@ -998,18 +998,18 @@ namespace CDPReporting.Data.Entity
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionSubGroup")]
+        [EdmRelationshipNavigationPropertyAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionSubGroups")]
         public EntityCollection<CDPQuestionSubGroup> CDPQuestionSubGroups
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CDPQuestionSubGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionSubGroup");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CDPQuestionSubGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionSubGroups");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CDPQuestionSubGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionSubGroup", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CDPQuestionSubGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionSubGroups", value);
                 }
             }
         }
@@ -1264,16 +1264,16 @@ namespace CDPReporting.Data.Entity
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroup")]
+        [EdmRelationshipNavigationPropertyAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroups")]
         public CDPQuestionGroup CDPQuestionGroup
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CDPQuestionGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroup").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CDPQuestionGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroups").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CDPQuestionGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroup").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CDPQuestionGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroups").Value = value;
             }
         }
         /// <summary>
@@ -1285,13 +1285,13 @@ namespace CDPReporting.Data.Entity
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CDPQuestionGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroup");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CDPQuestionGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroups");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CDPQuestionGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroup", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CDPQuestionGroup>("SMR_KMS_DB_DevModel.FK_CDPQuestionSubGroups_CDPQuestionGroups", "CDPQuestionGroups", value);
                 }
             }
         }
@@ -1386,18 +1386,18 @@ namespace CDPReporting.Data.Entity
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestions_CDPQuestionType", "CDPQuestion")]
+        [EdmRelationshipNavigationPropertyAttribute("SMR_KMS_DB_DevModel", "FK_CDPQuestions_CDPQuestionType", "CDPQuestions")]
         public EntityCollection<CDPQuestion> CDPQuestions
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CDPQuestion>("SMR_KMS_DB_DevModel.FK_CDPQuestions_CDPQuestionType", "CDPQuestion");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CDPQuestion>("SMR_KMS_DB_DevModel.FK_CDPQuestions_CDPQuestionType", "CDPQuestions");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CDPQuestion>("SMR_KMS_DB_DevModel.FK_CDPQuestions_CDPQuestionType", "CDPQuestion", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CDPQuestion>("SMR_KMS_DB_DevModel.FK_CDPQuestions_CDPQuestionType", "CDPQuestions", value);
                 }
             }
         }

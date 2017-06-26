@@ -40,16 +40,15 @@ namespace CDPReporting.UI.Controllers
             return View(oSidePanelQuestions);
         }
 
-        public ActionResult GetQuestionView(string questionViewId)
+        public ActionResult GetQuestionView(Guid questionViewId)
         {
             try
             {
                 if (_log.IsInfoEnabled) _log.Info("Calling Index method of GetQuestionView");
-                string questionId = questionViewId.Replace("Question_", "").Replace("_", ".");                
-
-                questionViewId = questionViewId.Insert(0, "_");
-                var model = oQuestionnaireService.GetQuestionResponse(questionId, CurrentUser.PlantId);
-                return PartialView(questionViewId, model);
+               // Guid questionId = questionViewId.Replace("Question_", "").Replace("_", ".");
+                //questionViewId = questionViewId.Insert(0, "_");
+                var model = oQuestionnaireService.GetQuestionResponse(questionViewId, CurrentUser.UserId);
+                return PartialView(questionViewId.ToString(), model);
             }
             catch (Exception ex)
             {
@@ -58,7 +57,7 @@ namespace CDPReporting.UI.Controllers
         }
 
         [HttpPost]
-        public void SaveQuestionResponse(string questionId, string answer, string questionType, int year)
+        public void SaveQuestionResponse(Guid questionId, string answer, string questionType, int year)
         {
             try
             {
@@ -76,13 +75,13 @@ namespace CDPReporting.UI.Controllers
             }
         }
 
-        public void SaveResponseTableType(List<QuestionResponseTableTypeModel> model, string questionId)
+        public void SaveResponseTableType(List<QuestionResponseTableTypeModel> model, Guid questionId, int selectedYear)
         {
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of SaveQuestionResponse");
-            oQuestionnaireService.SaveResponseTableType(model, questionId, CurrentUser.UserId);
+            oQuestionnaireService.SaveResponseTableType(model, questionId, CurrentUser.UserId, selectedYear);
         }
 
-        public JsonResult GetQuestionData(string questionId)
+        public JsonResult GetQuestionData(Guid questionId, int year)
         {
             List<QuestionResponseTableTypeModel> data = new List<QuestionResponseTableTypeModel>();
             //for (int i = 1; i <= 10; i++)
@@ -97,8 +96,9 @@ namespace CDPReporting.UI.Controllers
             //             GridCol4 = string.Format("Row {0}Col{1}", i, j++)
             //        });
             //}
+           // Guid plantId;
 
-            data = oQuestionnaireService.GetTableTypeResponse(questionId, CurrentUser.UserId);
+            data = oQuestionnaireService.GetTableTypeResponse(questionId, plantId, year);
 
             return Json(new { data = data }, JsonRequestBehavior.AllowGet);
         }
