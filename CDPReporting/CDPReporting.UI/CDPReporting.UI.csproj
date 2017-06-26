@@ -506,7 +506,7 @@
     <Content Include="Views\Questionnaire\Index.cshtml" />
     <Content Include="Views\Shared\_ViewQuestionList.cshtml" />
     <Content Include="Views\Shared\_ViewAnswerTheQuestion.cshtml" />
-    <Content Include="Views\Shared\_SimpleMultipleAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_SimpleAnswerQuestion.cshtml" />
     <Content Include="Views\Shared\_Question_CC0_2.cshtml" />
     <Content Include="Views\Shared\_Question_CC0_3.cshtml" />
     <Content Include="Views\Shared\_Question_CC0_4.cshtml" />
@@ -623,7 +623,8 @@
     <Content Include="Views\Shared\_Question_CC14_4c.cshtml" />
     <Content Include="Views\Shared\_Question_CC15_1.cshtml" />
     <Content Include="Views\CDP\Index.cshtml" />
-    <Content Include="Views\Shared\_MultipleSelectListAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_DateRangeAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_BooleanAnswerQuestion .cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

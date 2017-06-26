@@ -26,22 +26,25 @@
         </script>
         <div class="form-horizontal">
             <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
-        </div>
+        
 
-        <div class="form-group">
+            <div class="form-group">
 
-        @{
-            if (Model.QuestionType == CDPReporting.Business.Models.QuestionType.Simple)
-            {
+                
+    
+        <div class="col-md-12">
             <label for="comment" class="control-label"></label>
             <textarea class="form-control" rows="5" id="comment"></textarea>
-            }
-        }
-
         </div>
+    
+
+
+            </div>
 
         <div class="form-group">
-        <button id="Save" type="button" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-primary">Cancel</button>
+            <div class="col-md-offset-10 col-md-12">
+                <button id="Save" type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-primary">Cancel</button>
+            </div>
         </div>
         </div>

@@ -65,9 +65,9 @@
         <div class="col-md-12">
             <select id="selectMultiple" multiple="multiple">
                 @foreach (var item in Model.OptionList.OptionCSVText)
-                {
-                    <option>@Html.Raw(item)</option>
-                }
+{
+                <option value="@Html.Raw(item.ToString().Replace(" ",""))">@Html.Raw(item)</option>
+}
                 @if(Model.OptionList.OtherOptions != null)
                 {
                     <option>Other</option>

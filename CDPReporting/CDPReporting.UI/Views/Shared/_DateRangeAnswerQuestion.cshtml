@@ -23,21 +23,24 @@
     });
 </script>
 
-<div>
-    <h2>CC0.2: 	Reporting Year</h2>
-    <label for="comment">
-        Please state the start and end date of the year for which you are reporting data
-        <br />
-        The current reporting year is the latest/most recent 12-month period for which data is reported.
-    </label>
-    <div class="col-md-8">
-        <label class="col-md-4" for="comment">Select the Range</label>
-        <input type="text" class="col-md-4" style="width:100%" name="daterange" value="01/01/2015 - 01/31/2015" />
-    </div>
-    <div class="row">
+
+
+
+<div class="form-horizontal">
+    <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
+
+
+    <div class="form-group">
         <div class="col-md-12">
-            <button type="button" class="btn btn-primary pull-right" id="Cancel">Cancel</button>
-            <button type="button" class="btn btn-primary pull-right" id="Save">Save</button>
+            <label for="comment" class="control-label">Select the Range</label>
+            <input type="text" class="form-control" style="" name="daterange" value="01/01/2015 - 01/31/2015" />
         </div>
-    </div>    
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-10 col-md-12">
+            <button id="Save" type="button" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary">Cancel</button>
+        </div>
+    </div>
 </div>

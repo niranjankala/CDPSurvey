@@ -65,37 +65,38 @@ namespace CDPReporting.UI.Controllers
         private string GetQuestionPartialView(QuestionType questionType)
         {
             string partialViewName = string.Empty;
-            switch (questionType)
-            {
-                case QuestionType.Simple:
-                    partialViewName = "_SimpleMultipleAnswerQuestion";
-                    break;
-                case QuestionType.List:
-                    break;
-                case QuestionType.DropDown:
-                    break;
-                case QuestionType.DropDownList:                  
-                    break;
-                case QuestionType.Option:
-                    break;
-                case QuestionType.OptionList:
-                    break;
-                case QuestionType.DateRange:
-                    break;
-                case QuestionType.Date:
-                    break;
-                case QuestionType.Boolean:
-                    break;
-                case QuestionType.CDPGrid:
-                    break;
-                case QuestionType.CDPGridResultList:
-                    break;
-                case QuestionType.MultipleSelectList:
-                    partialViewName = "_MultipleSelectListAnswerQuestion";
-                    break;
-                default:
-                    break;
-            }
+
+            partialViewName = string.Format("_{0}AnswerQuestion", questionType);
+            //switch (questionType)
+            //{
+            //    case QuestionType.Simple:
+            //        partialViewName = string.Format("_{0}AnswerQuestion", questionType);
+            //        break;
+            //    case QuestionType.List:
+            //        break;
+            //    case QuestionType.DropDown:
+            //        break;
+            //    case QuestionType.DropDownList:
+            //        break;
+            //    case QuestionType.Option:
+            //        break;
+            //    case QuestionType.OptionList:
+            //        break;
+            //    case QuestionType.DateRange:
+            //        break;
+            //    case QuestionType.Date:
+            //        break;
+            //    case QuestionType.Boolean:
+            //        break;
+            //    case QuestionType.CDPGrid:
+            //        break;
+            //    case QuestionType.CDPGridResultList:
+            //        break;
+            //    case QuestionType.MultipleSelectList:
+            //        break;
+            //    default:
+            //        break;
+            //}
             return partialViewName;
         }
 
