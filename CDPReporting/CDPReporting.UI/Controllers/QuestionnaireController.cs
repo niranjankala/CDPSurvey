@@ -28,8 +28,6 @@ namespace CDPReporting.UI.Controllers
         {
             List<GroupQuestionModel> oSidePanelQuestions = new List<GroupQuestionModel>();
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of QuestionnaireController");
-
-
             oSidePanelQuestions = oQuestionnaireService.GetQuestionList();
 
             // return View("_ViewQuestionList", oSidePanelQuestions);
@@ -44,11 +42,12 @@ namespace CDPReporting.UI.Controllers
         {
             try
             {
-                if (_log.IsInfoEnabled) _log.Info("Calling Index method of GetQuestionView");
+                if (_log.IsInfoEnabled) _log.Info("Calling Index method of GetQestionView");
                // Guid questionId = questionViewId.Replace("Question_", "").Replace("_", ".");
                 //questionViewId = questionViewId.Insert(0, "_");
-                var model = oQuestionnaireService.GetQuestionResponse(questionViewId, CurrentUser.UserId);
-                return PartialView(questionViewId.ToString(), model);
+                Guid plantId = CurrentUser.PlantId ?? Guid.NewGuid();
+                var model = oQuestionnaireService.GetQuestionResponse(questionViewId, plantId);
+                return PartialView("_Question_CC0_3", model);
             }
             catch (Exception ex)
             {
@@ -67,7 +66,8 @@ namespace CDPReporting.UI.Controllers
                 response.Value = answer;
                 response.Year = year;
                 response.QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), questionType);
-                oQuestionnaireService.SaveQuestionResponse(response, CurrentUser.UserId);
+                Guid plantId = CurrentUser.PlantId ?? Guid.NewGuid();
+                oQuestionnaireService.SaveQuestionResponse(response, plantId);
             }
             catch (Exception ex)
             {
@@ -78,7 +78,8 @@ namespace CDPReporting.UI.Controllers
         public void SaveResponseTableType(List<QuestionResponseTableTypeModel> model, Guid questionId, int selectedYear)
         {
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of SaveQuestionResponse");
-            oQuestionnaireService.SaveResponseTableType(model, questionId, CurrentUser.UserId, selectedYear);
+            Guid plantId = CurrentUser.PlantId ?? Guid.NewGuid();
+            oQuestionnaireService.SaveResponseTableType(model, questionId, plantId, selectedYear);
         }
 
         public JsonResult GetQuestionData(Guid questionId, int year)
@@ -96,7 +97,8 @@ namespace CDPReporting.UI.Controllers
             //             GridCol4 = string.Format("Row {0}Col{1}", i, j++)
             //        });
             //}
-           // Guid plantId;
+
+            Guid plantId = CurrentUser.PlantId ?? Guid.NewGuid();
 
             data = oQuestionnaireService.GetTableTypeResponse(questionId, plantId, year);
 

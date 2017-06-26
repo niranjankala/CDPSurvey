@@ -7,6 +7,8 @@
         $('#Question_CC03_List').multiselect();
         var str = '@Model.Value';
         var multiselectedVals = [];
+        multiselectedVals[0] = "1";
+        multiselectedVals[1] = "2";
         //multiselectedVals.push(str.split(","));
 
         //$.each(str.split(","), function (i, e) {
@@ -14,15 +16,16 @@
         //});
 
        // $("#Question_CC03_List").multiSelect("select", ["1", "2"]);
+        debugger;
+        for (var i = 0; i < multiselectedVals.length; i++) {
+            $("#Question_CC03_List").find(":checkbox[value='" + multiselectedVals[i] + "']").attr("checked", "checked");
+            $("#Question_CC03_List option[value='" + multiselectedVals[i] + "']").closest('li').addClass('active');
+        }
 
-        //for (var i = 0; i < multiselectedVals.length; i++) {
-        //    $("#Question_CC03_List").multiselect("widget").find(":checkbox[value='" + valArr[i] + "']").attr("checked", "checked");
-        //    $("#Question_CC03_List option[value='" + valArr[i] + "']").attr("selected", 1);
-        //}
-
-        multiselectedVals[0] = "1";
-        multiselectedVals[1] = "2";
-        $('Select').multiselect(multiselectedVals);
+        //multiselectedVals[0] = "1";
+        //multiselectedVals[1] = "2";
+        //debugger;
+        //$('#Question_CC03_List').val(multiselectedVals);
 
 
         $('#Save').click(function () {

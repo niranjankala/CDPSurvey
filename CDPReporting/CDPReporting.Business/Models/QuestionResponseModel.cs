@@ -13,6 +13,7 @@ namespace CDPReporting.Business.Models
         public int Year { get; set; }
         public Object Value { get; set; }
         public QuestionType QuestionType { get; set; }
+        public List<string> MyProperty { get; set; }
     }
 
     public class DateRange
