@@ -10,6 +10,8 @@ namespace CDPReporting.Business.Models
     {
         public Guid AnswerId { get; set; }
         public Guid QuestionId { get; set; }
+        public string Caption { get; set; }
+        public string QuestionText { get; set; }
         public int Year { get; set; }
         public Object Value { get; set; }
         public QuestionType QuestionType { get; set; }
