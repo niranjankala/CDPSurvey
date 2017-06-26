@@ -65,11 +65,12 @@ namespace CDPReporting.UI.Controllers
         private string GetQuestionPartialView(QuestionType questionType)
         {
             string partialViewName = string.Empty;
-            partialViewName = "_" + questionType + "AnswerQuestion";
+
+            partialViewName = string.Format("_{0}AnswerQuestion", questionType);
             //switch (questionType)
             //{
             //    case QuestionType.Simple:
-            //        partialViewName = "_" + questionType + "AnswerQuestion";
+            //        partialViewName = string.Format("_{0}AnswerQuestion", questionType);
             //        break;
             //    case QuestionType.List:
             //        break;
