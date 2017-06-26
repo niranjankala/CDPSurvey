@@ -1,3 +1,46 @@
-﻿
+﻿@model CDPReporting.Business.Models.QuestionResponseModel
 
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[name="daterange"]').daterangepicker();
+        @*var str = '@Model.Value';
+        var date = str.split("s");
+        $('input[name="daterange"]').val(date[0]+"-"+date[1]);*@
+        $("#Save").click(function () {
+            var startDate = $('input[name="daterange"]').data('daterangepicker').startDate.format('YYYY-MM-DD');
+            var endDate = $('input[name="daterange"]').data('daterangepicker').endDate.format('YYYY-MM-DD');
+            var date = startDate + "s" + endDate;
+
+            var qId = '@Model.QuestionId';
+            var qType = 'DateRange';
+            var yearVal = '@Model.Year';
+
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: date, questionType: qType, year: yearVal }, function (data) {
+                // $('#main').html(data);
+            });
+        });
+    });
+</script>
+
+
+
+
+<div class="form-horizontal">
+    <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
+
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <label for="comment" class="control-label">Select the Range</label>
+            <input type="text" class="form-control" style="" name="daterange" value="01/01/2015 - 01/31/2015" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-10 col-md-12">
+            <button id="Save" type="button" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary">Cancel</button>
+        </div>
+    </div>
+</div>
