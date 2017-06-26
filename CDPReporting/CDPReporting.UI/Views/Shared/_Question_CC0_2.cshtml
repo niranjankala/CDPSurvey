@@ -4,9 +4,9 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('input[name="daterange"]').daterangepicker();
-        var str = '@Model.Value';
+        @*var str = '@Model.Value';
         var date = str.split("s");
-        $('input[name="daterange"]').val(date[0]+"-"+date[1]);
+        $('input[name="daterange"]').val(date[0]+"-"+date[1]);*@
         $("#Save").click(function () {
             var startDate = $('input[name="daterange"]').data('daterangepicker').startDate.format('YYYY-MM-DD');
             var endDate = $('input[name="daterange"]').data('daterangepicker').endDate.format('YYYY-MM-DD');
