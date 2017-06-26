@@ -50,10 +50,10 @@ namespace CDPReporting.Business.Services
                                                    }).ToList()
                                   }).ToList();
 
-                
 
 
-                
+
+
                 return questionGroups;
             }
             catch (Exception ex)
@@ -64,15 +64,15 @@ namespace CDPReporting.Business.Services
         /// <summary>
         /// Method to save question response.
         /// </summary>
-        public void SaveResponseTableType(List<QuestionResponseTableTypeModel> modelData, Guid questionId, Guid plantId)
+        public void SaveResponseTableType(List<QuestionResponseTableTypeModel> modelData, string questionId, Guid userPlantId, int selectedYear)
         {
             try
             {
-                List<CDPTabularQuestionAnswer> responseList = _context.CDPTabularQuestionAnswers.Where(answer => answer.PlantId == plantId && answer.QuestionId == questionId).ToList();
+                List<CDPTabularQuestionAnswer> responseList = _context.CDPTabularQuestionAnswers.Where(answer => answer.PlantId == userPlantId && answer.QuestionId.ToString() == questionId && answer.Year == selectedYear).ToList();
                 List<CDPTabularQuestionAnswer> responseToRemove = new List<CDPTabularQuestionAnswer>();
 
                 if (modelData == null || modelData.Count == 0)
-                    responseToRemove = responseList.Where(m => m.QuestionId == questionId && m.PlantId == plantId).ToList();
+                    responseToRemove = responseList.Where(m => m.QuestionId.ToString() == questionId && m.PlantId == userPlantId && m.Year == selectedYear).ToList();
                 else
                     responseToRemove = responseList.Where(x => !modelData.Any(m => m.GridIndexId == x.Id)).ToList();
                 if (modelData != null)
@@ -81,7 +81,7 @@ namespace CDPReporting.Business.Services
                     {
                         //response = _context.CDPTableTypeQuestions.First(answer => answer.GridIndex == data.GridIndexId);
 
-                        bool responseToAdd = responseList.Where(m => m.Id == data.GridIndexId).Any();
+                        bool responseToAdd = responseList.Any(m => m.Id == data.GridIndexId);
 
                         if (!responseToAdd)
                         {
@@ -89,9 +89,9 @@ namespace CDPReporting.Business.Services
                             CDPTabularQuestionAnswer response = new CDPTabularQuestionAnswer()
                             {
                                 Id = Guid.NewGuid(),
-                                PlantId = plantId,
-                                Year = DateTime.Now.Year,
-                                QuestionId = questionId,
+                                PlantId = userPlantId,
+                                Year = selectedYear,
+                                QuestionId = new Guid(questionId),
                                 GridColumn1 = data.GridCol1,
                                 GridColumn2 = data.GridCol2,
                                 GridColumn3 = data.GridCol3,
@@ -125,25 +125,27 @@ namespace CDPReporting.Business.Services
             }
         }
 
-        public QuestionResponseModel GetQuestionResponse(Guid questionId, Guid userId)
+        public QuestionResponseModel GetQuestionResponse(string questionId, Guid userPlantId)
         {
-            CDPQuestionType questionType = _context.CDPQuestionTypes.FirstOrDefault(type => type.Id == _context.CDPQuestions.FirstOrDefault(q => q.QId == questionId).QuestionType); ;
+            CDPQuestion question = _context.CDPQuestions.FirstOrDefault(q => q.QuestionId == questionId);
+            CDPQuestionType questionType = _context.CDPQuestionTypes.FirstOrDefault(type => type.Id == question.QuestionType);
             QuestionResponseModel result = new QuestionResponseModel();
             result.QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), questionType.Type);
-            result.Value = GetQuestionAnswerDetails(userId, questionId, result.QuestionType);
+            result.Value = GetQuestionAnswerDetails(userPlantId, questionId, result.QuestionType);
             result.QuestionId = questionId;
             result.Year = DateTime.Now.Year;
             return result;
         }
 
-        private object GetQuestionAnswerDetails(Guid plantId, Guid questionId, QuestionType contextName)
+        private object GetQuestionAnswerDetails(Guid userPlantId, string questionId, QuestionType contextName)
         {
             object result = null;
             switch (contextName)
             {
                 case QuestionType.Simple:
-                    CDPSimpleChoiceAnswer userAnswer = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == plantId &&
-                        ans.QuestionId == questionId);
+                case QuestionType.MultipleSelectList:
+                    CDPSimpleChoiceAnswer userAnswer = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
+                        ans.QuestionId.ToString() == questionId);
                     if (userAnswer != null)
                     {
                         result = userAnswer.AnswerValue;
@@ -160,27 +162,19 @@ namespace CDPReporting.Business.Services
                 case QuestionType.OptionList:
                     break;
                 case QuestionType.DateRange:
-                    CDPDateRangeAnswer dateRangeAns = _context.CDPDateRangeAnswers.FirstOrDefault(ans => ans.PlantId == plantId && ans.QuestionId == questionId);
+                    CDPDateRangeAnswer dateRangeAns = _context.CDPDateRangeAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId && ans.QuestionId.ToString() == questionId);
                     if (dateRangeAns != null)
                     {
-                        result = dateRangeAns.StartDate + "s" + dateRangeAns.EndDate;
+                        result = string.Format("{0}s{1}", dateRangeAns.StartDate, dateRangeAns.EndDate);
                     }
                     break;
                 case QuestionType.Date:
                     break;
                 case QuestionType.Boolean:
                     break;
-                case QuestionType.MultipleSelectList:
-                    CDPSimpleChoiceAnswer userMultipleSelectedAnswer = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == plantId &&
-                        ans.QuestionId == questionId);
-                    if (userMultipleSelectedAnswer != null)
-                    {
-                        result = userMultipleSelectedAnswer.AnswerValue;
-                    }
-                    break;
                 case QuestionType.CDPGrid:
-                    CDPTabularQuestionAnswer gridResponse = _context.CDPTabularQuestionAnswers.FirstOrDefault(ans => ans.PlantId == plantId &&
-                        ans.QuestionId == questionId);
+                    CDPTabularQuestionAnswer gridResponse = _context.CDPTabularQuestionAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
+                        ans.QuestionId.ToString() == questionId);
                     if (gridResponse != null)
                     {
                         result = gridResponse.GridColumn1;
@@ -201,14 +195,14 @@ namespace CDPReporting.Business.Services
             return result;
         }
 
-        public void SaveQuestionResponse(QuestionResponseModel response, Guid plantId)
+        public void SaveQuestionResponse(QuestionResponseModel response, Guid userId)
         {
             try
             {
                 switch (response.QuestionType)
                 {
                     case QuestionType.Simple:
-                        SaveSimpleQuestion(response, plantId);
+                        SaveSimpleQuestion(response, userId);
                         break;
                     case QuestionType.List:
                         break;
@@ -221,7 +215,7 @@ namespace CDPReporting.Business.Services
                     case QuestionType.OptionList:
                         break;
                     case QuestionType.DateRange:
-                        SaveDateRangeQuestion(response, plantId);
+                        SaveDateRangeQuestion(response, userId);
                         break;
                     case QuestionType.Date:
                         break;
@@ -230,7 +224,7 @@ namespace CDPReporting.Business.Services
                     case QuestionType.CDPGrid:
                         break;
                     case QuestionType.MultipleSelectList:
-                        SaveMultiSeletedList(response, plantId);
+                        SaveMultiSeletedList(response, userId);
                         break;
                     default:
                         break;
@@ -244,23 +238,23 @@ namespace CDPReporting.Business.Services
 
         }
 
-        private void SaveMultiSeletedList(QuestionResponseModel response, Guid plantId)
+        private void SaveMultiSeletedList(QuestionResponseModel response, Guid userPlantId)
         {
             try
             {
-                CDPSimpleChoiceAnswer data = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == plantId &&
-                        ans.QuestionId == response.QuestionId);
+                CDPSimpleChoiceAnswer data = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
+                        ans.QuestionId.ToString() == response.QuestionId && ans.Year == response.Year);
                 if (data != null)
                 {
-                    data.AnswerValue= response.Value.ToString();
+                    data.AnswerValue = response.Value.ToString();
                 }
                 else
                 {
                     data = new CDPSimpleChoiceAnswer();
                     data.AnswerId = Guid.NewGuid();
-                    data.PlantId = plantId;
+                    data.PlantId = userPlantId;
                     data.Year = response.Year;
-                    data.QuestionId = response.QuestionId;
+                    data.QuestionId = new Guid(response.QuestionId);
                     data.AnswerValue = Convert.ToString(response.Value);
                     _context.CDPSimpleChoiceAnswers.AddObject(data);
                 }
@@ -272,12 +266,12 @@ namespace CDPReporting.Business.Services
             }
         }
 
-        private void SaveDateRangeQuestion(QuestionResponseModel response, Guid plantId)
+        private void SaveDateRangeQuestion(QuestionResponseModel response, Guid userPlantId)
         {
             try
             {
-                CDPDateRangeAnswer data = _context.CDPDateRangeAnswers.FirstOrDefault(ans => ans.PlantId == plantId &&
-                        ans.QuestionId == response.QuestionId);
+                CDPDateRangeAnswer data = _context.CDPDateRangeAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
+                        ans.QuestionId.ToString() == response.QuestionId && ans.Year == response.Year);
                 string[] date = response.Value.ToString().Split('s');
 
                 if (data != null)
@@ -289,9 +283,9 @@ namespace CDPReporting.Business.Services
                 {
                     data = new CDPDateRangeAnswer();
                     data.AnswerId = Guid.NewGuid();
-                    data.PlantId = plantId;
+                    data.PlantId = userPlantId;
                     data.Year = response.Year;
-                    data.QuestionId = response.QuestionId;
+                    data.QuestionId = new Guid(response.QuestionId);
                     data.StartDate = Convert.ToDateTime(date[0]);
                     data.EndDate = Convert.ToDateTime(date[1]);
                     _context.CDPDateRangeAnswers.AddObject(data);
@@ -304,12 +298,12 @@ namespace CDPReporting.Business.Services
             }
         }
 
-        private void SaveSimpleQuestion(QuestionResponseModel response, Guid plantId)
+        private void SaveSimpleQuestion(QuestionResponseModel response, Guid userPlantId)
         {
             try
             {
-                CDPSimpleChoiceAnswer data = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == plantId &&
-                        ans.QuestionId == response.QuestionId);
+                CDPSimpleChoiceAnswer data = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
+                        ans.QuestionId.ToString() == response.QuestionId && ans.Year == response.Year);
                 if (data != null)
                 {
                     data.AnswerValue = response.Value.ToString();
@@ -318,9 +312,9 @@ namespace CDPReporting.Business.Services
                 {
                     data = new CDPSimpleChoiceAnswer();
                     data.AnswerId = Guid.NewGuid();
-                    data.PlantId = plantId;
+                    data.PlantId = userPlantId;
                     data.Year = response.Year;
-                    data.QuestionId = response.QuestionId;
+                    data.QuestionId = new Guid(response.QuestionId);
                     data.AnswerValue = Convert.ToString(response.Value);
                     _context.CDPSimpleChoiceAnswers.AddObject(data);
                 }
@@ -332,17 +326,17 @@ namespace CDPReporting.Business.Services
             }
         }
 
-        public List<QuestionResponseTableTypeModel> GetTableTypeResponse(Guid questionId, Guid plantId)
+        public List<QuestionResponseTableTypeModel> GetTableTypeResponse(string questionId, Guid userId, int selectedYear)
         {
             try
             {
                 List<QuestionResponseTableTypeModel> responseList = new List<QuestionResponseTableTypeModel>();
-                List<CDPTabularQuestionAnswer> dbResponseList = _context.CDPTabularQuestionAnswers.Where(m => m.PlantId == plantId && m.QuestionId == questionId).ToList();
+                List<CDPTabularQuestionAnswer> dbResponseList = _context.CDPTabularQuestionAnswers.Where(m => m.PlantId == userId && m.QuestionId.ToString() == questionId && m.Year == selectedYear).ToList();
                 responseList = (from list in dbResponseList
                                 select new QuestionResponseTableTypeModel
                                 {
                                     GridIndexId = list.Id,
-                                    QuestionId = list.QuestionId,
+                                    QuestionId = list.QuestionId.ToString(),
                                     GridCol1 = list.GridColumn1,
                                     GridCol2 = list.GridColumn2,
                                     GridCol3 = list.GridColumn3,
