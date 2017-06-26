@@ -40,15 +40,15 @@ namespace CDPReporting.UI.Controllers
             return View(oSidePanelQuestions);
         }
 
-        public ActionResult GetQuestionView(string questionViewId)
+        public ActionResult GetQuestionView(Guid questionViewId)
         {
             try
             {
                 if (_log.IsInfoEnabled) _log.Info("Calling Index method of GetQuestionView");
-                string questionId = questionViewId.Replace("Question_", "").Replace("_", ".");
-                questionViewId = questionViewId.Insert(0, "_");
-                var model = oQuestionnaireService.GetQuestionResponse(questionId, CurrentUser.UserId);
-                return PartialView(questionViewId, model);
+               // Guid questionId = questionViewId.Replace("Question_", "").Replace("_", ".");
+                //questionViewId = questionViewId.Insert(0, "_");
+                var model = oQuestionnaireService.GetQuestionResponse(questionViewId, CurrentUser.UserId);
+                return PartialView(questionViewId.ToString(), model);
             }
             catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace CDPReporting.UI.Controllers
         }
 
         [HttpPost]
-        public void SaveQuestionResponse(string questionId, string answer, string questionType, int year)
+        public void SaveQuestionResponse(Guid questionId, string answer, string questionType, int year)
         {
             try
             {
@@ -75,13 +75,13 @@ namespace CDPReporting.UI.Controllers
             }
         }
 
-        public void SaveResponseTableType(List<QuestionResponseTableTypeModel> model, string questionId)
+        public void SaveResponseTableType(List<QuestionResponseTableTypeModel> model, Guid questionId)
         {
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of SaveQuestionResponse");
             oQuestionnaireService.SaveResponseTableType(model, questionId, CurrentUser.UserId);
         }
 
-        public JsonResult GetQuestionData(string questionId)
+        public JsonResult GetQuestionData(Guid questionId)
         {
             List<QuestionResponseTableTypeModel> data = new List<QuestionResponseTableTypeModel>();
             //for (int i = 1; i <= 10; i++)
