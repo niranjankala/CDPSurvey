@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="SMR.KM.Business">
+      <HintPath>..\ThirdPartyLibraries\SMR_KMS_UI\SMR.KM.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="SMR.KM.Data">
+      <HintPath>..\ThirdPartyLibraries\SMR_KMS_UI\SMR.KM.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -66,6 +75,13 @@
     <Compile Include="Services\QuestionnaireService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\CDPReporting.Common\CDPReporting.Common.csproj">
       <Project>{7bbe15d1-d2f9-463c-9110-e98dd1a8422a}</Project>
       <Name>CDPReporting.Common</Name>
@@ -75,13 +91,6 @@
       <Name>CDPReporting.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

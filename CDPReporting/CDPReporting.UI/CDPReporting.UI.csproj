@@ -463,6 +463,7 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\Questionnaire\SaveQuestion.js" />
     <Content Include="Scripts\Questionnaire\selectQuestions.js" />
+    <Content Include="Scripts\Questionnaire\simpleAnswers.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -505,7 +506,7 @@
     <Content Include="Views\Questionnaire\Index.cshtml" />
     <Content Include="Views\Shared\_ViewQuestionList.cshtml" />
     <Content Include="Views\Shared\_ViewAnswerTheQuestion.cshtml" />
-    <Content Include="Views\Shared\_Question_CC0_1.cshtml" />
+    <Content Include="Views\Shared\_SimpleMultipleAnswerQuestion.cshtml" />
     <Content Include="Views\Shared\_Question_CC0_2.cshtml" />
     <Content Include="Views\Shared\_Question_CC0_3.cshtml" />
     <Content Include="Views\Shared\_Question_CC0_4.cshtml" />

@@ -10,7 +10,7 @@ namespace CDPReporting.Business.Models
     {
         public Guid GridIndexId { get; set; }
         public int year { get; set; }
-        public string QuestionId { get; set; }
+        public Guid QuestionId { get; set; }
         public string GridCol1 { get; set; }
         public string GridCol2 { get; set; }
         public string GridCol3 { get; set; }
