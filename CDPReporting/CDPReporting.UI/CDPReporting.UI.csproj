@@ -623,6 +623,7 @@
     <Content Include="Views\Shared\_Question_CC14_4c.cshtml" />
     <Content Include="Views\Shared\_Question_CC15_1.cshtml" />
     <Content Include="Views\CDP\Index.cshtml" />
+    <Content Include="Views\Shared\_DateRangeAnswerQuestion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

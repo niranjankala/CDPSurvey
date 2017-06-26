@@ -68,7 +68,7 @@ namespace CDPReporting.UI.Controllers
             switch (questionType)
             {
                 case QuestionType.Simple:
-                    partialViewName = "_SimpleMultipleAnswerQuestion";
+                    partialViewName = "_" + questionType + "AnswerQuestion";
                     break;
                 case QuestionType.List:
                     break;
