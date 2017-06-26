@@ -127,11 +127,10 @@ namespace CDPReporting.Business.Services
 
         public QuestionResponseModel GetQuestionResponse(string questionId, Guid userId)
         {
-            CDPQuestionType questionType = _context.CDPQuestionTypes.First(type => type.Id == _context.CDPQuestions.First(q => q.QuestionId == questionId).QuestionType); ;
+            CDPQuestionType questionType = _context.CDPQuestionTypes.FirstOrDefault(type => type.Id == _context.CDPQuestions.FirstOrDefault(q => q.QuestionId == questionId).QuestionType); ;
             QuestionResponseModel result = new QuestionResponseModel();
             result.QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), questionType.Type);
             result.Value = GetQuestionAnswerDetails(userId, questionId, result.QuestionType);
-
             result.QuestionId = questionId;
             result.Year = DateTime.Now.Year;
             return result;
@@ -161,10 +160,23 @@ namespace CDPReporting.Business.Services
                 case QuestionType.OptionList:
                     break;
                 case QuestionType.DateRange:
+                    CDPDateRangeTransaction dateRangeAns = _context.CDPDateRangeTransactions.FirstOrDefault(ans => ans.UserId == userId && ans.QuestionId == questionId);
+                    if (dateRangeAns != null)
+                    {
+                        result = dateRangeAns.StartDate + "s" + dateRangeAns.EndDate;
+                    }
                     break;
                 case QuestionType.Date:
                     break;
                 case QuestionType.Boolean:
+                    break;
+                case QuestionType.MultipleSelectList:
+                    CDPSingleTransaction userMultipleSelectedAnswer = _context.CDPSingleTransactions.FirstOrDefault(ans => ans.UserId == userId &&
+                        ans.QuestionId == questionId);
+                    if (userMultipleSelectedAnswer != null)
+                    {
+                        result = userMultipleSelectedAnswer.Value;
+                    }
                     break;
                 case QuestionType.CDPGrid:
                     CDPTableTypeQuestion gridResponse = _context.CDPTableTypeQuestions.FirstOrDefault(ans => ans.UserId == userId &&
@@ -209,13 +221,16 @@ namespace CDPReporting.Business.Services
                     case QuestionType.OptionList:
                         break;
                     case QuestionType.DateRange:
+                        SaveDateRangeQuestion(response, userId);
                         break;
                     case QuestionType.Date:
                         break;
                     case QuestionType.Boolean:
                         break;
                     case QuestionType.CDPGrid:
-
+                        break;
+                    case QuestionType.MultipleSelectList:
+                        SaveMultiSeletedList(response, userId);
                         break;
                     default:
                         break;
@@ -227,6 +242,66 @@ namespace CDPReporting.Business.Services
                 throw ex;
             }
 
+        }
+
+        private void SaveMultiSeletedList(QuestionResponseModel response, Guid userId)
+        {
+            try
+            {
+                CDPSingleTransaction data = _context.CDPSingleTransactions.FirstOrDefault(ans => ans.UserId == userId &&
+                        ans.QuestionId == response.QuestionId);
+                if (data != null)
+                {
+                    data.Value = response.Value.ToString();
+                }
+                else
+                {
+                    data = new CDPSingleTransaction();
+                    data.SingleTransactionId = Guid.NewGuid();
+                    data.UserId = userId;
+                    data.Year = response.Year;
+                    data.QuestionId = response.QuestionId;
+                    data.Value = Convert.ToString(response.Value);
+                    _context.CDPSingleTransactions.AddObject(data);
+                }
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void SaveDateRangeQuestion(QuestionResponseModel response, Guid userId)
+        {
+            try
+            {
+                CDPDateRangeTransaction data = _context.CDPDateRangeTransactions.FirstOrDefault(ans => ans.UserId == userId &&
+                        ans.QuestionId == response.QuestionId);
+                string[] date = response.Value.ToString().Split('s');
+
+                if (data != null)
+                {
+                    data.StartDate = Convert.ToDateTime(date[0]);
+                    data.EndDate = Convert.ToDateTime(date[1]);
+                }
+                else
+                {
+                    data = new CDPDateRangeTransaction();
+                    data.DateRangeTransactionId = Guid.NewGuid();
+                    data.UserId = userId;
+                    data.Year = response.Year;
+                    data.QuestionId = response.QuestionId;
+                    data.StartDate = Convert.ToDateTime(date[0]);
+                    data.EndDate = Convert.ToDateTime(date[1]);
+                    _context.CDPDateRangeTransactions.AddObject(data);
+                }
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void SaveSimpleQuestion(QuestionResponseModel response, Guid userId)

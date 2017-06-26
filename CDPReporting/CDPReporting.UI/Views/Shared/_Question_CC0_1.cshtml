@@ -15,7 +15,7 @@
             debugger;
             var commentVal = $("#comment").val();
             var qId = '@Model.QuestionId';
-            var qType = '@Model.QuestionType';
+            var qType = 'Simple';
             var yearVal = '@Model.Year';
 
             $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: commentVal, questionType: qType, year: yearVal}, function (data) {
@@ -33,8 +33,8 @@
     <label for="comment"></label>
     <textarea class="form-control" rows="5" id="comment"></textarea>
 <br/>
-    <div class="btn-group pull-right">
+    <p class="btn-group pull-right">
         <button id="Save" type="button" class="btn btn-primary">Save</button>
         <button type="button" class="btn btn-primary">Cancel</button>
-    </div>
+    </p>
 </div>
