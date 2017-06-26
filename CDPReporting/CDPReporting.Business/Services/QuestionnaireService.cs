@@ -134,9 +134,29 @@ namespace CDPReporting.Business.Services
             result.Caption = question.Title;
             result.QuestionText = question.QuestionText;
             result.Value = GetQuestionAnswerDetails(userPlantId, questionId, result.QuestionType, selectedYear);
+            if (questionType.Type != "Simple")
+                result.OptionList = GetOptionList(questionId);
             result.QuestionId = questionId;
             result.Year = DateTime.Now.Year;
             return result;
+        }
+
+        private Options GetOptionList(Guid questionId)
+        {
+            try
+            {
+                Options optionList = new Options();
+                CDPQuestionOption dbOptionList = _context.CDPQuestionOptions.FirstOrDefault(m=>m.QuestionId == questionId);
+                optionList.OptionId = dbOptionList.OptionId;
+                optionList.QuestionId = dbOptionList.QuestionId;
+                optionList.OptionCSVText = dbOptionList.OptionsCSVText.Split(',').ToList();
+                optionList.OtherOptions = dbOptionList.OptionOthersText;
+                return optionList;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private object GetQuestionAnswerDetails(Guid userPlantId, Guid questionId, QuestionType contextName, int selectionYear)

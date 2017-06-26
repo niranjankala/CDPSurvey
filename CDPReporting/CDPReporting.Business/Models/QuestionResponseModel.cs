@@ -15,7 +15,8 @@ namespace CDPReporting.Business.Models
         public int Year { get; set; }
         public Object Value { get; set; }
         public QuestionType QuestionType { get; set; }
-        public List<string> MyProperty { get; set; }
+        public Options OptionList { get; set; }
+
     }
 
     public class DateRange
@@ -23,4 +24,13 @@ namespace CDPReporting.Business.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
     }
+
+    public class Options
+    {
+        public Guid OptionId { get; set; }
+        public Guid QuestionId { get; set; }
+        public List<string> OptionCSVText { get; set; }
+        public string OtherOptions { get; set; }
+    }
+    
 }
