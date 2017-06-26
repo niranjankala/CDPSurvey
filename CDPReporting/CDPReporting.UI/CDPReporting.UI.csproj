@@ -506,7 +506,7 @@
     <Content Include="Views\Questionnaire\Index.cshtml" />
     <Content Include="Views\Shared\_ViewQuestionList.cshtml" />
     <Content Include="Views\Shared\_ViewAnswerTheQuestion.cshtml" />
-    <Content Include="Views\Shared\_SimpleMultipleAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_SimpleAnswerQuestion.cshtml" />
     <Content Include="Views\Shared\_Question_CC0_2.cshtml" />
     <Content Include="Views\Shared\_Question_CC0_3.cshtml" />
     <Content Include="Views\Shared\_Question_CC0_4.cshtml" />
