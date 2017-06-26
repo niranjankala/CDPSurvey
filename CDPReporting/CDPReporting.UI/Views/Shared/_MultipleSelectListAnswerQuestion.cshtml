@@ -1,0 +1,88 @@
+﻿@model CDPReporting.Business.Models.QuestionResponseModel
+
+<script type="text/javascript">
+    $(function () {
+      //  debugger;
+        $('#selectMultiple').multiselect();
+        @*var str = '@Model.Value';
+        var multiselectedVals = [];
+        multiselectedVals[0] = "1";
+        multiselectedVals[1] = "2";*@
+        //multiselectedVals.push(str.split(","));
+
+        //$.each(str.split(","), function (i, e) {
+        //    $("#Question_CC03_List option[value='" + e + "']").attr("selected", true);
+        //});
+
+       // $("#Question_CC03_List").multiSelect("select", ["1", "2"]);
+        //debugger;
+        //for (var i = 0; i < multiselectedVals.length; i++) {
+        //    $("#Question_CC03_List").find(":checkbox[value='" + multiselectedVals[i] + "']").attr("checked", "checked");
+        //    $("#Question_CC03_List option[value='" + multiselectedVals[i] + "']").closest('li').addClass('active');
+        //}
+
+        //multiselectedVals[0] = "1";
+        //multiselectedVals[1] = "2";
+        //debugger;
+        //$('#Question_CC03_List').val(multiselectedVals);
+
+
+        $('#Save').click(function () {
+            debugger;
+            var data = $('#selectMultiple').val();
+            var qId = '@Model.QuestionId';
+            var qType = '@Model.QuestionType';
+            var yearVal = '@Model.Year';
+            var multiselectData;
+            for (var item = 0; item < data.length; item++) {
+                if (multiselectData == null)
+                    multiselectData = data[item];
+                else
+                    multiselectData = multiselectData + "," + data[item];
+            }
+            var countryList = multiselectData;
+            multiselectData = null;
+
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: countryList, questionType: qType, year: yearVal }, function (data) {
+                // $('#main').html(data);
+            });
+        })
+
+
+    });
+</script>
+
+
+<div class="form-horizontal">
+    <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
+
+
+    <div class="form-group">
+
+        @{
+            if (Model.QuestionType == CDPReporting.Business.Models.QuestionType.MultipleSelectList)
+    {
+        <div class="col-md-12">
+            <select id="selectMultiple" multiple="multiple">
+                @foreach (var item in Model.OptionList.OptionCSVText)
+                {
+                    <option>@Html.Raw(item)</option>
+                }
+                @if(Model.OptionList.OtherOptions != null)
+                {
+                    <option>Other</option>
+                }
+            </select>
+        </div>
+    }
+}
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-10 col-md-12">
+            <button id="Save" type="button" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary">Cancel</button>
+        </div>
+    </div>
+</div>

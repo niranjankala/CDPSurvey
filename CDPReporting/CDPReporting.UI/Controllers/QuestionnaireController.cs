@@ -74,7 +74,7 @@ namespace CDPReporting.UI.Controllers
                     break;
                 case QuestionType.DropDown:
                     break;
-                case QuestionType.DropDownList:
+                case QuestionType.DropDownList:                  
                     break;
                 case QuestionType.Option:
                     break;
@@ -91,6 +91,7 @@ namespace CDPReporting.UI.Controllers
                 case QuestionType.CDPGridResultList:
                     break;
                 case QuestionType.MultipleSelectList:
+                    partialViewName = "_MultipleSelectListAnswerQuestion";
                     break;
                 default:
                     break;
