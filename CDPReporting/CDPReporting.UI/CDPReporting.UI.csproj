@@ -627,6 +627,13 @@
     <Content Include="Views\Shared\_BooleanAnswerQuestion.cshtml" />
     <Content Include="Views\Shared\_DropDownListAnswerQuestion.cshtml" />
     <Content Include="Views\Shared\_OptionAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_ListAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_DropDownAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_OptionListAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_DateAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_CDPGridAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_MultipleSelectListAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_CDPGridResultListAnswerQuestion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
