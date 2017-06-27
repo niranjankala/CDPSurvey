@@ -7,49 +7,55 @@
 
 
             <div class="form-group">
-                <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                    Select Currency
-                    <span class="caret"></span>
-                </button>
+                <div class="col-md-12">
+                    @*<div id="CurrencydropDown" class="dropdown">
+            <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+                Select Currency
+                <span class="caret"></span>
+            </button>*@
 
-                   
+                    <div class="btn-group">
+
+                        <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+                            Select Currency
+                            <span class="caret"></span>
+                        </button>
 
 
-                <ul class="dropdown-menu">
+                        <ul class="dropdown-menu">
 
-                   @foreach (var item in Model.OptionList.OptionCSVText)
-                    {
-                        if (Model.Value != null)
+                            @foreach (var item in Model.OptionList.OptionCSVText)
                         {
-                            if (@Model.Value.ToString().Contains(item))
+                            if (Model.Value != null)
                             {
-                                <li><a>@Html.Raw(item)</a></li>
+                                if (@Model.Value.ToString().Contains(item))
+                                {
+                        <li><a href="#">@Html.Raw(item)</a></li>
 
+
+                                }
+                                else
+                                {
+                        <li> <a href="#">@Html.Raw(item)</a></li>
+                                }
 
                             }
                             else
                             {
-                                 <li> <a>@Html.Raw(item)</a></li>
+                        <li><a href="#">@Html.Raw(item)</a></li>
                             }
 
                         }
-                        else
+                            @if (Model.OptionList.OtherOptions != null)
                         {
-                            <li><a>@Html.Raw(item)</a></li>
+                        <li>others</li>
                         }
 
-                    }
-                    @if (Model.OptionList.OtherOptions != null)
-                    {
-                         <li>others</li>
-                    }
 
 
-
-</ul>
-            </div>
-    
+                        </ul>
+                    </div>
+                </div>
             </div>
 
         <div class="form-group">
@@ -63,14 +69,22 @@
 
 <script>
 
-    $(function () {
 
-        $(".dropdown-menu li a").click(function () {
 
-            $(".btn:first-child").text($(this).text());
-            $(".btn:first-child").val($(this).text());
-        });
-
+    $(".dropdown-menu li a").click(function () {
+        var selText = $(this).text();
+        $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
     });
+
+
+    //$(function () {
+
+    //    $("#CurrencydropDown .dropdown-menu li a").click(function () {
+
+    //        $("#CurrencydropDown .btn:first-child").text($(this).text());
+    //        $("#CurrencydropDown .btn:first-child").val($(this).text());
+    //    });
+
+    //});
 
 </script>
