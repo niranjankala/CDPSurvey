@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
     $(function () {
-      //  debugger;
+        //  debugger;
         $('#selectMultiple').multiselect();
         @*var str = '@Model.Value';
         var multiselectedVals = [];
@@ -14,7 +14,7 @@
         //    $("#Question_CC03_List option[value='" + e + "']").attr("selected", true);
         //});
 
-       // $("#Question_CC03_List").multiSelect("select", ["1", "2"]);
+        // $("#Question_CC03_List").multiSelect("select", ["1", "2"]);
         //debugger;
         //for (var i = 0; i < multiselectedVals.length; i++) {
         //    $("#Question_CC03_List").find(":checkbox[value='" + multiselectedVals[i] + "']").attr("checked", "checked");
@@ -47,36 +47,25 @@
                 // $('#main').html(data);
             });
         })
-
-
     });
 </script>
 
 
 <div class="form-horizontal">
     <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
-
-
     <div class="form-group">
-
-        @{
-            if (Model.QuestionType == CDPReporting.Business.Models.QuestionType.MultipleSelectList)
-    {
         <div class="col-md-12">
             <select id="selectMultiple" multiple="multiple">
                 @foreach (var item in Model.OptionList.OptionCSVText)
-{
-                <option value="@Html.Raw(item.ToString().Replace(" ",""))">@Html.Raw(item)</option>
-}
-                @if(Model.OptionList.OtherOptions != null)
+                {
+                    <option value="@Html.Raw(item.ToString().Replace(" ",""))">@Html.Raw(item)</option>
+                }
+                @if (Model.OptionList.OtherOptions != null)
                 {
                     <option>Other</option>
                 }
             </select>
         </div>
-    }
-}
-
     </div>
 
     <div class="form-group">

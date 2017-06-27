@@ -625,6 +625,7 @@
     <Content Include="Views\CDP\Index.cshtml" />
     <Content Include="Views\Shared\_DateRangeAnswerQuestion.cshtml" />
     <Content Include="Views\Shared\_BooleanAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_DropDownListAnswerQuestion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
