@@ -134,9 +134,32 @@ namespace CDPReporting.Business.Services
             result.Caption = question.Title;
             result.QuestionText = question.QuestionText;
             result.Value = GetQuestionAnswerDetails(userPlantId, questionId, result.QuestionType, selectedYear);
+            if (questionType.Type != "Simple")
+                result.OptionList = GetOptionList(questionId);
             result.QuestionId = questionId;
             result.Year = DateTime.Now.Year;
             return result;
+        }
+
+        private Options GetOptionList(Guid questionId)
+        {
+            try
+            {
+                Options optionList = new Options();
+                CDPQuestionOption dbOptionList = _context.CDPQuestionOptions.FirstOrDefault(m=>m.QuestionId == questionId);
+                if (dbOptionList != null)
+                {
+                    optionList.OptionId = dbOptionList.OptionId;
+                    optionList.QuestionId = dbOptionList.QuestionId;
+                    optionList.OptionCSVText = dbOptionList.OptionsCSVText.Split(',').ToList();
+                    optionList.OtherOptions = dbOptionList.OptionOthersText;
+                }
+                return optionList;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private object GetQuestionAnswerDetails(Guid userPlantId, Guid questionId, QuestionType contextName, int selectionYear)
@@ -145,19 +168,25 @@ namespace CDPReporting.Business.Services
             switch (contextName)
             {
                 case QuestionType.Simple:
-                case QuestionType.MultipleSelectList:
+                //case QuestionType.MultipleSelectList:
+                //    CDPSimpleChoiceAnswer userAnswer = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
+                //        ans.QuestionId == questionId && ans.Year == selectionYear);
+                //    if (userAnswer != null)
+                //    {
+                //        result = userAnswer.AnswerValue;
+                //    }
+                   break;
+                case QuestionType.List:
+                    break;
+                case QuestionType.DropDown:
+                    break;
+                case QuestionType.DropDownList:
                     CDPSimpleChoiceAnswer userAnswer = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
                         ans.QuestionId == questionId && ans.Year == selectionYear);
                     if (userAnswer != null)
                     {
                         result = userAnswer.AnswerValue;
                     }
-                    break;
-                case QuestionType.List:
-                    break;
-                case QuestionType.DropDown:
-                    break;
-                case QuestionType.DropDownList:
                     break;
                 case QuestionType.Option:
                     break;
@@ -197,27 +226,28 @@ namespace CDPReporting.Business.Services
             return result;
         }
 
-        public void SaveQuestionResponse(QuestionResponseModel response, Guid userId)
+        public void SaveQuestionResponse(QuestionResponseModel response, Guid userPlantId)
         {
             try
             {
                 switch (response.QuestionType)
                 {
                     case QuestionType.Simple:
-                        SaveSimpleQuestion(response, userId);
+                        SaveSimpleQuestion(response, userPlantId);
                         break;
                     case QuestionType.List:
                         break;
                     case QuestionType.DropDown:
                         break;
                     case QuestionType.DropDownList:
+                        SaveDropDownList(response, userPlantId);
                         break;
                     case QuestionType.Option:
                         break;
                     case QuestionType.OptionList:
                         break;
                     case QuestionType.DateRange:
-                        SaveDateRangeQuestion(response, userId);
+                        SaveDateRangeQuestion(response, userPlantId);
                         break;
                     case QuestionType.Date:
                         break;
@@ -225,8 +255,7 @@ namespace CDPReporting.Business.Services
                         break;
                     case QuestionType.CDPGrid:
                         break;
-                    case QuestionType.MultipleSelectList:
-                        SaveMultiSeletedList(response, userId);
+                    case QuestionType.MultipleSelectList:                        
                         break;
                     default:
                         break;
@@ -240,7 +269,7 @@ namespace CDPReporting.Business.Services
 
         }
 
-        private void SaveMultiSeletedList(QuestionResponseModel response, Guid userPlantId)
+        private void SaveDropDownList(QuestionResponseModel response, Guid userPlantId)
         {
             try
             {

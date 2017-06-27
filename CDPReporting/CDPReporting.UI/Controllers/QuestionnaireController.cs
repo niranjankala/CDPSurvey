@@ -111,7 +111,11 @@ namespace CDPReporting.UI.Controllers
                 response.Value = answer;
                 response.Year = year;
                 response.QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), questionType);
-                oQuestionnaireService.SaveQuestionResponse(response, CurrentUser.UserId);
+
+                if (CurrentUser.PlantId == null)
+                    throw new InvalidOperationException("User does not belong to any Plant.");
+
+                oQuestionnaireService.SaveQuestionResponse(response, CurrentUser.PlantId ?? Guid.Empty);
             }
             catch (Exception ex)
             {
