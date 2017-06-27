@@ -42,9 +42,11 @@ namespace CDPReporting.Business.Services
                                                    {
                                                        Id = question.QId,
                                                        QuestionId = question.QuestionId,
+                                                       Title =question.Title,
                                                        QuestionText = question.QuestionText,
                                                        QuestionOrder = question.QuestionOrder,
                                                        GroupText = questionGroup.QuestionGroupText,
+                                                      
                                                        //SubGroupText = question.SubGroupText,
                                                        QuestionType = (QuestionType)Enum.Parse(typeof(QuestionType), qType.Type)
                                                    }).ToList()

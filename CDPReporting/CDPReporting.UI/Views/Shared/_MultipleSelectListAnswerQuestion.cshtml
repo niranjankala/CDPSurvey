@@ -6,14 +6,15 @@
 
 
          <div class="form-group">
-        <div class="radio">
-          <label><input type="radio" name="optradio">yes</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="optradio">No</label>
-        </div>
-    
-            </div>
+             <div class=" col-md-12 form-group" >
+                 
+                @foreach (var item in Model.OptionList.OptionCSVText)
+                                {
+                                 <div class="checkbox">
+                                     <label><input type="checkbox" value="@item">@item </label>
+                                 </div>
+                }
+             </div>
 
         <div class="form-group">
             <div class="col-md-offset-10 col-md-12">
