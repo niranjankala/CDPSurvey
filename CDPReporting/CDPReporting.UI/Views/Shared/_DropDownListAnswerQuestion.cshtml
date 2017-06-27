@@ -40,10 +40,10 @@
                 else
                     multiselectData = multiselectData + "," + data[item];
             }
-            var countryList = multiselectData;
+            var valueList = multiselectData;
             multiselectData = null;
 
-            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: countryList, questionType: qType, year: yearVal }, function (data) {
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: valueList, questionType: qType, year: yearVal }, function (data) {
                 // $('#main').html(data);
             });
         })

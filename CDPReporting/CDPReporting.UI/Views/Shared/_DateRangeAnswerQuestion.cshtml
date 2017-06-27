@@ -13,7 +13,7 @@
             var date = startDate + "s" + endDate;
 
             var qId = '@Model.QuestionId';
-            var qType = 'DateRange';
+            var qType = '@Model.QuestionType';
             var yearVal = '@Model.Year';
 
             $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: date, questionType: qType, year: yearVal }, function (data) {
