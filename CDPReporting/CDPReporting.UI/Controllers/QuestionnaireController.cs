@@ -126,7 +126,10 @@ namespace CDPReporting.UI.Controllers
         public void SaveResponseTableType(List<QuestionResponseTableTypeModel> model, Guid questionId, int selectedYear)
         {
             if (_log.IsInfoEnabled) _log.Info("Calling Index method of SaveQuestionResponse");
-            oQuestionnaireService.SaveResponseTableType(model, questionId, CurrentUser.UserId, selectedYear);
+            if (CurrentUser.PlantId == null)
+                throw new InvalidOperationException("User does not belong to any Plant.");
+
+            oQuestionnaireService.SaveResponseTableType(model, questionId, CurrentUser.PlantId ?? Guid.Empty, selectedYear);
         }
 
         public JsonResult GetQuestionData(Guid questionId, int year)
