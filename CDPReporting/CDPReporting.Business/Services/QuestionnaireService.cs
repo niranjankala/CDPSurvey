@@ -197,7 +197,7 @@ namespace CDPReporting.Business.Services
                     CDPDateRangeAnswer dateRangeAns = _context.CDPDateRangeAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId && ans.QuestionId == questionId && ans.Year == selectionYear);
                     if (dateRangeAns != null)
                     {
-                        result = string.Format("{0}s{1}", dateRangeAns.StartDate, dateRangeAns.EndDate);
+                        result = string.Format("{0}s{1}", (dateRangeAns.StartDate ?? DateTime.Now).ToString("dd/MM/yyyy"), (dateRangeAns.EndDate ?? DateTime.Now).ToString("dd/MM/yyyy"));
                     }
                     break;
                 case QuestionType.Date:
