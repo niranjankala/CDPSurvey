@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
     $(function () {
-        //  debugger;
+         debugger;
         $('#selectMultiple').multiselect();
         @*var str = '@Model.Value';
         var multiselectedVals = [];
@@ -58,7 +58,24 @@
             <select id="selectMultiple" multiple="multiple">
                 @foreach (var item in Model.OptionList.OptionCSVText)
                 {
+                 if (Model.Value!=null)
+                {
+                  if( @Model.Value.ToString().Contains(item))
+                  { 
+                <option selected="selected"  value="@Html.Raw(item.ToString().Replace(" ",""))">@Html.Raw(item)</option>
+                    
+                }
+                else
+                 {
                     <option value="@Html.Raw(item.ToString().Replace(" ",""))">@Html.Raw(item)</option>
+                }
+                 
+                }
+                else
+                 {
+                    <option value="@Html.Raw(item.ToString().Replace(" ",""))">@Html.Raw(item)</option>
+                }
+               
                 }
                 @if (Model.OptionList.OtherOptions != null)
                 {

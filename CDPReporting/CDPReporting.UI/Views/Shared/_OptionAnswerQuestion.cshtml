@@ -1,0 +1,34 @@
+﻿@model CDPReporting.Business.Models.QuestionResponseModel
+
+        
+        <div class="form-horizontal">
+            <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
+
+
+         <div class="form-group">
+             <label for="comment">Please select From</label>
+             <div class="checkbox">
+                 <label><input type="checkbox" value="">Oil and Gas</label>
+             </div>
+             <div class="checkbox">
+                 <label><input type="checkbox" value="">Auto & Auto Component Manufacturers  </label>
+             </div>
+             <div class="checkbox disabled">
+                 <label><input type="checkbox" value="">Electric Utilities</label>
+             </div>
+             <div class="checkbox disabled">
+                 <label><input type="checkbox" value="">Information and Communication Technologies</label>
+             </div>
+             <div class="checkbox disabled">
+                 <label><input type="checkbox" value="">Food Beverage and Tobacco</label>
+             </div>
+    
+            </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-10 col-md-12">
+                <button id="Save" type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+        </div>

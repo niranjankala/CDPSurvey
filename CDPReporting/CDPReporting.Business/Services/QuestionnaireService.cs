@@ -168,19 +168,25 @@ namespace CDPReporting.Business.Services
             switch (contextName)
             {
                 case QuestionType.Simple:
-                case QuestionType.MultipleSelectList:
+                //case QuestionType.MultipleSelectList:
+                //    CDPSimpleChoiceAnswer userAnswer = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
+                //        ans.QuestionId == questionId && ans.Year == selectionYear);
+                //    if (userAnswer != null)
+                //    {
+                //        result = userAnswer.AnswerValue;
+                //    }
+                   break;
+                case QuestionType.List:
+                    break;
+                case QuestionType.DropDown:
+                    break;
+                case QuestionType.DropDownList:
                     CDPSimpleChoiceAnswer userAnswer = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
                         ans.QuestionId == questionId && ans.Year == selectionYear);
                     if (userAnswer != null)
                     {
                         result = userAnswer.AnswerValue;
                     }
-                    break;
-                case QuestionType.List:
-                    break;
-                case QuestionType.DropDown:
-                    break;
-                case QuestionType.DropDownList:
                     break;
                 case QuestionType.Option:
                     break;
