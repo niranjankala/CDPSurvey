@@ -1,17 +1,54 @@
 ﻿@model CDPReporting.Business.Models.QuestionResponseModel
 
-        
+        @if(Model!=null)
+        {}
         <div class="form-horizontal">
             <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
 
 
-         <div class="form-group">
-        <div class="radio">
-          <label><input type="radio" name="optradio">yes</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="optradio">No</label>
-        </div>
+            <div class="form-group">
+                <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    Select Currency
+                    <span class="caret"></span>
+                </button>
+
+                   
+
+
+                <ul class="dropdown-menu">
+
+                   @foreach (var item in Model.OptionList.OptionCSVText)
+                    {
+                        if (Model.Value != null)
+                        {
+                            if (@Model.Value.ToString().Contains(item))
+                            {
+                                <li><a>@Html.Raw(item)</a></li>
+
+
+                            }
+                            else
+                            {
+                                 <li> <a>@Html.Raw(item)</a></li>
+                            }
+
+                        }
+                        else
+                        {
+                            <li><a>@Html.Raw(item)</a></li>
+                        }
+
+                    }
+                    @if (Model.OptionList.OtherOptions != null)
+                    {
+                         <li>others</li>
+                    }
+
+
+
+</ul>
+            </div>
     
             </div>
 
@@ -22,3 +59,18 @@
             </div>
         </div>
         </div>
+
+
+<script>
+
+    $(function () {
+
+        $(".dropdown-menu li a").click(function () {
+
+            $(".btn:first-child").text($(this).text());
+            $(".btn:first-child").val($(this).text());
+        });
+
+    });
+
+</script>
