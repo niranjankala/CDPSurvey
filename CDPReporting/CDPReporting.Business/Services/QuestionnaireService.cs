@@ -202,6 +202,12 @@ namespace CDPReporting.Business.Services
                 case QuestionType.Date:
                     break;
                 case QuestionType.Boolean:
+                    CDPSimpleChoiceAnswer userBooleanAnswer = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
+                        ans.QuestionId == questionId && ans.Year == selectionYear);
+                    if (userBooleanAnswer != null)
+                    {
+                        result = userBooleanAnswer.AnswerValue;
+                    }
                     break;
                 case QuestionType.CDPGrid:
                     CDPTabularQuestionAnswer gridResponse = _context.CDPTabularQuestionAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
@@ -252,6 +258,7 @@ namespace CDPReporting.Business.Services
                     case QuestionType.Date:
                         break;
                     case QuestionType.Boolean:
+                        SaveBooleanQuestion(response, userPlantId);
                         break;
                     case QuestionType.CDPGrid:
                         break;
@@ -267,6 +274,34 @@ namespace CDPReporting.Business.Services
                 throw ex;
             }
 
+        }
+
+        private void SaveBooleanQuestion(QuestionResponseModel response, Guid userPlantId)
+        {
+            try
+            {
+                CDPSimpleChoiceAnswer data = _context.CDPSimpleChoiceAnswers.FirstOrDefault(ans => ans.PlantId == userPlantId &&
+                        ans.QuestionId == response.QuestionId && ans.Year == response.Year);
+                if (data != null)
+                {
+                    data.AnswerValue = response.Value.ToString();
+                }
+                else
+                {
+                    data = new CDPSimpleChoiceAnswer();
+                    data.AnswerId = Guid.NewGuid();
+                    data.PlantId = userPlantId;
+                    data.Year = response.Year;
+                    data.QuestionId = response.QuestionId;
+                    data.AnswerValue = Convert.ToString(response.Value);
+                    _context.CDPSimpleChoiceAnswers.AddObject(data);
+                }
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void SaveDropDownList(QuestionResponseModel response, Guid userPlantId)

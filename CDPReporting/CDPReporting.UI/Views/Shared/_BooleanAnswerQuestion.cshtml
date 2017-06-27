@@ -2,24 +2,14 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-
+       
         $('#Save').click(function () {
             debugger;
-            var data = $('#selectMultiple').val();
+            var value = $("[name=optradio]:checked").val();
             var qId = '@Model.QuestionId';
             var qType = '@Model.QuestionType';
             var yearVal = '@Model.Year';
-            var multiselectData;
-            for (var item = 0; item < data.length; item++) {
-                if (multiselectData == null)
-                    multiselectData = data[item];
-                else
-                    multiselectData = multiselectData + "," + data[item];
-            }
-            var countryList = multiselectData;
-            multiselectData = null;
-
-            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: countryList, questionType: qType, year: yearVal }, function (data) {
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: value, questionType: qType, year: yearVal }, function (data) {
                 // $('#main').html(data);
             });
         })
@@ -31,13 +21,40 @@
 
 
     <div class="form-group">
-        <div class="radio">
-            <label><input type="radio" name="optradio">yes</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio">No</label>
-        </div>
-
+        @if (Model.Value != null)
+        {
+            if( @Model.Value.ToString() == "no")
+            { 
+                <div class="radio">
+                    <label><input type="radio" name="optradio" value="yes">Yes</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="optradio" checked="checked" value="no">No</label>
+                </div>
+            }
+            
+            else
+            {
+                <div class="radio">
+                    <label><input type="radio" name="optradio" checked="checked" value="yes">Yes</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="optradio" value="no">No</label>
+                </div>
+            }
+        }
+        
+        else
+        {
+            <div class="radio">
+                <label><input type="radio" name="optradio" value="yes">Yes</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="optradio" value="no">No</label>
+            </div>
+        }
+        
+        
     </div>
 
     <div class="form-group">
