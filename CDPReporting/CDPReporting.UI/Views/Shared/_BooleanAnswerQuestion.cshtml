@@ -1,24 +1,49 @@
 ﻿@model CDPReporting.Business.Models.QuestionResponseModel
 
-        
-        <div class="form-horizontal">
-            <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#Save').click(function () {
+            debugger;
+            var data = $('#selectMultiple').val();
+            var qId = '@Model.QuestionId';
+            var qType = '@Model.QuestionType';
+            var yearVal = '@Model.Year';
+            var multiselectData;
+            for (var item = 0; item < data.length; item++) {
+                if (multiselectData == null)
+                    multiselectData = data[item];
+                else
+                    multiselectData = multiselectData + "," + data[item];
+            }
+            var countryList = multiselectData;
+            multiselectData = null;
+
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: countryList, questionType: qType, year: yearVal }, function (data) {
+                // $('#main').html(data);
+            });
+        })
+    });
+</script>
+
+<div class="form-horizontal">
+    <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
 
 
-         <div class="form-group">
+    <div class="form-group">
         <div class="radio">
-          <label><input type="radio" name="optradio">yes</label>
+            <label><input type="radio" name="optradio">yes</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="optradio">No</label>
+            <label><input type="radio" name="optradio">No</label>
         </div>
-    
-            </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-10 col-md-12">
-                <button id="Save" type="button" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-primary">Cancel</button>
-            </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-10 col-md-12">
+            <button id="Save" type="button" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary">Cancel</button>
         </div>
-        </div>
+    </div>
+</div>
