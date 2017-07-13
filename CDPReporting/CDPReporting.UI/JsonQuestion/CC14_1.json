@@ -1,0 +1,107 @@
+[{
+		"QID": "5BBC6A54-5E21-4F48-BB44-45365E78BA76",
+		"Question Number": "CC14.1",
+		"QuestionText": "Please account for your organization’s Scope 3 emissions, disclosing and explaining any exclusions ",
+		"Headers": [
+			"Sources of Scope 3 emissions",
+			"Evaluation status",
+			"Metric tonnes CO2e",
+			"Emissions calculation methodology",
+			"Percentage of emissions calculated using data obtained from suppliers or value chain suppliers",
+			"Explanation"
+		]
+	},
+
+
+	{
+		"QID": "8D49EBF4-E23D-44B0-A88C-8E74E8D1FF07",
+		"Question Number": "CC1.2a",
+		"QuestionText": "Please provide further details on the incentives provided for the management of climate change issues",
+		"ColType": "SingleSelect",
+		"Header": "Sources of Scope 3 emissions",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Purchased goods and services",
+			"Capital goods",
+			" Director on board ",
+			"Fuel-and-energy-related activities (not included in Scope 1 or 2)",
+			"Upstream transportation and distribution",
+			"Waste generated in operations",
+			"Business travel",
+			"Employee commuting",
+			"Upstream leased assets",
+			"Downstream transportation and distribution",
+			"Processing of sold products",
+			"Use of sold products",
+			"End of life treatment of sold products",
+			"Downstream leased assets",
+			"Franchises",
+			"Investments",
+			"Other (upstream)",
+			"Other (downstream)"
+		]
+	},
+
+	{
+		"QID": "8D49EBF4-E23D-44B0-A88C-8E74E8D1FF07",
+		"Question Number": "CC1.2a",
+		"QuestionText": "Please provide further details on the incentives provided for the management of climate change issues",
+		"ColType": "SingleSelect",
+		"Header": "Evaluation status",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"Relevant, calculated",
+			"Relevant, not yet calculated",
+			"Not relevant, calculated",
+			"Not relevant, explanation provided",
+			"Not evaluated"
+
+		]
+
+	},
+
+	{
+		"QID": "8D49EBF4-E23D-44B0-A88C-8E74E8D1FF07",
+		"Question Number": "CC1.2a",
+		"QuestionText": "Please provide further details on the incentives provided for the management of climate change issues",
+		"ColType": "Numerical",
+		"Header": "Metric tonnes CO2e",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "8D49EBF4-E23D-44B0-A88C-8E74E8D1FF07",
+		"Question Number": "CC1.2a",
+		"QuestionText": "Please provide further details on the incentives provided for the management of climate change issues",
+		"ColType": "Textfield",
+		"Header": "Emissions calculation methodology",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "8D49EBF4-E23D-44B0-A88C-8E74E8D1FF07",
+		"Question Number": "CC1.2a",
+		"QuestionText": "Please provide further details on the incentives provided for the management of climate change issues",
+		"ColType": "Numerical",
+		"Header": "Percentage of emissions calculated using data obtained from suppliers or value chain suppliers ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "8D49EBF4-E23D-44B0-A88C-8E74E8D1FF07",
+		"Question Number": "CC1.2a",
+		"QuestionText": "Please provide further details on the incentives provided for the management of climate change issues",
+		"ColType": "Textfield",
+		"Header": "Explanation",
+		"Select Text": "",
+		"Elements": []
+
+	}, {
+		"AddRow": "true"
+	}
+]

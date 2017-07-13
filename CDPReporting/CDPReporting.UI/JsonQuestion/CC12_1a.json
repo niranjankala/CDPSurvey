@@ -1,0 +1,77 @@
+[{
+		"QID": "6CB5CE83-330C-4FE4-A7B1-157205ED75EA",
+		"Question Number": "CC12.1a",
+		"QuestionText": "Please identify the reasons for any change in your gross global emissions (Scope 1 and 2 combined) and for each of them specify how your emissions compare to the previous year",
+		"Headers": [
+			"Reason",
+			"Emissions value (percentage)",
+			"Direction of change",
+			"Please explain and include calculation"
+
+
+		]
+
+	},
+	{
+		"QID": "6CB5CE83-330C-4FE4-A7B1-157205ED75EA",
+		"Question Number": "CC12.1a",
+		"QuestionText": "Please identify the reasons for any change in your gross global emissions (Scope 1 and 2 combined) and for each of them specify how your emissions compare to the previous year",
+		"ColType": "SingleSelect",
+		"Header": "Reason",
+		"Select Text": "",
+		"Elements": [
+			"Emissions reduction activities",
+			"Divestment",
+			"Acquisitions",
+			"Mergers",
+			"Change in output",
+			"Change in methodology",
+			"Change in boundary",
+			"Change in physical operating conditions",
+			"Unidentified",
+			"Other"
+		]
+	},
+	{
+		"QID": "6CB5CE83-330C-4FE4-A7B1-157205ED75EA",
+		"Question Number": "CC12.1a",
+		"QuestionText": "Please identify the reasons for any change in your gross global emissions (Scope 1 and 2 combined) and for each of them specify how your emissions compare to the previous year",
+		"ColType": "Numerical",
+		"Header": "Emissions value (percentage)",
+		"Select Text": "",
+		"Elements": []
+	},
+
+
+	{
+		"QID": "6CB5CE83-330C-4FE4-A7B1-157205ED75EA",
+		"Question Number": "CC12.1a",
+		"QuestionText": "Please identify the reasons for any change in your gross global emissions (Scope 1 and 2 combined) and for each of them specify how your emissions compare to the previous year",
+		"ColType": "SingleSelect",
+		"Header": "Direction of change",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"Increase",
+			"Decrease"
+
+
+
+		]
+	},
+
+	{
+		"QID": "6CB5CE83-330C-4FE4-A7B1-157205ED75EA",
+		"Question Number": "CC12.1a",
+		"QuestionText": "Please identify the reasons for any change in your gross global emissions (Scope 1 and 2 combined) and for each of them specify how your emissions compare to the previous year",
+		"ColType": "Textfield",
+		"Header": "Please explain and include calculation",
+		"Select Text": "",
+		"Elements": []
+	},
+
+
+	{
+		"AddRow": "true"
+	}
+]

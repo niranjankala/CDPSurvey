@@ -1,0 +1,74 @@
+[
+{
+		"QID": "A1FF7755-518B-46DD-B425-70973027870C",
+		"Question Number": "W1.2b",
+		"QuestionText": "Water discharges: for the reporting year, please provide total water discharge data by destination, across your operations",
+		"Headers":[
+			"Destination",
+			"Quantity(megaliters/year)",
+			"How does total water discharged to this destination compare to the last reporting year?",
+			"Comment"
+			]
+},
+
+
+{
+		"QID": "A1FF7755-518B-46DD-B425-70973027870C",
+		"Question Number": "W1.2b",
+		"QuestionText": "Water discharges: for the reporting year, please provide total water discharge data by destination, across your operations",
+		"ColType": "SingleSelect",
+		"Header": "Destination",
+		"Select Text": "[Select from]:",
+		"Elements": [
+		    "Fresh surface water",
+			"Brackish surface water/seawater",
+			"Groundwater",
+			"Municipal/industrial treatment plant",
+			"Wastewater for another organization",
+			"Total"
+		]
+	},
+
+	{
+		"QID": "A1FF7755-518B-46DD-B425-70973027870C",
+		"Question Number": "W1.2b",
+		"QuestionText": "Water discharges: for the reporting year, please provide total water discharge data by destination, across your operations",
+		"ColType": "Number",
+		"Header": "Quantity(megaliters/year)",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "A1FF7755-518B-46DD-B425-70973027870C",
+		"Question Number": "W1.2b",
+		"QuestionText": "Water discharges: for the reporting year, please provide total water discharge data by destination, across your operations",
+		"ColType": "SingleSelect",
+		"Header": "How does total water discharged to this destination compare to the last reporting year?",
+		"Select Text": "[Select from]:",
+		"Elements": [
+
+			"Much lower",
+			"Lower",
+			"About the same",
+			"Higher",
+			"Much higher",
+			"This is our first yearf measurement",
+			"Not applicable"
+			
+		]
+
+	},
+
+	{
+		"QID": "A1FF7755-518B-46DD-B425-70973027870C",
+		"Question Number": "W1.2b",
+		"QuestionText": "Water discharges: for the reporting year, please provide total water discharge data by destination, across your operations",
+		"ColType": "Textfield",
+		"Header": "Comment",
+		"Select Text": "",
+		"Elements": []
+
+	}
+]

@@ -1,0 +1,49 @@
+[{
+		"QID": "7D81B62F-1DA8-4EFB-A849-4D016865BCEC",
+		"Question Number": "CC9.2a",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by business division",
+		"Headers": [
+			"Business division",
+			"Scope 1 emissions (metric tonnes CO2e)"
+
+		]
+
+	},
+
+{
+		"QID": "7D81B62F-1DA8-4EFB-A849-4D016865BCEC",
+		"Question Number": "CC9.2a",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by business division",
+		"ColType": "Textfield",
+		"Header": "Business division",
+		"Select Text": "",
+		"Elements": [
+
+
+
+
+
+		]
+	},
+	{
+		"QID": "7D81B62F-1DA8-4EFB-A849-4D016865BCEC",
+		"Question Number": "CC9.2a",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by business division",
+		"ColType": "Numerical",
+		"Header": "Scope 1 emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": [
+
+
+
+
+
+		]
+	},
+
+
+
+	{
+		"AddRow": "true"
+	}
+]

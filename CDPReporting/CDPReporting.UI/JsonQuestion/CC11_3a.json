@@ -1,0 +1,106 @@
+[{
+		"QID": "9664989B-1B3E-4BD7-BE00-C4CCBD111B47",
+		"Question Number": "CC11.3a",
+		"QuestionText": "Please complete the table by breaking down the total “Fuel” figure entered above by fuel type",
+		"Headers": [
+			"Fuels",
+			"MWh"
+
+
+		]
+
+	},
+
+	{
+		"QID": "9664989B-1B3E-4BD7-BE00-C4CCBD111B47",
+		"Question Number": "CC11.3a",
+		"QuestionText": "Please complete the table by breaking down the total “Fuel” figure entered above by fuel type",
+		"ColType": "SingleSelect",
+		"Header": "Fuels",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"No fuel consumed",
+			"Anthracite",
+			"Asphalt/ bitumen",
+			"Aviation gasoline",
+			"Biodiesels",
+			"Biogas",
+			"Biogasoline",
+			"Bituminous coal",
+			"BKB, Blast furnace gas",
+			"Brown coal",
+			"Brown coal briquettes",
+			"Butane",
+			"Charcoal",
+			"Coke breeze",
+			"Coke oven coke",
+			"Coke oven gas",
+			"Coking coal",
+			"Crude oil",
+			"Diesel/Gas oil",
+			"Distillate fuel oil No 1",
+			"Distillate fuel oil No 2",
+			"Distillate fuel oil No 3",
+			"Distillate fuel oil No 4",
+			"Distillate fuel oil No 5",
+			"Distillate fuel oil No 6",
+			"Ethane, Gas works gas",
+			"Jet gasoline",
+			"Jet kerosene",
+			"Kerosene",
+			"Landfill gas",
+			"Lignite",
+			"Lignite coke",
+			"Liquefied Natural Gas (LNG)",
+			"Liquefied petroleum gas (LPG)",
+			"Lubricants, Metallurgical coke",
+			"Methane, Motor gasoline",
+			"Municipal waste",
+			"Naphtha",
+			"Natural gas",
+			"Oil shale and bitumen (oil sands)",
+			"Orimulsion",
+			"Oxygen steel furnace gas",
+			"Patent fuel",
+			"Peat",
+			"Petroleum coke",
+			"Pitch",
+			"Propane",
+			"Refinery feedstocks",
+			"Refinery gas",
+			"Refuse-derived fuel",
+			"Residual fuel oil",
+			"Semi-coke",
+			"Shale oil",
+			"Sludge gas",
+			"Sub bituminous coal",
+			"Sulphite lyes (Black liquor)",
+			"Tar, Town gas or city gas",
+			"Turpentine, Vegetable oils",
+			"Waste oils",
+			"Waste plastics",
+			"Waste tire derived fuels",
+			"Waxes",
+			"White spirit/ SBP",
+			"Wood or wood waste",
+			"Other,please specify"
+
+		]
+	},
+
+	{
+		"QID": "9664989B-1B3E-4BD7-BE00-C4CCBD111B47",
+		"Question Number": "CC11.3a",
+		"QuestionText": "Please complete the table by breaking down the total “Fuel” figure entered above by fuel type",
+		"ColType": "Textfield",
+		"Header": "MWh",
+		"Select Text": "",
+		"Elements": []
+	},
+
+
+	{
+		"AddRow": "true"
+	}
+]

@@ -1,24 +1,24 @@
 ﻿@model CDPReporting.Business.Models.QuestionResponseModel
 
-        
-        <div class="form-horizontal">
-            <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
+
+<div class="form-horizontal">
+    <h4>@string.Format("{0}: {1}", Model.CDPId, Model.Caption)</h4><p>@Model.QuestionText</p>
 
 
-         <div class="form-group">
+    <div class="form-group">
         <div class="radio">
-          <label><input type="radio" name="optradio">yes</label>
+            <label><input type="radio" name="optradio">yes</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="optradio">No</label>
+            <label><input type="radio" name="optradio">No</label>
         </div>
-    
-            </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-10 col-md-12">
-                <button id="Save" type="button" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-primary">Cancel</button>
-            </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 text-right">
+            <button id="Save" type="button" class="btn btn-primary">Save</button>
+            @*<button type="button" class="btn btn-primary">Cancel</button>*@
         </div>
-        </div>
+    </div>
+</div>

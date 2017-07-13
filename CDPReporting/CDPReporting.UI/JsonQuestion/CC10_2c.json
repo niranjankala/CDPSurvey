@@ -1,0 +1,46 @@
+[{
+		"QID": "48D7BE68-378F-4CC4-8216-47C11F1DC948",
+		"Question Number": "CC10.2c",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by activity",
+		"Headers": [
+			"Activity",
+			"Scope 2 location-based emissions (metric tonnes CO2e)",
+			"Scope 2, market-based emissions (metric tonnes CO2e)"
+
+		]
+
+	},
+
+
+	{
+		"QID": "48D7BE68-378F-4CC4-8216-47C11F1DC948",
+		"Question Number": "CC10.2c",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by activity",
+		"ColType": "Textfield",
+		"Header": "Activity",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+		"QID": "48D7BE68-378F-4CC4-8216-47C11F1DC948",
+		"Question Number": "CC10.2c",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by activity",
+		"ColType": "Numerical",
+		"Header": "Scope 2, location-based emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+		"QID": "48D7BE68-378F-4CC4-8216-47C11F1DC948",
+		"Question Number": "CC10.2c",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by activity",
+		"ColType": "Numerical",
+		"Header": "Scope 2, market-based emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

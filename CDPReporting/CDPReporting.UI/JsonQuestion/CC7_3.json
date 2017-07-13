@@ -1,0 +1,67 @@
+[{
+		"QID": "C3E10F47-4F05-40AE-94DC-3A683068E4E5",
+		"Question Number": "CC7.3",
+		"QuestionText": "Please give the source for the global warming potentials you have used",
+		"Headers": [
+			"Gas ",
+
+			"Reference"
+		]
+
+	},
+
+
+
+	{
+		"QID": "C3E10F47-4F05-40AE-94DC-3A683068E4E5",
+		"Question Number": "CC7.3",
+		"QuestionText": "Please give the source for the global warming potentials you have used",
+		"ColType": "SingleSelect",
+		"Header": "Gas",
+		"Select Text": "Select from:",
+		"Elements": [
+			"CO2",
+			"CH4",
+			"N2O",
+			"HFCs",
+			"PFCs",
+			"SF6",
+			"NF3",
+			"Other, please specify"
+
+
+		]
+	},
+
+	{
+		"QID": "C3E10F47-4F05-40AE-94DC-3A683068E4E5",
+		"Question Number": "CC7.3",
+		"QuestionText": "Please give the source for the global warming potentials you have used",
+		"ColType": "SingleSelect",
+		"Header": "Reference",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"IPCC Fifth Assessment Report (AR5 – 100 year)",
+			"IPCC Fourth Assessment Report (AR4 - 100 year)",
+			"IPCC Third Assessment Report (TAR - 100 year)",
+			"IPCC Second Assessment Report (SAR - 100 year)",
+			"IPCC Fourth Assessment Report (AR4 - 50 year)",
+			"IPCC Third Assessment Report (TAR - 50 year)",
+			"IPCC Second Assessment Report (SAR - 50 year)",
+			"IPCC Fifth Assessment Report (AR5 -20 year)",
+			"IPCC Fourth Assessment Report (AR4 - 20 year)",
+			"IPCC Third Assessment Report (TAR - 20 year)",
+			"IPCC Second Assessment Report (SAR - 20 year)",
+			"Other, please specify"
+
+		]
+	},
+
+
+
+
+	{
+		"AddRow": "true"
+	}
+]

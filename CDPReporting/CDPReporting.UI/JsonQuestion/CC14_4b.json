@@ -1,0 +1,82 @@
+[{
+		"QID": "E045EA3F-BA8F-4E23-B517-D60CDCDA4C42",
+		"Question Number": "CC14.4b",
+		"QuestionText": "To give a sense of scale of this engagement, please give the number of suppliers with whom you are engaging and the proportion of your total spend that they represent",
+		"Headers": [
+			"Type of engagement",
+			"Number of suppliers",
+			"% of total spend (direct and indirect)",
+			"Impact of engagement"
+
+		]
+
+	},
+	{
+
+		"QID": "E045EA3F-BA8F-4E23-B517-D60CDCDA4C42",
+		"Question Number": "CC14.4b",
+		"QuestionText": "To give a sense of scale of this engagement, please give the number of suppliers with whom you are engaging and the proportion of your total spend that they represent",
+		"ColType": "SingleSelect",
+		"Header": "Type of engagement",
+		"Select Text": "",
+		"Elements": [
+			"Compliance",
+			"Active engagement",
+			"Collaboration/ innovation",
+			"Emissions reduction incentives",
+			"Other, please specify"
+
+		]
+	},
+
+
+
+
+	{
+		"QID": "E045EA3F-BA8F-4E23-B517-D60CDCDA4C42",
+		"Question Number": "CC14.4b",
+		"QuestionText": "To give a sense of scale of this engagement, please give the number of suppliers with whom you are engaging and the proportion of your total spend that they represent",
+		"ColType": "Numerical",
+		"Header": "Number of suppliers",
+		"Select Text": "Select from:",
+		"Elements": [
+
+
+
+		]
+	},
+
+
+	{
+		"QID": "E045EA3F-BA8F-4E23-B517-D60CDCDA4C42",
+		"Question Number": "CC14.4b",
+		"QuestionText": "To give a sense of scale of this engagement, please give the number of suppliers with whom you are engaging and the proportion of your total spend that they represent",
+		"ColType": "Numerical",
+		"Header": "% of total spend (direct and indirect)",
+		"Select Text": "Select from:",
+		"Elements": [
+
+
+
+		]
+	},
+
+
+
+	{
+		"QID": "E045EA3F-BA8F-4E23-B517-D60CDCDA4C42",
+		"Question Number": "CC14.4b",
+		"QuestionText": "To give a sense of scale of this engagement, please give the number of suppliers with whom you are engaging and the proportion of your total spend that they represent",
+		"ColType": "Textfield",
+		"Header": "Impact of engagement",
+		"Select Text": "Select from:",
+		"Elements": [
+
+
+		]
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

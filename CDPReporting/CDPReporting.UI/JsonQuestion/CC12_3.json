@@ -1,0 +1,152 @@
+[{
+		"QID": "15BA1AD3-C5E7-4809-B91F-726DF055BE04",
+		"Question Number": "CC12.3",
+		"QuestionText": "Please provide an additional intensity (normalized) metric that is appropriate to your business operations",
+		"Headers": [
+			"Intensity figure =",
+			"Metric numerator (Gross global combined Scope 1 and 2 emissions)",
+			"Metric denominator",
+			"Metric denominator:Unit total",
+
+			"Scope 2 figure used",
+			"% change from previous year",
+			"Direction of change from previous year",
+			"Reason for change"
+
+		]
+
+	},
+
+	{
+
+		"QID": "15BA1AD3-C5E7-4809-B91F-726DF055BE04",
+		"Question Number": "CC12.3",
+		"QuestionText": "Please provide an additional intensity (normalized) metric that is appropriate to your business operations",
+		"ColType": "Numerical",
+		"Header": "Intensity figure =",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+
+		"QID": "15BA1AD3-C5E7-4809-B91F-726DF055BE04",
+		"Question Number": "CC12.3",
+		"QuestionText": "Please provide an additional intensity (normalized) metric that is appropriate to your business operations",
+		"ColType": "Numerical",
+		"Header": "Metric numerator (Gross global combined Scope 1 and 2 emissions)",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+		"QID": "15BA1AD3-C5E7-4809-B91F-726DF055BE04",
+		"Question Number": "CC12.3",
+		"QuestionText": "Please provide an additional intensity (normalized) metric that is appropriate to your business operations",
+		"ColType": "SingleSelect",
+		"Header": "Metric denominator:Unit total",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Full time equivalent (FTE) employee",
+			"unit hour worked",
+			"metric tonne of product",
+			"liter of product",
+			"unit of production",
+			"unit of service provided",
+			"square foot",
+			"square meter",
+			"kilometer",
+			"passenger kilometer",
+			"room night produced",
+			"megawatt hour (MWh)",
+			"barrel of oil equivalent (BOE)",
+			"vehicle produced",
+			"tonne of aluminum",
+			"tonne of ore processed",
+			"ounce of gold",
+			"ounce of platinum",
+			"tonne of aggregate",
+			"tonne of steel",
+			"billion (currency) funds under management",
+			"Other, please specify"
+
+
+
+		]
+	},
+
+
+	{
+
+		"QID": "15BA1AD3-C5E7-4809-B91F-726DF055BE04",
+		"Question Number": "CC12.3",
+		"QuestionText": "Please provide an additional intensity (normalized) metric that is appropriate to your business operations",
+		"ColType": "Numerical",
+		"Header": "Metric denominator:Unit total revenue",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+
+		"QID": "15BA1AD3-C5E7-4809-B91F-726DF055BE04",
+		"Question Number": "CC12.3",
+		"QuestionText": "Please provide an additional intensity (normalized) metric that is appropriate to your business operations",
+		"ColType": "SingleSelect",
+		"Header": "Scope 2 figure used",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Location-based",
+			"Market-based"
+
+
+		]
+	},
+
+	{
+
+		"QID": "15BA1AD3-C5E7-4809-B91F-726DF055BE04",
+		"Question Number": "CC12.3",
+		"QuestionText": "Please provide an additional intensity (normalized) metric that is appropriate to your business operations",
+		"ColType": "Numerical",
+		"Header": "% change from previous year",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+
+		"QID": "15BA1AD3-C5E7-4809-B91F-726DF055BE04",
+		"Question Number": "CC12.3",
+		"QuestionText": "Please provide an additional intensity (normalized) metric that is appropriate to your business operations",
+		"ColType": "SingleSelect",
+		"Header": "Direction of change from previous year",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"Increase",
+			"Decrease",
+			"No change",
+			"N/A"
+
+
+
+		]
+	},
+
+
+	{
+
+		"QID": "15BA1AD3-C5E7-4809-B91F-726DF055BE04",
+		"Question Number": "CC12.3",
+		"QuestionText": "Please provide an additional intensity (normalized) metric that is appropriate to your business operations",
+		"ColType": "Textfield",
+		"Header": "Reason for change",
+		"Select Text": "",
+		"Elements": []
+	},
+
+
+	{
+		"AddRow": "true"
+	}
+]

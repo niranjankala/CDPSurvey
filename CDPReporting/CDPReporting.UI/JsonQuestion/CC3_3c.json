@@ -1,0 +1,55 @@
+[{
+		"QID": "8F712580-75D4-42F3-B977-278803364414",
+		"Question Number": "CC3.3c",
+		"QuestionText": "What methods do you use to drive investment in emissions reduction activities?",
+		"Headers": [
+			"Method ",
+			"Comment"
+		]
+
+	},
+
+
+
+	{
+		"QID": "8F712580-75D4-42F3-B977-278803364414",
+		"Question Number": "CC3.3c",
+		"QuestionText": "What methods do you use to drive investment in emissions reduction activities?",
+		"ColType": "SingleSelect",
+		"Header": "Activity type",
+		"Select Text": "Select from:",
+		"Elements": [
+				"Compliance with regulatory requirements/standards",
+	"Dedicated budget for energy efficiency",
+	"Dedicated budget for low carbon product R&D",
+	"Dedicated budget for other emission reduction activities",
+	"Employee engagement",
+	"Financial optimization calculations",
+	"Internal price on carbon",
+	"Internal incentives/recognition programs",
+	"Internal finance mechanisms", 
+	"Lower return on investment (ROI) specification",
+	"Marginal abatement cost curve",
+	"Partnering with governments on technology development",
+	"Other"
+
+		]
+	},
+	
+	
+	{
+		
+		"QID": "8F712580-75D4-42F3-B977-278803364414",
+		"Question Number": "CC3.3c",
+		"QuestionText": "What methods do you use to drive investment in emissions reduction activities?",
+		"ColType": "Textfield",
+		"Header": "Comment ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	
+	{
+		"AddRow": "true"
+	}
+]

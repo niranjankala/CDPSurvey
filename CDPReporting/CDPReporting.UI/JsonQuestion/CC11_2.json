@@ -1,0 +1,45 @@
+[
+
+	{
+		"QID": "48D7BE68-378F-4CC4-8216-47C11F1DC948",
+		"Question Number": "CC10.2c",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by activity",
+		"Headers": [
+			"Energy type",
+			"MWh"
+
+
+		]
+
+	},
+
+	{
+		"QID": "48D7BE68-378F-4CC4-8216-47C11F1DC948",
+		"Question Number": "CC10.2c",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by activity",
+		"ColType": "SingleSelect",
+		"Header": "Energy type",
+		"Select Text": "Select From",
+		"Elements": [
+			"Heat",
+			"Steam",
+			"Cooling"
+		]
+	},
+	{
+		"QID": "48D7BE68-378F-4CC4-8216-47C11F1DC948",
+		"Question Number": "CC10.2c",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by activity",
+		"ColType": "Numerical",
+		"Header": "MWh",
+		"Select Text": "",
+		"Elements": []
+	},
+
+
+
+
+	{
+		"AddRow": "true"
+	}
+]

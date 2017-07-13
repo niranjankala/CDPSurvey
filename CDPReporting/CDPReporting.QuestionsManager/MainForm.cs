@@ -39,50 +39,32 @@ namespace CDPReporting.QuestionsManager
                     connection.Open();
                     for (int i = 0; i < cdpQuestionDataSet.Tables.Count; i++)
                     {
+                        if (cdpQuestionDataSet.Tables[i].TableName != "Questions$") continue;
                         foreach (DataRow row in cdpQuestionDataSet.Tables[i].Rows)
                         {
-                            using (SqlCommand cmd = new SqlCommand("CreateSimergyUser", connection))
+                            using (SqlCommand cmd = new SqlCommand("USP_CreateQuestion", connection))
                             {
-                                string passwrod = Convert.ToString(row["Password"]);
-                                if (string.IsNullOrWhiteSpace(passwrod))
-                                    passwrod = "Simergy1";
 
                                 cmd.CommandType = CommandType.StoredProcedure;
-                                cmd.Parameters.AddWithValue("@emailId", emailId);
-                                cmd.Parameters.AddWithValue("@password", passwrod);
-                                cmd.Parameters.AddWithValue("@firstName", Convert.ToString(row["FirstName"]));
-                                cmd.Parameters.AddWithValue("@lastName", Convert.ToString(row["LastName"]));
-                                cmd.Parameters.AddWithValue("@company", Convert.ToString(row["Company"]));
-                                cmd.Parameters.AddWithValue("@addressLine1", Convert.ToString(row["AddressLine1"]));
-                                cmd.Parameters.AddWithValue("@addressLine2", Convert.ToString(row["AddressLine2"]));
-                                cmd.Parameters.AddWithValue("@city", Convert.ToString(row["City"]));
-                                cmd.Parameters.AddWithValue("@state", Convert.ToString(row["State"]));
-                                cmd.Parameters.AddWithValue("@zipCode", Convert.ToString(row["PinCode"]));
-                                cmd.Parameters.AddWithValue("@country", Convert.ToString(row["Country"]));
-                                cmd.Parameters.AddWithValue("@contactNumber", Convert.ToString(row["ContactNumber"]));
-                                cmd.Parameters.AddWithValue("@fax", Convert.ToString(row["Fax"]));
-                                cmd.Parameters.AddWithValue("@startDate", DateTime.Now);
-                                cmd.Parameters.AddWithValue("@endDate", SqlDbType.DateTime).Value = DBNull.Value;
 
-                                bool isUserAlreadyExists = false;
-                                using (SqlCommand cmdGetPersonId = new SqlCommand(
-                                    string.Format("SELECT p.PersonID from Person p 			INNER JOIN PersonToContact p2c on p.PersonID = p2c.PersonID			INNER JOIN Contact c  on c.ContactID = p2c.ContactID			WHERE c.Description = '{0}'", emailId)
-                                    , connection))
-                                {
-                                    object personId = cmdGetPersonId.ExecuteScalar();
-                                    if (personId != null && ((int)personId) > 0)
-                                    {
-                                        isUserAlreadyExists = true;
-                                    }
-                                }
+                                string qId = Convert.ToString(row["QId"]);
+
+                                cmd.Parameters.AddWithValue("@QId", string.IsNullOrEmpty(qId) ? Guid.NewGuid() : new Guid(qId));
+                                cmd.Parameters.AddWithValue("@QuestionId", Convert.ToString(row["QuestionId"]));
+                                cmd.Parameters.AddWithValue("@Title", Convert.ToString(row["Title"]));
+                                cmd.Parameters.AddWithValue("@QuestionText", Convert.ToString(row["QuestionText"]));
+                                cmd.Parameters.AddWithValue("@Type", Convert.ToString(row["Type"]));
+                                cmd.Parameters.AddWithValue("@QuestionOrder", Convert.ToInt32(row["QuestionOrder"]));
+                                cmd.Parameters.AddWithValue("@QuestionGroupId", new Guid(Convert.ToString(row["QuestionGroupId"])));
+                                cmd.Parameters.AddWithValue("@ParentQuestionId",  DBNull.Value);
+                                cmd.Parameters.AddWithValue("@IsQuestionSubItem", Convert.ToString(row["IsQuestionSubItem"]) == "Yes" ? true : false);
+                                cmd.Parameters.AddWithValue("@EligibleForPrePopulation", Convert.ToString(row["EligibleForPrePopulation"]) == "Yes" ? true : false);
+                                cmd.Parameters.AddWithValue("@ApplicableStatus", Convert.ToString(row["ApplicableStatus"]) == "Yes"? true:false);
+                                cmd.Parameters.AddWithValue("@OptionList", Convert.ToString(row["OptionsList"]));
+                                cmd.Parameters.AddWithValue("@OptionOtherText", Convert.ToString(row["OptionOthersText"]));
 
                                 object result = cmd.ExecuteScalar();
-                                if (!isUserAlreadyExists)
-                                    logBuilder.AppendLine(string.Format("{0}", emailId));
-                                else
-                                {
-                                    logExistingUserBuilder.AppendLine(string.Format("{0}", emailId));
-                                }
+
                             }
                         }
                     }
@@ -170,6 +152,6 @@ namespace CDPReporting.QuestionsManager
             }
             return connectionString;
         }
-      
+
     }
 }

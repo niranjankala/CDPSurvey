@@ -1,0 +1,63 @@
+[{
+			"QID": "0A3FCFC0-F7B7-4CFA-B19B-A448C53B7F0C",
+			"Question Number": "W1.2",
+			"QuestionText": "For your total operations, please detail which of the following water aspects are regularly measured and monitored and provide an explanation as to why or why not",
+			"Headers": [
+				"Water aspect",
+				"% of sites/facilities/operations",
+				"Please explain"
+			]
+		},
+
+
+		{
+			"QID": "0A3FCFC0-F7B7-4CFA-B19B-A448C53B7F0C",
+			"Question Number": "W1.2",
+			"QuestionText": "For your total operations, please detail which of the following water aspects are regularly measured and monitored and provide an explanation as to why or why not",
+			"ColType": "SingleSelect",
+			"Header": "Water aspect",
+			"Select Text": "Water withdrawals – total volumes",
+			"Elements": [
+			     "Water withdrawals – total volumes",
+				 "Water withdrawals – volume by sources",
+				 "Water discharges – total volumes",
+				 "Water discharges – volume by destination",
+				 "Water discharges – volume by treatment method",
+				 "Water discharge quality data – quality by standard effluent parameters",
+				 "Water consumption – total volume",
+				 "Facilities providing fully-functioning WASH services to all workers"
+			
+			]
+		},
+
+		{
+			"QID": "0A3FCFC0-F7B7-4CFA-B19B-A448C53B7F0C",
+			"Question Number": "W1.2",
+			"QuestionText": "For your total operations, please detail which of the following water aspects are regularly measured and monitored and provide an explanation as to why or why not",
+			"ColType": "SingleSelect",
+			"Header": "% of sites/facilities/operations",
+			"Select Text": "Select from:",
+			"Elements": [
+
+				"Less than 1%",
+				"1-25",
+				"26-50",
+				"51-75",
+				"76-100"
+			]
+
+		},
+
+		{
+			"QID": "8D49EBF4-E23D-44B0-A88C-8E74E8D1FF07",
+			"Question Number": "CC1.2a",
+			"QuestionText": "Please provide further details on the incentives provided for the management of climate change issues",
+			"ColType": "Textfield",
+			"Header": "Please explain",
+			"Select Text": "",
+			"Elements": []
+		},
+		{
+		"AddRow" : "false"
+		}
+	]

@@ -1,0 +1,46 @@
+[{
+		"QID": "082CEE7D-DC69-4ADA-B7FE-E719A68C4651",
+		"Question Number": "CC10.2b",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by facility",
+		"Headers": [
+			"Facility",
+			"Scope 2 location-based emissions (metric tonnes CO2e)",
+			"Scope 2, market-based emissions (metric tonnes CO2e)"
+
+		]
+
+	},
+
+
+	{
+		"QID": "082CEE7D-DC69-4ADA-B7FE-E719A68C4651",
+		"Question Number": "CC10.2b",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by facility",
+		"ColType": "Textfield",
+		"Header": "Facility",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+		"QID": "082CEE7D-DC69-4ADA-B7FE-E719A68C4651",
+		"Question Number": "CC10.2b",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by facility",
+		"ColType": "Numerical",
+		"Header": "Scope 2, location-based emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+		"QID": "082CEE7D-DC69-4ADA-B7FE-E719A68C4651",
+		"Question Number": "CC10.2b",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by facility",
+		"ColType": "Numerical",
+		"Header": "Scope 2, market-based emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

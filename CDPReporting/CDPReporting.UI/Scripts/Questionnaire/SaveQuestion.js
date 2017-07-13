@@ -2,8 +2,8 @@
 $(document).ready(function () {
     $("#btnSave").click(function () {
             //debugger;
-            var questionId = 
-            var col1 = 
+            //var questionId = 
+            //var col1 = 
             var col2 = $("#plantList option:selected").text();
             var col3 = $("#TeamName").val();
             var col4 = ($("#IsActive").is(':checked'));

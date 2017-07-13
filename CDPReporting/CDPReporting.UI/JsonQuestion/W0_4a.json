@@ -1,0 +1,38 @@
+[
+{
+		"QID": "BC303C97-2F40-4E6D-8F09-ED943FE61003",
+		"Question Number": "W0.4a",
+		"QuestionText": "Please report the exclusions in the following table",
+		"Headers":[
+			"Exclusion",
+			"Please explain why you have made the exclusion"
+			]
+},
+
+
+{
+		"QID": "BC303C97-2F40-4E6D-8F09-ED943FE61003",
+		"Question Number": "W0.4a",
+		"QuestionText": "Please report the exclusions in the following table",
+		"ColType": "Textfield",
+		"Header": "Exclusion",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	
+	{
+		"QID": "BC303C97-2F40-4E6D-8F09-ED943FE61003",
+		"Question Number": "W0.4a",
+		"QuestionText": "Please report the exclusions in the following table",
+		"ColType": "Textfield",
+		"Header": "Please explain why you have made the exclusion",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "false"
+	}
+]

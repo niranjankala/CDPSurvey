@@ -1,0 +1,207 @@
+[{
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"Headers": [
+			"Risk driver",
+			"Description",
+			"Potential impact",
+			"Timeframe",
+			"Direct/Indirect",
+			"Likelihood",
+			"Magnitude of impact",
+			"Estimated financial implications",
+			"Management methods",
+			"Cost of management"
+
+		]
+
+	},
+
+
+
+	{
+
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Risk driver",
+		"Select Text": "Select from:",
+		"Elements": [
+			"International agreements",
+			"Air pollution limits",
+			"Carbon taxes",
+			"Cap and trade schemes",
+			"Emission reporting obligations",
+			"Fuel/energy taxes and regulations",
+			"Product efficiency regulations and standards",
+			"Product labelling regulations and standards",
+			"Voluntary agreements",
+			"General environmental regulations, including planning",
+			"Renewable energy regulation",
+			"Uncertainty surrounding new regulation",
+			"Lack of regulation ",
+			"Other regulatory drivers"
+
+
+
+
+		]
+	},
+	{
+
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"ColType": "Textfield",
+		"Header": "Description",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+	{
+
+
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Potential impact ",
+		"Select Text": "",
+		"Elements": [
+			"Increased operational cost",
+			"Increased capital cost",
+			"Reduced demand for goods/service",
+			"Reduction/ disruption in production capacity",
+			"Reduction in capital availability",
+			"Reduced stock price (market valuation)",
+			"Inability to do business",
+			"Wider social disadvantage",
+			"Other, please specify"
+
+		]
+
+	},
+
+	{
+
+
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Timeframe ",
+		"Select Text": "",
+		"Elements": [
+			"Up to 1 year",
+			"1 to 3 years",
+			"3 to 6 years",
+			">6 years",
+			"Unknown"
+
+
+		]
+
+	},
+
+
+	{
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Direct/Indirect",
+		"Select Text": "",
+		"Elements": [
+			"Direct",
+			"Indirect (Supply chain)",
+			"Indirect (Client)"
+
+
+		]
+
+	},
+
+	{
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Likelihood",
+		"Select Text": "",
+		"Elements": [
+			"Virtually certain",
+			"Very likely",
+			"Likely",
+			"More likely than not",
+			"About as likely as not",
+			"Unlikely",
+			"Very unlikely",
+			"Exceptionally unlikely",
+			"Unknown"
+
+
+		]
+
+	},
+
+	{
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Magnitude of impact",
+		"Select Text": "",
+		"Elements": [
+			"High",
+			"Medium-high",
+			"Medium",
+			"Low-medium",
+			"Low",
+			"Unknown"
+
+
+		]
+
+	},
+
+
+
+	{
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"ColType": "Textfield",
+		"Header": "Estimated financial implications ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"ColType": "Textfield",
+		"Header": "Management methods  ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"ColType": "Textfield",
+		"Header": "Cost of management ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

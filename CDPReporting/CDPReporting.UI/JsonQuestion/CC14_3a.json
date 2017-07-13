@@ -1,0 +1,120 @@
+[{
+		"QID": "7FB585CB-50AD-442F-8E3A-93019989DBCF",
+		"Question Number": "CC14.3a",
+		"QuestionText": "Please identify the reasons for any change in your Scope 3 emissions and for each of them specify how your emissions compare to the previous year",
+		"Headers": [
+			"Sources of Scope 3 emissions",
+			"Reason for change",
+			"Emissions value (%)",
+			"Direction of change",
+			"Comment"
+
+
+
+
+		]
+
+	},
+	{
+
+		"QID": "7FB585CB-50AD-442F-8E3A-93019989DBCF",
+		"Question Number": "CC14.3a",
+		"QuestionText": "Please identify the reasons for any change in your Scope 3 emissions and for each of them specify how your emissions compare to the previous year",
+		"ColType": "SingleSelect",
+		"Header": "Sources of Scope 3 emissions",
+		"Select Text": "",
+		"Elements": [
+			"Purchased goods & services",
+			"Capital goods",
+			"Fuel- and energy-related activities (not included in Scopes 1 or 2)",
+			"Upstream transportation & distribution",
+			"Waste generated in operations",
+			"Business travel",
+			"Employee commuting",
+			"Upstream leased assets",
+			"Investments",
+			"Downstream transportation and distribution",
+			"Processing of sold products",
+			"Use of sold products",
+			"End-of-life treatment of sold products",
+			"Downstream leased assets",
+			"Franchises",
+			"Other (upstream)",
+			"Other (downstream)"
+
+		]
+	},
+
+	{
+		"QID": "7FB585CB-50AD-442F-8E3A-93019989DBCF",
+		"Question Number": "CC14.3a",
+		"QuestionText": "Please identify the reasons for any change in your Scope 3 emissions and for each of them specify how your emissions compare to the previous year",
+		"ColType": "SingleSelect",
+		"Header": "Reason for change",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Emissions reduction activities",
+			"Divestment",
+			"Acquisitions",
+			"Mergers",
+			"Change in output",
+			"Change in methodology",
+			"Change in boundary",
+			"Change in physical operating conditions",
+			"Unidentified",
+			"Other, please specify"
+
+
+		]
+	},
+
+
+	{
+		"QID": "7FB585CB-50AD-442F-8E3A-93019989DBCF",
+		"Question Number": "CC14.3a",
+		"QuestionText": "Please identify the reasons for any change in your Scope 3 emissions and for each of them specify how your emissions compare to the previous year",
+		"ColType": "Numerical",
+		"Header": "Emissions value (%)",
+		"Select Text": "Select from:",
+		"Elements": [
+
+
+
+		]
+	},
+
+
+
+
+	{
+		"QID": "7FB585CB-50AD-442F-8E3A-93019989DBCF",
+		"Question Number": "CC14.3a",
+		"QuestionText": "Please identify the reasons for any change in your Scope 3 emissions and for each of them specify how your emissions compare to the previous year",
+		"ColType": "SingleSelect",
+		"Header": "Direction of change",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Increase",
+			"Decrease",
+			"No change"
+		]
+	},
+
+
+	{
+		"QID": "7FB585CB-50AD-442F-8E3A-93019989DBCF",
+		"Question Number": "CC14.3a",
+		"QuestionText": "Please identify the reasons for any change in your Scope 3 emissions and for each of them specify how your emissions compare to the previous year",
+		"ColType": "Textfield",
+		"Header": "Comment",
+		"Select Text": "Select from:",
+		"Elements": [
+
+
+		]
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

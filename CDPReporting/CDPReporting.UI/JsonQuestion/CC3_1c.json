@@ -1,0 +1,115 @@
+[{
+		"QID": "C2DE2988-3B54-4EF8-AC3A-8AA8CAEDB69C",
+		"Question Number": "CC3.1c",
+		"QuestionText": "Please also indicate what change in absolute emissions this intensity target reflects ",
+		"Headers": [
+			"ID ",
+			"Direction of change anticipated in absolute Scope 1+2 emissions at target completion?",
+			"% change anticipated in absolute Scope 1+2 emissions",
+			"% reduction from base year ",
+			
+			"% change anticipated in absolute Scope 3 emissions",
+			"Comment"
+		]
+
+	},
+
+
+
+	{
+		"QID": "C2DE2988-3B54-4EF8-AC3A-8AA8CAEDB69C",
+		"Question Number": "CC3.1c",
+		"QuestionText": "Please also indicate what change in absolute emissions this intensity target reflects ",
+		"ColType": "SingleSelect",
+		"Header": "ID",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Int1 ",
+			"Int2",
+			"Int3",
+			"Int4",
+			"Int5",
+			"Int6",
+			"Int7",
+			"Int8",
+			"Int9",
+			"Int10",
+			"Int11",
+			"Int12",
+			"Int13",
+			"Int14",
+			"Int15"
+
+
+		]
+	},
+
+	{
+		"QID": "C2DE2988-3B54-4EF8-AC3A-8AA8CAEDB69C",
+		"Question Number": "CC3.1c",
+		"QuestionText": "Please also indicate what change in absolute emissions this intensity target reflects ",
+		"ColType": "SingleSelect",
+		"Header": "Direction of change anticipated in absolute Scope 1+2 emissions at target completion?",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Increase",
+			"Decrease",
+			"No change"
+
+		]
+	},
+
+
+	{
+		"QID": "1328C356-E179-4B6A-BBA1-5E7B5D660F8B",
+		"Question Number": "CC3.1b",
+		"QuestionText": "Please provide details of your intensity target ",
+		"ColType": "Numerical",
+		"Header": "% change anticipated in absolute Scope 1+2 emissions",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "C2DE2988-3B54-4EF8-AC3A-8AA8CAEDB69C",
+		"Question Number": "CC3.1c",
+		"QuestionText": "Please also indicate what change in absolute emissions this intensity target reflects ",
+		"ColType": "SingleSelect",
+		"Header": "Direction of change anticipated in absolute Scope 3 emissions at target completion?",
+		"Select Text": "Select from",
+		"Elements": [
+			"Increase",
+			"Decrease",
+			"No change"
+		]
+
+	},
+
+	{
+		"QID": "C2DE2988-3B54-4EF8-AC3A-8AA8CAEDB69C",
+		"Question Number": "CC3.1c",
+		"QuestionText": "Please also indicate what change in absolute emissions this intensity target reflects ",
+		"ColType": "Numerical",
+		"Header": "% change anticipated in absolute Scope 3 emissions",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+	{
+		"QID": "C2DE2988-3B54-4EF8-AC3A-8AA8CAEDB69C",
+		"Question Number": "CC3.1c",
+		"QuestionText": "Please also indicate what change in absolute emissions this intensity target reflects ",
+		"ColType": "Textfield",
+		"Header": "Comment ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

@@ -1,0 +1,90 @@
+[{
+		"QID": "6B53ED2A-AD4A-44C4-9768-4B4F94FBCB3D",
+		"Question Number": "CC2.1a",
+		"QuestionText": "Please provide further details on your risk management procedures with regard to climate change risks and opportunities",
+		"Headers": [
+			"Frequency of monitoring",
+			"To whom are results reported?",
+			"Geographical areas considered",
+			"How far into the future are risks considered?",
+			"Comment"
+		]
+
+	},
+
+
+
+	{
+		"QID": "6B53ED2A-AD4A-44C4-9768-4B4F94FBCB3D",
+		"Question Number": "CC2.1a",
+		"QuestionText": "Please provide further details on your risk management procedures with regard to climate change risks and opportunities",
+		"ColType": "SingleSelect",
+		"Header": "Frequency of monitoring",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Six-monthly or more frequently",
+			"Annually",
+			"Every two years",
+			"Sporadically, not defined",
+			"Never"
+		]
+	},
+
+	{
+		"QID": "6B53ED2A-AD4A-44C4-9768-4B4F94FBCB3D",
+		"Question Number": "CC2.1a",
+		"QuestionText": "Please provide further details on your risk management procedures with regard to climate change risks and opportunities",
+		"ColType": "SingleSelect",
+		"Header": "Frequency of monitoring",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Board or individual/sub-set of the Board or committee appointed by the Board",
+			"Other committee",
+			"Senior manager/officer",
+			"Other manager/officer",
+			"Nobody"
+
+		]
+	},
+
+
+	{
+		"QID": "6B53ED2A-AD4A-44C4-9768-4B4F94FBCB3D",
+		"Question Number": "CC2.1a",
+		"QuestionText": "Please provide further details on your risk management procedures with regard to climate change risks and opportunities",
+		"ColType": "Textfield",
+		"Header": "Geographical areas considered",
+		"Select Text": "Select from:",
+		"Elements": []
+
+	},
+	{
+		"QID": "6B53ED2A-AD4A-44C4-9768-4B4F94FBCB3D",
+		"Question Number": "CC2.1a",
+		"QuestionText": "Please provide further details on your risk management procedures with regard to climate change risks and opportunities",
+		"ColType": "SingleSelect",
+		"Header": "Frequency of monitoring",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Up to 1 year",
+			"1 to 3 years",
+			"3 to 6 years",
+			">6 years",
+			"Unknown"
+		]
+
+	},
+	{
+		"QID": "6B53ED2A-AD4A-44C4-9768-4B4F94FBCB3D",
+		"Question Number": "CC2.1a",
+		"QuestionText": "Please provide further details on your risk management procedures with regard to climate change risks and opportunities",
+		"ColType": "Textfield",
+		"Header": "Comment",
+		"Select Text": "Select from:",
+		"Elements": []
+
+	},
+	{
+		"AddRow": "false"
+	}
+]

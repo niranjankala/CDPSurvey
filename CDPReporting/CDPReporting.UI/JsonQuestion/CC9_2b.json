@@ -1,0 +1,56 @@
+[
+{
+		"QID": "866EB82D-29A3-4803-B4CB-D103FE4E3A99",
+		"Question Number": "CC9.2b",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by facility",
+		"Headers": [
+			"Facility",
+			"Scope 1 emissions (metric tonnes CO2e)",
+			"Latitude",
+			"Longitude"
+
+		]
+
+	},
+
+{
+		"QID": "866EB82D-29A3-4803-B4CB-D103FE4E3A99",
+		"Question Number": "CC9.2b",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by facility",
+		"ColType": "Textfield",
+		"Header": "Facility",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+		"QID": "866EB82D-29A3-4803-B4CB-D103FE4E3A99",
+		"Question Number": "CC9.2b",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by facility",
+		"ColType": "Numerical",
+		"Header": "Scope 1 emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+	},
+
+{
+		"QID": "866EB82D-29A3-4803-B4CB-D103FE4E3A99",
+		"Question Number": "CC9.2b",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by facility",
+		"ColType": "Numerical",
+		"Header": "Latitude",
+		"Select Text": "",
+		"Elements": []
+	},
+{
+		"QID": "866EB82D-29A3-4803-B4CB-D103FE4E3A99",
+		"Question Number": "CC9.2b",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by facility",
+		"ColType": "Numerical",
+		"Header": "SLongitude",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+		"AddRow": "true"
+	}
+]

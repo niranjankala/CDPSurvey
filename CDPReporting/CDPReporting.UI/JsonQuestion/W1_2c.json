@@ -1,0 +1,55 @@
+[{
+		"QID": "73CF46E4-5A5B-4829-B776-788DE95AF32B",
+		"Question Number": "W1.2c",
+		"QuestionText": "Water consumption: for the reporting year, please provide total water consumption data, across your operations",
+		"Headers": [
+			"Consumption(megaliters/year)",
+			"How does this compare to the last reporting year?",
+			"Comment"
+		]
+	},
+
+
+	{
+		"QID": "73CF46E4-5A5B-4829-B776-788DE95AF32B",
+		"Question Number": "W1.2c",
+		"QuestionText": "Water consumption: for the reporting year, please provide total water consumption data, across your operations",
+		"ColType": "Number",
+		"Header": "Consumption(megaliters/year)",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+
+		"QID": "73CF46E4-5A5B-4829-B776-788DE95AF32B",
+		"Question Number": "W1.2c",
+		"QuestionText": "Water consumption: for the reporting year, please provide total water consumption data, across your operations",
+		"ColType": "SingleSelect",
+		"Header": "How does this compare to the last reporting year?",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"Much lower",
+			"Lower",
+			"About the same",
+			"Higher",
+			"Much higher",
+			"This is our first year of measurement"
+		]
+
+	},
+
+	{
+		"QID": "73CF46E4-5A5B-4829-B776-788DE95AF32B",
+		"Question Number": "W1.2c",
+		"QuestionText": "Water consumption: for the reporting year, please provide total water consumption data, across your operations",
+		"ColType": "Textfield",
+		"Header": "Comment",
+		"Select Text": "",
+		"Elements": []
+
+	}, {
+		"AddRow": "false"
+	}
+]

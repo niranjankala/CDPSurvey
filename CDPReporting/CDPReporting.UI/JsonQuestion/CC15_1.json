@@ -1,0 +1,80 @@
+[{
+		"QID": "E797F624-FB4D-4CB7-A1FA-6482D18E1998",
+		"Question Number": "CC15.1",
+		"QuestionText": "Please provide the following information for the person that has signed off (approved) the CDP climate change response",
+		"Headers": [
+			"Name",
+			"Job title",
+			
+			"Corresponding job category"
+
+		]
+
+	},
+	
+	
+	{
+		"QID": "E797F624-FB4D-4CB7-A1FA-6482D18E1998",
+		"Question Number": "CC15.1",
+		"QuestionText": "Please provide the following information for the person that has signed off (approved) the CDP climate change response",
+		"ColType": "Textfield",
+		"Header": "Name",
+		"Select Text": "Select from:",
+		"Elements": [
+
+
+		]
+	},
+	{
+		"QID": "E797F624-FB4D-4CB7-A1FA-6482D18E1998",
+		"Question Number": "CC15.1",
+		"QuestionText": "Please provide the following information for the person that has signed off (approved) the CDP climate change response",
+		"ColType": "Textfield",
+		"Header": "Job title",
+		"Select Text": "Select from:",
+		"Elements": [
+
+
+		]
+	},
+
+{"QID": "E797F624-FB4D-4CB7-A1FA-6482D18E1998",
+		"Question Number": "CC15.1",
+		"QuestionText": "Please provide the following information for the person that has signed off (approved) the CDP climate change response",
+		"ColType": "SingleSelect",
+		"Header": "Job title",
+		"Select Text": "Select from:",
+		"Elements": [
+	"Board chairman",
+	"Board/Executive board",
+	"Director on board",
+	"Chief Executive Officer (CEO)", 
+	"Chief Financial Officer (CFO)",
+	"Chief Operating Officer (COO)", 
+	"Other C-Suite Officer", 
+	"President",
+	"Business unit manager",
+	"Energy manager", 
+	"EHS manager",
+	"Environment/Sustainability manager", 
+	"Facilities manager", 
+	"Process operation manager",
+	"Procurement manager",
+	"Public affairs manager", 
+	"Risk manager",
+	"Other, please specify"
+
+
+		]
+	},	
+
+
+	
+
+
+
+
+	{
+		"AddRow": "true"
+	}
+]

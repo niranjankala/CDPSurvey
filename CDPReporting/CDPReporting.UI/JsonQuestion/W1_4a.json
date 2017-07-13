@@ -1,0 +1,88 @@
+[
+{
+		"QID": "2E721CC0-6FFB-4FBD-8816-9F2EDE835685",
+		"Question Number": "W1.4a",
+		"QuestionText": "Please describe the detrimental impacts experienced by your organization related to water in the reporting year",
+		"Headers":[
+			"Country",
+			"River basin",
+			"Impact driver",
+			"Impact",
+			"Description of impac",
+			"Length of impact",
+			"Overall financial impact",
+			"Response strategy",
+			"Description of response strategy"
+			]
+},
+
+
+{
+		"QID": "2E721CC0-6FFB-4FBD-8816-9F2EDE835685",
+		"Question Number": "W1.4a",
+		"QuestionText": "Please describe the detrimental impacts experienced by your organization related to water in the reporting year",
+		"ColType": "SingleSelect",
+		"Header": "Country",
+		"Select Text": "Select from:",
+		"Elements": [
+			"India",
+			"UK",
+			"USA",
+			"Japan",
+			"Germany",
+			"China"
+		]
+	},
+
+	{
+		"QID": "8D49EBF4-E23D-44B0-A88C-8E74E8D1FF07",
+		"Question Number": "CC1.2a",
+		"QuestionText": "Please provide further details on the incentives provided for the management of climate change issues",
+		"ColType": "SingleSelect",
+		"Header": "The type of incentives",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"Monetary reward",
+			"Recognition (non-monetary)",
+			"Other non-monetary reward"
+		]
+
+	},
+
+	{
+		"QID": "8D49EBF4-E23D-44B0-A88C-8E74E8D1FF07",
+		"Question Number": "CC1.2a",
+		"QuestionText": "Please provide further details on the incentives provided for the management of climate change issues",
+		"ColType": "MultiSelect",
+		"Header": "Incentivized performance indicator",
+		"Select Text": "Multi-select from::",
+		"Elements": [
+
+			"Emissions reduction project",
+			"Emissions reduction target",
+			"Energy reduction project",
+			"Energy reduction target",
+			"Efficiency project",
+			"Efficiency target",
+			"Behavior change related indicator",
+			"Environmental criteria included in purchases",
+			"Supply chain engagement",
+			"Other, please specify"
+		]
+
+	},
+
+	{
+		"QID": "8D49EBF4-E23D-44B0-A88C-8E74E8D1FF07",
+		"Question Number": "CC1.2a",
+		"QuestionText": "Please provide further details on the incentives provided for the management of climate change issues",
+		"ColType": "Textfield",
+		"Header": "Comment",
+		"Select Text": "",
+		"Elements": []
+
+	}, {
+		"AddRow": "true"
+	}
+]

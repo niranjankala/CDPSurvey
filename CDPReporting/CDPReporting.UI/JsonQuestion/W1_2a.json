@@ -1,0 +1,79 @@
+[
+{
+		"QID": "2D734E32-D8E9-44A1-A4F6-832011819A33",
+		"Question Number": "W1.2a",
+		"QuestionText": "Water withdrawals: for the reporting year, please provide total water withdrawal data by source, across your operations",
+		"Headers": [
+			"Source",
+			"Quantity(megaliters/year)",
+			"How does total water withdrawals for this source compare to the last reporting year?",
+			"Comment"
+		]
+	},
+
+
+	{
+		"QID": "2D734E32-D8E9-44A1-A4F6-832011819A33",
+		"Question Number": "W1.2a",
+		"QuestionText": "Water withdrawals: for the reporting year, please provide total water withdrawal data by source, across your operations",
+		"ColType": "SingleSelect",
+		"Header": "Source",
+		"Select Text": "Select from:",
+		"Elements": [
+		
+		   "Fresh surface water",
+		   "Brackish surface water/seawater",
+		   "Rainwater",
+		   "Groundwater – renewable",
+		   "Groundwater – nonrenewable",
+		   "Produced/process water",
+		   "Municipal supply",
+		   "Wastewater from another organization",
+		   "Total"
+		   ]
+	},
+
+	{
+
+		"QID": "2D734E32-D8E9-44A1-A4F6-832011819A33",
+		"Question Number": "W1.2a",
+		"QuestionText": "Water withdrawals: for the reporting year, please provide total water withdrawal data by source, across your operations",
+		"ColType": "Number",
+		"Header": "Quantity(megaliters/year)",
+		"Select Text": "[numeric]",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "2D734E32-D8E9-44A1-A4F6-832011819A33",
+		"Question Number": "W1.2a",
+		"QuestionText": "Water withdrawals: for the reporting year, please provide total water withdrawal data by source, across your operations",
+		"ColType": "SingleSelect",
+		"Header": "How does total water withdrawals for this source compare to the last reporting year?",
+		"Select Text": "[Select from]:",
+		"Elements": [
+			"Much lower",
+			"Lower",
+			"About the same",
+			"Higher",
+			"Much higher",
+			"This is our first year of measurement",
+			"Not applicable"
+		]
+
+	},
+
+	{
+		"QID": "2D734E32-D8E9-44A1-A4F6-832011819A33",
+		"Question Number": "W1.2a",
+		"QuestionText": "Water withdrawals: for the reporting year, please provide total water withdrawal data by source, across your operations",
+		"ColType": "Textfield",
+		"Header": "Comment",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+	"AddRow":"false"
+	}
+]

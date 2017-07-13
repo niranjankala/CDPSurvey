@@ -2,7 +2,7 @@
 
         
         <div class="form-horizontal">
-            <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
+            <h4>@string.Format("{0}: {1}", Model.CDPId, Model.Caption)</h4><p>@Model.QuestionText</p>
 
 
          <div class="form-group">
@@ -16,9 +16,9 @@
             </div>
 
         <div class="form-group">
-            <div class="col-md-offset-10 col-md-12">
-                <button id="Save" type="button" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-primary">Cancel</button>
+            <div class="col-md-12 text-right">
+                <button id="Save" type="button" class="btn btn-primary" >Save</button>
+                @*<button type="button" class="btn btn-default">Cancel</button>*@
             </div>
         </div>
         </div>

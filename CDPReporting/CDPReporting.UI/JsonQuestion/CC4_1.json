@@ -1,0 +1,101 @@
+[{
+		"QID": "31480673-4DDA-4173-9573-D3496F2095B5",
+		"Question Number": "CC4.1",
+		"QuestionText": "Have you published information about your organization’s response to climate change and GHG emissions performance for this reporting year in places other than in your CDP response? If so, please attach the publication(s)",
+		"Headers": [
+			"Publication ",
+			
+			"Status",
+			"Page/Section reference ",
+			"Attach the document",
+			"Comment"
+
+		]
+
+	},
+
+
+
+	{
+
+		"QID": "31480673-4DDA-4173-9573-D3496F2095B5",
+		"Question Number": "CC4.1",
+		"QuestionText": "Have you published information about your organization’s response to climate change and GHG emissions performance for this reporting year in places other than in your CDP response? If so, please attach the publication(s)",
+		"ColType": "SingleSelect",
+		"Header": "Publication",
+		"Select Text": "Select from:",
+		"Elements": [
+			"No",
+			"In mainstream financial reports in accordance with the CDSB Framework",
+			"In mainstream financial reports but have not used the CDSB Framework",
+			"In other regulatory filings",
+			"In voluntary communications"
+
+
+
+		]
+	},
+
+
+	{
+
+
+		"QID": "31480673-4DDA-4173-9573-D3496F2095B5",
+		"Question Number": "CC4.1",
+		"QuestionText": "Have you published information about your organization’s response to climate change and GHG emissions performance for this reporting year in places other than in your CDP response? If so, please attach the publication(s)",
+		"ColType": "SingleSelect",
+		"Header": "Status ",
+		"Select Text": "",
+		"Elements": [
+			"Complete",
+			"Underway – previous year attached",
+			"Underway – this is our first year"
+
+
+
+
+		]
+
+	},
+	{
+
+		"QID": "31480673-4DDA-4173-9573-D3496F2095B5",
+		"Question Number": "CC4.1",
+		"QuestionText": "Have you published information about your organization’s response to climate change and GHG emissions performance for this reporting year in places other than in your CDP response? If so, please attach the publication(s)",
+		"ColType": "Textfield",
+		"Header": "Page/Section reference",
+		"SelectText": "",
+		"Elements": []
+
+	},
+
+	{
+
+		"QID": "31480673-4DDA-4173-9573-D3496F2095B5",
+		"Question Number": "CC4.1",
+		"QuestionText": "Have you published information about your organization’s response to climate change and GHG emissions performance for this reporting year in places other than in your CDP response? If so, please attach the publication(s)",
+		"ColType": "AttachmentType",
+		"Header": "Attach the document",
+		"SelectText": " Please send the documnt to this email: Mihaela.Porojan@smr-automotive.com",
+		"Elements": [
+		
+		]
+
+	},
+
+
+	{
+		"QID": "31480673-4DDA-4173-9573-D3496F2095B5",
+		"Question Number": "CC4.1",
+		"QuestionText": "Have you published information about your organization’s response to climate change and GHG emissions performance for this reporting year in places other than in your CDP response? If so, please attach the publication(s)",
+		"ColType": "Textfield",
+		"Header": "Comment",
+		"SelectText": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

@@ -1,0 +1,206 @@
+[{
+		"QID": "73D261AE-4925-47F3-9A4A-D3344AF13C73",
+		"Question Number": "CC5.1b",
+		"QuestionText": "Please describe your inherent risks that are driven by change in physical climate parameters",
+		"Headers": [
+			"Risk driver",
+			"Description",
+			"Potential impact",
+			"Timeframe",
+			"Direct/Indirect",
+			"Likelihood",
+			"Magnitude of impact",
+			"Estimated financial implications",
+			"Management methods",
+			"Cost of management"
+
+		]
+
+	},
+
+
+
+	{
+
+		"QID": "73D261AE-4925-47F3-9A4A-D3344AF13C73",
+		"Question Number": "CC5.1b",
+		"QuestionText": "Please describe your inherent risks that are driven by change in physical climate parameters",
+		"ColType": "SingleSelect",
+		"Header": "Risk driver",
+		"Select Text": "Select from:",
+		"Elements": [
+				"Change in mean (average) temperature", 
+	"Change in temperature extremes",
+	"Change in mean (average) precipitation",
+	"Change in precipitation pattern", 
+	"Change in precipitation extremes and droughts", 
+	"Snow and ice",  
+	"Sea level rise", 
+	"Tropical cyclones (hurricanes and typhoons)", 
+	"Induced changes in natural resources",
+	"Uncertainty of physical risks", 
+	"Other physical climate drivers"
+
+
+
+
+
+		]
+	},
+	{
+
+		"QID": "73D261AE-4925-47F3-9A4A-D3344AF13C73",
+		"Question Number": "CC5.1b",
+		"QuestionText": "Please describe your inherent risks that are driven by change in physical climate parameters",
+		"ColType": "Textfield",
+		"Header": "Description",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+	{
+
+
+		"QID": "73D261AE-4925-47F3-9A4A-D3344AF13C73",
+		"Question Number": "CC5.1b",
+		"QuestionText": "Please describe your inherent risks that are driven by change in physical climate parameters",
+		"ColType": "SingleSelect",
+		"Header": "Potential impact ",
+		"Select Text": "",
+		"Elements": [
+			"Increased operational cost", 
+	"Increased capital cost", 
+	"Reduced demand for goods/service",
+	"Reduction/ disruption in production capacity",
+	"Reduction in capital availability", 
+	"Reduced stock price (market valuation)",
+	"Inability to do business", 
+	"Wider social disadvantage",
+	"Other, please specify"
+
+
+		]
+
+	},
+
+	{
+
+
+		"QID": "73D261AE-4925-47F3-9A4A-D3344AF13C73",
+		"Question Number": "CC5.1b",
+		"QuestionText": "Please describe your inherent risks that are driven by change in physical climate parameters",
+		"ColType": "SingleSelect",
+		"Header": "Timeframe ",
+		"Select Text": "",
+		"Elements": [
+			"Up to 1 year",
+			"1 to 3 years",
+			"3 to 6 years",
+			">6 years",
+			"Unknown"
+
+
+		]
+
+	},
+
+
+	{
+		"QID": "73D261AE-4925-47F3-9A4A-D3344AF13C73",
+		"Question Number": "CC5.1b",
+		"QuestionText": "Please describe your inherent risks that are driven by change in physical climate parameters",
+		"ColType": "SingleSelect",
+		"Header": "Direct/Indirect",
+		"Select Text": "",
+		"Elements": [
+			"Direct",
+			"Indirect (Supply chain)",
+			"Indirect (Client)"
+
+
+		]
+
+	},
+
+	{
+		"QID": "73D261AE-4925-47F3-9A4A-D3344AF13C73",
+		"Question Number": "CC5.1b",
+		"QuestionText": "Please describe your inherent risks that are driven by change in physical climate parameters",
+		"ColType": "SingleSelect",
+		"Header": "Likelihood",
+		"Select Text": "",
+		"Elements": [
+			"Virtually certain",
+			"Very likely",
+			"Likely",
+			"More likely than not",
+			"About as likely as not",
+			"Unlikely",
+			"Very unlikely",
+			"Exceptionally unlikely",
+			"Unknown"
+
+
+		]
+
+	},
+
+	{
+		"QID": "73D261AE-4925-47F3-9A4A-D3344AF13C73",
+		"Question Number": "CC5.1b",
+		"QuestionText": "Please describe your inherent risks that are driven by change in physical climate parameters",
+		"ColType": "SingleSelect",
+		"Header": "Magnitude of impact",
+		"Select Text": "",
+		"Elements": [
+			"High",
+			"Medium-high",
+			"Medium",
+			"Low-medium",
+			"Low",
+			"Unknown"
+
+
+		]
+
+	},
+
+
+
+	{
+		"QID": "73D261AE-4925-47F3-9A4A-D3344AF13C73",
+		"Question Number": "CC5.1b",
+		"QuestionText": "Please describe your inherent risks that are driven by change in physical climate parameters",
+		"ColType": "Textfield",
+		"Header": "Estimated financial implications ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "73D261AE-4925-47F3-9A4A-D3344AF13C73",
+		"Question Number": "CC5.1b",
+		"QuestionText": "Please describe your inherent risks that are driven by change in physical climate parameters",
+		"ColType": "Textfield",
+		"Header": "Management methods  ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "27734BBB-07F1-4794-892E-134AC9A57951",
+		"Question Number": "CC5.1a",
+		"QuestionText": "Please describe your inherent risks that are driven by changes in regulation",
+		"ColType": "Textfield",
+		"Header": "Cost of management ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

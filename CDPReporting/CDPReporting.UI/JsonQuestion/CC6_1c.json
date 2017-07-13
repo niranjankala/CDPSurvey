@@ -1,0 +1,199 @@
+[{
+		"QID": "E806627B-A215-4DCD-8327-F50418AEB616",
+		"Question Number": "CC6.1c",
+		"QuestionText": ":Please describe your inherent opportunities that are driven by changes in other climate-related developments ",
+		"Headers": [
+			"Opportunity  driver",
+			"Description",
+			"Potential impact",
+			"Timeframe",
+			"Direct/Indirect",
+			"Likelihood",
+			"Magnitude of impact",
+			"Estimated financial implications",
+			"Management methods",
+			"Cost of management"
+
+		]
+
+	},
+
+
+
+	{
+		"QID": "E806627B-A215-4DCD-8327-F50418AEB616",
+		"Question Number": "CC6.1c",
+		"QuestionText": ":Please describe your inherent opportunities that are driven by changes in other climate-related developments ",
+		"ColType": "SingleSelect",
+		"Header": "Opportunity  driver",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"Reputation",
+			"Changing consumer behavior",
+			"Induced changes in human and cultural environments",
+			"Fluctuating socio-economic conditions",
+			"Increasing humanitarian demands",
+			"Other drivers"
+
+
+		]
+	},
+	{
+
+		"QID": "E806627B-A215-4DCD-8327-F50418AEB616",
+		"Question Number": "CC6.1c",
+		"QuestionText": ":Please describe your inherent opportunities that are driven by changes in other climate-related developments ",
+		"ColType": "Textfield",
+		"Header": "Description",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+	{
+
+		"QID": "E806627B-A215-4DCD-8327-F50418AEB616",
+		"Question Number": "CC6.1c",
+		"QuestionText": ":Please describe your inherent opportunities that are driven by changes in other climate-related developments ",
+		"ColType": "SingleSelect",
+		"Header": "Potential impact ",
+		"Select Text": "",
+		"Elements": [
+			"Reduced operational costs",
+			"Reduced capital costs",
+			"Increased demand for existing products/services",
+			"Premium price opportunities",
+			"Increased production capacity",
+			"Increase in capital availability",
+			"Increased stock price (market valuation)",
+			"New product/business services",
+			"Investment opportunities",
+			"Wider social benefits",
+			"Other, please specify"
+
+
+		]
+
+	},
+
+	{
+
+
+		"QID": "E806627B-A215-4DCD-8327-F50418AEB616",
+		"Question Number": "CC6.1c",
+		"QuestionText": ":Please describe your inherent opportunities that are driven by changes in other climate-related developments ",
+		"ColType": "SingleSelect",
+		"Header": "Timeframe ",
+		"Select Text": "",
+		"Elements": [
+			"Up to 1 year",
+			"1 to 3 years",
+			"3 to 6 years",
+			">6 years",
+			"Unknown"
+
+
+		]
+
+	},
+
+
+	{
+		"QID": "E806627B-A215-4DCD-8327-F50418AEB616",
+		"Question Number": "CC6.1c",
+		"QuestionText": ":Please describe your inherent opportunities that are driven by changes in other climate-related developments ",
+		"ColType": "SingleSelect",
+		"Header": "Direct/Indirect",
+		"Select Text": "",
+		"Elements": [
+			"Direct",
+			"Indirect (Supply chain)",
+			"Indirect (Client)"
+
+
+		]
+
+	},
+
+	{
+		"QID": "E806627B-A215-4DCD-8327-F50418AEB616",
+		"Question Number": "CC6.1c",
+		"QuestionText": ":Please describe your inherent opportunities that are driven by changes in other climate-related developments ",
+		"ColType": "SingleSelect",
+		"Header": "Likelihood",
+		"Select Text": "",
+		"Elements": [
+			"Virtually certain",
+			"Very likely",
+			"Likely",
+			"More likely than not",
+			"About as likely as not",
+			"Unlikely",
+			"Very unlikely",
+			"Exceptionally unlikely",
+			"Unknown"
+
+
+		]
+
+	},
+
+	{
+		"QID": "E806627B-A215-4DCD-8327-F50418AEB616",
+		"Question Number": "CC6.1c",
+		"QuestionText": ":Please describe your inherent opportunities that are driven by changes in other climate-related developments ",
+		"ColType": "SingleSelect",
+		"Header": "Magnitude of impact",
+		"Select Text": "",
+		"Elements": [
+			"High",
+			"Medium-high",
+			"Medium",
+			"Low-medium",
+			"Low",
+			"Unknown"
+
+
+		]
+
+	},
+
+
+
+	{
+		"QID": "E806627B-A215-4DCD-8327-F50418AEB616",
+		"Question Number": "CC6.1c",
+		"QuestionText": ":Please describe your inherent opportunities that are driven by changes in other climate-related developments ",
+		"ColType": "Textfield",
+		"Header": "Estimated financial implications ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "E806627B-A215-4DCD-8327-F50418AEB616",
+		"Question Number": "CC6.1c",
+		"QuestionText": ":Please describe your inherent opportunities that are driven by changes in other climate-related developments ",
+		"ColType": "Textfield",
+		"Header": "Management methods  ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "E806627B-A215-4DCD-8327-F50418AEB616",
+		"Question Number": "CC6.1c",
+		"QuestionText": ":Please describe your inherent opportunities that are driven by changes in other climate-related developments ",
+		"ColType": "Textfield",
+		"Header": "Cost of management ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

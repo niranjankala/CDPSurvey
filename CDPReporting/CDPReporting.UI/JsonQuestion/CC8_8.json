@@ -1,0 +1,66 @@
+[{
+		"QID": "D3F754FB-9D97-4394-9424-870583492B1D",
+		"Question Number": "CC8.8",
+		"QuestionText": "Please identify if any data points have been verified as part of the third party verification work undertaken, other than the verification of emissions figures reported in CC8.6, CC8.7 and CC14.2",
+		"Headers": [
+			"Additional data points verified",
+			"Comment"
+
+		]
+
+	},
+
+
+	{
+		"QID": "D3F754FB-9D97-4394-9424-870583492B1D",
+		"Question Number": "CC8.8",
+		"QuestionText": "Please identify if any data points have been verified as part of the third party verification work undertaken, other than the verification of emissions figures reported in CC8.6, CC8.7 and CC14.2",
+		"ColType": "SingleSelect",
+		"Header": "Additional data points verified",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Year on year change in emissions (Scope 1)",
+			"Year on year change in emissions (Scope 2)",
+			"Year on year change in emissions (Scope 1 and 2)",
+			"Year on year change in emissions (Scope 3)",
+			"Year on year emissions intensity figure",
+			"Financial or other based data points used to set a science-based target",
+			"Progress against emissions reduction target",
+			"Change in Scope 1 emissions against a base year (not target related)",
+			"Change in Scope 2 emissions against a base year (not target related)",
+			"Change in Scope 3 emissions against a base year (not target related)",
+			"Product footprint verification",
+			"Emissions reduction activities",
+			"Renewable energy products",
+			"No additional data verified",
+			"Don’t know",
+			"Other, please specify"
+
+
+
+
+
+		]
+	},
+	{
+		"QID": "D3F754FB-9D97-4394-9424-870583492B1D",
+		"Question Number": "CC8.8",
+		"QuestionText": "Please identify if any data points have been verified as part of the third party verification work undertaken, other than the verification of emissions figures reported in CC8.6, CC8.7 and CC14.2",
+		"ColType": "Textfield",
+		"Header": "Comment",
+		"Select Text": "",
+		"Elements": [
+
+
+
+
+
+		]
+	},
+
+
+
+	{
+		"AddRow": "true"
+	}
+]

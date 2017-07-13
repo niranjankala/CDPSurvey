@@ -1,0 +1,65 @@
+[{
+		"QID": "8F9BEC68-59D2-4B4D-B724-02F0D98BC1AB",
+		"Question Number": "CC8.3",
+		"QuestionText": "Please describe your approach to reporting Scope 2 emissions",
+		"Headers": [
+			"Scope 2, location-based",
+			"Scope 2, market-based ",
+			"Comment"
+
+		]
+
+	},
+
+
+
+	{
+		"QID": "8F9BEC68-59D2-4B4D-B724-02F0D98BC1AB",
+		"Question Number": "CC8.3",
+		"QuestionText": "Please describe your approach to reporting Scope 2 emissions",
+		"ColType": "SingleSelect",
+		"Header": "Scope 2, location-based",
+		"Select Text": "Select from:",
+		"Elements": [
+			"We are reporting a Scope 2, location-based figure",
+			"We are not reporting a Scope 2, location-based figure"
+
+		]
+	},
+
+
+
+	{
+		"QID": "8F9BEC68-59D2-4B4D-B724-02F0D98BC1AB",
+		"Question Number": "CC8.3",
+		"QuestionText": "Please describe your approach to reporting Scope 2 emissions",
+		"ColType": "SingleSelect",
+		"Header": "Scope 2, market-based ",
+		"Select Text": "Select from:",
+		"Elements": [
+			"We are reporting a Scope 2, market-based figure",
+			"We have no operations where we are able to access electricity supplier emissions factors or residual emissions factors and are unable to report a Scope 2, market-based figure",
+			"We have operations where we are able to access electricity supplier emissions factors or residual emissions factors, but are unable to report a Scope 2, market-based figure"
+
+
+
+
+		]
+	},
+
+
+	{
+		"QID": "8F9BEC68-59D2-4B4D-B724-02F0D98BC1AB",
+		"Question Number": "CC7.4",
+		"QuestionText": "Please give the emissions factors you have applied and their origin, alternatively, please attach an Excel spreadsheet with this data at the bottom of the page",
+		"ColType": "Textfield",
+		"Header": "Comment ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

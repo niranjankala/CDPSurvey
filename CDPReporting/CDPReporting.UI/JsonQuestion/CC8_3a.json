@@ -1,0 +1,50 @@
+[{
+		"QID": "0FBC9162-8DAD-41C1-BD54-BC89F956CBCD",
+		"Question Number": "CC8.3a",
+		"QuestionText": "Please provide your gross global Scope 2 emissions figures in metric tonnes CO2e",
+		"Headers": [
+			"Scope 2, location-based",
+			"Scope 2, market-based(if applicable) ",
+			"Comment"
+
+		]
+
+	},
+
+{
+		"QID": "0FBC9162-8DAD-41C1-BD54-BC89F956CBCD",
+		"Question Number": "CC8.3a",
+		"QuestionText": "Please provide your gross global Scope 2 emissions figures in metric tonnes CO2e",
+		"ColType": "Numerical",
+		"Header": "Scope 2, location-based",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "0FBC9162-8DAD-41C1-BD54-BC89F956CBCD",
+		"Question Number": "CC8.3a",
+		"QuestionText": "Please provide your gross global Scope 2 emissions figures in metric tonnes CO2e",
+		"ColType": "Numerical",
+		"Header": "Scope 2, market-based(if applicable)",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "0FBC9162-8DAD-41C1-BD54-BC89F956CBCD",
+		"Question Number": "CC8.3a",
+		"QuestionText": "Please provide your gross global Scope 2 emissions figures in metric tonnes CO2e",
+		"ColType": "Textfield",
+		"Header": "Comment ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

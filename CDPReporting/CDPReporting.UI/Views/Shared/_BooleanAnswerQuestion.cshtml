@@ -2,65 +2,117 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-       
+
+
         $('#Save').click(function () {
             debugger;
             var value = $("[name=optradio]:checked").val();
             var qId = '@Model.QuestionId';
             var qType = '@Model.QuestionType';
             var yearVal = '@Model.Year';
-            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: value, questionType: qType, year: yearVal }, function (data) {
-                // $('#main').html(data);
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: value, questionType: qType, year: yearVal },
+                function (data, status)
+                {
+                    if (status == "success") {
+                        $("#Successdiv").css('visibility', 'visible');
+                    }
+                    else {
+                        $("#ErrorDiv").css('visibility', 'visible');
+                    }
             });
         })
     });
 </script>
 
+
+
 <div class="form-horizontal">
-    <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
-
-
+    <h4>@string.Format("{0}: {1}", Model.CDPId, Model.Caption)</h4><p>@Model.QuestionText</p>
     <div class="form-group">
-        @if (Model.Value != null)
-        {
-            if( @Model.Value.ToString() == "no")
-            { 
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="yes">Yes</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" checked="checked" value="no">No</label>
-                </div>
+        <div class="col-md-12">
+            @if (Model.Value != null)
+            {
+                if (@Model.IsAnswerResponseAllowed.ToString() == "False")
+                {
+                    if (@Model.Value.ToString() == "no")
+                        {
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" disabled="disabled" value="yes">Yes</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" checked="checked" value="no">No</label>
+                            </div>
+                                }
+
+                                else
+                                {
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" checked="checked" value="yes">Yes</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" disabled="disabled" value="no">No</label>
+                            </div>
+                        }
+                }
+                
+                else
+                { 
+                    if (@Model.Value.ToString() == "no")
+                        {
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" value="yes">Yes</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" checked="checked" value="no">No</label>
+                            </div>
+                                }
+
+                                else
+                                {
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" checked="checked" value="yes">Yes</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" value="no">No</label>
+                            </div>
+                        }
+                  }      
+                
             }
-            
+
+
+            @*else if (Model.Validations != null )
+                {
+                    if (@Model.Validations.ValidationValue.ToString() == "no")
+                    {
+                        <div class="radio">
+                            <label><input type="radio" name="optradio" disabled="disabled" value="yes">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="optradio" checked="checked" value="no">No</label>
+                        </div>
+                    }
+                }*@
+
+
             else
             {
-                <div class="radio">
-                    <label><input type="radio" name="optradio" checked="checked" value="yes">Yes</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="no">No</label>
-                </div>
-            }
-        }
-        
-        else
-        {
             <div class="radio">
                 <label><input type="radio" name="optradio" value="yes">Yes</label>
             </div>
             <div class="radio">
                 <label><input type="radio" name="optradio" value="no">No</label>
             </div>
-        }
-        
-        
+            }
+
+
+        </div>
     </div>
 
     <div class="form-group">
-        <div class="col-md-offset-10 col-md-12">
+        <div class="col-md-12 text-right">
             <button id="Save" type="button" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-primary">Cancel</button>
+            @*<button type="button" class="btn btn-default">Cancel</button>*@
         </div>
     </div>
 </div>

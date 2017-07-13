@@ -1,0 +1,114 @@
+[{
+		"QID": "1F6ED34A7-4EC1-4C4F-9A95-C8479F5B338D",
+		"Question Number": "CC13.1a",
+		"QuestionText": "Please complete the following table for each of the emission trading schemes in which you participate",
+		"Headers": [
+			"Scheme name",
+			"Period for which data is supplied",
+			"Allowances allocated",
+			"Allowances purchased",
+			"Verified emissions in metric tonnes CO2e",
+			"Details of ownership"
+
+
+		]
+
+	},
+
+
+	{
+		"QID": "1F6ED34A7-4EC1-4C4F-9A95-C8479F5B338D",
+		"Question Number": "CC13.1a",
+		"QuestionText": "Please complete the following table for each of the emission trading schemes in which you participate",
+		"ColType": "SingleSelect",
+		"Header": "Scheme name",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Alberta Emissions Trading Regulation",
+			"California's Greenhouse Gas Cap and Trade Program",
+			"European Union ETS",
+			"Japan Voluntary ETS",
+			"Korea ETS",
+			"New Zealand ETS",
+			"Regional Greenhouse Gas Initiative",
+			"Tokyo Cap-and-Trade",
+			"Other, please specify"
+
+
+
+		]
+	},
+
+
+	{
+
+		"QID": "1F6ED34A7-4EC1-4C4F-9A95-C8479F5B338D",
+		"Question Number": "CC13.1a",
+		"QuestionText": "Please complete the following table for each of the emission trading schemes in which you participate",
+		"ColType": "DateType",
+		"Header": "Period for which data is supplied",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+
+		"QID": "1F6ED34A7-4EC1-4C4F-9A95-C8479F5B338D",
+		"Question Number": "CC13.1a",
+		"QuestionText": "Please complete the following table for each of the emission trading schemes in which you participate",
+		"ColType": "Numerical",
+		"Header": "Allowances allocated",
+		"Select Text": "",
+		"Elements": []
+	},
+
+
+
+	{
+
+		"QID": "1F6ED34A7-4EC1-4C4F-9A95-C8479F5B338D",
+		"Question Number": "CC13.1a",
+		"QuestionText": "Please complete the following table for each of the emission trading schemes in which you participate",
+		"ColType": "Numerical",
+		"Header": "Allowances purchased",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+
+		"QID": "1F6ED34A7-4EC1-4C4F-9A95-C8479F5B338D",
+		"Question Number": "CC13.1a",
+		"QuestionText": "Please complete the following table for each of the emission trading schemes in which you participate",
+		"ColType": "Numerical",
+		"Header": "Verified emissions in metric tonnes CO2e",
+		"Select Text": "",
+		"Elements": [
+
+
+
+		]
+	},
+
+	{
+		"QID": "1F6ED34A7-4EC1-4C4F-9A95-C8479F5B338D",
+		"Question Number": "CC13.1a",
+		"QuestionText": "Please complete the following table for each of the emission trading schemes in which you participate",
+		"ColType": "SingleSelect",
+		"Header": "Details of ownership",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Facilities we own and operate",
+			"Facilities we own but do not operate",
+			"Facilities we operate but do not own",
+			"Other, please specify"
+
+
+
+
+		]
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

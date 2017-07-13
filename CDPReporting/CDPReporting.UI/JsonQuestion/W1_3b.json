@@ -1,0 +1,44 @@
+[{
+		"QID": "65FC4EAC-A520-4C51-843F-4ECDA5CA5005",
+		"Question Number": "W1.3b",
+		"QuestionText": "Please choose the option that best explains why you do not request your suppliers to report on their water use, risks and/or management",
+		"Headers": [
+			"Primary reason",
+			"Please explain"
+		]
+	},
+
+
+	{
+		"QID": "65FC4EAC-A520-4C51-843F-4ECDA5CA5005",
+		"Question Number": "W1.3b",
+		"QuestionText": "Please choose the option that best explains why you do not request your suppliers to report on their water use, risks and/or management",
+		"ColType": "SingleSelect",
+		"Header": "Primary reason",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Assessed risk but no substantive risk found",
+			"Decentralized business structure",
+			"Important but not an immediate business priority",
+			"Judged to be unimportant",
+			"Lack of internal resources",
+			"No instruction from management",
+			"Reporting implementation in progress",
+			"Traceability/tracking issues",
+			"Other, please specify"
+		]
+	},
+
+	{
+		"QID": "65FC4EAC-A520-4C51-843F-4ECDA5CA5005",
+		"Question Number": "W1.3b",
+		"QuestionText": "Please choose the option that best explains why you do not request your suppliers to report on their water use, risks and/or management",
+		"ColType": "Textfield",
+		"Header": "Please explain",
+		"Select Text": "",
+		"Elements": []
+
+	}, {
+		"AddRow": "false"
+	}
+]

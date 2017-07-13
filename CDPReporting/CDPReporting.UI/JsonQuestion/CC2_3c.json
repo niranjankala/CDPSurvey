@@ -1,0 +1,72 @@
+[
+{
+		"QID": "E6410445-2B84-40C6-AF8D-9D1952BCE67B",
+		"Question Number": "CC2.3a",
+		"QuestionText": "Please enter the details of those trade associations that are likely to take a position on climate change legislation",
+		"Headers": [
+			"Trade association ",
+			"Is your position on climate change consistent with theirs?",
+			"Please explain the trade association’s position",
+			"How have you, or are you attempting to, influence the position? "
+		]
+
+	},
+
+
+
+	{
+		"QID": "E6410445-2B84-40C6-AF8D-9D1952BCE67B",
+		"Question Number": "CC2.3a",
+		"QuestionText": "Trade association ",	
+		"ColType": "Textfield",
+		"Header": "Focus of legislation ",
+		"Select Text": "Select from:",
+		"Elements": []
+	},
+
+	{
+		
+		"QID": "E6410445-2B84-40C6-AF8D-9D1952BCE67B",
+		"Question Number": "CC2.3a",
+		"QuestionText": "Please enter the details of those trade associations that are likely to take a position on climate change legislation",
+		"ColType": "SingleSelect",
+		"Header": "Is your position on climate change consistent with theirs?",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Consistent",
+			"Inconsistent",
+			"Mixed",
+			"Unknown"
+
+		]
+	},
+
+
+	{
+		
+		"QID": "E6410445-2B84-40C6-AF8D-9D1952BCE67B",
+		"Question Number": "CC2.3a",
+		"QuestionText": "Please enter the details of those trade associations that are likely to take a position on climate change legislation",
+		"ColType": "Textfield",
+		"Header": "Please explain the trade association’s position ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		
+		"QID": "E6410445-2B84-40C6-AF8D-9D1952BCE67B",
+		"Question Number": "CC2.3a",
+		"QuestionText": "Please enter the details of those trade associations that are likely to take a position on climate change legislation",
+		"ColType": "Textfield",
+		"Header": "How have you, or are you attempting to, influence the position?",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+	{
+		"AddRow": "false"
+	}
+]

@@ -16,31 +16,51 @@
             var qType = '@Model.QuestionType';
             var yearVal = '@Model.Year';
 
-            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: date, questionType: qType, year: yearVal }, function (data) {
-                // $('#main').html(data);
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: date, questionType: qType, year: yearVal },
+                function (data, status)
+                {
+                    if (status == "success") {
+                        $("#Successdiv").css('visibility', 'visible');
+                    }
+                    else {
+                        $("#ErrorDiv").css('visibility', 'visible');
+                    }
             });
         });
+
+
     });
+
 </script>
 
 
+@*@{
+    
+    string dateformater = @Model.Value.ToString();
+    string[] words = dateformater.Split('s');
+    var datevalue = words[0].Substring(0, 9) + "-" + words[1].Substring(0, 9);
 
+}*@
 
 <div class="form-horizontal">
-    <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
+    <h4>@string.Format("{0}: {1}", Model.CDPId, Model.Caption)</h4><p>@Model.QuestionText</p>
 
 
-    <div class="form-group">
+    <div class="form-group">       
+       
         <div class="col-md-12">
             <label for="comment" class="control-label">Select the Range</label>
-            <input type="text" class="form-control" style="" name="daterange" value="01/01/2015 - 01/31/2015" />
+            <input type="text" class="form-control" style="" name="daterange"
+                   value='@Html.Raw(Model.Value == null ? "01/01/2015 - 01/31/2015" : string.Format("{0} - {1}", ((CDPReporting.Business.Models.DateRange)Model.Value).StartDate.ToString("MM/dd/yyyy"), ((CDPReporting.Business.Models.DateRange)Model.Value).EndDate.ToString("MM/dd/yyyy")))' />
         </div>
+       
+       
     </div>
 
     <div class="form-group">
-        <div class="col-md-offset-10 col-md-12">
+        <div class="col-md-12 text-right">
             <button id="Save" type="button" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-primary">Cancel</button>
+            @*<button type="button" class="btn btn-default">Cancel</button>*@
         </div>
     </div>
 </div>

@@ -1,0 +1,204 @@
+[{
+		"QID": "71C91ECF-4904-452C-97CA-70551DD065BF",
+		"Question Number": "CC5.1c",
+		"QuestionText": ": Please describe your inherent risks that are driven by changes in other climate-related developments",
+		"Headers": [
+			"Risk driver",
+			"Description",
+			"Potential impact",
+			"Timeframe",
+			"Direct/Indirect",
+			"Likelihood",
+			"Magnitude of impact",
+			"Estimated financial implications",
+			"Management methods",
+			"Cost of management"
+
+		]
+
+	},
+
+
+
+	{
+
+		"QID": "71C91ECF-4904-452C-97CA-70551DD065BF",
+		"Question Number": "CC5.1c",
+		"QuestionText": ": Please describe your inherent risks that are driven by changes in other climate-related developments",
+		"ColType": "SingleSelect",
+		"Header": "Risk driver",
+		"Select Text": "Select from:",
+		"Elements": [
+					"Reputation", 
+	"Changing consumer behavior", 
+	"Induced changes in human and cultural environments", 
+	"Fluctuating socio-economic conditions", 
+	"Increasing humanitarian demands", 
+	"Uncertainty in social drivers", 
+"Uncertainty in market signals",  
+	"Other drivers"
+
+
+
+
+
+
+		]
+	},
+	{
+
+		"QID": "71C91ECF-4904-452C-97CA-70551DD065BF",
+		"Question Number": "CC5.1c",
+		"QuestionText": ": Please describe your inherent risks that are driven by changes in other climate-related developments",
+		"ColType": "Textfield",
+		"Header": "Description",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+	{
+
+
+		"QID": "71C91ECF-4904-452C-97CA-70551DD065BF",
+		"Question Number": "CC5.1c",
+		"QuestionText": ": Please describe your inherent risks that are driven by changes in other climate-related developments",
+		"ColType": "SingleSelect",
+		"Header": "Potential impact ",
+		"Select Text": "",
+		"Elements": [
+				"Increased operational cost", 
+	"Increased capital cost", 
+	"Reduced demand for goods/service",
+	"Reduction/ disruption in production capacity",
+	"Reduction in capital availability",
+	"Reduced stock price (market valuation)",
+	"Inability to do business", 
+	"Wider social disadvantage",
+	"Other, please specify"
+
+
+
+		]
+
+	},
+
+	{
+
+
+		"QID": "71C91ECF-4904-452C-97CA-70551DD065BF",
+		"Question Number": "CC5.1c",
+		"QuestionText": ": Please describe your inherent risks that are driven by changes in other climate-related developments",
+		"ColType": "SingleSelect",
+		"Header": "Timeframe ",
+		"Select Text": "",
+		"Elements": [
+			"Up to 1 year",
+			"1 to 3 years",
+			"3 to 6 years",
+			">6 years",
+			"Unknown"
+
+
+		]
+
+	},
+
+
+	{"QID": "71C91ECF-4904-452C-97CA-70551DD065BF",
+		"Question Number": "CC5.1c",
+		"QuestionText": ": Please describe your inherent risks that are driven by changes in other climate-related developments",
+		"ColType": "SingleSelect",
+		"Header": "Direct/Indirect",
+		"Select Text": "",
+		"Elements": [
+			"Direct",
+			"Indirect (Supply chain)",
+			"Indirect (Client)"
+
+
+		]
+
+	},
+
+	{
+		"QID": "71C91ECF-4904-452C-97CA-70551DD065BF",
+		"Question Number": "CC5.1c",
+		"QuestionText": ": Please describe your inherent risks that are driven by changes in other climate-related developments",
+		"ColType": "SingleSelect",
+		"Header": "Likelihood",
+		"Select Text": "",
+		"Elements": [
+			"Virtually certain",
+			"Very likely",
+			"Likely",
+			"More likely than not",
+			"About as likely as not",
+			"Unlikely",
+			"Very unlikely",
+			"Exceptionally unlikely",
+			"Unknown"
+
+
+		]
+
+	},
+
+	{
+		"QID": "71C91ECF-4904-452C-97CA-70551DD065BF",
+		"Question Number": "CC5.1c",
+		"QuestionText": ": Please describe your inherent risks that are driven by changes in other climate-related developments",
+		"ColType": "SingleSelect",
+		"Header": "Magnitude of impact",
+		"Select Text": "",
+		"Elements": [
+			"High",
+			"Medium-high",
+			"Medium",
+			"Low-medium",
+			"Low",
+			"Unknown"
+
+
+		]
+
+	},
+
+
+
+	{
+	"QID": "71C91ECF-4904-452C-97CA-70551DD065BF",
+		"Question Number": "CC5.1c",
+		"QuestionText": ": Please describe your inherent risks that are driven by changes in other climate-related developments",
+		"ColType": "Textfield",
+		"Header": "Estimated financial implications ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "71C91ECF-4904-452C-97CA-70551DD065BF",
+		"Question Number": "CC5.1c",
+		"QuestionText": ": Please describe your inherent risks that are driven by changes in other climate-related developments",
+		"ColType": "Textfield",
+		"Header": "Management methods  ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "71C91ECF-4904-452C-97CA-70551DD065BF",
+		"Question Number": "CC5.1c",
+		"QuestionText": ": Please describe your inherent risks that are driven by changes in other climate-related developments",
+		"ColType": "Textfield",
+		"Header": "Cost of management ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

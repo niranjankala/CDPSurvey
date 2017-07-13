@@ -1,0 +1,111 @@
+[{
+		"QID": "F07DC9B5-56A9-4B9B-A9C0-460D47471EB6",
+		"Question Number": "CC8.4a",
+		"QuestionText": "Please provide details of the sources of Scope 1 and Scope 2 emissions that are within your selected reporting boundary which are not included in your disclosure",
+		"Headers": [
+			"Source",
+			"Relevance of Scope 1 emissions from this source",
+			"Relevance of location-based Scope 2 emissions from this source",
+			"Relevance of market-based Scope 2 emissions from this source (if applicable)",
+			"Explain why the source is excluded"
+
+		]
+
+	},
+
+	{
+
+		"QID": "F07DC9B5-56A9-4B9B-A9C0-460D47471EB6",
+		"Question Number": "CC8.4a",
+		"QuestionText": "Please provide details of the sources of Scope 1 and Scope 2 emissions that are within your selected reporting boundary which are not included in your disclosure",
+		"ColType": "Textfield",
+		"Header": "Source ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+
+		"QID": "F07DC9B5-56A9-4B9B-A9C0-460D47471EB6",
+		"Question Number": "CC8.4a",
+		"QuestionText": "Please provide details of the sources of Scope 1 and Scope 2 emissions that are within your selected reporting boundary which are not included in your disclosure",
+		"ColType": "SingleSelect",
+		"Header": "SRelevance of Scope 1 emissions from this source",
+		"Select Text": "Select from:",
+		"Elements": [
+			"No emissions excluded",
+			"No emissions from this source",
+			"Emissions are not relevant",
+			"Emissions are relevant but not yet calculated",
+			"Emissions are relevant and calculated but not disclosed",
+			"Emissions excluded due to recent acquisition",
+			"Emissions are not evaluated"
+
+
+		]
+	},
+
+
+
+	{
+		"QID": "F07DC9B5-56A9-4B9B-A9C0-460D47471EB6",
+		"Question Number": "CC8.4a",
+		"QuestionText": "Please provide details of the sources of Scope 1 and Scope 2 emissions that are within your selected reporting boundary which are not included in your disclosure",
+		"ColType": "SingleSelect",
+		"Header": "SRelevance of location-based Scope 2 emissions from this source",
+		"Select Text": "Select from:",
+		"Elements": [
+			"No emissions excluded",
+			"No emissions from this source",
+			"Emissions are not relevant",
+			"Emissions are relevant but not yet calculated",
+			"Emissions are relevant and calculated but not disclosed",
+			"Emissions excluded due to recent acquisition",
+			"Emissions are not evaluated"
+
+
+
+
+
+		]
+	},
+
+
+	{
+		"QID": "F07DC9B5-56A9-4B9B-A9C0-460D47471EB6",
+		"Question Number": "CC8.4a",
+		"QuestionText": "Please provide details of the sources of Scope 1 and Scope 2 emissions that are within your selected reporting boundary which are not included in your disclosure",
+		"ColType": "SingleSelect",
+		"Header": "Relevance of market-based Scope 2 emissions from this source (if applicable)",
+		"Select Text": "Select from:",
+		"Elements": [
+			"No emissions excluded",
+			"No emissions from this source",
+			"Emissions are not relevant",
+			"Emissions are relevant but not yet calculated",
+			"Emissions are relevant and calculated but not disclosed",
+			"Emissions excluded due to recent acquisition",
+			"Emissions are not evaluated"
+
+
+		]
+	},
+
+
+
+	{
+		"QID": "F07DC9B5-56A9-4B9B-A9C0-460D47471EB6",
+		"Question Number": "CC8.4a",
+		"QuestionText": "Please provide details of the sources of Scope 1 and Scope 2 emissions that are within your selected reporting boundary which are not included in your disclosure",
+		"ColType": "Textfield",
+		"Header": "Explain why the source is excluded",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

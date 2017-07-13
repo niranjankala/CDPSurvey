@@ -1,0 +1,76 @@
+[{
+		"QID": "7EC671E0-DB7C-4191-8263-2A2E8AE82F07",
+		"Question Number": "W2.2",
+		"QuestionText": "Please select the options that best describe your procedures with regard to assessing water risks",
+		"Headers": [
+			"Risk assessment procedure",
+			"Coverage",
+			"Scale",
+			"Please explain"
+		]
+	},
+
+
+	{
+		"QID": "7EC671E0-DB7C-4191-8263-2A2E8AE82F07",
+		"Question Number": "W2.2",
+		"QuestionText": "Please select the options that best describe your procedures with regard to assessing water risks",
+		"ColType": "SingleSelect",
+		"Header": "Risk assessment procedure",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Comprehensive companywide risk assessment",
+			"Water risk assessment undertaken independently of other risk assessments"
+		]
+	},
+
+	{
+		"QID": "7EC671E0-DB7C-4191-8263-2A2E8AE82F07",
+		"Question Number": "W2.2",
+		"QuestionText": "   Please select the options that best describe your procedures with regard to assessing water risks",
+		"ColType": "SingleSelect",
+		"Header": "Coverage",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"Direct operations and supply chain",
+			"Direct operations",
+			"Supply chain"
+		]
+
+	},
+
+	{
+		"QID": "7EC671E0-DB7C-4191-8263-2A2E8AE82F07",
+		"Question Number": "W2.2",
+		"QuestionText": "Please select the options that best describe your procedures with regard to assessing water risks",
+		"ColType": "SingleSelect",
+		"Header": "Scale",
+		"Select Text": "Select from::",
+		"Elements": [
+
+			"All facilities and suppliers",
+			"All facilities and some suppliers",
+			"Some facilities and all suppliers",
+			"Some facilities and some suppliers",
+			"All facilities",
+			"Some facilities",
+			"All suppliers",
+			"Some suppliers"
+		]
+
+	},
+
+	{
+		"QID": "7EC671E0-DB7C-4191-8263-2A2E8AE82F07",
+		"Question Number": "W2.2",
+		"QuestionText": "Please select the options that best describe your procedures with regard to assessing water risks",
+		"ColType": "Textfield",
+		"Header": "Please explain",
+		"Select Text": "",
+		"Elements": []
+
+	}, {
+		"AddRow": "false"
+	}
+]

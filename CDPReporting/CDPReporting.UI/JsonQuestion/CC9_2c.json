@@ -1,0 +1,47 @@
+[
+{
+		"QID": "24B1388C-EF25-417C-AE04-10872C2A40BB",
+		"Question Number": "CC9.2c",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by GHG type",
+		"Headers": [
+			"GHG type",
+			"Scope 1 emissions (metric tonnes CO2e)"
+			
+		]
+
+	},
+
+{
+		"QID": "24B1388C-EF25-417C-AE04-10872C2A40BB",
+		"Question Number": "CC9.2c",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by GHG type",
+		"ColType": "SingleSelect",
+		"Header": "GHG type",
+		"Select Text": "Select from:",
+		"Elements": [
+			"CO2",
+			"CH4",
+			"N2O",
+			"HFCs",
+			"PFCs",
+			"SF6",
+			"NF3",
+			"Other, please specify"
+
+
+		]
+	},
+{
+		
+		"QID": "24B1388C-EF25-417C-AE04-10872C2A40BB",
+		"Question Number": "CC9.2c",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by GHG type",
+		"ColType": "Numerical",
+		"Header": "Scope 1 emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+		"AddRow": "true"
+	}
+]

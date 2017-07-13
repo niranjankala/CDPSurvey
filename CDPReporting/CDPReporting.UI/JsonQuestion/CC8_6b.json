@@ -1,0 +1,77 @@
+[{
+		"QID": "D62C5449-1FFC-4BF1-8EBB-EFECBA12D913",
+		"Question Number": "CC8.6b",
+		"QuestionText": "Please provide further details of the regulatory regime to which you are complying that specifies the use of Continuous Emissions Monitoring Systems (CEMS)",
+		"Headers": [
+			"Regulation",
+			"% of emissions covered by the system",
+			"Compliance period",
+			"Evidence of submission"
+
+
+		]
+
+	},
+
+
+	{
+
+		"QID": "D62C5449-1FFC-4BF1-8EBB-EFECBA12D913",
+		"Question Number": "CC8.6b",
+		"QuestionText": "Please provide further details of the regulatory regime to which you are complying that specifies the use of Continuous Emissions Monitoring Systems (CEMS)",
+		"ColType": "SingleSelect",
+		"Header": "Regulation",
+		"Select Text": "Select from:",
+		"Elements": [
+			"CFR 40 Part 75",
+			"Other, please specify"
+
+
+
+		]
+	},
+
+
+	{
+
+
+		"QID": "D62C5449-1FFC-4BF1-8EBB-EFECBA12D913",
+		"Question Number": "CC8.6b",
+		"QuestionText": "Please provide further details of the regulatory regime to which you are complying that specifies the use of Continuous Emissions Monitoring Systems (CEMS)",
+		"ColType": "Numerical",
+		"Header": "% of emissions covered by the system ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+
+
+		"QID": "D62C5449-1FFC-4BF1-8EBB-EFECBA12D913",
+		"Question Number": "CC8.6b",
+		"QuestionText": "Please provide further details of the regulatory regime to which you are complying that specifies the use of Continuous Emissions Monitoring Systems (CEMS)",
+		"ColType": "DateType",
+		"Header": "Compliance period ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+
+		"QID": "D62C5449-1FFC-4BF1-8EBB-EFECBA12D913",
+		"Question Number": "CC8.6b",
+		"QuestionText": "Please provide further details of the regulatory regime to which you are complying that specifies the use of Continuous Emissions Monitoring Systems (CEMS)",
+		"ColType": "AttachmentType",
+		"Header": "Evidence of submission ",
+		"SelectText": "Please send the documnt to this email: Mihaela.Porojan@smr-automotive.com",
+		"Elements": []
+
+	},
+
+
+
+
+	{
+		"AddRow": "true"
+	}
+]

@@ -24,6 +24,10 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -363,12 +367,193 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\appconfig.js" />
     <Content Include="Scripts\bootstrap-multiselect.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="JsonQuestion\CC10_1a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC10_2a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC10_2b.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC10_2c.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC11_2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC11_3a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC1_2a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC2_1a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC2_1d.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC2_3a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC2_3c.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC3_1a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC3_1b.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC3_1c.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC3_1d.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC3_1e.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC3_2a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC3_3a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC3_3b.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC3_3c.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC4_1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC5_1a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC5_1b.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC5_1c.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC6_1a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC6_1b.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC6_1c.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC7_1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC7_3.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC7_4.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC8_3.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC8_4a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC8_5.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC8_6a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC8_6b.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC8_7a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC8_8.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC9_1a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC9_2a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC9_2b.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC9_2c.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC9_2d.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC11_4.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC11_5.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC12_1a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC12_2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC12_3.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC13_1a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC13_2a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC14_2a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC14_3a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC14_4b.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC15_1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC14_1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\W0_4a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\CC8_3a.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JsonQuestion\W1_1.json" />
+    <Content Include="JsonQuestion\W1_2.json" />
+    <Content Include="JsonQuestion\W1_2a.json" />
+    <Content Include="JsonQuestion\W1_2b.json" />
+    <Content Include="JsonQuestion\W1_2c.json" />
+    <Content Include="JsonQuestion\W1_3a.json" />
+    <Content Include="JsonQuestion\W1_3b.json" />
+    <Content Include="JsonQuestion\W1_4a.json" />
+    <Content Include="JsonQuestion\W1_4b.json" />
+    <Content Include="JsonQuestion\W2_2.json" />
+    <Content Include="JsonQuestion\W2_3.json" />
+    <Content Include="JsonQuestion\W2_4b.json" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -461,6 +646,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\Questionnaire\CreateTabularQuestion.js" />
     <Content Include="Scripts\Questionnaire\SaveQuestion.js" />
     <Content Include="Scripts\Questionnaire\selectQuestions.js" />
     <Content Include="Scripts\Questionnaire\simpleAnswers.js" />
@@ -507,121 +693,6 @@
     <Content Include="Views\Shared\_ViewQuestionList.cshtml" />
     <Content Include="Views\Shared\_ViewAnswerTheQuestion.cshtml" />
     <Content Include="Views\Shared\_SimpleAnswerQuestion.cshtml" />
-    <Content Include="Views\Shared\_Question_CC0_2.cshtml" />
-    <Content Include="Views\Shared\_Question_CC0_3.cshtml" />
-    <Content Include="Views\Shared\_Question_CC0_4.cshtml" />
-    <Content Include="Views\Shared\_Question_CC0_5.cshtml" />
-    <Content Include="Views\Shared\_Question_CC0_6.cshtml" />
-    <Content Include="Views\Shared\_Question_CC1_1.cshtml" />
-    <Content Include="Views\Shared\_Question_CC1_2.cshtml" />
-    <Content Include="Views\Shared\_Question_CC1_1a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC1_2a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_1.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_1a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_1b.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_1c.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_1d.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_2.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_2a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_2b.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_2c.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_2d.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_3.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_3a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_3b.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_3c.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_3d.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_3e.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_3f.cshtml" />
-    <Content Include="Views\Shared\_Question_CC2_3g.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_1.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_1a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_1b.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_1c.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_1d.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_1e.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_1f.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_2.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_2a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_3.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_3a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_3b.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_3c.cshtml" />
-    <Content Include="Views\Shared\_Question_CC3_3d.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC4_1.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC5_1.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC5_1a.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC5_1b.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC5_1c.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC5_1d.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC5_1e.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC5_1f.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC6_1.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC6_1a.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC6_1b.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC6_1c.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC6_1d.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC6_1e.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC6_1f.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC7_1.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC7_2.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC7_2a.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC7_3.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC7_4.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_1.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_2.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_3.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_3a.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_4.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_4a.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_5.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_6.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_6a.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_6b.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_7.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_7a.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_8.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_9.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC8_9a.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC9_1.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC9_1a.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC9_2.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC9_2a.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC9_2b.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC9_2c.cshtml" />
-    <Content Include="Views\Shared\_QuestionCC9_2d.cshtml" />
-    <Content Include="Views\Shared\_Question_CC10_1.cshtml" />
-    <Content Include="Views\Shared\_Question_CC10_1a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC10_2.cshtml" />
-    <Content Include="Views\Shared\_Question_CC10_2a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC10_2b.cshtml" />
-    <Content Include="Views\Shared\_Question_CC10_2c.cshtml" />
-    <Content Include="Views\Shared\_Question_CC11_1.cshtml" />
-    <Content Include="Views\Shared\_Question_CC11_2.cshtml" />
-    <Content Include="Views\Shared\_Question_CC11_3.cshtml" />
-    <Content Include="Views\Shared\_Question_CC11_3a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC11_4.cshtml" />
-    <Content Include="Views\Shared\_Question_CC11_5.cshtml" />
-    <Content Include="Views\Shared\_Question_CC12_1.cshtml" />
-    <Content Include="Views\Shared\_Question_CC12_1a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC12_1b.cshtml" />
-    <Content Include="Views\Shared\_Question_CC12_2.cshtml" />
-    <Content Include="Views\Shared\_Question_CC12_3.cshtml" />
-    <Content Include="Views\Shared\_Question_CC13_1.cshtml" />
-    <Content Include="Views\Shared\_Question_CC13_1a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC13_1b.cshtml" />
-    <Content Include="Views\Shared\_Question_CC13_2.cshtml" />
-    <Content Include="Views\Shared\_Question_CC13_2a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC14_1.cshtml" />
-    <Content Include="Views\Shared\_Question_CC14_2.cshtml" />
-    <Content Include="Views\Shared\_Question_CC14_2a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC14_3.cshtml" />
-    <Content Include="Views\Shared\_Question_CC14_3a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC14_4.cshtml" />
-    <Content Include="Views\Shared\_Question_CC14_4a.cshtml" />
-    <Content Include="Views\Shared\_Question_CC14_4b.cshtml" />
-    <Content Include="Views\Shared\_Question_CC14_4c.cshtml" />
-    <Content Include="Views\Shared\_Question_CC15_1.cshtml" />
     <Content Include="Views\CDP\Index.cshtml" />
     <Content Include="Views\Shared\_DateRangeAnswerQuestion.cshtml" />
     <Content Include="Views\Shared\_BooleanAnswerQuestion.cshtml" />
@@ -634,6 +705,7 @@
     <Content Include="Views\Shared\_CDPGridAnswerQuestion.cshtml" />
     <Content Include="Views\Shared\_MultipleSelectListAnswerQuestion.cshtml" />
     <Content Include="Views\Shared\_CDPGridResultListAnswerQuestion.cshtml" />
+    <Content Include="Views\Shared\_DefaultAnswer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

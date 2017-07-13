@@ -1,0 +1,48 @@
+[{
+		"QID": "321BDA4B-4DF8-4C9E-A4E0-0EF793FC42F3",
+		"Question Number": "CC10.2a",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by business division",
+		"Headers": [
+			"Business division",
+			"Scope 2, location-based emissions (metric tonnes CO2e)",
+			"Scope 2, market-based emissions (metric tonnes CO2e)"
+
+		]
+
+	},
+
+
+	{
+		"QID": "321BDA4B-4DF8-4C9E-A4E0-0EF793FC42F3",
+		"Question Number": "CC10.2a",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by business division",
+		"ColType": "Textfield",
+		"Header": "Business division",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+
+		"QID": "321BDA4B-4DF8-4C9E-A4E0-0EF793FC42F3",
+		"Question Number": "CC10.2a",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by business division",
+		"ColType": "Numerical",
+		"Header": "Scope 2, location-based emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+
+		"QID": "321BDA4B-4DF8-4C9E-A4E0-0EF793FC42F3",
+		"Question Number": "CC10.2a",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions by business division",
+		"ColType": "Numerical",
+		"Header": "Scope 2, market-based emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

@@ -69,6 +69,6 @@ namespace CDPReporting.Business.Models
         public string GroupText { get;set;}
         public string SubGroupText { get; set; }
         public QuestionType QuestionType { get; set; }
-
+        public bool? IsApplicable { get; set; }
     }
 }

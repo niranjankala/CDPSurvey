@@ -3,11 +3,13 @@
     ViewBag.Title = "Questionnaire";
 }
 
-<h2>CDP Survey</h2>
 <style type="text/css">
     /*.row > div {
-        margin-bottom: 15px;
-    }*/
+                        margin-bottom: 15px;
+                    }*/
+    html, body {
+        height: 100%;
+    }
 
     .header {
         min-height: 90px;
@@ -26,79 +28,211 @@
     }
 
     .content {
-        background:#eeeeee;
+        background: #eeeeee;
     }
 
     .sidebar, .content {
         min-height: 320px;
     }
-    .rounded-border{
+
+    .rounded-border {
         border: 1px solid #dbdfe5;
+    }
+
+
+
+    .list-group-item-text p {
+        padding: .5em;
+    }
+
+        .list-group-item-text p.selected {
+            background: #e4e4e4;
+            color: #6d6e71;
+        }
+
+
+
+    .navbar {
+        margin-bottom: 10px;
+    }
+
+    .row.margin-top-del {
+        margin: 0;
+    }
+
+    .body-content {
+        height: 100%;
+    }
+
+    .flex-row, .flex-row > div[class*='col-'] {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex: 0 auto;
+        height: 100%;
+    }
+
+    .flex-col {
+        display: flex;
+        display: -webkit-flex;
+        flex: 1;
+        flex-flow: column nowrap;
+    }
+
+    .flex-grow {
+        display: flex;
+        -webkit-flex: 2;
+        flex: 2;
     }
 </style>
 <link href="~/Content/Style.css" rel="stylesheet" />
-<script src="~/Scripts/Questionnaire/selectQuestions.js"></script>
 <script src="~/Scripts/bootstrap-multiselect.js"></script>
 <link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
 <script src="~/Scripts/moment.min.js"></script>
 <script src="~/Scripts/daterangepicker.js"></script>
 <link href="~/Content/daterangepicker.css" rel="stylesheet" />
-               
+
 <script type="text/javascript">
+    var questionnaireBaseUrl = '@Url.Content("~/Questionnaire/")';
+    var questionViewURL = '@Url.Content("~/Questionnaire/GetQuestionView")';
+    var indexURL = '@Url.Content("~/Questionnaire/Index")';
+    var tableStructureURL = '@Url.Content("~/Questionnaire/CreateTubalarStructure")';
 
-        //$(document).ready(function () {
-        //    $('div[id^="QUESTANS_"]').hide();
-        //    $("#questionListDiv>div>div").click(function () {
-        //        var selectedDivId = this.id;
-        //        $('div[id^="QUESTANS_"]').hide();
-        //        $('#QUESTANS_' + selectedDivId).show();
-        //    });
-    //});
+</script>
+@*<div><h3>Questions</h3></div>*@
 
-    var questionViewURL = '@Url.Content("~/Questionnaire/GetQuestionView")'; 
-    var indexURL = '@Url.Content("~/QuestionnaireController/Index")';
+@*<div class="container-fluid">*@
+<div style="height:100%">
+    <div class="flex-row">
 
-    </script>
- @*<div><h3>Questions</h3></div>*@
-<div class="row row row-offcanvas row-offcanvas-left">
-    
-    <div class="col-sm-12 col-md-4 sidebar-offcanvas" id="sidebar" role="navigation">
-       
-       
-        <div class="sidebar, pre-scrollable rounded-border" id="questionListDiv">
-            @Html.Partial("_ViewQuestionList", Model)
-        </div>
-    </div>
 
-    <div class="col-sm-12 col-md-8 content">
-        <p class="pull-left">
-            <button type="button" class="btn btn-primary btn-xs togglebtn" id="btntogel" data-toggle="offcanvas">Hide Questions</button>
-        </p>
-        
-            
-        <center><h3>Responses</h3></center>
-        <div class="row">
-            <div class=" col-xs-12 col-md-12 rounded-border" id="questionResponseDiv">
-                @*@Html.Partial("_ViewAnswerTheQuestion")*@
+        @*<div class="row row-offcanvas row-offcanvas-left" style="margin-top:15px">*@
+
+        <div class="col-sm-12 col-md-4" id="sidebar" role="navigation">
+            <div class="panel panel-default flex-col">
+
+                <div class="panel-heading" style="padding:10px">
+                    <div class="pull-right" style="width:240px">
+                        <select id="questionnaireList" class="form-control">
+                            <option>--Select Question Type-</option>
+                        </select>
+                    </div>Questions
+                </div>
+                <div class="panel-body flex-grow sidebar pre-scrollable rounded-border" id="questionListDiv">
+
+
+                    @Html.Partial("_ViewQuestionList", Model)
+
+                </div>
             </div>
         </div>
+
+
+
+        <div class="col-sm-12 col-md-8 content">
+            <div class="panel panel-default flex-col">
+                <div class="panel-heading" style="padding:10px">Responses</div>
+                @*<div class="col-lg-4">
+
+                        <p class="pull-left">
+                            <button type="button" class="btn btn-primary btn-xs togglebtn" id="btntogel" data-toggle="offcanvas">Hide Questions</button>
+                        </p>
+                    </div>*@
+
+                <div class="panel-body">
+
+
+                    <div class=" col-xs-12 col-md-12" id="questionResponseDiv">
+                        @*@Html.Partial("_ViewAnswerTheQuestion")*@
+                    </div>
+
+                    <div class="alert alert-success" id="Successdiv" style="visibility:hidden">
+                        <strong>Success!</strong> Your response has been saved successfully!!
+                    </div>
+
+                    <div class="alert alert-danger" id="ErrorDiv" style="visibility:hidden">
+                        <strong>Error!!</strong> an Error occured while saving your data!!
+                    </div>
+                </div>
+                </div>
+            </div>
+
+           
+        @*</div>*@
     </div>
 </div>
+@*</div>*@
+
+@*<div class="flex-row" style="margin-top:25px">
+
+    <div class="col-lg-3 col-md-3 col-sm-3">
+        <div class="panel panel-default flex-col">
+            <div class="panel-heading" style="padding:10px">Title flex-col</div>
+            <div class="panel-body flex-grow">Content here -- div with .flex-grow</div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-9 col-md-9 col-sm-9">
+        <div class="panel panel-default flex-col">
+            <div class="panel-heading" style="padding:10px">Title flex-col</div>
+            <div class="panel-body flex-grow">Content here -- div with .flex-grow</div>
+
+        </div>
+    </div>
+    </div>*@
 
 
 <script>
+
 
     $(document).ready(function () {
         $('[data-toggle=offcanvas]').click(function () {
             if ($('.sidebar-offcanvas').css('background-color') == 'rgb(255, 255, 255)') {
                 $("#btntogel").html('Show Question');
-            } 
+            }
             else {
                 $("#btntogel").html('Hide Question');
             }
             $('.row-offcanvas').toggleClass('active');
 
         });
+
+        $(function () {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Content("~/Questionnaire/GetQuestionnaireList")',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (r) {
+                    // debugger;
+                    var questionnaireList = $("#questionnaireList");
+                    // questionnaireList.empty().append("<option value='0'> Please select </option>");
+                    $.each(r, function () {
+                        var html = "<option" + " value='" + this['Id'] + "'>" + this['Name'] + "</option>";
+                        questionnaireList.append(html);
+                    });
+                    @*var questionListURL = '@Url.Content("~/Questionnaire/GetQuestionnaireQuestionList")';
+                                       var selectedQuestionnaireId = $('#questionnaireList').val();
+                                       $('#questionListDiv').load(questionListURL + "?questionnaireId=" + selectedQuestionnaireId);*@
+                }
+                //,
+                //error: function (e) {
+                //    debugger;
+                //}
+            });
+        });
+
+
+        $('#questionnaireList').change(function () {
+            //debugger;
+            var questionListURL = '@Url.Content("~/Questionnaire/GetQuestionnaireQuestionList")';
+            var selectedQuestionnaireId = $('#questionnaireList').val();
+            $('#questionListDiv').load(questionListURL + "?questionnaireId=" + selectedQuestionnaireId);
+        });
+
     });
 
 </script>

@@ -1,0 +1,66 @@
+[{
+		"QID": "A973BD05-E1EA-4F29-B2DF-74F078A9B043",
+		"Question Number": "CC2.1d",
+		"QuestionText": "Please explain why you do not have a process in place for assessing and managing risks and opportunities from climate change, and whether you plan to introduce such a process in the future ",
+		"Headers": [
+			"Main reason for not having a process",
+			"Do you plan to introduce a process?",
+			"Comment"
+		]
+
+	},
+
+
+
+	{
+		"QID": "A973BD05-E1EA-4F29-B2DF-74F078A9B043",
+		"Question Number": "CC2.1d",
+		"QuestionText": "Please explain why you do not have a process in place for assessing and managing risks and opportunities from climate change, and whether you plan to introduce such a process in the future ",
+		"ColType": "SingleSelect",
+		"Header": "Main reason for not having a process",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Insufficient resources to complete risk assessment",
+			"No requirement from management",
+			"Insufficient data on operations",
+			"No risk management processes in place",
+			"Insufficient knowledge of climate change impacts",
+			"Other, please specify"
+
+		]
+	},
+
+	{
+		"QID": "A973BD05-E1EA-4F29-B2DF-74F078A9B043",
+		"Question Number": "CC2.1d",
+		"QuestionText": "Please explain why you do not have a process in place for assessing and managing risks and opportunities from climate change, and whether you plan to introduce such a process in the future ",
+		"ColType": "SingleSelect",
+		"Header": "Do you plan to introduce a process?",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Board or individual/sub-set of the Board or committee appointed by the Board",
+			"Other committee",
+			"Senior manager/officer",
+			"Other manager/officer",
+			"Nobody"
+
+		]
+	},
+
+
+	{
+		"QID": "A973BD05-E1EA-4F29-B2DF-74F078A9B043",
+		"Question Number": "CC2.1d",
+		"QuestionText": "Please explain why you do not have a process in place for assessing and managing risks and opportunities from climate change, and whether you plan to introduce such a process in the future ",
+		"ColType": "Textfield",
+		"Header": "Comment",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+	{
+		"AddRow": "false"
+	}
+]

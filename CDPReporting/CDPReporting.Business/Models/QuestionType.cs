@@ -13,6 +13,14 @@
         Boolean,
         CDPGrid,
         MultipleSelectList,
-        CDPGridResultList
+        CDPGridResultList,
+        NumericField
+    }
+
+    public enum ValidationType
+    {
+        None,
+        Length,
+        DefaultValue
     }
 }

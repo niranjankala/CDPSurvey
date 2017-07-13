@@ -1,76 +1,102 @@
 ﻿@model CDPReporting.Business.Models.QuestionResponseModel
 
-        @if(Model!=null)
-        {}
-        <div class="form-horizontal">
-            <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
+
+<div class="form-horizontal">
+    <h4>@string.Format("{0}: {1}", Model.CDPId, Model.Caption)</h4><p>@Model.QuestionText</p>
 
 
-            <div class="form-group">
-                <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                    Select Currency
-                    <span class="caret"></span>
-                </button>
+    <div class="form-group">
+        <div class="btn-group col-md-12">
 
-                   
+            <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+                Select Currency
+                <span class="caret"></span>
+            </button>
 
+            <ul class="dropdown-menu">
 
-                <ul class="dropdown-menu">
-
-                   @foreach (var item in Model.OptionList.OptionCSVText)
+                @foreach (var item in Model.OptionList.OptionCSVText)
+                {
+                    @*if (Model.Value != null)
                     {
-                        if (Model.Value != null)
+                        if (@Model.Value.ToString().Contains(item))
                         {
-                            if (@Model.Value.ToString().Contains(item))
-                            {
-                                <li><a>@Html.Raw(item)</a></li>
+                            <li><a>@Html.Raw(item)</a></li>
 
-
-                            }
-                            else
-                            {
-                                 <li> <a>@Html.Raw(item)</a></li>
-                            }
 
                         }
                         else
                         {
-                            <li><a>@Html.Raw(item)</a></li>
+                            <li> <a>@Html.Raw(item)</a></li>
                         }
 
                     }
-                    @if (Model.OptionList.OtherOptions != null)
-                    {
-                         <li>others</li>
-                    }
+                    else
+                    {*@
+                    <li><a>@Html.Raw(item)</a></li>
+                    @*}*@
+
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.OptionList.OtherOptions))
+                {
+                    <li>others</li>
+                }
 
 
 
-</ul>
-            </div>
-    
-            </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-10 col-md-12">
-                <button id="Save" type="button" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-primary">Cancel</button>
-            </div>
+            </ul>
         </div>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 text-right">
+            <button id="Save" type="button" class="btn btn-primary">Save</button>
+            @*<button type="button" class="btn btn-primary">Cancel</button>*@
         </div>
+    </div>
+</div>
+
+
 
 
 <script>
+    $(document).ready(function () {
+        debugger;
+        var selText;
 
-    $(function () {
-
+        if('@Model.Value' != null)
+        {
+            selText = '@Model.Value';
+            $(".dropdown-menu li a").parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        }
+        
+        
         $(".dropdown-menu li a").click(function () {
+            selText = $(this).text();
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
 
-            $(".btn:first-child").text($(this).text());
-            $(".btn:first-child").val($(this).text());
+            
         });
 
-    });
+        $('#Save').click(function () {
+            debugger;
+            var qId = '@Model.QuestionId';
+            var qType = '@Model.QuestionType';
+            var yearVal = '@Model.Year';
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: selText, questionType: qType, year: yearVal },
+                function (data, status) {
+                    if (status == "success") {
+                        $("#Successdiv").css('visibility', 'visible');
+                    }
+                    else {
+                        $("#ErrorDiv").css('visibility', 'visible');
+                    }
+            });
+          });
+    })
+    
+
+    
 
 </script>

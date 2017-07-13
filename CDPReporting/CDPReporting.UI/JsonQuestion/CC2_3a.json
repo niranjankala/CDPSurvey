@@ -1,0 +1,83 @@
+[{
+		"QID": "CA117CE8-60BA-4FB4-87E8-551AC0F16BB8",
+		"Question Number": "CC2.3a",
+		"QuestionText": "On what issues have you been engaging directly with policy makers?",
+		"Headers": [
+			"Focus of legislation ",
+			"Corporate position",
+			"Details of engagement",
+			"Proposed legislative solution "
+		]
+
+	},
+
+
+
+	{
+		"QID": "CA117CE8-60BA-4FB4-87E8-551AC0F16BB8",
+		"Question Number": "CC2.3a",
+		"QuestionText": "On what issues have you been engaging directly with policy makers?",		
+		"ColType": "SingleSelect",
+		"Header": "Focus of legislation ",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Mandatory carbon reporting",
+			"Cap and trade",
+			"Carbon tax",
+			"Energy efficiency",
+			"Clean energy generation",
+			"Adaptation resiliency",
+			"Climate finance",
+			"Regulation of methane emissions",
+			"Other, please specify"
+
+
+		]
+	},
+
+	{
+		"QID": "CA117CE8-60BA-4FB4-87E8-551AC0F16BB8",
+		"Question Number": "CC2.3a",
+		"QuestionText": "On what issues have you been engaging directly with policy makers?",
+		"ColType": "SingleSelect",
+		"Header": "Corporate position",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Support",
+		    "Support with minor exceptions",
+			"Support with major exceptions",
+			"Neutral",
+			"Oppose",
+			"Undecided"
+
+
+		]
+	},
+
+
+	{
+		"QID": "CA117CE8-60BA-4FB4-87E8-551AC0F16BB8",
+		"Question Number": "CC2.3a",
+		"QuestionText": "On what issues have you been engaging directly with policy makers?",
+		"ColType": "Textfield",
+		"Header": "Details of engagement ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "CA117CE8-60BA-4FB4-87E8-551AC0F16BB8",
+		"Question Number": "CC2.3a",
+		"QuestionText": "On what issues have you been engaging directly with policy makers?",
+		"ColType": "Textfield",
+		"Header": "Proposed legislative solution ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+	{
+		"AddRow": "false"
+	}
+]

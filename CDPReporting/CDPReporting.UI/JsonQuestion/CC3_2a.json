@@ -1,0 +1,137 @@
+[{
+		"QID": "A417722A-0D32-4F47-AB7F-905CC31EEB4F",
+		"Question Number": "CC3.2a",
+		"QuestionText": "Please provide details of your products and/or services that you classify as low carbon products or that enable a third party to avoid GHG emissions?",
+		"Headers": [
+			"Level of aggregation ",
+			"Description of product/Group of products",
+			"Are you reporting low carbon product/s or avoided emissions?",
+			"Taxonomy, project or methodology used to classify product/s as low carbon or to calculate avoided emissions",
+			"% revenue from low carbon product/s in the reporting year",
+			"% R&D in low carbon product/s in the reporting year",
+			"Comment"
+		]
+
+	},
+
+
+
+	{
+		"QID": "A417722A-0D32-4F47-AB7F-905CC31EEB4F",
+		"Question Number": "CC3.2a",
+		"QuestionText": "Please provide details of your products and/or services that you classify as low carbon products or that enable a third party to avoid GHG emissions?",
+		"ColType": "SingleSelect",
+		"Header": "Level of aggregation",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Product",
+			"Group of products",
+			"Company-wide"
+
+		]
+	},
+
+	{
+
+		"QID": "A417722A-0D32-4F47-AB7F-905CC31EEB4F",
+		"Question Number": "CC3.2a",
+		"QuestionText": "Please provide details of your products and/or services that you classify as low carbon products or that enable a third party to avoid GHG emissions?",
+		"ColType": "Textfield",
+		"Header": "Description of product/Group of products ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "A417722A-0D32-4F47-AB7F-905CC31EEB4F",
+		"Question Number": "CC3.2a",
+		"QuestionText": "Please provide details of your products and/or services that you classify as low carbon products or that enable a third party to avoid GHG emissions?",
+		"ColType": "SingleSelect",
+		"Header": "Are you reporting low carbon product/s or avoided emissions?",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Low carbon product",
+			"Avoided emissions",
+			"Low carbon product and avoided emissions"
+
+
+
+
+
+		]
+	},
+
+	{
+		"QID": "A417722A-0D32-4F47-AB7F-905CC31EEB4F",
+		"Question Number": "CC3.2a",
+		"QuestionText": "Please provide details of your products and/or services that you classify as low carbon products or that enable a third party to avoid GHG emissions?",
+		"ColType": "SingleSelect",
+		"Header": "Taxonomy, project or methodology used to classify product/s as low carbon or to calculate avoided emissions",
+		"Select Text": "Select from:",
+		"Elements": [
+			"For low carbon products",
+			"Low Carbon Investment (LCI) Registry Taxonomy",
+			"Climate Bonds Taxonomy",
+			"Other, please specify",
+
+			"For avoided emissions, select from:",
+
+			"Addressing the Avoided Emissions Challenge- Chemicals sector",
+			"Evaluating the carbon reducing impacts of ICT",
+			"Other, please specify"
+
+
+
+
+
+		]
+	},
+
+	{
+		"QID": "A417722A-0D32-4F47-AB7F-905CC31EEB4F",
+		"Question Number": "CC3.2a",
+		"QuestionText": "Please provide details of your products and/or services that you classify as low carbon products or that enable a third party to avoid GHG emissions?",
+		"ColType": "Numerical",
+		"Header": "% revenue from low carbon product/s in the reporting year",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "A417722A-0D32-4F47-AB7F-905CC31EEB4F",
+		"Question Number": "CC3.2a",
+		"QuestionText": "Please provide details of your products and/or services that you classify as low carbon products or that enable a third party to avoid GHG emissions?",
+		"ColType": "SingleSelect",
+		"Header": "A% R&D in low carbon product/s in the reporting year",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Less than or equal to 10%",
+			"More than 10% but less than or equal to 20%",
+			"More than 20% but less than or equal to 40%",
+			"More than 40% but less than or equal to 60%",
+			"More than 60% but less than or equal to 80%",
+			"More than 80% but less than or equal to 100%"
+
+
+		]
+	},
+
+
+
+	{
+		"QID": "A417722A-0D32-4F47-AB7F-905CC31EEB4F",
+		"Question Number": "CC3.2a",
+		"QuestionText": "Please provide details of your products and/or services that you classify as low carbon products or that enable a third party to avoid GHG emissions?",
+		"ColType": "Textfield",
+		"Header": "Comment ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

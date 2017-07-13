@@ -1,0 +1,145 @@
+[{
+		"QID": "35C30E02-CD6D-4928-A5E4-37AE1D47CE50",
+		"Question Number": "CC3.1d",
+		"QuestionText": "Please provide details of your renewable energy consumption and/or production target",
+		"Headers": [
+			"ID ",
+			"Energy types covered by target",
+			"Base year",
+			"Base year energy for energy type covered (MWh)",
+			"% renewable energy in base year",
+			"Target year",
+			"% renewable energy in target year",
+			"Comment"
+		]
+
+	},
+
+
+
+	{
+		"QID": "35C30E02-CD6D-4928-A5E4-37AE1D47CE50",
+		"Question Number": "CC3.1d",
+		"QuestionText": "Please provide details of your renewable energy consumption and/or production target",
+		"ColType": "SingleSelect",
+		"Header": "ID",
+		"Select Text": "Select from:",
+		"Elements": [
+			"RE1 ",
+			"RE2",
+			"RE3",
+			"RE4",
+			"RE5",
+			"RE6",
+			"RE7",
+			"RE8",
+			"RE9",
+			"RE10",
+			"RE11",
+			"RE12",
+			"RE13",
+			"RE14",
+			"RE15"
+
+
+		]
+	},
+
+	{
+		"QID": "35C30E02-CD6D-4928-A5E4-37AE1D47CE50",
+		"Question Number": "CC3.1d",
+		"QuestionText": "Please provide details of your renewable energy consumption and/or production target",
+		"ColType": "SingleSelect",
+		"Header": "Energy types covered by target",
+		"Select Text": "Select from:",
+		"Elements": [
+			"All energy consumed",
+			"Combustion of fuels",
+			"Electricity consumption",
+			"Heat consumption",
+			"Steam consumption",
+			"Cooling consumption",
+			"Electricity production",
+			"Other, please specify"
+
+
+		]
+	},
+
+
+	{
+		"QID": "35C30E02-CD6D-4928-A5E4-37AE1D47CE50",
+		"Question Number": "CC3.1d",
+		"QuestionText": "Please provide details of your renewable energy consumption and/or production target",
+		"ColType": "DateType",
+		"Header": "Base year",
+		"Select Text": "",
+		"Elements": [
+
+		]
+
+	},
+
+	{
+		"QID": "35C30E02-CD6D-4928-A5E4-37AE1D47CE50",
+		"Question Number": "CC3.1d",
+		"QuestionText": "Please provide details of your renewable energy consumption and/or production target",
+		"ColType": "Numerical",
+		"Header": "Base year energy for energy type covered (MWh)",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "35C30E02-CD6D-4928-A5E4-37AE1D47CE50",
+		"Question Number": "CC3.1d",
+		"QuestionText": "Please provide details of your renewable energy consumption and/or production target",
+		"ColType": "Numerical",
+		"Header": "% renewable energy in base year",
+		"Select Text": "",
+		"Elements": [
+
+		]
+
+	},
+	{
+		"QID": "35C30E02-CD6D-4928-A5E4-37AE1D47CE50",
+		"Question Number": "CC3.1d",
+		"QuestionText": "Please provide details of your renewable energy consumption and/or production target",
+		"ColType": "DateType",
+		"Header": "Target year",
+		"Select Text": "",
+		"Elements": [
+
+		]
+
+	},
+
+	{
+		"QID": "35C30E02-CD6D-4928-A5E4-37AE1D47CE50",
+		"Question Number": "CC3.1d",
+		"QuestionText": "Please provide details of your renewable energy consumption and/or production target",
+		"ColType": "Numerical",
+		"Header": "% renewable energy in target year",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+	{
+		"QID": "35C30E02-CD6D-4928-A5E4-37AE1D47CE50",
+		"Question Number": "CC3.1d",
+		"QuestionText": "Please provide details of your renewable energy consumption and/or production target",
+		"ColType": "Textfield",
+		"Header": "Comment ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

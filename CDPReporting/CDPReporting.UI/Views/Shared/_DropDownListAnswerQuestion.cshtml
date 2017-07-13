@@ -2,30 +2,8 @@
 
 <script type="text/javascript">
     $(function () {
-         debugger;
+        debugger;
         $('#selectMultiple').multiselect();
-        @*var str = '@Model.Value';
-        var multiselectedVals = [];
-        multiselectedVals[0] = "1";
-        multiselectedVals[1] = "2";*@
-        //multiselectedVals.push(str.split(","));
-
-        //$.each(str.split(","), function (i, e) {
-        //    $("#Question_CC03_List option[value='" + e + "']").attr("selected", true);
-        //});
-
-        // $("#Question_CC03_List").multiSelect("select", ["1", "2"]);
-        //debugger;
-        //for (var i = 0; i < multiselectedVals.length; i++) {
-        //    $("#Question_CC03_List").find(":checkbox[value='" + multiselectedVals[i] + "']").attr("checked", "checked");
-        //    $("#Question_CC03_List option[value='" + multiselectedVals[i] + "']").closest('li').addClass('active');
-        //}
-
-        //multiselectedVals[0] = "1";
-        //multiselectedVals[1] = "2";
-        //debugger;
-        //$('#Question_CC03_List').val(multiselectedVals);
-
 
         $('#Save').click(function () {
             debugger;
@@ -38,13 +16,19 @@
                 if (multiselectData == null)
                     multiselectData = data[item];
                 else
-                    multiselectData = multiselectData + "," + data[item];
+                    multiselectData = multiselectData + "|" + data[item];
             }
             var valueList = multiselectData;
             multiselectData = null;
 
-            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: valueList, questionType: qType, year: yearVal }, function (data) {
-                // $('#main').html(data);
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: valueList, questionType: qType, year: yearVal },
+                function (data, status) {
+                    if (status == "success") {
+                        $("#Successdiv").css('visibility', 'visible');
+                    }
+                    else {
+                        $("#ErrorDiv").css('visibility', 'visible');
+                    }
             });
         })
     });
@@ -52,32 +36,31 @@
 
 
 <div class="form-horizontal">
-    <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
+    <h4>@string.Format("{0}: {1}", Model.CDPId, Model.Caption)</h4><p>@Model.QuestionText</p>
     <div class="form-group">
         <div class="col-md-12">
             <select id="selectMultiple" multiple="multiple">
                 @foreach (var item in Model.OptionList.OptionCSVText)
                 {
-                 if (Model.Value!=null)
-                {
-                  if( @Model.Value.ToString().Contains(item))
-                  { 
-                <option selected="selected"  value="@Html.Raw(item.ToString().Replace(" ",""))">@Html.Raw(item)</option>
-                    
+                    if (Model.Value != null)
+                    {
+                        if (@Model.Value.ToString().Contains(item.ToString().Replace(" ", "")))
+                        {
+                            <option selected="selected" value="@Html.Raw(item.ToString())">@Html.Raw(item)</option>
+
+                        }
+                        else
+                        {
+                            <option value="@Html.Raw(item.ToString().Replace(" ",""))">@Html.Raw(item)</option>
+                        }
+                    }
+                    else
+                    {
+                        <option value="@Html.Raw(item.ToString().Replace(" ",""))">@Html.Raw(item)</option>
+                    }
+
                 }
-                else
-                 {
-                    <option value="@Html.Raw(item.ToString().Replace(" ",""))">@Html.Raw(item)</option>
-                }
-                 
-                }
-                else
-                 {
-                    <option value="@Html.Raw(item.ToString().Replace(" ",""))">@Html.Raw(item)</option>
-                }
-               
-                }
-                @if (Model.OptionList.OtherOptions != null)
+                @if (!string.IsNullOrWhiteSpace(Model.OptionList.OtherOptions))
                 {
                     <option>Other</option>
                 }
@@ -86,9 +69,9 @@
     </div>
 
     <div class="form-group">
-        <div class="col-md-offset-10 col-md-12">
+        <div class="col-md-12 text-right">
             <button id="Save" type="button" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-primary">Cancel</button>
+            @*<button type="button" class="btn btn-default">Cancel</button>*@
         </div>
     </div>
 </div>

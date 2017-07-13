@@ -1,0 +1,219 @@
+[{
+		"QID": "1328C356-E179-4B6A-BBA1-5E7B5D660F8B",
+		"Question Number": "CC3.1b",
+		"QuestionText": "Please provide details of your intensity target ",
+		"Headers": [
+			"ID ",
+			"Scope",
+			"% of emissions in scope",
+			"% reduction from base year ",
+			"Metric",
+			"Base year",
+			"Normalized base year emissions covered by target",
+			"Is this a science-based target?",
+			"Target year",
+			"Comment"
+		]
+
+	},
+
+
+
+	{
+		"QID": "1328C356-E179-4B6A-BBA1-5E7B5D660F8B",
+		"Question Number": "CC3.1b",
+		"QuestionText": "Please provide details of your intensity target ",
+		"ColType": "SingleSelect",
+		"Header": "ID",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Int1 ",
+			"Int2",
+			"Int3",
+			"Int4",
+			"Int5",
+			"Int6",
+			"Int7",
+			"Int8",
+			"Int9",
+			"Int10",
+			"Int11",
+			"Int12",
+			"Int13",
+			"Int14",
+			"Int15"
+
+
+		]
+	},
+
+	{
+		"QID": "1328C356-E179-4B6A-BBA1-5E7B5D660F8B",
+		"Question Number": "CC3.1b",
+		"QuestionText": "Please provide details of your intensity target ",
+		"ColType": "SingleSelect",
+		"Header": "Scope",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Scope 1",
+			"Scope 2 (location-based)",
+			"Scope 2 (market-based)",
+			"Scope 1+2 (location-based)",
+			"Scope 1+2 (market-based)",
+			"Scope 1+2 (location-based) + 3 (upstream)",
+			"Scope 1+2 (location-based) + 3 (downstream)",
+			"Scope 1+2 (market-based) + 3 (upstream)",
+			"Scope 1+2 (market-based) + 3 (downstream)",
+			"Scope 3: Purchased goods & services",
+			"Scope 3: Capital goods",
+			"Scope 3: Fuel- and energy-related activities (not included in Scopes 1 or 2)",
+			"Scope 3: Upstream transportation & distribution",
+			"Scope 3: Waste generated in operations",
+			"Scope 3: Business travel",
+			"Scope 3: Employee commuting",
+			"Scope 3: Upstream leased assets",
+			"Scope 3: Investments",
+			"Scope 3: Downstream transportation and distribution ",
+			"Scope 3: Processing of sold products",
+			"Scope 3: Use of sold products",
+			"Scope 3: End-of-life treatment of sold products",
+			"Scope 3: Downstream leased assets ",
+			"Scope 3: Franchises",
+			"Other, please specify"
+
+
+
+
+		]
+	},
+
+
+	{
+		"QID": "1328C356-E179-4B6A-BBA1-5E7B5D660F8B",
+		"Question Number": "CC3.1b",
+		"QuestionText": "Please provide details of your intensity target ",
+		"ColType": "Numerical",
+		"Header": "% of emissions in scope",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "F9CEB516-370F-425A-AA6B-CCF0A89C7522",
+		"Question Number": "CC3.1a",
+		"QuestionText": "Please provide details of your absolute target",
+		"ColType": "Numerical",
+		"Header": "% reduction from base year",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "1328C356-E179-4B6A-BBA1-5E7B5D660F8B",
+		"Question Number": "CC3.1b",
+		"QuestionText": "Please provide details of your intensity target ",
+		"ColType": "SingleSelect",
+		"Header": "Metric",
+		"Select Text": "Select from",
+		"Elements": [
+			"Grams CO2e per passenger kilometer",
+			"Metric tonnes CO2 per USD ($) value-added",
+			"Metric tonnes CO2e per square meter",
+			"Metric tonnes CO2e per tonne of aluminum",
+			"Metric tonnes CO2e per tonne of steel",
+			"Metric tonnes CO2e per tonne of cement",
+			"Metric tonnes CO2e per tonne of cardboard",
+			"Grams CO2e per kilometer",
+			"Metric tonnes CO2e per unit revenue",
+			"Metric tonnes CO2e per unit FTE employee",
+			"Metric tonnes CO2e per unit hour worked",
+			"Metric tonnes CO2e per metric tonne of product",
+			"Metric tonnes of CO2e per liter of product",
+			"Metric tonnes CO2e per unit of production",
+			"Metric tonnes CO2e per unit of service provided",
+			"Metric tonnes CO2e per square foot",
+			"Metric tonnes CO2e per kilometer",
+			"Metric tonnes CO2e per passenger kilometer",
+			"Metric tonnes CO2e per megawatt hour (MWh)",
+			"Metric tonnes CO2e per barrel of oil equivalent (BOE)",
+			"Metric tonnes CO2e per vehicle produced",
+			"Metric tonnes CO2e per tonne of ore processed",
+			"Metric tonnes CO2e per ounce of gold",
+			"Metric tonnes CO2e per ounce of platinum",
+			"Metric tonnes of CO2e per tonne of aggregate",
+			"Metric tonnes of CO2e per billion (currency) funds under management",
+			"Other, please specify"
+
+		]
+
+	},
+
+	{
+		"QID": "1328C356-E179-4B6A-BBA1-5E7B5D660F8B",
+		"Question Number": "CC3.1b",
+		"QuestionText": "Please provide details of your intensity target ",
+		"ColType": "DateType",
+		"Header": "Base year",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "1328C356-E179-4B6A-BBA1-5E7B5D660F8B",
+		"Question Number": "CC3.1b",
+		"QuestionText": "Please provide details of your intensity target ",
+		"ColType": "Numerical",
+		"Header": "Normalized base year emissions covered by target",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	
+
+	{
+		"QID": "1328C356-E179-4B6A-BBA1-5E7B5D660F8B",
+		"Question Number": "CC3.1b",
+		"QuestionText": "Please provide details of your intensity target ",
+		"ColType": "SingleSelect",
+		"Header": "Is this a science-based target?",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Yes, and it has been successfully approved by the Science Based Targets initiative",
+			"Yes, but it has not been successfully approved by the Science Based Targets initiative",
+			"No, as there is currently no established science-based targets methodology in this sector",
+			"No, but we are reporting another target which is science-based",
+			"No, but we anticipate setting one in the next 2 years",
+			"No, and we do not anticipate setting one in the next 2 years"
+
+
+		]
+	},
+
+	{
+		"QID": "1328C356-E179-4B6A-BBA1-5E7B5D660F8B",
+		"Question Number": "CC3.1b",
+		"QuestionText": "Please provide details of your intensity target ",
+		"ColType": "DateType",
+		"Header": "Target year",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "1328C356-E179-4B6A-BBA1-5E7B5D660F8B",
+		"Question Number": "CC3.1b",
+		"QuestionText": "Please provide details of your intensity target ",
+		"ColType": "Textfield",
+		"Header": "Comment ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

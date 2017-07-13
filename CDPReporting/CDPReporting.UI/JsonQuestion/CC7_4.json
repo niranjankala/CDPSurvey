@@ -1,0 +1,163 @@
+[{
+		"QID": "8F9BEC68-59D2-4B4D-B724-02F0D98BC1AB",
+		"Question Number": "CC7.4",
+		"QuestionText": "Please give the emissions factors you have applied and their origin, alternatively, please attach an Excel spreadsheet with this data at the bottom of the page",
+		"Headers": [
+			"Fuel/Material/Energy",
+			"Emission Factor",
+			"Unit",
+			"Reference"
+		]
+
+	},
+
+
+
+	{
+		"QID": "8F9BEC68-59D2-4B4D-B724-02F0D98BC1AB",
+		"Question Number": "CC7.4",
+		"QuestionText": "Please give the emissions factors you have applied and their origin, alternatively, please attach an Excel spreadsheet with this data at the bottom of the page",
+		"ColType": "SingleSelect",
+		"Header": "Fuel/Material/Energy",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Anthracite",
+			"Asphalt/ bitumen",
+			"Aviation gasoline",
+			"Biodiesels",
+			"Biogas",
+			"Biogasoline",
+			"Bituminous coal",
+			"BKB, Blast furnace gas",
+			"Brown coal",
+			"Brown coal briquettes",
+			"Butane, Charcoal",
+			"Coke breeze",
+			"Coke oven coke",
+			"Coke oven gas",
+			"Coking coal",
+			"Cooling",
+			"Crude oil",
+			"Diesel/Gas oil",
+			"Distillate fuel oil No 1",
+			"Distillate fuel oil No 2",
+			"Distillate fuel oil No 3",
+			"Distillate fuel oil No 4",
+			"Distillate fuel oil No 5",
+			"Distillate fuel oil No 6",
+			"Electricity",
+			"Ethane",
+			"Gas works gas",
+			"Heat",
+			"Jet gasoline",
+			"Jet kerosene",
+			"Kerosene",
+			"Landfill gas",
+			"Lignite",
+			"Lignite coke",
+			"Liquefied Natural Gas (LNG)",
+			"Liquefied petroleum gas (LPG)",
+			"Lubricants",
+			"Metallurgical coke",
+			"Methane",
+			"Motor gasoline",
+			"Municipal waste",
+			"Naphtha, Natural gas",
+			"Oil shale and bitumen (oil sands)",
+			"Orimulsion",
+			"Oxygen steel furnace gas",
+			"Patent fuel",
+			"Peat",
+			"Petroleum coke",
+			"Pitch",
+			"Propane",
+			"Refinery feedstocks",
+			"Refinery gas",
+			"Refuse-derived fuel",
+			"Residual fuel oil",
+			"Semi-coke",
+			"Shale oil",
+			"Sludge gas",
+			"Steam",
+			"Sub bituminous coal",
+			"Sulphite lyes (Black liquor)",
+			"Tar, Town gas or city gas, Turpentine",
+			"Vegetable oils",
+			"Waste oils",
+			"Waste plastics",
+			"Waste tire derived fuels",
+			"Waxes",
+			"White spirit/ SBP",
+			"Wood or wood waste",
+			"Other, please specify"
+		]
+	},
+
+	{
+		"QID": "E93C579A-6447-46A2-8901-FBB8A496C948",
+		"Question Number": "CC7.1",
+		"QuestionText": ":Please provide your base year and base year emissions (Scopes 1 and 2) ",
+		"ColType": "Numerical",
+		"Header": "Emission Factor",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "8F9BEC68-59D2-4B4D-B724-02F0D98BC1AB",
+		"Question Number": "CC7.4",
+		"QuestionText": "Please give the emissions factors you have applied and their origin, alternatively, please attach an Excel spreadsheet with this data at the bottom of the page",
+		"ColType": "SingleSelect",
+		"Header": "Unit",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"metric tonnes CO2e per m3 ",
+			"metric tonnes CO2 per m3",
+			"metric tonnes CO2e per liter",
+			"metric tonnes CO2 per liter ",
+			"metric tonnes CO2e per MWh ",
+			"metric tonnes CO2 per MWh",
+			"kg CO2e per liter",
+			"kg CO2 per liter",
+			"kg CO2e per MWh",
+			"kg CO2 per MWh",
+			"metric tonnes CO2e per GJ",
+
+			"metric tonnes CO2 per GJ",
+			"metric tonnes CO2e per metric tonne",
+			"metric tonnes CO2 per metric tonne",
+			"lb CO2e per 1000 ft3",
+			"lb CO2 per 1000 ft3",
+			"lb CO2e per gallon",
+			"lb CO2 per gallon",
+			"lb CO2e per barrel",
+			"lb CO2 per barrel",
+			"lb CO2e per million BTU",
+			"lb CO2 per million BTU",
+			"lb CO2e per short ton",
+			"lb CO2 per short ton",
+			"lb CO2e per MWh",
+			"lb CO2 per MWh",
+			"Other, please specify"
+
+		]
+	},
+
+
+	{
+		"QID": "8F9BEC68-59D2-4B4D-B724-02F0D98BC1AB",
+		"Question Number": "CC7.4",
+		"QuestionText": "Please give the emissions factors you have applied and their origin, alternatively, please attach an Excel spreadsheet with this data at the bottom of the page",
+		"ColType": "Textfield",
+		"Header": "Reference ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

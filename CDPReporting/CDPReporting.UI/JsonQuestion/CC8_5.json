@@ -1,0 +1,98 @@
+[
+
+	{
+			"QID": "553EE489-59C3-427A-8DB6-4BDAEE32BCAB",
+			"Question Number": "CC8.5",
+			"QuestionText": "Please estimate the level of uncertainty of the total gross global Scope 1 and 2 emissions figures that you have supplied and specify the sources of uncertainty in your data gathering, handling and calculations",
+			"Headers": [
+				"Source",
+				"Uncertainty range",
+				"Main sources of uncertainty",
+				"Please expand on the uncertainty in your data"
+
+
+			]
+
+		},
+
+		{
+			"QID": "553EE489-59C3-427A-8DB6-4BDAEE32BCAB",
+			"Question Number": "CC8.5",
+			"QuestionText": "Please estimate the level of uncertainty of the total gross global Scope 1 and 2 emissions figures that you have supplied and specify the sources of uncertainty in your data gathering, handling and calculations",
+			"ColType": "SingleSelect",
+			"Header": "Source ",
+			"Select Text": "Scope 1",
+			"Elements": [
+			"Scope 1",
+			"Scope 2 (location-based)",
+			"Scope 2 (market-based)"
+
+			]
+
+		},
+
+		{
+			"QID": "553EE489-59C3-427A-8DB6-4BDAEE32BCAB",
+			"Question Number": "CC8.5",
+			"QuestionText": "Please estimate the level of uncertainty of the total gross global Scope 1 and 2 emissions figures that you have supplied and specify the sources of uncertainty in your data gathering, handling and calculations",
+			"ColType": "SingleSelect",
+			"Header": "Uncertainty range",
+			"Select Text": "Select from:",
+			"Elements": [
+				"Less than or equal to 2%",
+				"More than 2% but less than or equal to 5%",
+				"More than 5% but less than or equal to 10%",
+				"More than 10% but less than or equal to 20%",
+				"More than 20% but less than or equal to 30%",
+				"More than 30% but less than or equal to 40%",
+				"More than 40% but less than or equal to 50%",
+				"More than 50% but less than or equal to 60%",
+				"More than 60% but less than or equal to 70%",
+				"More than 70% but less than or equal to 80%",
+				"More than 80% but less than or equal to 90%",
+				"More than 90% but less than or equal to 100%",
+				"Greater than 100%"
+
+
+			]
+		},
+
+
+
+		{
+			"QID": "553EE489-59C3-427A-8DB6-4BDAEE32BCAB",
+			"Question Number": "CC8.5",
+			"QuestionText": "Please estimate the level of uncertainty of the total gross global Scope 1 and 2 emissions figures that you have supplied and specify the sources of uncertainty in your data gathering, handling and calculations",
+			"ColType": "SingleSelect",
+			"Header": "Main sources of uncertainty",
+			"Select Text": "Select from:",
+			"Elements": [
+				"Data Gaps",
+				"Assumptions",
+				"Extrapolation",
+				"Metering/ Measurement Constraints",
+				"Sampling",
+				"Data Management",
+				"No Sources of Uncertainty",
+				"Other, please specify"
+
+			]
+		},
+
+		{
+			"QID": "553EE489-59C3-427A-8DB6-4BDAEE32BCAB",
+			"Question Number": "CC8.5",
+			"QuestionText": "Please estimate the level of uncertainty of the total gross global Scope 1 and 2 emissions figures that you have supplied and specify the sources of uncertainty in your data gathering, handling and calculations",
+			"ColType": "Textfield",
+			"Header": "Please expand on the uncertainty in your data",
+			"Select Text": "",
+			"Elements": []
+
+		},
+
+		{
+			"AddRow": "true"
+		}
+	]
+
+	

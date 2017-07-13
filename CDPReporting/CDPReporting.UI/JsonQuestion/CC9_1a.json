@@ -1,0 +1,49 @@
+[{
+		"QID": "3AFA0000-9139-4D96-A45E-3042546312C3",
+		"Question Number": "CC9.1a",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by country/region",
+		"Headers": [
+			"Country/Region",
+			"Scope 1 metric tonnes CO2e"
+
+		]
+
+	},
+
+
+	{
+		
+		"QID": "3AFA0000-9139-4D96-A45E-3042546312C3",
+		"Question Number": "CC9.1a",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by country/region",
+		"ColType": "SingleSelect",
+		"Header": "Country/Region",
+		"Select Text": "Select from:",
+		"Elements": [
+				"India",
+				"UK",
+				"USA",
+				"Japan",
+				"Germany",
+				"China"
+
+		]
+	},
+	{
+		"QID": "3AFA0000-9139-4D96-A45E-3042546312C3",
+		"Question Number": "CC9.1a",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by country/region",
+		"ColType": "Numerical",
+		"Header": "Comment",
+		"Select Text": "",
+		"Elements": [
+
+		]
+	},
+
+
+
+	{
+		"AddRow": "true"
+	}
+]

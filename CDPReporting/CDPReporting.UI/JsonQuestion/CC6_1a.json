@@ -1,0 +1,211 @@
+[{
+		"QID": "4BEDC470-1FB7-4C3D-AE1A-50A981A892D5",
+		"Question Number": "CC6.1a",
+		"QuestionText": ": Please describe your inherent opportunities that are driven by changes in regulation",
+		"Headers": [
+			"Opportunity  driver",
+			"Description",
+			"Potential impact",
+			"Timeframe",
+			"Direct/Indirect",
+			"Likelihood",
+			"Magnitude of impact",
+			"Estimated financial implications",
+			"Management methods",
+			"Cost of management"
+
+		]
+
+	},
+
+
+
+	{
+		"QID": "4BEDC470-1FB7-4C3D-AE1A-50A981A892D5",
+		"Question Number": "CC6.1a",
+		"QuestionText": ": Please describe your inherent opportunities that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Opportunity  driver",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"International agreements",
+			"Air pollution limits",
+			"Carbon taxes",
+			"Cap and trade schemes",
+			"Emission reporting obligations",
+			"Fuel/energy taxes and regulations",
+			"Product efficiency regulations and standards",
+			"Product labelling regulations and standards",
+			"Voluntary agreements",
+			"General environmental regulations, including planning",
+			"Renewable energy regulation",
+			"Other regulatory drivers"
+
+
+
+
+
+
+		]
+	},
+	{
+
+		"QID": "4BEDC470-1FB7-4C3D-AE1A-50A981A892D5",
+		"Question Number": "CC6.1a",
+		"QuestionText": ": Please describe your inherent opportunities that are driven by changes in regulation",
+		"ColType": "Textfield",
+		"Header": "Description",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+	{
+
+		"QID": "4BEDC470-1FB7-4C3D-AE1A-50A981A892D5",
+		"Question Number": "CC6.1a",
+		"QuestionText": ": Please describe your inherent opportunities that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Potential impact ",
+		"Select Text": "",
+		"Elements": [
+			"Reduced operational cost",
+			"Reduced capital cost",
+			"Increased demand for existing products/services",
+			"Premium price opportunities",
+			"Increased production capacity",
+			"Increase in capital availability",
+			"Increased stock price (market valuation)",
+			"New products/business services",
+			"Investment opportunities",
+			"Wider social benefits",
+			"Other, please specify"
+
+
+
+
+		]
+
+	},
+
+	{
+
+
+		"QID": "4BEDC470-1FB7-4C3D-AE1A-50A981A892D5",
+		"Question Number": "CC6.1a",
+		"QuestionText": ": Please describe your inherent opportunities that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Timeframe ",
+		"Select Text": "",
+		"Elements": [
+			"Up to 1 year",
+			"1 to 3 years",
+			"3 to 6 years",
+			">6 years",
+			"Unknown"
+
+
+		]
+
+	},
+
+
+	{
+		"QID": "4BEDC470-1FB7-4C3D-AE1A-50A981A892D5",
+		"Question Number": "CC6.1a",
+		"QuestionText": ": Please describe your inherent opportunities that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Direct/Indirect",
+		"Select Text": "",
+		"Elements": [
+			"Direct",
+			"Indirect (Supply chain)",
+			"Indirect (Client)"
+
+
+		]
+
+	},
+
+	{
+		"QID": "4BEDC470-1FB7-4C3D-AE1A-50A981A892D5",
+		"Question Number": "CC6.1a",
+		"QuestionText": ": Please describe your inherent opportunities that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Likelihood",
+		"Select Text": "",
+		"Elements": [
+			"Virtually certain",
+			"Very likely",
+			"Likely",
+			"More likely than not",
+			"About as likely as not",
+			"Unlikely",
+			"Very unlikely",
+			"Exceptionally unlikely",
+			"Unknown"
+
+
+		]
+
+	},
+
+	{
+		"QID": "4BEDC470-1FB7-4C3D-AE1A-50A981A892D5",
+		"Question Number": "CC6.1a",
+		"QuestionText": ": Please describe your inherent opportunities that are driven by changes in regulation",
+		"ColType": "SingleSelect",
+		"Header": "Magnitude of impact",
+		"Select Text": "",
+		"Elements": [
+			"High",
+			"Medium-high",
+			"Medium",
+			"Low-medium",
+			"Low",
+			"Unknown"
+
+
+		]
+
+	},
+
+
+
+	{
+		"QID": "4BEDC470-1FB7-4C3D-AE1A-50A981A892D5",
+		"Question Number": "CC6.1a",
+		"QuestionText": ": Please describe your inherent opportunities that are driven by changes in regulation",
+		"ColType": "Textfield",
+		"Header": "Estimated financial implications ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "4BEDC470-1FB7-4C3D-AE1A-50A981A892D5",
+		"Question Number": "CC6.1a",
+		"QuestionText": ": Please describe your inherent opportunities that are driven by changes in regulation",
+		"ColType": "Textfield",
+		"Header": "Management methods  ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "4BEDC470-1FB7-4C3D-AE1A-50A981A892D5",
+		"Question Number": "CC6.1a",
+		"QuestionText": ": Please describe your inherent opportunities that are driven by changes in regulation",
+		"ColType": "Textfield",
+		"Header": "Cost of management ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

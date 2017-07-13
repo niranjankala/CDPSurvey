@@ -12,39 +12,37 @@
         $("#comment").val(('@Model.Value').toString());
 
         $("#Save").click(function () {
-        debugger;
-        var commentVal = $("#comment").val();
-        var qId = '@Model.QuestionId';
-        var qType = '@Model.QuestionType.ToString()';
-        var yearVal = '@Model.Year';
+            debugger;
+            var commentVal = $("#comment").val();
+            var qId = '@Model.QuestionId';
+            var qType = '@Model.QuestionType.ToString()';
+            var yearVal = '@Model.Year';
 
-        $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: commentVal, questionType: qType, year: yearVal }, function (data) {
-        // $('#main').html(data);
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: commentVal, questionType: qType, year: yearVal },
+                function (data, status) {
+                    if (status == "success") {
+                        $("#Successdiv").css('visibility', 'visible');
+                    }
+                    else {
+                        $("#ErrorDiv").css('visibility', 'visible');
+                    }
+                });
         });
-        });
-        });
-        </script>
-        <div class="form-horizontal">
-            <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
-        
+    });
+</script>
+<div class="form-horizontal">
+    <h4>@string.Format("{0}: {1}", Model.CDPId, Model.Caption)</h4><p>@Model.QuestionText</p>
+    <div class="form-group">
 
-            <div class="form-group">
-
-                
-    
         <div class="col-md-12">
             <label for="comment" class="control-label"></label>
             <textarea class="form-control" rows="5" id="comment"></textarea>
         </div>
-    
-
-
-            </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-10 col-md-12">
-                <button id="Save" type="button" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-primary">Cancel</button>
-            </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12 text-right">
+            <button id="Save" type="button" class="btn btn-primary">Save</button>
+            @*<button type="button" class="btn btn-warning">Cancel</button>*@
         </div>
-        </div>
+    </div>
+</div>

@@ -1,34 +1,64 @@
 ﻿@model CDPReporting.Business.Models.QuestionResponseModel
 
-        
-        <div class="form-horizontal">
-            <h3>@Model.Caption</h3><p><b>@Model.QuestionText</b></p>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#Save').click(function () {
+            debugger;
+            var value = $("[name=optRadio]:checked").val();
+            var qId = '@Model.QuestionId';
+            var qType = '@Model.QuestionType';
+            var yearVal = '@Model.Year';
+            $.post('@Url.Content("~/Questionnaire/SaveQuestionResponse/")', { questionId: qId, answer: value, questionType: qType, year: yearVal },
+                function (data, status) {
+                    if (status == "success") {
+                        $("#Successdiv").css('visibility', 'visible');
+                    }
+                    else {
+                        $("#ErrorDiv").css('visibility', 'visible');
+                    }
+            });
+        })
+    });
+</script>
 
 
-         <div class="form-group">
-             <label for="comment">Please select From</label>
-             <div class="checkbox">
-                 <label><input type="checkbox" value="">Oil and Gas</label>
-             </div>
-             <div class="checkbox">
-                 <label><input type="checkbox" value="">Auto & Auto Component Manufacturers  </label>
-             </div>
-             <div class="checkbox disabled">
-                 <label><input type="checkbox" value="">Electric Utilities</label>
-             </div>
-             <div class="checkbox disabled">
-                 <label><input type="checkbox" value="">Information and Communication Technologies</label>
-             </div>
-             <div class="checkbox disabled">
-                 <label><input type="checkbox" value="">Food Beverage and Tobacco</label>
-             </div>
-    
-            </div>
+<div class="form-horizontal">
+    <h4>@string.Format("{0}: {1}", Model.CDPId, Model.Caption)</h4><p>@Model.QuestionText</p>
 
-        <div class="form-group">
-            <div class="col-md-offset-10 col-md-12">
-                <button id="Save" type="button" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-primary">Cancel</button>
-            </div>
+
+    <div class="form-group">
+
+        <div class="checkbox">
+            @if (Model.OptionList.OptionCSVText != null)
+            {
+                foreach (var item in Model.OptionList.OptionCSVText)
+                {
+                    if (Model.Value != null)
+                    {
+                        if (@Model.Value.ToString().Contains(item))
+                        {
+                            <label><input type="radio" checked="checked" name="optRadio" value="@item.ToString()">@item </label><br />
+                        }
+                        else
+                        {
+                            <label><input type="radio" name="optRadio" value="@item.ToString()">@item </label><br />
+                        }
+                    }
+                    else
+                    {
+                        <label><input type="radio" name="optRadio" value="@item.ToString()">@item </label><br />
+                    }
+                }
+            }
         </div>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 text-right">
+            <button id="Save" type="button" class="btn btn-primary">Save</button>
+            @*<button type="button" class="btn btn-default">Cancel</button>*@
         </div>
+    </div>
+</div>

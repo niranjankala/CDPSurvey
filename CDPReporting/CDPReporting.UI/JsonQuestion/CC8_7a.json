@@ -1,0 +1,185 @@
+[{
+		"QID": "83D98967-6FAD-4B15-AC1A-78D2D26C331B",
+		"Question Number": "CC8.7a",
+		"QuestionText": "Please provide further details of the verification/assurance undertaken for your location-based and/or market-based Scope 2 emissions, and attach the relevant statements",
+		"Headers": [
+			"Location-based or market-based figure?",
+			"Verification or assurance cycle in place",
+			"Status in the current reporting year",
+			"Type of verification or assurance",
+			"Attach the document",
+			"Page/section reference",
+			"Relevant standard",
+			"Proportion of reported Scope 2 emissions verified (%)"
+
+
+		]
+
+	},
+
+
+	{
+		"QID": "83D98967-6FAD-4B15-AC1A-78D2D26C331B",
+		"Question Number": "CC8.7a",
+		"QuestionText": "Please provide further details of the verification/assurance undertaken for your location-based and/or market-based Scope 2 emissions, and attach the relevant statements",
+		"ColType": "SingleSelect",
+		"Header": "Location-based or market-based figure?",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Location-based",
+			"Market-based"
+
+
+
+
+		]
+	},
+	{
+		"QID": "83D98967-6FAD-4B15-AC1A-78D2D26C331B",
+		"Question Number": "CC8.7a",
+		"QuestionText": "Please provide further details of the verification/assurance undertaken for your location-based and/or market-based Scope 2 emissions, and attach the relevant statements",
+		"ColType": "SingleSelect",
+		"Header": "Verification or assurance cycle in place",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Annual process",
+			"Biennial process",
+			"Triennial process"
+
+
+
+
+		]
+	},
+	{
+
+		"QID": "83D98967-6FAD-4B15-AC1A-78D2D26C331B",
+		"Question Number": "CC8.7a",
+		"QuestionText": "Please provide further details of the verification/assurance undertaken for your location-based and/or market-based Scope 2 emissions, and attach the relevant statements",
+		"ColType": "SingleSelect",
+		"Header": "Status in the current reporting year",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Not applicable",
+			"Limited assurance",
+			"Moderate assurance",
+			"Reasonable assurance",
+			"High assurance",
+			"Third party verification/ assurance underway"
+
+
+
+
+		]
+	},
+	{
+		"QID": "83D98967-6FAD-4B15-AC1A-78D2D26C331B",
+		"Question Number": "CC8.7a",
+		"QuestionText": "Please provide further details of the verification/assurance undertaken for your location-based and/or market-based Scope 2 emissions, and attach the relevant statements",
+		"ColType": "SingleSelect",
+		"Header": "Type of verification or assurance",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Not applicable",
+			"Limited assurance",
+			"Moderate assurance",
+			"Reasonable assurance",
+			"High assurance",
+			"Third party verification/ assurance underway"
+
+		]
+	},
+
+	{
+		"QID": "83D98967-6FAD-4B15-AC1A-78D2D26C331B",
+		"Question Number": "CC8.7a",
+		"QuestionText": "Please provide further details of the verification/assurance undertaken for your location-based and/or market-based Scope 2 emissions, and attach the relevant statements",
+		"ColType": "AttachmentType",
+		"Header": "Attach the document",
+		"SelectText": "Please send the documnt to this email: Mihaela.Porojan@smr-automotive.com",
+		"Elements": []
+
+	},
+
+	{
+
+		"QID": "83D98967-6FAD-4B15-AC1A-78D2D26C331B",
+		"Question Number": "CC8.7a",
+		"QuestionText": "Please provide further details of the verification/assurance undertaken for your location-based and/or market-based Scope 2 emissions, and attach the relevant statements",
+		"ColType": "Textfield",
+		"Header": "Page/section reference ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+
+	{
+		"QID": "83D98967-6FAD-4B15-AC1A-78D2D26C331B",
+		"Question Number": "CC8.7a",
+		"QuestionText": "Please provide further details of the verification/assurance undertaken for your location-based and/or market-based Scope 2 emissions, and attach the relevant statements",
+		"ColType": "SingleSelect",
+		"Header": "Relevant standard",
+		"Select Text": "Select from:",
+		"Elements": [
+			"A1000AS",
+			"Advanced technologies promotion Subsidy Scheme with Emission reduction Target (ASSET)",
+			"Airport Carbon Accreditation (ACA) des Airports Council International Europe",
+			"Alberta Specified Gas Emitters Regulation (SGER)",
+			"ASAE3000",
+			"Attestation standards established by AICPA (AT101)",
+			"Australian National GHG emission regulation (NGER)",
+			"California Mandatory GHG Reporting Regulations (CARB)",
+			"Canadian Institute of Chartered Accountants (CICA) Handbook: Assurance Section 5025",
+			"CCX verification standard",
+			"Certified emissions measurement and reduction scheme (CEMARS)",
+			"Chicago Climate Exchange verification standard",
+			"Compagnie Nationale des Commissaires aux Comptes (CNCC)",
+			"Corporate GHG verification guidelines from ERT",
+			"DNV Verisustain Protocol/ Verification Protocol for Sustainability Reporting",
+			"Earthcheck Certification",
+			"ERM GHG Performance Data Assurance Methodology",
+			"European Union Emissions Trading System (EU ETS)",
+			"ISAE3000",
+			"ISAE 3410",
+			"ISO14064-3",
+			"Japan voluntary emissions trading scheme (JVETS) guideline for verification",
+			"Korean GHG and energy target management system",
+			"RevR6 procedure for assurance of sustainability report",
+			"Saitama Prefecture Target-Setting Emissions Trading Program",
+			"SGS Sustainability Report Assurance",
+			"Spanish Institute of Registered Auditors (ICJCE)",
+			"Standard 3410N Assurance engagements relating to sustainability reports of the Royal Netherlands Institute of Registered Accountants",
+			"State of Israel Ministry of Environmental Protection, Verification of GHG and emissions reduction in Israel Guidance Document",
+			"Swiss Climate CO2 Label for Businesses",
+			"Thai Greenhouse Gas Management Organisation (TGO) Greenhouse Gas (GHG) Verification Protocol",
+			"The Climate Registry's General Verification Protocol",
+			"Tokyo cap-and-trade guideline for verification",
+			"Verification as part of Carbon Trust standard certification",
+			"Other, please specify"
+
+
+
+
+		]
+	},
+
+	{
+
+
+		"QID": "83D98967-6FAD-4B15-AC1A-78D2D26C331B",
+		"Question Number": "CC8.7a",
+		"QuestionText": "Please provide further details of the verification/assurance undertaken for your location-based and/or market-based Scope 2 emissions, and attach the relevant statements",
+		"ColType": "Numerical",
+		"Header": "%Proportion of reported Scope 2 emissions verified (%)",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+
+	{
+		"AddRow": "true"
+	}
+]

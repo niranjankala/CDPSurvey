@@ -1,0 +1,39 @@
+[
+{
+		"QID": "DEE7FB97-8404-479C-BFF6-B9E085544645",
+		"Question Number": "W1.4b",
+		"QuestionText": "Please choose the option below that best explains why you do not know if your organization experienced any detrimental impacts related to water in the reporting year, and any plans you have to investigate this in the future",
+		"Headers":[
+			"Primary reason",
+			"Future plans"			
+			]
+},
+
+
+{
+		"QID": "DEE7FB97-8404-479C-BFF6-B9E085544645",
+		"Question Number": "W1.4b",
+		"QuestionText": "Please choose the option below that best explains why you do not know if your organization experienced any detrimental impacts related to water in the reporting year, and any plans you have to investigate this in the future",
+		"ColType": "SingleSelect",
+		"Header": "Primary reason",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Detrimental impacts related to water are not recorded at the corporate level",
+			"No instruction from management to assess this",
+			"Other, please specify"
+		]
+	},
+
+	{
+		"QID": "DEE7FB97-8404-479C-BFF6-B9E085544645",
+		"Question Number": "W1.4b",
+		"QuestionText": "Please choose the option below that best explains why you do not know if your organization experienced any detrimental impacts related to water in the reporting year, and any plans you have to investigate this in the future",
+		"ColType": "Textfield",
+		"Header": "Future plans",
+		"Select Text": "",
+		"Elements": []
+
+	}, {
+		"AddRow": "false"
+	}
+]

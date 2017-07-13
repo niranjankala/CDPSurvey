@@ -1,0 +1,173 @@
+[{
+		"QID": "F9CEB516-370F-425A-AA6B-CCF0A89C7522",
+		"Question Number": "CC3.1a",
+		"QuestionText": "Please provide details of your absolute target",
+		"Headers": [
+			"ID ",
+			"Scope",
+			"% of emissions in scope",
+			"% reduction from base year ",
+			"Base year",
+			"Base year emissions covered by target (metric tonnes CO2e)",
+			"Target year",
+			"Is this a science-based target?",
+			"Comment"
+		]
+
+	},
+
+
+
+	{
+		"QID": "F9CEB516-370F-425A-AA6B-CCF0A89C7522",
+		"Question Number": "CC3.1a",
+		"QuestionText": "Please provide details of your absolute target",
+		"ColType": "SingleSelect",
+		"Header": "ID",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Abs 1",
+			"Abs 2",
+			"Abs 3",
+			"Abs 4",
+			"Abs 5",
+			"Abs 6",
+			"Abs 7",
+			"Abs 8",
+			"Abs 9",
+			"Abs 10",
+			"Abs 11",
+			"Abs 12",
+			"Abs 13",
+			"Abs 14",
+			"Abs 15"
+
+
+		]
+	},
+
+	{
+		"QID": "F9CEB516-370F-425A-AA6B-CCF0A89C7522",
+		"Question Number": "CC3.1a",
+		"QuestionText": "Please provide details of your absolute target",
+		"ColType": "SingleSelect",
+		"Header": "Scope",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Scope 1",
+			"Scope 2 (location-based)",
+			"Scope 2 (market-based)",
+			"Scope 1+2 (location-based)",
+			"Scope 1+2 (market-based)",
+			"Scope 1+2 (location-based) + 3 (upstream)",
+			"Scope 1+2 (location-based) + 3 (downstream)",
+			"Scope 1+2 (market-based) + 3 (upstream)",
+			"Scope 1+2 (market-based) + 3 (downstream)",
+			"Scope 3: Purchased goods & services",
+			"Scope 3: Capital goods",
+			"Scope 3: Fuel- and energy-related activities (not included in Scopes 1 or 2)",
+			"Scope 3: Upstream transportation & distribution",
+			"Scope 3: Waste generated in operations",
+			"Scope 3: Business travel",
+			"Scope 3: Employee commuting",
+			"Scope 3: Upstream leased assets",
+			"Scope 3: Investments",
+			"Scope 3: Downstream transportation and distribution ",
+			"Scope 3: Processing of sold products",
+			"Scope 3: Use of sold products",
+			"Scope 3: End-of-life treatment of sold products",
+			"Scope 3: Downstream leased assets ",
+			"Scope 3: Franchises",
+			"Other, please specify"
+
+
+
+		]
+	},
+
+
+	{
+		"QID": "F9CEB516-370F-425A-AA6B-CCF0A89C7522",
+		"Question Number": "CC3.1a",
+		"QuestionText": "Please provide details of your absolute target",
+		"ColType": "Numerical",
+		"Header": "% of emissions in scope ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "F9CEB516-370F-425A-AA6B-CCF0A89C7522",
+		"Question Number": "CC3.1a",
+		"QuestionText": "Please provide details of your absolute target",
+		"ColType": "Numerical",
+		"Header": "% reduction from base year ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "F9CEB516-370F-425A-AA6B-CCF0A89C7522",
+		"Question Number": "CC3.1a",
+		"QuestionText": "Please provide details of your absolute target",
+		"ColType": "DateType",
+		"Header": "Base year",
+		"Select Text": "",
+		"Elements": []
+
+	},
+	{
+		"QID": "F9CEB516-370F-425A-AA6B-CCF0A89C7522",
+		"Question Number": "CC3.1a",
+		"QuestionText": "Please provide details of your absolute target",
+		"ColType": "Numerical",
+		"Header": "Base year emissions covered by target (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "F9CEB516-370F-425A-AA6B-CCF0A89C7522",
+		"Question Number": "CC3.1a",
+		"QuestionText": "Please provide details of your absolute target",
+		"ColType": "DateType",
+		"Header": "Target year",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "F9CEB516-370F-425A-AA6B-CCF0A89C7522",
+		"Question Number": "CC3.1a",
+		"QuestionText": "Please provide details of your absolute target",
+		"ColType": "SingleSelect",
+		"Header": "Is this a science-based target?",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Yes, and this target has been successfully approved as science-based by the Science Based Targets initiative",
+			"Yes, but this target has not been successfully approved as science-based by the Science Based Targets initiative",
+			"No, as there is currently no established science-based targets methodology in this sector",
+			"No, but we are reporting another target which is science-based",
+			"No, but we anticipate setting one in the next 2 years",
+			"No, and we do not anticipate setting one in the next 2 years"
+
+		]
+	},
+
+	{
+		"QID": "F9CEB516-370F-425A-AA6B-CCF0A89C7522",
+		"Question Number": "CC3.1a",
+		"QuestionText": "Please provide details of your absolute target",
+		"ColType": "Textfield",
+		"Header": "% of emissions in scope ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

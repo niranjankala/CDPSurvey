@@ -1,0 +1,165 @@
+[{
+		"QID": "78388749-6DF9-463E-AD66-EDDCAA05A733",
+		"Question Number": "CC13.2a",
+		"QuestionText": "Please provide details on the project-based carbon credits originated or purchased by your organization in the reporting period",
+		"Headers": [
+			"Credit origination or credit purchase",
+			"Project type",
+			"Project identification",
+			"Verified to which standard",
+			"Number of credits (metric tonnes CO2e)",
+			"Number of credits (metric tonnes CO2e): Risk adjusted volume",
+			"Credits cancelled",
+			"Purpose, e.g. compliance"
+
+
+		]
+
+	},
+	{
+
+		"QID": "78388749-6DF9-463E-AD66-EDDCAA05A733",
+		"Question Number": "CC13.2a",
+		"QuestionText": "Please provide details on the project-based carbon credits originated or purchased by your organization in the reporting period",
+		"ColType": "Textfield",
+		"Header": "Allowances purchased",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+		"QID": "78388749-6DF9-463E-AD66-EDDCAA05A733",
+		"Question Number": "CC13.2a",
+		"QuestionText": "Please provide details on the project-based carbon credits originated or purchased by your organization in the reporting period",
+		"ColType": "SingleSelect",
+		"Header": "Scheme name",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Agriculture",
+			"Biomass energy",
+			"Cement",
+			"CO2 usage",
+			"Coal mine/bed CH4",
+			"Energy distribution",
+			"Energy efficiency: households",
+			"Energy efficiency: industry",
+			"Energy efficiency: own generation",
+			"Energy efficiency: service",
+			"Energy efficiency: supply side",
+			"Forests",
+			"Fossil fuel switch",
+			"Fugitive",
+			"Geothermal",
+			"HFCs",
+			"Hydro",
+			"Landfill gas",
+			"Methane avoidance",
+			"N20",
+			"PFCs and SF6",
+			"Solar",
+			"Tidal",
+			"Transport",
+			"Wind",
+			"Other, please specify"
+
+		]
+	},
+
+	{
+
+		"QID": "78388749-6DF9-463E-AD66-EDDCAA05A733",
+		"Question Number": "CC13.2a",
+		"QuestionText": "Please provide details on the project-based carbon credits originated or purchased by your organization in the reporting period",
+		"ColType": "Textfield",
+		"Header": "Allowances purchased",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+		"QID": "78388749-6DF9-463E-AD66-EDDCAA05A733",
+		"Question Number": "CC13.2a",
+		"QuestionText": "Please provide details on the project-based carbon credits originated or purchased by your organization in the reporting period",
+		"ColType": "SingleSelect",
+		"Header": "Scheme name",
+		"Select Text": "Select from:",
+		"Elements": [
+			"CDM (Clean Development Mechanism)",
+			"JI (Joint Implementation)",
+			"Gold Standard",
+			"VCS (Verified Carbon Standard)",
+			"VER+ (TÜV SÜD standard)",
+			"CAR (The Climate Action Reserve)",
+			"CCBS (developed by the Climate, Community and Biodiversity Alliance, CCBA)",
+			"Plan Vivo",
+			"Not yet verified",
+			"Other, please specify"
+
+		]
+	},
+
+
+
+	{
+
+		"QID": "78388749-6DF9-463E-AD66-EDDCAA05A733",
+		"Question Number": "CC13.2a",
+		"QuestionText": "Please provide details on the project-based carbon credits originated or purchased by your organization in the reporting period",
+		"ColType": "Numerical",
+		"Header": "Allowances allocated",
+		"Select Text": "",
+		"Elements": []
+	},
+
+
+
+	{
+
+		"QID": "78388749-6DF9-463E-AD66-EDDCAA05A733",
+		"Question Number": "CC13.2a",
+		"QuestionText": "Please provide details on the project-based carbon credits originated or purchased by your organization in the reporting period",
+		"ColType": "Numerical",
+		"Header": "Allowances purchased",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+		"QID": "78388749-6DF9-463E-AD66-EDDCAA05A733",
+		"Question Number": "CC13.2a",
+		"QuestionText": "Please provide details on the project-based carbon credits originated or purchased by your organization in the reporting period",
+		"ColType": "SingleSelect",
+		"Header": "Scheme name",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Yes",
+			"No",
+			"Not relevant"
+
+		]
+	},
+
+
+	{
+		"QID": "78388749-6DF9-463E-AD66-EDDCAA05A733",
+		"Question Number": "CC13.2a",
+		"QuestionText": "Please provide details on the project-based carbon credits originated or purchased by your organization in the reporting period",
+		"ColType": "SingleSelect",
+		"Header": "Details of ownership",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Compliance",
+			"Voluntary Offsetting",
+			"Not applicable",
+			"Other, please specify"
+
+
+
+
+		]
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

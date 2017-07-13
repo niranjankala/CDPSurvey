@@ -1,0 +1,62 @@
+
+
+	[
+	
+	
+	{
+			"QID": "E93C579A-6447-46A2-8901-FBB8A496C948",
+			"Question Number": "CC7.1",
+			"QuestionText": ":Please provide your base year and base year emissions (Scopes 1 and 2) ",
+			"Headers": [
+				"Scope",
+				"Base year",
+				"Base year emissions (metric tonnes CO2e)"
+
+			]
+
+		},
+
+	{
+			"QID": "E93C579A-6447-46A2-8901-FBB8A496C948",
+			"Question Number": "CC7.1",
+			"QuestionText": ":Please provide your base year and base year emissions (Scopes 1 and 2) ",
+			"ColType": "SingleSelect",
+			"Header": "Scope",
+			"Select Text": "Scope",
+			"Elements": [
+			"Scope 1",
+			"Scope 2 (location-based)",
+			"Scope 2 (market-based)"
+
+			]
+
+		},
+		{
+			"QID": "E93C579A-6447-46A2-8901-FBB8A496C948",
+			"Question Number": "CC7.1",
+			"QuestionText": ":Please provide your base year and base year emissions (Scopes 1 and 2) ",
+			"ColType": "DateType",
+			"Header": "Base year",
+			"Select Text": "",
+			"Elements": [
+
+			]
+
+		},
+
+		{
+			"QID": "E93C579A-6447-46A2-8901-FBB8A496C948",
+			"Question Number": "CC7.1",
+			"QuestionText": ":Please provide your base year and base year emissions (Scopes 1 and 2) ",
+			"ColType": "Numerical",
+			"Header": "Estimated annual CO2e savings (metric tonnes CO2e)",
+			"Select Text": "",
+			"Elements": []
+
+		},
+		{
+			"AddRow": "true"
+		}
+
+	]
+	

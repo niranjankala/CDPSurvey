@@ -1,0 +1,80 @@
+[{
+		"QID": "ED068C30-6E48-4D95-9BB7-82A23AF073D3",
+		"Question Number": "CC11.5",
+		"QuestionText": "Please report how much electricity you produce in MWh, and how much electricity you consume in MWh",
+		"Headers": [
+			"Total electricity consumed (MWh)",
+			"Consumed electricity that is purchased (MWh)",
+			"Total electricity produced (MWh)",
+			"Total renewable electricity produced (MWh)",
+			"Consumed renewable electricity that is produced by company (MWh)",
+			"Comments"
+
+		]
+
+	},
+{
+		"QID": "ED068C30-6E48-4D95-9BB7-82A23AF073D3",
+		"Question Number": "CC11.5",
+		"QuestionText": "Please report how much electricity you produce in MWh, and how much electricity you consume in MWh",
+		"ColType": "Numerical",
+		"Header": "Total electricity consumed (MWh)",
+		"Select Text": "",
+		"Elements": []
+	},
+	
+	{
+		"QID": "ED068C30-6E48-4D95-9BB7-82A23AF073D3",
+		"Question Number": "CC11.5",
+		"QuestionText": "Please report how much electricity you produce in MWh, and how much electricity you consume in MWh",
+		"ColType": "Numerical",
+		"Header": "Consumed electricity that is purchased (MWh)",
+		"Select Text": "",
+		"Elements": []
+	},
+	
+	{
+		"QID": "ED068C30-6E48-4D95-9BB7-82A23AF073D3",
+		"Question Number": "CC11.5",
+		"QuestionText": "Please report how much electricity you produce in MWh, and how much electricity you consume in MWh",
+		"ColType": "Numerical",
+		"Header": "Total electricity produced (MWh)",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+		"QID": "ED068C30-6E48-4D95-9BB7-82A23AF073D3",
+		"Question Number": "CC11.5",
+		"QuestionText": "Please report how much electricity you produce in MWh, and how much electricity you consume in MWh",
+		"ColType": "Numerical",
+		"Header": "Total renewable electricity produced (MWh)",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+		"QID": "ED068C30-6E48-4D95-9BB7-82A23AF073D3",
+		"Question Number": "CC11.5",
+		"QuestionText": "Please report how much electricity you produce in MWh, and how much electricity you consume in MWh",
+		"ColType": "Numerical",
+		"Header": "Consumed renewable electricity that is produced by company (MWh)",
+		"Select Text": "",
+		"Elements": []
+	},
+	
+	{
+		"QID": "ED068C30-6E48-4D95-9BB7-82A23AF073D3",
+		"Question Number": "CC11.5",
+		"QuestionText": "Please report how much electricity you produce in MWh, and how much electricity you consume in MWh",
+		"ColType": "Textfield",
+		"Header": "Comments",
+		"Select Text": "",
+		"Elements": []
+	},
+	
+
+	{
+		"AddRow": "true"
+	}
+]

@@ -1,0 +1,57 @@
+[
+{
+		"QID": "FF7CA9BB-6C91-4DCC-98A3-C9C658BBEC94",
+		"Question Number": "CC3.3a",
+		"QuestionText": "Please identify the total number of projects at each stage of development, and for those in the implementation stages, the estimated CO2e savings   ",
+		"Headers": [
+			"Stage of development ",
+			"Number of projects",
+			"Total estimated annual CO2e savings in metric tonnes CO2e (only for rows marked *)"
+
+		]
+
+	},
+
+
+	{
+		"QID": "FF7CA9BB-6C91-4DCC-98A3-C9C658BBEC94",
+		"Question Number": "CC3.3a",
+		"QuestionText": "Please identify the total number of projects at each stage of development, and for those in the implementation stages, the estimated CO2e savings   ",
+		"ColType": "SingleSelect",
+		"Header": "Stage of development",
+		"Select Text": "",
+		"Elements": [
+		"Under investigation",
+		"To be implemented",
+		"Implementation commenced",
+		"Implemented",
+		"Not to be implemented"
+		]
+
+	},
+	{
+		"QID": "FF7CA9BB-6C91-4DCC-98A3-C9C658BBEC94",
+		"Question Number": "CC3.3a",
+		"QuestionText": "Please identify the total number of projects at each stage of development, and for those in the implementation stages, the estimated CO2e savings   ",
+		"ColType": "Numerical",
+		"Header": "Number of projects",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "FF7CA9BB-6C91-4DCC-98A3-C9C658BBEC94",
+		"Question Number": "CC3.3a",
+		"QuestionText": "Please identify the total number of projects at each stage of development, and for those in the implementation stages, the estimated CO2e savings   ",
+		"ColType": "Numerical",
+		"Header": "Total estimated annual CO2e savings in metric tonnes CO2e (only for rows marked *)",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

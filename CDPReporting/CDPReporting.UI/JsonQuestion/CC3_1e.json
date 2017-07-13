@@ -1,0 +1,115 @@
+[{
+		"QID": "BC95AED0-E2C0-454C-A49D-9E892CA01DB1",
+		"Question Number": "CC3.1e",
+		"QuestionText": "For all of your targets, please provide details on the progress made in the reporting year",
+		"Headers": [
+			"ID ",
+			"% complete (time)",
+			"% complete (emissions or renewable energy)",
+			"Comment"
+		]
+
+	},
+
+
+
+	{
+		"QID": "BC95AED0-E2C0-454C-A49D-9E892CA01DB1",
+		"Question Number": "CC3.1e",
+		"QuestionText": "For all of your targets, please provide details on the progress made in the reporting year",
+		"ColType": "SingleSelect",
+		"Header": "ID",
+		"Select Text": "Select from:",
+		"Elements": [
+		"Abs 1",
+			"Abs 2",
+			"Abs 3",
+			"Abs 4",
+			"Abs 5",
+			"Abs 6",
+			"Abs 7",
+			"Abs 8",
+			"Abs 9",
+			"Abs 10",
+			"Abs 11",
+			"Abs 12",
+			"Abs 13",
+			"Abs 14",
+			"Abs 15",
+			"Int1 ",
+			"Int2",
+			"Int3",
+			"Int4",
+			"Int5",
+			"Int6",
+			"Int7",
+			"Int8",
+			"Int9",
+			"Int10",
+			"Int11",
+			"Int12",
+			"Int13",
+			"Int14",
+			"Int15",
+			"RE1 ",
+			"RE2",
+			"RE3",
+			"RE4",
+			"RE5",
+			"RE6",
+			"RE7",
+			"RE8",
+			"RE9",
+			"RE10",
+			"RE11",
+			"RE12",
+			"RE13",
+			"RE14",
+			"RE15"
+
+
+		]
+	},
+
+	
+
+	{
+		"QID": "BC95AED0-E2C0-454C-A49D-9E892CA01DB1",
+		"Question Number": "CC3.1e",
+		"QuestionText": "For all of your targets, please provide details on the progress made in the reporting year",
+		"ColType": "Numerical",
+		"Header": "% complete (time)",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"QID": "BC95AED0-E2C0-454C-A49D-9E892CA01DB1",
+		"Question Number": "CC3.1e",
+		"QuestionText": "For all of your targets, please provide details on the progress made in the reporting year",
+		"ColType": "Numerical",
+		"Header": "% complete (emissions or renewable energy)",
+		"Select Text": "",
+		"Elements": [
+
+		]
+
+	},
+	
+
+	{
+		"QID": "BC95AED0-E2C0-454C-A49D-9E892CA01DB1",
+		"Question Number": "CC3.1e",
+		"QuestionText": "For all of your targets, please provide details on the progress made in the reporting year",
+		"ColType": "Textfield",
+		"Header": "Comment ",
+		"Select Text": "",
+		"Elements": []
+
+	},
+
+	{
+		"AddRow": "true"
+	}
+]

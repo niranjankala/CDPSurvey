@@ -10,13 +10,15 @@ namespace CDPReporting.Business.Models
     {
         public Guid AnswerId { get; set; }
         public Guid QuestionId { get; set; }
+        public string CDPId { get; set; }
         public string Caption { get; set; }
         public string QuestionText { get; set; }
         public int Year { get; set; }
         public Object Value { get; set; }
         public QuestionType QuestionType { get; set; }
         public Options OptionList { get; set; }
-
+        public bool IsAnswerResponseAllowed { get; set; }
+        public List<Validation> Validations { get; set; }
     }
 
     public class DateRange
@@ -32,5 +34,17 @@ namespace CDPReporting.Business.Models
         public List<string> OptionCSVText { get; set; }
         public string OtherOptions { get; set; }
     }
-    
+
+    public class Validation
+    {
+        public Object ValidationValue { get; set; }
+        public ValidationType ValidationType { get; set; }
+    }
+
+
+    public class JsondataQuestions
+    {
+        public Guid QId { get; set; }
+        public string QuestionId { get; set; }
+    }
 }

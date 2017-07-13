@@ -1,0 +1,34 @@
+[{
+		"QID": "77C36AF9-2A83-4893-9897-9110D8535D7D",
+		"Question Number": "CC9.2d",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by activity",
+		"Headers": [
+			"Activity",
+			"Scope 1 emissions (metric tonnes CO2e)"
+
+		]
+
+	},
+	{
+		"QID": "77C36AF9-2A83-4893-9897-9110D8535D7D",
+		"Question Number": "CC9.2d",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by activity",
+		"ColType": "Textfield",
+		"Header": "SActivity",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+		"QID": "77C36AF9-2A83-4893-9897-9110D8535D7D",
+		"Question Number": "CC9.2d",
+		"QuestionText": "Please break down your total gross global Scope 1 emissions by activity",
+		"ColType": "Numerical",
+		"Header": "Scope 1 emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+		"AddRow": "true"
+	}
+]

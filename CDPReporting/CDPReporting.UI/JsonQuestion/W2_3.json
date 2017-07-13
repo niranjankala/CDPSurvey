@@ -1,0 +1,79 @@
+[
+{
+		"QID": "38F9F246-59DF-472E-8D35-812A0664F1AB",
+		"Question Number": "W2.3",
+		"QuestionText": "Please state how frequently you undertake water risk assessments, at what geographical scale and how far into the future you consider risks for each assessment",
+		"Headers":[
+			"Frequency",
+			"Geographic scale",
+			"Incentivized performance indicator",
+			"Comment"
+			]
+},
+
+
+{
+		"QID": "38F9F246-59DF-472E-8D35-812A0664F1AB",
+		"Question Number": "W2.3",
+		"QuestionText": "Please state how frequently you undertake water risk assessments, at what geographical scale and how far into the future you consider risks for each assessment",
+		"ColType": "SingleSelect",
+		"Header": "Who is entitled to benefit from these incentives?",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Six-monthly or more frequently",
+			"Annually",
+			"Every two years",
+			"Sporadically not defined",
+			"Never"
+		]
+	},
+
+	{
+		"QID": "38F9F246-59DF-472E-8D35-812A0664F1AB",
+		"Question Number": "W2.3",
+		"QuestionText": "Please state how frequently you undertake water risk assessments, at what geographical scale and how far into the future you consider risks for each assessment",
+		"ColType": "SingleSelect",
+		"Header": "Geographic scale",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"Country",
+			"Region",
+			"River basin",
+			"Business unit",
+			"Facility"
+		]
+
+	},
+
+	{
+		"QID": "38F9F246-59DF-472E-8D35-812A0664F1AB",
+		"Question Number": "W2.3",
+		"QuestionText": "Please state how frequently you undertake water risk assessments, at what geographical scale and how far into the future you consider risks for each assessment",
+		"ColType": "SingleSelect",
+		"Header": " How far into the future are risks considered?",
+		"Select Text": "Select from::",
+		"Elements": [
+
+			"Up to 1 year",
+			"1 to 3 years",
+			"3 to 6 years",
+			"> 6 years",
+			"Unknown"
+		]
+
+	},
+
+	{
+		"QID": "38F9F246-59DF-472E-8D35-812A0664F1AB",
+		"Question Number": "W2.3",
+		"QuestionText": "Please state how frequently you undertake water risk assessments, at what geographical scale and how far into the future you consider risks for each assessment",
+		"ColType": "Textfield",
+		"Header": "Comment",
+		"Select Text": "",
+		"Elements": []
+
+	}, {
+		"AddRow": "false"
+	}
+]

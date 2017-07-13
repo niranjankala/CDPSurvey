@@ -1,0 +1,76 @@
+[{
+		"QID": "D0C503C7-17C6-4485-BCAA-BCE3BD660391",
+		"Question Number": "W1.1",
+		"QuestionText": "Please rate the importance (current and future) of water quality and water quantity to the success of your business",
+		"Headers": [
+			"Water quality and quantity",
+			"Direct use importance rating",
+			"Indirect use importance rating",
+			"Please explain"
+		]
+	},
+
+
+	{
+		"QID": "D0C503C7-17C6-4485-BCAA-BCE3BD660391",
+		"Question Number": "W1.1",
+		"QuestionText": "Please rate the importance (current and future) of water quality and water quantity to the success of your business",
+		"ColType": "SingleSelect",
+		"Header": "Water quality and quantity",
+		"Select Text": "Sufficient amounts of good quality freshwater available for use:",
+		"Elements": [
+			"Sufficient amounts of good quality freshwater available for use",
+			"Sufficient amounts of recycled, brackish and / or produced water available for use"
+		]
+	},
+
+	{
+		"QID": "D0C503C7-17C6-4485-BCAA-BCE3BD660391",
+		"Question Number": "W1.1",
+		"QuestionText": "Please rate the importance (current and future) of water quality and water quantity to the success of your business",
+		"ColType": "SingleSelect",
+		"Header": "Direct use importance rating",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"Not important at all",
+			"Not very important",
+			"Neutral",
+			"Important",
+			"Vital for operations",
+			"Have not evaluated"
+		]
+
+	},
+
+	{
+		"QID": "D0C503C7-17C6-4485-BCAA-BCE3BD660391",
+		"Question Number": "W1.1",
+		"QuestionText": "Please rate the importance (current and future) of water quality and water quantity to the success of your business",
+		"ColType": "SingleSelect",
+		"Header": "Indirect use importance rating",
+		"Select Text": "Select from:",
+		"Elements": [
+
+			"Not important at all",
+			"Not very important",
+			"Neutral",
+			"Important",
+			"Have not evaluated"
+		]
+
+	},
+
+	{
+		"QID": "D0C503C7-17C6-4485-BCAA-BCE3BD660391",
+		"Question Number": "W1.1",
+		"QuestionText": "Please rate the importance (current and future) of water quality and water quantity to the success of your business",
+		"ColType": "Textfield",
+		"Header": "Please explain",
+		"Select Text": "",
+		"Elements": []
+
+	}, {
+		"AddRow": "false"
+	}
+]

@@ -1,0 +1,59 @@
+[
+{
+		"QID": "1C93C92B-152D-4045-AACF-BF67C2EFDC6E",
+		"Question Number": "W1.3a",
+		"QuestionText": " Please provide the proportion of suppliers you request to report on their water use, risks and/or management and the proportion of your procurement spend this represents",
+		"Headers":[
+			"Proportion of suppliers %",
+			"Total procurement spend %",
+			"Rationale for this coverage"
+			]
+},
+
+
+{
+		"QID": "1C93C92B-152D-4045-AACF-BF67C2EFDC6E",
+		"Question Number": "W1.3a",
+		"QuestionText": " Please provide the proportion of suppliers you request to report on their water use, risks and/or management and the proportion of your procurement spend this represents",
+		"ColType": "SingleSelect",
+		"Header": "Who is entitled to benefit from these incentives?",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Less than 1%",
+			"1-25",
+			"26-50",
+			"51-75",
+			"76-100"		
+		]
+	},
+
+	{
+		"QID": "1C93C92B-152D-4045-AACF-BF67C2EFDC6E",
+		"Question Number": "W1.3a",
+		"QuestionText": "Please provide the proportion of suppliers you request to report on their water use, risks and/or management and the proportion of your procurement spend this represents",
+		"ColType": "SingleSelect",
+		"Header": "Total procurement spend %",
+		"Select Text": "Select from:",
+		"Elements": [
+			"Less than 1%",
+			"1-25",
+			"26-50",
+			"51-75",
+			"76-100"
+		]
+
+	},
+
+	{
+		"QID": "1C93C92B-152D-4045-AACF-BF67C2EFDC6E",
+		"Question Number": "W1.3a",
+		"QuestionText": " Please provide the proportion of suppliers you request to report on their water use, risks and/or management and the proportion of your procurement spend this represents",
+		"ColType": "Textfield",
+		"Header": "Rationale for this coverage",
+		"Select Text": "",
+		"Elements": []
+
+	}, {
+		"AddRow": "false"
+	}
+]

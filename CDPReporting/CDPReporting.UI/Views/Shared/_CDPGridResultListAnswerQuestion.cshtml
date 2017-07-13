@@ -1,274 +1,545 @@
 ﻿@model CDPReporting.Business.Models.QuestionResponseModel
 
+@if (Model != null)
+{ }
 
-<script src="~/Scripts/bootstrap-multiselect.js"></script>
-<link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
+<script src="~/Scripts/Questionnaire/CreateTabularQuestion.js"></script>
 
-<script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
-<link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
+<div class="form-horizontal" questionid=@Model.QuestionId questiontype="@Model.QuestionType" id="TabularDiv">
+    <h4>@string.Format("{0}: {1}", Model.CDPId, Model.Caption)</h4><p>@Model.QuestionText</p>
+    <div id="tabularQuestion">
 
+    </div>
 
-@*<script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
-    <link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />*@
-@*<script src="~/Scripts/DataTables/buttons.bootstrap.min.js"></script>
-    <link href="~/Content/DataTables/css/buttons.bootstrap.min.css" rel="stylesheet" />*@
-
-<script type="text/javascript">
-    debugger;
-    $('#Question_CC12a_Col3_List').multiselect();
-    var editor;
-    var qId = '@Model.QuestionId';
-    var yearVal = '@Model.Year';
-    $(document).ready(function () {
-        debugger;
-        editor = $('#GovernanceAnswertable').DataTable({
-            paging: false,
-            searching: false,
-            //destroy: true,
-            "ajax": {
-
-                //debugger;
-                "url": '@Url.Content("~/Questionnaire/GetQuestionData/")' + "?questionId=" + qId + "&year=" + yearVal,
-                "type": "GET",
-                "datatype": "json"
-            }
-               ,
-            "columnDefs": [{
-                "targets": [0],
-                "visible": false
-            }
-            ]
-               ,
-            "columns": [
-                    { "data": "GridIndexId" },
-                    { "data": "GridCol1" },
-                    { "data": "GridCol2" },
-                    { "data": "GridCol3" },
-                    { "data": "GridCol4" },
-                    {
-                        data: null,
-                        className: "center",
-                        defaultContent: '<a href="" class="editor_remove" ><span class="glyphicon glyphicon-trash"></span></a>'
-                    }
-            ]
-        });
-
-
-        // Delete a record
-        $('#GovernanceAnswertable').on('click', 'a.editor_remove', function (e) {
-            e.preventDefault();
-            editor.row($(this).parents('tr')).remove().draw();
-            //editor.remove($(this).parent('tr'), {
-            //    title: 'Delete record',
-            //    message: 'Are you sure you wish to remove this record?',
-            //    buttons: 'Delete'
-            //});
-        });
-
-        // New record
-        $('#addMore').on('click', function (e) {
-            debugger;
-            var col1Text = $("#Question_CC12a_Col1_List option:selected ").text();
-            var col1Val = $("#Question_CC12a_Col1_List option:selected ").val();
-            var col2Text = $("#Question_CC12a_Col2_List option:selected ").text();
-            var col2Val = $("#Question_CC12a_Col2_List option:selected ").val();
-            var comment = $("#Comment_CC12a").val();
-            var col3Text = [];
-            var col3Val = [];
-            $('#Question_CC12a_Col3_List :selected').each(function (i, sel) {
-
-                col3Text.push($(sel).text());
-                col3Val.push($(sel).val());
-
-            });
-            editor.row.add(
-                {
-                    "GridIndexId":"",
-                    "GridCol1": col1Text,
-                    "GridCol2": col2Text,
-                    "GridCol3": col3Text,
-                    "GridCol4": comment
-
-                }).draw();
-        });
-
-        $('#Question_CC1_2a_Save').click(function () {
-            debugger;
-            var data = editor.data().toArray();
-            var ansResponse = [];
-            for (var i = 0; i < data.length; i++) {
-                var multiselectData;
-                for (var list = 0; list < data[i].GridCol3.length; list++)
-                {
-                    if (multiselectData == null)
-                        multiselectData = data[i].GridCol3[list];
-                    else
-                        multiselectData = multiselectData+","+data[i].GridCol3[list];
-                }
-                debugger;
-                var rowdata = {
-                        "GridIndexId": data[i].GridIndexId,
-                        "GridCol1": data[i].GridCol1,
-                        "GridCol2": data[i].GridCol2,
-                        "GridCol3": multiselectData,
-                       "GridCol4": data[i].GridCol4,
-                    };
-                ansResponse.push(rowdata);
-                multiselectData = null;
-            }
-            $.post('@Url.Content("~/Questionnaire/SaveResponseTableType/")', { model: ansResponse, questionId: qId, selectedYear: yearVal }, function (data) {
-                debugger;
-                editor.ajax.reload();
-            });
-        });
-    });
-
-
-
-</script>
-<div id="CC1.2a" class="form-group">
-    <div class="row">
+    @if (Model.QuestionType == CDPReporting.Business.Models.QuestionType.CDPGridResultList)
+    {
         <div class="col-md-12">
-            <p><b>CC1.2a: Please provide further details on the incentives provided for the management of climate change issues</b></p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 table-responsive">
-
-            <table id="Governancetable" class="table table-bordered">
-
-                <thead class="cf">
-                    <tr>
-                        <!--<th style="width:5%" bgcolor="#A9A9A9"  data-field="state" data-radio="true"></th>-->
-                        <th style="width:25%" bgcolor="#A9A9A9" data-field="name">Who is entitled to benefit from these incentives?</th>
-                        <!--<th style="width:5%" bgcolor="#A9A9A9" data-field="state" data-radio="true"></th>-->
-                        <th style="width:25%" bgcolor="#A9A9A9" data-field="starts">The type of incentives</th>
-                        <!--<th style="width:5%" bgcolor="#A9A9A9" data-field="state" data-radio="true"></th>-->
-                        <th style="width:20%" bgcolor="#A9A9A9" data-field="forks">Incentivized performance indicator</th>
-                        <th style="width:15%" bgcolor="#A9A9A9">Comment</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <!--<input type="checkbox" name="radioGroupSub">Board chairman -->
-                            @*<div id="Question_CC12a_Col1" class="dropdown">*@
-                            @*<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                                    Select from
-                                    <span class="caret"></span>
-                                </button>*@
-                            @*<ul class="dropdown-menu">
-                                    <li><a href="#">Board chairman</a></li>
-                                    <li><a href="#">Board/Executive board</a></li>
-                                    <li><a href="#">Director on board</a></li>
-                                    <li><a href="#">Chief Executive Officer (CEO)</a></li>
-                                    <li><a href="#">Chief Financial Officer (CFO))</a></li>
-                                    <li><a href="#">Chief Operating Officer (COO)</a></li>
-                                    <li><a href="#">Chief Purchasing Officer (CPO)</a></li>
-                                    <li><a href="#">Other C-Suite Officer</a></li>
-                                    <li><a href="#">President</a></li>
-                                    <li><a href="#">Executive officer</a></li>
-                                    <li><a href="#">Management group</a></li>
-                                    <li><a href="#">Business unit managers</a></li>
-                                    <li><a href="#">EHS manager</a></li>
-                                    <li><a href="#">Buyers/purchasers</a></li>
-                                    <li><a href="#">Energy managers</a></li>
-                                    <li><a href="#">Environment/Sustainability managers</a></li>
-                                    <li><a href="#">Facility managers</a></li>
-                                    <li><a href="#">Process operation managers</a></li>
-                                    <li><a href="#">Procurement manager</a></li>
-                                    <li><a href="#">Public affairs managers</a></li>
-                                    <li><a href="#">Risk managers</a></li>
-                                    <li><a href="#">All employees</a></li>
-                                    <li><a href="#">Other, please specify</a></li>
-                                </ul>*@
-                            <select id="Question_CC12a_Col1_List" class="dropdown">
-                                <option value="Boardchairman">Board chairman</option>
-                                <option value="BoardExecutiveboard">Board/Executive board</option>
-                                <option value="DirectorOnboard">Director on board</option>
-                                <option value="ChiefExecutiveOfficer">Chief Executive Officer</option>
-                            </select>
-                            @*</div>*@
-
-                        </td>
-
-                        <td>
-                            <div id="Question_CC12a_Col2" class="dropdown">
-                                @*<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                                        Select from
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Monetary reward</a></li>
-                                        <li><a href="#">Recognition (non-monetary)</a></li>
-                                        <li><a href="#">Other non-monetary reward</a></li>
-
-                                    </ul>*@
-                                <select id="Question_CC12a_Col2_List" class="dropdown">
-                                    <option value="1">Monetary reward</option>
-                                    <option value="2">BRecognition (non-monetary)</option>
-                                    <option value="3">Director on board</option>
-                                    <option value="4">Other non-monetary reward</option>
-                                </select>
-                            </div>
-
-                        </td>
-
-                        <td>
-                            <!-- Build your select: -->
-                            <select id="Question_CC12a_Col3_List" multiple="multiple">
-                                <option value="1">Emissions reduction project</option>
-                                <option value="2">Energy reduction project</option>
-                                <option value="3">Energy reduction target</option>
-                                <option value="4">Efficiency project</option>
-                                <option value="5">Efficiency target</option>
-                                <option value="6">Behavior change related</option>
-                                <option value="7">Behavior change related indicator </option>
-                                <option value="8">Environmental criteria included in purchases</option>
-                                <option value="9">Supply chain engagement</option>
-                                <option value="10">Other, please specify</option>
-                            </select>
-                        </td>
-                        <td>
-                            <textarea rows="5" id="Comment_CC12a"></textarea>
-                        </td>
-
-                    </tr>
-
-
-                </tbody>
-
-            </table>
+            <div class="text-right" style="margin-bottom:15px; clear:both">
+                <button id="AddRow" type="button" class="btn btn-primary">Add Row</button>
+            </div>
         </div>
 
-    </div>
-    <div class="row">
-        <div class="col-md-12" style="float:right">
-            <button type="button" class="editor_create btn btn-primary pull-right" id="addMore">Add Row</button>
+        <div id="newTable" style="clear:both">
+
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <table id="GovernanceAnswertable" class="display" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Incentives</th>
-                        <th>Incentives Type</th>
-                        <th>Performance indicator</th>
-                        <th>Comment</th>
-                        <th>#</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <button type="button" class="btn btn-primary pull-right" id="Question_CC1_2a_Cancel">Cancel</button>
-            <button type="button" class="btn btn-primary pull-right" id="Question_CC1_2a_Save">Save</button>
+    }
+
+    <div class="col-md-12">
+        <div style="margin:10px 0; clear:both" class="text-right">
+            <button id="tabularSave" type="button" class="btn btn-primary">Save</button>
         </div>
     </div>
 </div>
 
+
+@*</div>*@
+
+
+
+<script>
+    var tabledata;
+    var FinalAnswer = new Array();
+
+    var AddedRowIndex = new Array();
+    var NumberOFRowsAfter = 0;;
+    var NumberOfRowsBefore = 0;
+    var RowsCountForOldData = 0;
+    var answerToDisplay = new Array();
+    var questionType = '@Model.QuestionType';
+    //debugger;
+
+    /************************************* Set value from drop down*************************/
+    $(document).on('click', ".dropdown-menu li a", function () {
+        //debugger;
+        selText = $(this).text();
+        $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+
+
+
+    });
+    /****************************************End***************************/
+
+
+    /************************************* Save final values *************************/
+
+    $('#tabularSave').off();
+    $('#tabularSave').on('click', function (e) {
+        //debugger;
+        e.stopPropagation();
+        var questionResponse = new Array();
+        var dataTosend = new Object();
+
+
+        if (questionType != 'CDPGridResultList') {
+            var arrAnswers = GetParentTableData();
+            var answerRowData = new Object();
+            if (arrAnswers.length > 0) {
+
+                answerRowData.Answer = arrAnswers[1];
+                answerRowData.year = '@Model.Year';
+                answerRowData.Id = '@Model.AnswerId';
+                answerRowData.QuestionId = '@Model.QuestionId';
+            }
+            questionResponse.push(answerRowData);
+            dataTosend = questionResponse;
+
+        }
+        else {
+
+            removeDuplicateRows($('table'));
+            questionResponse = GetQuestionListOfAnswers();
+            dataTosend = questionResponse;
+
+
+        }
+
+        $.post('@Url.Content("~/Questionnaire/SaveResponseTableType/")',
+           { model: dataTosend, questionId: '@Model.QuestionId', 'selectedYear': '@Model.Year' },
+         function (data, status) {
+             if (status == "success") {
+                 $("#Successdiv").css('visibility', 'visible');
+             }
+             else {
+                 $("#ErrorDiv").css('visibility', 'visible');
+             }
+
+             //debugger;
+
+         }
+
+       );
+
+    });
+
+
+    /*get final data */
+
+    function GetQuestionListOfAnswers() {
+        var QuestionResponse = new Array();
+        var newtabledata = document.getElementById("newtabularQuestionTable");
+        if ($('#newtabularQuestionTable').length > 0) {
+            if (newtabledata.rows.length > 0) {
+                for (i = 0; i < newtabledata.rows.length; i++) {
+                    var answer = "";
+                    var dataTosend = new Object();
+                    for (j = 0; j < newtabledata.rows[0].cells.length - 1; j++) {
+
+                        answer += newtabledata.rows[i].cells[j].innerText + "||"
+                    }
+
+                    dataTosend.Answer = answer;
+                    dataTosend.Id = newtabledata.rows[i].id;
+                    dataTosend.year = '@Model.Year';
+                    dataTosend.QuestionId = '@Model.QuestionId';
+                    QuestionResponse.push(dataTosend);
+
+                }
+            }
+        }
+        return QuestionResponse;
+    }
+
+    /*End*/
+    /****************************************End***************************/
+    $('#AddRow').off();
+    $(document).on('click', "#AddRow", function () {
+        //debugger;
+        GetParentTableData();
+
+        var arr = $("#newtabularQuestionTable tr");
+
+
+        CreateChildTable();
+        removeDuplicateRows($('table'));
+
+    });
+
+    $(document).on('click', ' #newtabularQuestionTable input[type="button"]', function () {
+
+        //debugger;
+        $(this).closest('tr').remove();
+
+        var newtabledata = document.getElementById("newtabularQuestionTable");
+
+        @*if (newtabledata.rows.length < 1) {
+            var QuestionResponse = new Object();
+            $.post('@Url.Content("~/Questionnaire/SaveResponseTableType/")',
+                        { model: QuestionResponse, questionId: '@Model.QuestionId', 'selectedYear': '@Model.Year' },
+                      function (data) {
+                          //debugger;
+
+                      }
+
+                    );
+        }*@
+    });
+
+
+
+
+    /************************************* Get data fro mparent table *************************/
+
+    function GetParentTableData() {
+
+
+        headerdata = new Array();
+        textdata = new Array();
+        resultDropDownData = new Array();
+        var multipleList;
+        var multipleValue;
+        var errorMessage = "";        
+        answerToDisplay = new Array();
+
+        tabledata = document.getElementById("tabularQuestionTable");
+        for (m = 0; m < 1; m++) {
+            for (j = 0; j < tabledata.rows[m].cells.length; j++) {
+
+                headerdata[j] = tabledata.rows[m].cells[j].innerText;
+            }
+        }
+
+        try {
+            for (i = 1; i < tabledata.rows.length - RowsCountForOldData; i++) {
+
+                FinalAnswer[i] = "";
+                for (j = 0; j < tabledata.rows[i].cells.length; j++) {
+
+
+                    if (tabledata.rows[i].cells[j].children[0].tagName == 'TEXTAREA') {
+                        for (k = 0; k < tabledata.rows[i].cells[j].children.length; k++) {
+
+                            textdata[k] = tabledata.rows[i].cells[j].children[k].value;
+                            if (textdata[k] == "") {
+
+                                errorMessage = "Invalid data!!";
+                            }
+                            else {
+                                FinalAnswer[i] += textdata[k] + "||";
+                                answerToDisplay[j] = textdata[k];
+                                tabledata.rows[i].cells[j] = tabledata.rows[i].cells[j].innerHTML;
+
+
+
+                            }
+
+                        }
+                    }
+
+                    if (tabledata.rows[i].cells[j].children[0].name == 'DateEnter') {
+                        for (k = 0; k < tabledata.rows[i].cells[j].children.length; k++) {
+                            //debugger;
+                            textdata[k] = tabledata.rows[i].cells[j].children[k].value;
+                            if (textdata[k] == "") {
+
+                                errorMessage = "Invalid data!!";
+
+                            }
+                            else {
+                                FinalAnswer[i] += textdata[k] + "||";
+                                answerToDisplay[j] = textdata[k];
+                                tabledata.rows[i].cells[j] = tabledata.rows[i].cells[j].innerHTML;
+
+                            }
+
+                        }
+                    }
+                    if (tabledata.rows[i].cells[j].children[0].name == 'NumberEnter') {
+                        for (k = 0; k < tabledata.rows[i].cells[j].children.length; k++) {
+                            ////debugger;
+                            textdata[k] = tabledata.rows[i].cells[j].children[k].value;
+                            if (textdata[k] == "") {
+
+                                errorMessage = "Invalid data!!";
+
+                            }
+                            else {
+                                FinalAnswer[i] += textdata[k] + "||";
+                                answerToDisplay[j] = textdata[k];
+                                tabledata.rows[i].cells[j] = tabledata.rows[i].cells[j].innerHTML;
+                            }
+
+                        }
+                    }
+
+                    else if (tabledata.rows[i].cells[j].getElementsByClassName("multiselect").length > 0) {
+                        ////debugger;
+                        multipleList = tabledata.rows[i].cells[j].getElementsByTagName("BUTTON")[0].attributes[3];
+                        multipleValue = multipleList.textContent;
+                        if (multipleValue == "" || multipleValue == "None selected") {
+                            errorMessage = "Invalid data!!";
+
+                        }
+                        else {
+                            FinalAnswer[i] += multipleValue + "||";
+                            answerToDisplay[j] = multipleValue;
+                            tabledata.rows[i].cells[j] = tabledata.rows[i].cells[j].innerHTML;
+
+                        }
+
+                    }
+                    else {
+                        // //debugger;
+                        resultDropDownData[j] = tabledata.rows[i].cells[j].innerText;
+                        if (resultDropDownData[j] == "" || resultDropDownData[j] == "Select From") {
+                            errorMessage = "Invalid data!!";
+
+                        }
+                        else {
+                            FinalAnswer[i] += resultDropDownData[j] + "||";
+                            answerToDisplay[j] = resultDropDownData[j];
+                            tabledata.rows[i].cells[j] = tabledata.rows[i].cells[j].innerHTML;
+
+                        }
+
+                    }
+                }
+            }
+            //if (errorMessage.includes("Invalid data!!"))
+            //{
+            //    errorMessage = "";
+            //    throw new Error("Invalid data!!");
+            //}
+            //else
+            //{
+
+            //}
+            return FinalAnswer;
+
+        }
+
+        catch (err) {
+
+
+            alert(err.message);
+
+
+        }
+
+    }
+
+    /****************************************End***************************/
+
+
+    /*********create table or add data to existing table  *************************/
+    function CreateChildTable() {
+        var newtabledata = document.getElementById("newtabularQuestionTable");
+        debugger;
+        if (answerToDisplay.includes(undefined) == false && answerToDisplay.includes('') == false && answerToDisplay.length == document.getElementById("tabularQuestionTable").rows[0].cells.length) {
+            if (answerToDisplay.length > 0) {
+                if ($('#newtabularQuestionTable').length === 0) {
+                    var html = "<div class=\"table-responsive\" style=\"height: 195px; overflow-y: scroll;\">" + "<table id=\"newtabularQuestionTable\" class=\"table table-bordered\">"
+                    html += "<tbody>"
+                    html += "<tr id=" + ' ' + ">"
+                    for (n = 0; n < answerToDisplay.length; n++) {
+                        //debugger;
+
+                        html += ("<td>" + answerToDisplay[n] + "</td>");
+
+                    }
+                    html += "<td><input type=\"button\" value=\"Delete\" id=deletebutton>" + "</td>";
+                    html += "</tr>";
+                    html += "</tbody> </table> </div>"
+                    //debugger;
+                    document.getElementById('newTable').innerHTML = html;
+                }
+
+
+                else {
+                    var newtabledata = document.getElementById("newtabularQuestionTable");
+                    var row = newtabledata.insertRow(newtabledata.rows.length);
+                    row.id = "";
+                    //debugger;
+                    for (n = 0; n < answerToDisplay.length; n++) {
+                        //debugger;
+                        var cell = row.insertCell(n);
+                        cell.innerHTML = answerToDisplay[n];
+
+
+                    }
+                    //debugger;
+                    if (newtabledata.rows.length === 1) {
+                        count = newtabledata.rows[0].cells.length;
+                        count += 1;
+                    }
+                    else {
+                        count = newtabledata.rows[0].cells.length;
+                    }
+
+                    var cell = row.insertCell(count - 1);
+                    cell.innerHTML = "<input type=\"button\" value=\"Delete\" id=deletebutton>";
+
+
+                }
+            }
+        }
+    }
+
+    /*********End***************************/
+
+    /*********create table after returning view from controller add data to existing table  *************************/
+
+    $(document).ready(function () {
+        //debugger;
+        var newArray = new Array();
+
+        if ('@Model.Value' != '') {
+
+            //debugger;
+            var javascriptArray = '@Html.Raw(Json.Encode(Model.Value))';
+
+            var returnArray = JSON.parse(javascriptArray);
+            for (i = 0; i < returnArray.length; i++) {
+                var arr = new Object();
+                //debugger;
+                arr.Id = returnArray[i].Id;
+                arr.Answer = returnArray[i].Answer.split('||');
+
+                newArray.push(arr);
+            }
+
+
+            if ('@Model.QuestionType' == 'CDPGrid') {
+                // SetInitialValuesForColumn();
+            }
+            else {
+
+                var newtabledata = document.getElementById("newtabularQuestionTable");
+
+
+                // var arr = TableValues.split('||');
+                if ($('#newtabularQuestionTable').length === 0) {
+                    var html = "<div class=\"table-responsive\" style=\"height: 195px; overflow-y: scroll;\">" + "<table id=\"newtabularQuestionTable\" class=\"table table-bordered\">"
+                    html += "<tbody>"
+
+                    for (i = 0; i < newArray.length ; i++) {
+                        html += "<tr id=" + (newArray[i].Id) + ">"
+                        for (n = 0; n < newArray[i].Answer.length - 1; n++) {
+                            //debugger;
+
+                            html += ("<td>" + newArray[i].Answer[n] + "</td>");
+
+
+                        }
+                        html += "<td><input type=\"button\" value=\"Delete\" id=deletebutton>" + "</td>";
+                    }
+
+                    html += "</tr>";
+                    html += "</tbody> </table> </div>"
+                    //debugger;
+                    document.getElementById('newTable').innerHTML = html;
+                    // document.getElementById('newTable').HTML(html) ;
+                }
+
+
+
+            }
+
+
+        }
+
+
+    });
+
+    /****************************************End***************************/
+
+
+
+    function removeDuplicateRows($table) {
+        function getVisibleRowText($row) {
+            return $row.find('td:visible').text().toLowerCase();
+        }
+
+        $table.find('tr').each(function (index, row) {
+            var $row = $(row);
+            $row.nextAll('tr').each(function (index, next) {
+                var $next = $(next);
+                if (getVisibleRowText($next) == getVisibleRowText($row))
+                    $next.remove();
+            })
+        });
+    }
+
+
+    function SetInitialValuesForColumn() {
+        tabledata = document.getElementById("tabularQuestionTable");
+        var newArray = new Array();
+        var answerfromdb = new Array();
+        var javascriptArray = '@Html.Raw(Json.Encode(Model.Value))';
+
+        var returnArray = JSON.parse(javascriptArray);
+        for (i = 0; i < returnArray.length; i++) {
+            var arr = new Object();
+            //debugger;
+            arr.Id = returnArray[i].Id;
+            arr.Answer = returnArray[i].Answer.split('||');
+
+            newArray.push(arr);
+
+        }
+
+        for (n = 0; n < newArray[0].Answer.length; n++) {
+            answerfromdb.push(newArray[0].Answer[n]);
+
+        }
+
+        var dropdownCount = $('#SimpleDropDownDiv  button').length;
+        var textareaCount = $('textarea#comment').length;
+        var numericFieldCount = $('input#numField').length;
+        var dateFieldCount = $('input#dateField').length;
+        var numericCount = 0;
+        var textcount = 0;
+        var Ddowncount = 0;
+        var dateCount = 0;
+        for (i = 1; i < tabledata.rows.length - RowsCountForOldData; i++) {
+
+            for (j = 0; j < tabledata.rows[i].cells.length; j++) {
+
+
+                if (tabledata.rows[i].cells[j].children[0].tagName == 'TEXTAREA') {
+                    if (textcount < textareaCount) {
+
+
+                        $('textarea#comment')[textcount].value = answerfromdb[j];
+                        textcount++;
+                    }
+                }
+
+                if (tabledata.rows[i].cells[j].children[0].name == 'DateEnter') {
+                    if (dateCount < dateFieldCount) {
+
+
+                        $('input#dateField')[dateCount].value = answerfromdb[j];
+                        dateCount++;
+                    }
+                }
+                if (tabledata.rows[i].cells[j].children[0].name == 'NumberEnter') {
+                    if (numericCount < numericFieldCount) {
+
+
+                        $('input#numField')[numericCount].value = answerfromdb[j];
+                        numericCount++;
+                    }
+                }
+
+
+                else if (tabledata.rows[i].cells[j].children[0].className == "btn-group") {
+
+                    if (Ddowncount < dropdownCount) {
+
+                        $('#SimpleDropDownDiv  button')[Ddowncount].innerText = answerfromdb[j];
+                        Ddowncount++;
+                    }
+
+
+
+
+
+
+                }
+
+            }
+        }
+    }
+
+
+</script>

@@ -1,0 +1,73 @@
+[{
+		"QID": "F21FB641-36DC-4997-88E2-EE82D42E764A",
+		"Question Number": "CC11.4",
+		"QuestionText": "Please provide details of the electricity, heat, steam or cooling amounts that were accounted at a low carbon emission factor in the market-based Scope 2 figure you provided in CC8.3a",
+		"Headers": [
+			"Basis for applying a low carbon emission factor",
+			"MWh consumed associated with low carbon electricity, heat, steam or cooling",
+			"Emissions factor (in units of metric tonnes CO2e per MWh)",
+			"Comments"
+
+		]
+
+	},
+
+	{
+		"QID": "F21FB641-36DC-4997-88E2-EE82D42E764A",
+		"Question Number": "CC11.4",
+		"QuestionText": "Please provide details of the electricity, heat, steam or cooling amounts that were accounted at a low carbon emission factor in the market-based Scope 2 figure you provided in CC8.3a",
+		"ColType": "SingleSelect",
+		"Header": "Basis for applying a low carbon emission factor",
+		"Select Text": "Select from:",
+		"Elements": [
+
+				"No purchases or generation of low carbon electricity, heat, steam or cooling accounted with a low carbon emissions factor", 
+				"Off-grid energy consumption from an on-site installation or through a direct line to an off-site generator owned by another company",
+				"Direct procurement contract with a grid-connected generator or Power Purchase Agreement (PPA), supported by energy attribute certificates",
+				"Direct procurement contract with a grid-connect generator or Power Purchase Agreement (PPA), where electricity attribute certificates do not exist or are not required for a usage claim",
+				"Contract with suppliers or utilities supported by energy attribute certificates",
+				"Contract with suppliers or utilities, with a supplier specific emission rate, not backed by electricity attribute certificates",
+				"Energy attribute certificates, Guarantees of Origin",
+				"Energy attribute certificates, Renewable Energy Certificates (RECs)",
+				"Energy attribute certificates, I-RECs",
+				"Other (specify in the “Comments” column)" 
+
+
+		]
+	},
+
+	{
+		"QID": "F21FB641-36DC-4997-88E2-EE82D42E764A",
+		"Question Number": "CC11.4",
+		"QuestionText": "Please provide details of the electricity, heat, steam or cooling amounts that were accounted at a low carbon emission factor in the market-based Scope 2 figure you provided in CC8.3a",
+		"ColType": "Numerical",
+		"Header": "MWh consumed associated with low carbon electricity, heat, steam or cooling",
+		"Select Text": "",
+		"Elements": []
+	},
+
+	{
+		"QID": "F21FB641-36DC-4997-88E2-EE82D42E764A",
+		"Question Number": "CC11.4",
+		"QuestionText": "Please provide details of the electricity, heat, steam or cooling amounts that were accounted at a low carbon emission factor in the market-based Scope 2 figure you provided in CC8.3a",
+		"ColType": "Numerical",
+		"Header": "Emissions factor (in units of metric tonnes CO2e per MWh)",
+		"Select Text": "",
+		"Elements": []
+	},
+	
+	{
+		"QID": "F21FB641-36DC-4997-88E2-EE82D42E764A",
+		"Question Number": "CC11.4",
+		"QuestionText": "Please provide details of the electricity, heat, steam or cooling amounts that were accounted at a low carbon emission factor in the market-based Scope 2 figure you provided in CC8.3a",
+		"ColType": "Textfield",
+		"Header": "Comments",
+		"Select Text": "",
+		"Elements": []
+	},
+	
+
+	{
+		"AddRow": "true"
+	}
+]

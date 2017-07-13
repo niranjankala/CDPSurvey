@@ -1,0 +1,103 @@
+[
+{
+		"QID": "2CA3B4A0-C5AC-4DF1-A156-EADB3B267CF1",
+		"Question Number": "CC12.2",
+		"QuestionText": "Please describe your gross global combined Scope 1 and 2 emissions for the reporting year in metric tonnes CO2e per unit currency total revenue.", 
+		"Headers": [
+			"Intensity figure =",
+			"Metric numerator (Gross global combined Scope 1 and 2 emissions)",
+			"Metric denominator:Unit total revenue",
+			"Scope 2 figure used",
+			"% change from previous year",
+			"Direction of change from previous year",
+			"Reason for change"
+
+		]
+
+	},
+
+	{"QID": "2CA3B4A0-C5AC-4DF1-A156-EADB3B267CF1",
+		"Question Number": "CC12.2",
+		"QuestionText": "Please describe your gross global combined Scope 1 and 2 emissions for the reporting year in metric tonnes CO2e per unit currency total revenue.", 
+		"ColType": "Numerical",
+		"Header": "Intensity figure =",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+		"QID": "2CA3B4A0-C5AC-4DF1-A156-EADB3B267CF1",
+		"Question Number": "CC12.2",
+		"QuestionText": "Please describe your gross global combined Scope 1 and 2 emissions for the reporting year in metric tonnes CO2e per unit currency total revenue.", 
+		"ColType": "Numerical",
+		"Header": "Metric numerator (Gross global combined Scope 1 and 2 emissions)",
+		"Select Text": "",
+		"Elements": []
+	},
+	
+	{"QID": "2CA3B4A0-C5AC-4DF1-A156-EADB3B267CF1",
+		"Question Number": "CC12.2",
+		"QuestionText": "Please describe your gross global combined Scope 1 and 2 emissions for the reporting year in metric tonnes CO2e per unit currency total revenue.", 
+		"ColType": "Numerical",
+		"Header": "Metric denominator:Unit total revenue",
+		"Select Text": "",
+		"Elements": []
+	},
+	
+	{
+		"QID": "2CA3B4A0-C5AC-4DF1-A156-EADB3B267CF1",
+		"Question Number": "CC12.2",
+		"QuestionText": "Please describe your gross global combined Scope 1 and 2 emissions for the reporting year in metric tonnes CO2e per unit currency total revenue.", 
+		"ColType": "SingleSelect",
+		"Header": "Scope 2 figure used",
+		"Select Text": "Select from:",
+						"Elements": [
+					"Location-based",
+					"Market-based"
+
+
+		]
+	},
+
+	{"QID": "2CA3B4A0-C5AC-4DF1-A156-EADB3B267CF1",
+		"Question Number": "CC12.2",
+		"QuestionText": "Please describe your gross global combined Scope 1 and 2 emissions for the reporting year in metric tonnes CO2e per unit currency total revenue.", 
+		"ColType": "Numerical",
+		"Header": "% change from previous year",
+		"Select Text": "",
+		"Elements": []
+	},
+	
+	{
+		"QID": "2CA3B4A0-C5AC-4DF1-A156-EADB3B267CF1",
+		"Question Number": "CC12.2",
+		"QuestionText": "Please describe your gross global combined Scope 1 and 2 emissions for the reporting year in metric tonnes CO2e per unit currency total revenue.", 
+		"ColType": "SingleSelect",
+		"Header": "Direction of change from previous year",
+		"Select Text": "Select from:",
+		"Elements": [
+
+					"Increase",
+	"Decrease",
+	"No change",
+	"N/A"
+
+
+
+		]
+	},
+
+	
+	{"QID": "2CA3B4A0-C5AC-4DF1-A156-EADB3B267CF1",
+		"Question Number": "CC12.2",
+		"QuestionText": "Please describe your gross global combined Scope 1 and 2 emissions for the reporting year in metric tonnes CO2e per unit currency total revenue.", 
+		"ColType": "Textfield",
+		"Header": "Reason for change",
+		"Select Text": "",
+		"Elements": []
+	},
+	
+
+	{
+		"AddRow": "true"
+	}
+]

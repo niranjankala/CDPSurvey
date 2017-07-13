@@ -1,0 +1,74 @@
+[
+{
+		"QID": "7C5FE9CE-39CB-4611-B0B8-67F8D8C4222B",
+		"Question Number": "CC10.1a",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions and energy consumption by country/region",
+		"Headers": [
+			"Country/Region",
+			"Scope 2, location-based emissions (metric tonnes CO2e)",
+			"Scope 2, market-based emissions (metric tonnes CO2e)",
+			"Purchased and consumed electricity, heat, steam or cooling (MWh)",
+			"Purchased and consumed low carbon electricity, heat, steam or cooling (MWh)"
+
+
+		]
+
+	},
+	{"QID": "7C5FE9CE-39CB-4611-B0B8-67F8D8C4222B",
+		"Question Number": "CC10.1a",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions and energy consumption by country/region",
+		"ColType": "SingleSelect",
+		"Header": "Country/Region",
+		"Select Text": "Select from:",
+		"Elements": [
+			"India",
+			"UK",
+			"USA",
+			"Japan",
+			"Germany",
+			"China"
+
+
+		]
+	},
+
+	{
+		"QID": "7C5FE9CE-39CB-4611-B0B8-67F8D8C4222B",
+		"Question Number": "CC10.1a",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions and energy consumption by country/region",
+		"ColType": "Numerical",
+		"Header": "Scope 2, location-based emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+	},
+{
+		"QID": "7C5FE9CE-39CB-4611-B0B8-67F8D8C4222B",
+		"Question Number": "CC10.1a",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions and energy consumption by country/region",
+		"ColType": "Numerical",
+		"Header": "Scope 2, market-based emissions (metric tonnes CO2e)",
+		"Select Text": "",
+		"Elements": []
+	},
+{
+		"QID": "7C5FE9CE-39CB-4611-B0B8-67F8D8C4222B",
+		"Question Number": "CC10.1a",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions and energy consumption by country/region",
+		"ColType": "Numerical",
+		"Header": "Purchased and consumed electricity, heat, steam or cooling (MWh)",
+		"Select Text": "",
+		"Elements": []
+	},
+{
+		"QID": "7C5FE9CE-39CB-4611-B0B8-67F8D8C4222B",
+		"Question Number": "CC10.1a",
+		"QuestionText": "Please break down your total gross global Scope 2 emissions and energy consumption by country/region",
+		"ColType": "Numerical",
+		"Header": "Purchased and consumed low carbon electricity, heat, steam or cooling (MWh)",
+		"Select Text": "",
+		"Elements": []
+	},
+	{
+		"AddRow": "true"
+	}
+]
